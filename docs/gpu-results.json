@@ -11,7 +11,7 @@
     "scripts/run-gpu-checks.mjs": "80e8635d0724edc8d02024b5ffd9fcc6aa97246c4b13b4fefe2b423e2f49296b",
     "tests/native-gpu.m": "7f15b91fe72b8b1d0937d018a1c98f5adae174b238ddd1752c2985b612dc6659"
   },
-  "date": "2026-11-21T03:43:50.805Z",
+  "date": "2026-11-21T04:10:49.695Z",
   "execution": "Native macOS offscreen OpenGL; same GLSL bodies with #version 410 core replacing #version 300 es. Browser integration is not tested.",
   "suite": "all",
   "hardware": {

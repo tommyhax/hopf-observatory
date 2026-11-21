@@ -13,6 +13,8 @@ OUT.mkdir(exist_ok=True)
 TOP = [
     "README.md",
     "TECHNICAL_NOTE.md",
+    "PAPER.md",
+    "REVIEW.md",
     "LICENSE",
     "package.json",
     "package-lock.json",
@@ -29,6 +31,7 @@ DIRECTORIES = [
     "tests",
     "research",
     "technical-note",
+    "paper",
     ".github",
 ]
 OMIT = {".DS_Store"}

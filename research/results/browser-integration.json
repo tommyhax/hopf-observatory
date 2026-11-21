@@ -1,0 +1,83 @@
+{
+  "command": "npm run test:browser",
+  "date": "2026-11-21T04:32:23.055000+00:00",
+  "environment": {
+    "platform": "macOS arm64",
+    "playwright": "1.65.1",
+    "browser": "Chromium headless shell 159.0.8154.6, Playwright revision 1255",
+    "launchArgs": [
+      "--use-angle=swiftshader",
+      "--enable-unsafe-swiftshader"
+    ],
+    "deviceScaleFactor": 0.25
+  },
+  "durationMs": 162227.85199999998,
+  "stats": {
+    "total": 4,
+    "expected": 4,
+    "unexpected": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "ok": true
+  },
+  "tests": [
+    {
+      "title": "the Pages artifact renders at a subpath with the configured defaults",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 52509,
+          "startTime": "2026-11-21T04:32:23.632Z"
+        }
+      ]
+    },
+    {
+      "title": "shell width reaches hidden tori and Reset restores the scene",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 52535,
+          "startTime": "2026-11-21T04:33:18.125Z"
+        }
+      ]
+    },
+    {
+      "title": "the illustrated note has six loaded figures and local demo links",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 50373,
+          "startTime": "2026-11-21T04:34:10.675Z"
+        }
+      ]
+    },
+    {
+      "title": "production WebGL intersections match the independent reference",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 4148,
+          "startTime": "2026-11-21T04:35:01.060Z"
+        }
+      ]
+    }
+  ],
+  "hashes": {
+    "tests/browser/app.spec.js": "c524875cd9630039d4f387b40c52e169e555c071f3c851b0608664c53c389a9b",
+    "playwright.config.js": "612404922f3222763d12c8d136e3b5d5a07fb503fb3c8d6d1deacf4cc9d27884",
+    "package-lock.json": "0ce2430030ce91a38d67eb735eb11da4e24f51c774fc061ec03b6e603f6d5a66",
+    "scripts/build-site.mjs": "78a59f9a3f3669b8300d7573e8511add81c3b6680368f83548c935f11cb34a6e",
+    "research/verify.html": "678d89b706d615db51bc81d71e28764f1d180c92dd6242425f493d47de69ad3b",
+    "research/verify.mjs": "b8e4232b4a15a0f163380862b7a91c47132e7bf8f202d0de4e4510770ec0f003",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "research/results/reference.json": "636842076ce07ef05fc31bc73c628fdaff25dfc486dea6a7bc4928eefeee58da",
+    "web/app.js": "ca08eec07cb0c6cdc35e591b30d509e0e7a82c33d87e39888eb12d05b3cf8c89",
+    "web/math.js": "188900d29bc884af32ba8e4641a093e02d3755e4a4a8ebc1a7d1319af2aabd05",
+    "web/scene.js": "6c4ca7b4f3fc35a44e695545927309b5159d562d435b6c59e86afd57e2f8ae3e",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "web/index.html": "2c3a183adc32fea0f40bd780ad296e0223de41a96ff6834f5db19a26088326c9",
+    "web/style.css": "64b20593a3a47cfb664cb744042b08e0d26c1944ce2cde782d44780f08384277",
+    "web/technical-note.html": "4791a9a9bbe1980c18ce379d2bd6459dddbf49c2b0869de6faea984d46b7d674",
+    "web/note.css": "9237bcff54a27fbbea8e558b8acbcccc9349f2af6fff095a1c20409b5f026380"
+  }
+}

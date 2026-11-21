@@ -52,3 +52,7 @@ The [research study](../research/README.md) separately compares all distinct pos
 A separate production ray-continuation regression, with origin offsets, executes the GLSL ES source in embedded Chromium 157, WebGL 2 / ANGLE Metal on Apple M3 Pro and passes all 867 independent cases and matches all 1,470 roots. [The browser report](../research/results/webgl-validation.json) records source hashes and errors. This checks a second compiler path on the same hardware, not another GPU vendor.
 
 Browser timing data are in `research/results/webgl-benchmark.json`, with thirty samples per configuration and synchronous one-pixel readback. The production app and its controls were also checked interactively in this browser. Future GitHub Actions browser tests use SwiftShader software WebGL and do not replace these hardware measurements.
+
+## Final independent stress pass
+
+The [2,400-query stress corpus](../research/STRESS.md) qualifies the designed-suite success above. Each modern solver fails the same 109/600 grazing cases and passes all 1,800 other cases at 1e−4. Input rounding separately changes 570 intended root sets. All 100 three-shell groups retain represented boundary order. Twelve additional captured paths pass exact-reference hit and independent optical checks per solver, covering 167 boundaries each; budget and energy terminations are explicit. Complete images agree closely, with one large single-pixel difference. Full data and representative failures are retained; production shader code is unchanged.

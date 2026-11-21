@@ -8,6 +8,7 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await cp(join(root, 'web'), output, { recursive: true });
 await cp(join(root, 'technical-note/technical-note.pdf'), join(output, 'technical-note.pdf'));
+await cp(join(root, 'paper/manuscript.pdf'), join(output, 'paper.pdf'));
 await writeFile(join(output, '.nojekyll'), '');
 // Relative links keep the site usable below /hopf-observatory/ as well as /.
 for (const page of ['index.html', 'technical-note.html']) {

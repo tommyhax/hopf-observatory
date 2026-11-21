@@ -38,7 +38,10 @@ jobs:
         run: |
           python research/analyze.py
           python research/analyze.py --input research/results/refinement-gpu.json --output research/results/refinement-analysis.json
-          git diff --exit-code -- research/results/analysis.json research/results/refinement-analysis.json
+          python research/analyze-stress.py
+          python research/analyze-transport.py
+          python research/check-evidence.py
+          git diff --exit-code -- research/results/analysis.json research/results/refinement-analysis.json research/results/stress-analysis.json research/results/stress-transport-analysis.json
       - run: npm run build:site
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser

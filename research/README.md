@@ -2,6 +2,8 @@
 
 Run commands from the project root. Recorded results are under `research/results/`; rerunning replaces those files. Source hashes and the supplementary archive's per-file manifest identify the measured implementation.
 
+The final 2,400-query independent stress corpus, captured transport paths and complete-render comparisons are documented in [STRESS.md](STRESS.md). It includes significant grazing failures; the original 867-case success below must not be read as a universal robustness result.
+
 ## Requirements and regression tests
 
 The application needs an HTTP server and WebGL 2. Research scripts use Node.js, Python 3.12 or later and pinned scientific packages. Native experiments require macOS, Xcode command-line tools (`clang`) and graphics-driver access. Browser experiments also run on other platforms; the recorded hardware results use Apple M3 Pro.
@@ -84,7 +86,7 @@ The refinement experiment enumerates all original-ray roots for the four Bernste
 
 The full-render benchmark measures five variants (all except `bernstein-raw`) in four fixed scenes at 640×360 and 1280×720, with a 24-interaction cap. Each configuration has three blocks of five warmup and ten measured frames, rotating variant order. Avoid other GPU workloads while timing. Native draw plus `glFinish` wall times exclude compilation, readback, UI and vsync. `renderer-benchmark.json` records raw samples, uniforms, pooled medians, interquartile ranges, block medians and source/shader hashes. This measures the complete optical renderer, including rejection and coefficient construction, rather than isolated root-solver throughput.
 
-On the recorded M3 Pro run, Yuksel is faster for a single solid torus but slower for three thin shells. At 1280×720 near the pole, pooled medians are 48.62 ms for production Bernstein, 77.61 ms for centered Yuksel and 54.16 ms for chart Yuksel. Between-block variation is retained, and small differences should not be overinterpreted. These native results do not establish browser or cross-device speedups; the app retains Bernstein.
+On the recorded M3 Pro run, Yuksel is faster for a single solid torus but slower for three thin shells. At 1280×720 near the pole, pooled medians are 38.45 ms for production Bernstein, 67.69 ms for centered Yuksel and 45.74 ms for chart Yuksel. Between-block variation is retained, and small differences should not be overinterpreted. These native results do not establish browser or cross-device speedups; the app retains Bernstein.
 
 All three additional transport variants pass the full native regression suite, including the 0.01° paths with eight single-shell or 24 three-shell interfaces. `transport-*.json` records each variant's source and compiled shader hashes. `docs/gpu-results.json` is the production report. The same two Yuksel shader hashes occur in the transport and timing reports, linking correctness checks to measured variants.
 

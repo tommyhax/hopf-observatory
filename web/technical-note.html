@@ -175,6 +175,15 @@ scene units away. These results support a practical implementation
 study; they show no completeness advantage over the modern
 centered-coordinate baseline at this tolerance. Input rounding,
 tangencies and finite-precision transport remain limitations.</p>
+<p>A separate frozen 2,400-query stress corpus finds the same 109
+grazing failures in all three modern variants at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>,
+while all 1,800 random, pole and shell-boundary queries pass. Input
+rounding independently changes 570 intended root sets. Twelve selected
+optical paths pass per solver against independent captured-ray
+references. The short review manuscript is supplied separately as
+<code>PAPER.md</code>; this document retains the extended derivation and
+implementation detail.</p>
 <h2 id="the-accompanying-demonstration">The accompanying
 demonstration</h2>
 <p>The complete working demo is included in this project. From the
@@ -1174,6 +1183,51 @@ The adjacent-float tests specifically exercise small nonzero
 <em>representable</em> pole offsets. The grazing cases likewise
 distinguish intended contact from the exact geometry represented by
 float32 inputs.</p>
+<h3 id="final-independent-stress-validation">Final independent stress
+validation</h3>
+<p>The frozen production revision was evaluated on 2,400 seeded boundary
+queries: 600 random, 600 pole, 600 exact/near-tangent, and 600
+thin-shell boundary cases. The tangent construction has 200 exact
+rational intended double contacts and two nearby rays per contact. The
+shell queries form 100 groups with three 0.01° shells, including
+overlapping material bands. Independent exact-rational isolation
+evaluates both intended and represented inputs. No production solver was
+changed during this pass.</p>
+<p>At relative-distance tolerance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>,
+all three modern variants fail on the same 109 grazing query IDs and
+pass all 1,800 other queries. Bernstein matches 3,166/3,314 represented
+roots, with 148 missing and 137 unmatched outputs; the Yuksel variants
+each match 3,165, with 149 missing and 137 unmatched outputs. For each
+method, failures comprise 40 count shortfalls, 34 count excesses and 35
+equal-count position failures. At tolerances
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>5</mn></mrow></msup><annotation encoding="application/x-tex">10^{-5}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup><annotation encoding="application/x-tex">10^{-6}</annotation></semantics></math>,
+failed-query counts are 197/195/195 and 294/292/292, respectively, for
+Bernstein/centered Yuksel/chart Yuksel. Input rounding separately
+changes 570 intended root sets beyond
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>;
+these are distinct comparisons with potentially overlapping
+failures.</p>
+<p>All 100 shell groups retain boundary order at the principal
+tolerance. Twelve predetermined paths pass independent captured-ray
+intersection, normal, medium and Snell checks per solver: 167
+boundaries, including 158 optical events and nine hidden boundaries. One
+path reaches the boundary cap and one the energy cutoff; neither is
+claimed complete. The remaining terminal misses are checked for further
+intersections. Thirty full-image comparisons have maximum frame-mean RGB
+error
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.82</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.82\times10^{-6}</annotation></semantics></math>;
+one pixel differs by 0.341, so close agreement is not exact
+equivalence.</p>
+<p><code>research/STRESS.md</code> supplies the constructions,
+tighter-tolerance results, conditioning diagnostics, absolute and
+relative position errors, representative failures and reproduction
+commands. The original corpus’s complete matching does not extend to the
+deliberately grazing corpus. The evidence supports an evaluated
+implementation, not a certified robust solver or a claim of superior
+completeness.</p>
 <h3 id="refinement-ablation">Refinement ablation</h3>
 <p>Four policies use the same Bernstein candidates and residual
 acceptance filter: no Newton correction; step-limited Newton without a
@@ -1280,35 +1334,35 @@ medians use 1280 × 720 buffers and a 24-interaction cap:</p>
 <tbody>
 <tr>
 <td>One solid torus</td>
-<td style="text-align: right;">3.63 ms</td>
-<td style="text-align: right;">2.96 ms</td>
-<td style="text-align: right;">2.97 ms</td>
+<td style="text-align: right;">3.13 ms</td>
+<td style="text-align: right;">2.86 ms</td>
+<td style="text-align: right;">2.88 ms</td>
 </tr>
 <tr>
 <td>One 0.01° shell</td>
-<td style="text-align: right;">6.30 ms</td>
-<td style="text-align: right;">7.26 ms</td>
-<td style="text-align: right;">7.14 ms</td>
+<td style="text-align: right;">5.63 ms</td>
+<td style="text-align: right;">6.38 ms</td>
+<td style="text-align: right;">5.55 ms</td>
 </tr>
 <tr>
 <td>Three 0.01° shells, aligned</td>
-<td style="text-align: right;">21.31 ms</td>
-<td style="text-align: right;">34.44 ms</td>
-<td style="text-align: right;">24.84 ms</td>
+<td style="text-align: right;">19.78 ms</td>
+<td style="text-align: right;">33.02 ms</td>
+<td style="text-align: right;">22.27 ms</td>
 </tr>
 <tr>
 <td>Three 0.01° shells, XW = 45°</td>
-<td style="text-align: right;">48.62 ms</td>
-<td style="text-align: right;">77.61 ms</td>
-<td style="text-align: right;">54.16 ms</td>
+<td style="text-align: right;">38.45 ms</td>
+<td style="text-align: right;">67.69 ms</td>
+<td style="text-align: right;">45.74 ms</td>
 </tr>
 </tbody>
 </table>
 <p>Yuksel is faster for the single solid in this run, but neither
 variant is consistently faster for the shell scenes. At 640 × 360 the
-centered variant is approximately 50% slower for three aligned shells
-and 79% slower near the pole; the chart variant is approximately 14% and
-18% slower. These measurements support retaining Bernstein for the
+centered variant is approximately 34% slower for three aligned shells
+and 55% slower near the pole; the chart variant is approximately 7% and
+14% slower. These measurements support retaining Bernstein for the
 application’s thin-shell workload. They do not establish general solver
 superiority: this is an adapted baseline, a small scene set and one
 GPU/compiler stack. Scheduling and thermal variation are visible between
@@ -1500,9 +1554,10 @@ It can merge close contacts, skip features below the origin offset, or
 lose accuracy for ill-conditioned or extremely distant hits. It does not
 resolve a ray lying entirely in the surface as a continuum of
 intersections. Input rounding itself can change topology at the pole.
-The experiments use a finite, structured corpus and one GPU; they
-neither certify arbitrary rotations nor cover every grazing or
-overlapping-shell configuration.</p>
+The final stress corpus contains 109 grazing failures per modern variant
+at the principal tolerance. The experiments use finite, structured
+corpora and one GPU; they neither certify arbitrary rotations nor cover
+every grazing or overlapping-shell configuration.</p>
 <p>Optics use a bounded main path and a limited reflected branch,
 approximate metal Fresnel colors and rough environment reflections,
 finite absorption for unbounded paths, and no caustics, spectral

@@ -2,6 +2,8 @@
 
 An interactive WebGL 2 ray tracer for stereographic projections of rotated Clifford/Hopf tori. Each surface is an implicit quartic with analytic normals and successive reflection/refraction intersections. A screen-filling triangle invokes the shader; the surface uses no mesh, point cloud or spatial ray marching.
 
+For independent review, start with [REVIEW.md](REVIEW.md) and the [short manuscript](paper/manuscript.pdf). The detailed technical note is supplementary.
+
 ## Run
 
 ```sh
@@ -48,9 +50,11 @@ The [independent study](research/README.md) compares all positive roots of each 
 
 Refinement ablation and full-render timing experiments are also reproducible. The residual-decreasing guard reduces the rotation-subset maximum versus unguarded Newton, but does not improve every root. Both Yuksel renderer variants pass the transport checks; they are faster for the single solid in the native timing run but slower for three thin shells. The app retains Bernstein. Recorded samples and qualifications are in the research instructions and technical note.
 
+The final [seeded stress validation](research/STRESS.md) adds 2,400 boundary queries. All modern variants pass all 1,800 random, pole and shell queries, but fail the same **109 of 600 deliberately grazing queries** at 1e−4. Input rounding separately changes 570 intended root sets. Twelve additional exact-reference transport paths pass per solver, with explicit budget/energy termination. These results qualify any broad robustness claim; representative failures and image differences are retained.
+
 ## GitHub Pages and automation
 
-`npm run build:site` assembles `_site/` with the app, illustrated HTML note, figures and PDF. All site links work below a repository subpath such as `/hopf-observatory/`.
+`npm run build:site` assembles `_site/` with the app, illustrated HTML note, figures, detailed PDF and short `paper.pdf`. All site links work below a repository subpath such as `/hopf-observatory/`.
 
 The **Tests** workflow runs on pushes and pull requests. It checks formatting, CPU tests, independent-reference reproducibility, site assembly and Chromium browser tests. Browser CI uses SwiftShader software WebGL with a quarter device-pixel ratio to limit CPU rendering cost while keeping the desktop layout. The render check reads an actual shader pixel; numerical checks still cover all 867 rays. The suite has a three-minute limit. Recorded Apple GPU measurements are a separate hardware result. To run the browser suite locally, install Chromium with `npx playwright install chromium`, build the site, then run `npm run test:browser`.
 

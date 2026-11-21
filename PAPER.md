@@ -1,0 +1,135 @@
+---
+title: "Interactive ray tracing of stereographic Hopf tori"
+author: "Tom Crosby"
+date: "21 November 2026 · Review manuscript"
+---
+
+## Abstract
+
+We present a browser-based renderer for stereographic projections of rotated Hopf tori, including solid regions and thin angular shells. A rank-two projector supplies implicit quartic intersections and analytic normals. Centered near/reciprocal ray coordinates cover surfaces passing through infinity without a finite clipping sphere. We evaluate the float32 implementation against an independent exact-rational reference and an adapted Yuksel–Peters GPU baseline. All three modern variants match the original 867-case corpus at relative-distance tolerance $10^{-4}$. A frozen, seeded 2,400-query stress corpus exposes the same 109 grazing failures in each variant; all 1,800 other queries pass. Independent checks of selected optical paths retain thin-shell boundaries and Snell-law refraction. Complete-render comparisons show close image agreement and workload-dependent performance on Apple M3 Pro. The contribution is an implementation and reproducible account of its numerical behavior, with explicit limitations at tangencies and after geometry quantization.
+
+## 1. Motivation and scope
+
+A torus in the unit three-sphere can pass through the stereographic projection pole while remaining a smooth compact surface in four dimensions. Its three-dimensional image becomes unbounded and subsequently appears to turn inside out. This geometry is established [1,2]. It provides a useful setting for investigating how an interactive implicit renderer handles distant intersections, changing material regions and closely spaced optical boundaries.
+
+Hopf Observatory supports six-plane $SO(4)$ rotations, an orbitable camera, up to three torus regions, angular shells down to $0.01^\circ$, and projected Euclidean reflection/refraction. The surface is not tessellated or sampled into a point cloud. A fullscreen triangle dispatches per-pixel ray calculations. Figure 1 shows the resulting family under a shared rotation.
+
+Ray tracing algebraic surfaces [3], GPU Bernstein methods [4], derivative-partitioned root finding [5,6], and refinement against the original implicit field [7] all predate this work. We contribute a documented integration for stereographic Hopf tori and a reproducible evaluation separating input representation, intersection computation and optical transport. We claim neither a new general root-finding algorithm nor superior root completeness over the modern baseline.
+
+![Three projected tori, with 0.5° angular shells, before and after a shared four-dimensional rotation. Both views are direct production-shader renders; camera, material and rotation settings are supplied with the software.](technical-note/figures/three-tori.png){width=80%}
+
+## 2. Geometry and intersections
+
+The family in $S^3\subset\mathbb R^4$ is
+$$
+q(t,a,b)=(\cos t\cos a,\cos t\sin a,\sin t\cos b,\sin t\sin b)^T,
+\quad 0<t<\pi/2.
+$$
+For $R\in SO(4)$, set $P=R\,\mathrm{diag}(1,1,0,0)R^T$ and $c=\cos^2t$. A rotated torus satisfies $q^TPq=c$. The six rotation controls are redundant: $SO(2)\times SO(2)$ stabilizes the original projector, leaving four continuous rotational degrees of freedom at fixed $t$.
+
+For $p=(x,y,z)$, inverse stereographic projection is $Q(p)=V/(1+|p|^2)$, where $V=(2p,|p|^2-1)^T$. Clearing the positive denominator gives
+$$
+f_c(p)=V^T(P-cI)V=0.
+$$
+The exact gradient is
+$$
+\nabla f_c=4\left[(PV)_{1:3}+p\big((PV)_4-c(1+|p|^2)\big)\right].
+$$
+Its normalized direction supplies smooth surface normals. Substituting $p=o+sd$ gives a polynomial of degree at most four. Its leading coefficient is $(P_{44}-c)|d|^4$. Thus the pole condition $P_{44}=c$ removes the quartic term; it does not justify discarding all remaining finite intersections. A three-dimensional line lifts to a circle through the projection pole in $S^3$. The supplementary technical note gives this construction and the full coefficient derivation.
+
+For unit $d$, write $k=o\cdot d$, $C=o-kd$, $\lambda=s+k$ and $L=\max(1,|C|)$. Each signed half-line uses a near coordinate $x=|\lambda|/L\in[0,1]$ and a reciprocal coordinate $x=L/|\lambda|\in(0,1]$. In the near chart, $V/L^2=a+bx+ex^2$; in the reciprocal chart, multiplication by $x^2$ reverses these coefficients. Both yield bounded polynomial domains. The reciprocal endpoint $x=0$ represents infinity and is excluded from finite hits.
+
+The production shader constructs Bernstein coefficients directly from these homogeneous quadratic vectors. Derivative roots partition the quartic into monotone intervals. Sign changes are isolated by bisection followed by bracket interpolation; stationary candidates permit even-multiplicity contacts. A sign-definite Bernstein coefficient hull rejects empty charts. Up to four step-limited Newton proposals evaluate the original homogeneous form and are accepted only when the computed residual decreases. A conditioned residual filter then rejects candidates inconsistent with that form. This guard does not certify distance accuracy or preserve the final isolation bracket.
+
+## 3. Materials and finite-precision transport
+
+A solid fills $Q^TPQ>c$. A shell is a band between distinct parameter levels:
+$$
+\cos^2(t+\Delta t/2)<Q^TPQ<\cos^2(t-\Delta t/2).
+$$
+Its two boundaries are solved independently; their outward normals have opposite signs. Angular width is measured in $S^3$, not as constant Euclidean thickness. Up to three regions share $P$. Distinct level surfaces do not intersect geometrically; their material bands may overlap. The narrowest active level interval has priority, with a fixed slot order breaking ties.
+
+Each tracing step chooses the nearest enabled boundary, identifies the incident and transmitted media, and applies Euclidean Snell refraction. With incident unit direction $d$ and opposing normal $n$, let $\eta=n_1/n_2$, $c_i=-d\cdot n$, and $K=1-\eta^2(1-c_i^2)$. If $K\ge0$, the transmitted direction is
+$$
+d_t=\eta d+(\eta c_i-\sqrt K)n;
+$$
+otherwise the ray reflects internally. Interfaces hidden inside the same effective medium do not refract.
+
+The origin offset scales with the smallest enabled angular boundary separation and distance from the origin. This helps retain the tested $0.01^\circ$ walls, but cannot resolve arbitrarily thin projected features. The main path allows at most 24 boundary iterations, including skipped boundaries; the first reflected branch has a smaller budget. Energy cutoffs, approximate environment reflections and absorption in unbounded regions limit physical fidelity. There are no caustics or full global illumination.
+
+## 4. Independent numerical evaluation
+
+All hardware measurements use Apple M3 Pro. Native tests execute the production GLSL bodies through OpenGL 4.1 Metal, changing the version directive from GLSL ES 3.00 to 4.10. Recorded browser validation uses WebGL 2/ANGLE Metal on the same device; CI integration checks use software WebGL. A second GPU is not part of this study.
+
+The reference expands the original ray polynomial in exact rational arithmetic and isolates its positive roots using SymPy's continued-fraction method [8], with brackets no wider than $10^{-30}$. It imports no production intersection routines. One reference uses the exact binary values of uploaded float32 inputs; another uses the intended geometry serialized at 80 decimal digits, or exact rationals for tangent constructions. These distinguish geometry quantization from computation on the represented geometry.
+
+We compare production Bernstein with an adaptation of Peters's CC0 GLSL implementation [6] of Yuksel's method [5]. The latter is evaluated in centered affine coordinates with a coefficient-derived Cauchy bound, and in the same near/reciprocal charts. Exact degree reduction, endpoint handling, iteration limits and homogeneous refinement are shared between the two Yuksel variants. This is an adapted GLSL baseline, not the author's complete optimized C++ library. Source provenance and modifications are recorded in the supplement.
+
+Each method enumerates all distinct positive roots of the unchanged original ray, without origin advance, rendering bias or finite far clipping. Maximum-cardinality one-to-one matching uses $|s_{\mathrm{GPU}}-s_{\mathrm{ref}}|/\max(1,|s_{\mathrm{ref}}|)\le\tau$. A query fails if any root or output is unmatched. Close roots are not consolidated, and missing roots are reported alongside retained-root errors. Raw and commonly refined outputs are retained.
+
+### 4.1 Fixed and seeded corpora
+
+On the original 867 hand-designed cases, all three variants match all 1,470 reference roots at $\tau=10^{-4}$, before and after refinement. A conventional float32 Ferrari port fails on 378 cases after refinement; this comparison is not evidence against every analytic solver.
+
+The final stress corpus was constructed before its GPU evaluation, with seed 20261121 and a frozen production revision. Its 2,400 boundary queries include general random rays, targeted pole cases, rational exact tangencies and small normal offsets, and 100 three-shell groups with six boundary queries each. Rotation sampling uses six independent angle draws, not Haar-uniform sampling on $SO(4)$. The 600 grazing cases comprise 200 exact intended double contacts and 400 nearby rays. All shells have width $0.01^\circ$; groups include separated and overlapping bands and pole-crossing walls.
+
+| Family | Queries | Represented roots | Input changes | Failed queries |
+|---|---:|---:|---:|---:|
+| Random | 600 | 861 | 0 | 0 |
+| Pole | 600 | 501 | 253 | 0 |
+| Grazing | 600 | 584 | 304 | 109 |
+| Shell | 600 | 1,368 | 13 | 0 |
+
+Input changes count intended/represented root-set mismatches at $10^{-4}$. Failed-query counts apply to each refined modern variant, on the same query IDs. These columns describe different comparisons and must not be added.
+
+All 1,800 non-grazing queries pass. Every solver retains boundary ordering in all 100 shell groups. Bernstein matches 3,166 of the full corpus's 3,314 represented roots, with 148 missing roots and 137 unmatched outputs; each Yuksel variant matches 3,165, with 149 missing and 137 unmatched outputs. For each solver, the 109 failures comprise 40 output-count shortfalls, 34 excesses and 35 position failures despite equal counts. An unmatched output may be an inaccurate root rather than a wholly separate false intersection.
+
+At $\tau=10^{-5}$, refined failed-query counts are 197, 195 and 195 for Bernstein, centered Yuksel and chart Yuksel, respectively; at $10^{-6}$ they are 294, 292 and 292. Figure 2 shows the error-source distinction and tolerance dependence. The identical failure set at the principal tolerance, and shared coefficient construction/refinement, do not identify a unique causal solver stage.
+
+![Stress validation. Left: input-geometry changes and represented-root failures at $10^{-4}$; the latter count is identical for all three methods. Right: failed queries as the tolerance tightens. Methods overlap substantially. All results use distinct-root matching without proximity consolidation.](research/figures/stress-validation.png){width=100%}
+
+For Bernstein, the largest nearest-returned-root ray-distance error is $7.98\times10^{-4}$, from grazing cases; missing roots have no finite returned-root error. In the pole family the largest absolute position difference is about 31.5 scene units at a hit roughly $3.55\times10^8$ units away. Both absolute and position-normalized errors are retained to make that scale explicit. Float32 input rounding alone changes 570 query root sets beyond the principal tolerance. A solver cannot recover an intended distant root absent from the uploaded polynomial.
+
+### 4.2 Optical and image checks
+
+Existing regressions pass 31 focused thin-shell cases and 36 transport paths with 392 events. The $0.01^\circ$ axis paths retain four entries and four exits per single shell, and twelve of each across three shells.
+
+Additionally, twelve predetermined paths from the seeded shell groups are captured from each complete renderer. Exact-rational isolation checks each captured incoming ray against all six represented boundaries. Independent analytic normals, spatial medium probes and scalar/vector Snell checks separate transport behavior from root enumeration. Each variant passes 167 boundary events: 158 optical events and nine hidden boundaries. One path reaches the 24-boundary cap and one ends at the energy cutoff; these are recorded, not certified complete paths. Other terminal misses are checked for remaining intersections. Maximum hit-distance error is below $3.97\times10^{-6}$ and maximum Snell residual below $9.30\times10^{-8}$ across these paths.
+
+Five fixed scenes, in material, normal and depth modes at 480×270, provide 30 paired image comparisons against Bernstein. Maximum frame-mean absolute RGB8 error is $2.82\times10^{-6}$ on a normalized scale. One pixel in a centered-Yuksel solid render differs by more than 0.05, reaching 0.341; no other comparison exceeds 0.05 at any pixel. These are close rendered outputs, not exact equivalence or independent image ground truth.
+
+### 4.3 Rendering cost
+
+Full optical-renderer timings use three blocks of five warmup and ten measured frames per variant/configuration, rotating variant order. Native draw-plus-`glFinish` wall time excludes compilation, readback, UI and vsync. Pooled medians at 1280×720 and a 24-boundary cap are:
+
+| Scene | Bernstein | Yuksel centered | Yuksel charts |
+|---|---:|---:|---:|
+| One solid | 3.13 ms | 2.86 ms | 2.88 ms |
+| One 0.01° shell | 5.63 ms | 6.38 ms | 5.55 ms |
+| Three 0.01° shells | 19.78 ms | 33.02 ms | 22.27 ms |
+| Three shells, XW = 45° | 38.45 ms | 67.69 ms | 45.74 ms |
+
+The workload-dependent result supports retaining Bernstein for this application's three-shell scenes. It establishes neither general solver superiority nor a browser-speed or cross-vendor claim. Raw samples, block medians and interquartile ranges remain available; small timing differences should not be overinterpreted.
+
+## 5. Conclusions, limitations and reproducibility
+
+The implementation makes projected Hopf tori and thin-shell optics interactively accessible, including passage through infinity. Independent tests support the sampled non-grazing behavior and selected optical paths. They also expose a substantial grazing failure rate: 109/600 deliberately difficult queries in every modern variant at $10^{-4}$. This replaces any broad robustness claim with a measured domain of success and failure.
+
+The study does not certify arbitrary rotations or every thin-shell path. Float32 representation, ill-conditioning, root merging, finite origin offsets and transport budgets remain limits. The structured stress distribution is not a prevalence estimate for ordinary viewing. The methods share some construction and acceptance code, and all hardware evidence comes from one GPU. A broad priority search and independent human assessment of the implementation contribution remain appropriate review questions.
+
+The companion package's `REVIEW.md` is the entry point. `PAPER.md` is this manuscript; `TECHNICAL_NOTE.md` contains the complete derivation and implementation discussion; `research/STRESS.md` and `research/README.md` give seeds, provenance, commands and limitations. Raw inputs, exact brackets, all outputs, representative failures, rendered comparisons and a SHA-256 package manifest are included. The buildless WebGL application runs with `npm start`.
+
+## Assistance and responsibility
+
+Tom Crosby supplied the geometric motivation and directed the project. OpenAI Codex assisted with derivation, implementation, experiment design/execution, literature checking and writing. The recorded independent references and tests provide verification within their stated scope. Codex is an AI tool, not a human author; Tom Crosby is responsible for interpretation and conclusions. Figures are deterministic outputs of the supplied code.
+
+## References
+
+1. T. F. Banchoff. *Beyond the Third Dimension*. Scientific American Library, 1990. [Online stereographic-projection chapter](https://www.math.brown.edu/tbanchof/Beyond3D.new/chapter6/s6_8.html); the online edition includes later material.
+2. J. McCuan and L. Spietz. “Rotations of the three-sphere and symmetry of the Clifford torus.” 1998. [arXiv:math/9810023](https://arxiv.org/abs/math/9810023).
+3. P. Hanrahan. “Ray Tracing Algebraic Surfaces.” *Computer Graphics* 17(3), 1983, pp. 83–90. [doi:10.1145/964967.801136](https://doi.org/10.1145/964967.801136).
+4. J. S. Seland and T. Dokken. “Real-Time Algebraic Surface Visualization.” Springer, 2007, pp. 163–183. [doi:10.1007/978-3-540-68783-2_6](https://doi.org/10.1007/978-3-540-68783-2_6).
+5. C. Yuksel. “High-Performance Polynomial Root Finding for Graphics.” *PACMCGIT* 5(3), 2022. [doi:10.1145/3543865](https://doi.org/10.1145/3543865).
+6. C. Peters. [“Finding Real Polynomial Roots on GPUs.”](https://momentsingraphics.de/GPUPolynomialRoots.html) 31 October 2023. GLSL implementation under CC0 1.0.
+7. P. Szente, C. C. Karikó and G. Valasek. “Robust Ray–Surface Intersections for Algebraic Surfaces.” *Eurographics 2026 Short Papers*. [doi:10.2312/egs.20261027](https://doi.org/10.2312/egs.20261027).
+8. A. Meurer et al. “SymPy: symbolic computing in Python.” *PeerJ Computer Science* 3:e103, 2017. [doi:10.7717/peerj-cs.103](https://doi.org/10.7717/peerj-cs.103).

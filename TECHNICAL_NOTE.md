@@ -12,6 +12,8 @@ We describe an interactive GPU ray tracer for stereographic projections of rotat
 
 An independent exact-rational reference separates solver error from float32 input-geometry rounding. On an 867-ray corpus, the production Bernstein solver and a Yuksel–Peters Newton-bisection baseline in both centered affine and near/reciprocal coordinates each match all 1,470 distinct positive intersections at relative-distance tolerance $10^{-4}$. All roots are collected from the unchanged original ray, before and after common surface refinement. A conventional float32 Ferrari baseline fails on 378 rays after refinement. The corpus includes projection-pole sweeps, adjacent-float pole offsets, grazing rays and six-plane rotations, with intersections approximately $2.4\times10^9$ scene units away. These results support a practical implementation study; they show no completeness advantage over the modern centered-coordinate baseline at this tolerance. Input rounding, tangencies and finite-precision transport remain limitations.
 
+A separate frozen 2,400-query stress corpus finds the same 109 grazing failures in all three modern variants at $10^{-4}$, while all 1,800 random, pole and shell-boundary queries pass. Input rounding independently changes 570 intended root sets. Twelve selected optical paths pass per solver against independent captured-ray references. The short review manuscript is supplied separately as `PAPER.md`; this document retains the extended derivation and implementation detail.
+
 ## The accompanying demonstration
 
 The complete working demo is included in this project. From the `hopf-observatory` directory:
@@ -386,6 +388,16 @@ A separate ray-continuation regression executes the production GLSL ES intersect
 
 At nominal $|\delta|\leq10^{-9}$, every tested pole-sweep input rounds to $P_{44}=c$. The remote root of the intended geometry can disappear from the uploaded polynomial. All 24 nominal exact-pole cases pass against the rounded-input reference, but this cannot recover geometric information lost before root finding. Across the pole corpus, input rounding alone changes the root set beyond the matching tolerance on 210 of 600 rays. The adjacent-float tests specifically exercise small nonzero *representable* pole offsets. The grazing cases likewise distinguish intended contact from the exact geometry represented by float32 inputs.
 
+### Final independent stress validation
+
+The frozen production revision was evaluated on 2,400 seeded boundary queries: 600 random, 600 pole, 600 exact/near-tangent, and 600 thin-shell boundary cases. The tangent construction has 200 exact rational intended double contacts and two nearby rays per contact. The shell queries form 100 groups with three 0.01° shells, including overlapping material bands. Independent exact-rational isolation evaluates both intended and represented inputs. No production solver was changed during this pass.
+
+At relative-distance tolerance $10^{-4}$, all three modern variants fail on the same 109 grazing query IDs and pass all 1,800 other queries. Bernstein matches 3,166/3,314 represented roots, with 148 missing and 137 unmatched outputs; the Yuksel variants each match 3,165, with 149 missing and 137 unmatched outputs. For each method, failures comprise 40 count shortfalls, 34 count excesses and 35 equal-count position failures. At tolerances $10^{-5}$ and $10^{-6}$, failed-query counts are 197/195/195 and 294/292/292, respectively, for Bernstein/centered Yuksel/chart Yuksel. Input rounding separately changes 570 intended root sets beyond $10^{-4}$; these are distinct comparisons with potentially overlapping failures.
+
+All 100 shell groups retain boundary order at the principal tolerance. Twelve predetermined paths pass independent captured-ray intersection, normal, medium and Snell checks per solver: 167 boundaries, including 158 optical events and nine hidden boundaries. One path reaches the boundary cap and one the energy cutoff; neither is claimed complete. The remaining terminal misses are checked for further intersections. Thirty full-image comparisons have maximum frame-mean RGB error $2.82\times10^{-6}$; one pixel differs by 0.341, so close agreement is not exact equivalence.
+
+`research/STRESS.md` supplies the constructions, tighter-tolerance results, conditioning diagnostics, absolute and relative position errors, representative failures and reproduction commands. The original corpus's complete matching does not extend to the deliberately grazing corpus. The evidence supports an evaluated implementation, not a certified robust solver or a claim of superior completeness.
+
 ### Refinement ablation
 
 Four policies use the same Bernstein candidates and residual acceptance filter: no Newton correction; step-limited Newton without a decrease test; the production residual-decreasing guard; and a conservative noise-aware guard. The last requires $|g_{\mathrm{new}}|+8\epsilon M_{\mathrm{new}}<|g|-8\epsilon M$, where $\epsilon=2^{-23}$ and $M$ is the absolute quadratic-form magnitude. This error floor is a heuristic, not interval arithmetic. All four policies match all 1,470 roots. Maximum relative-distance errors in three subsets are:
@@ -407,12 +419,12 @@ On Apple M3 Pro, each scene/resolution/variant has three blocks of five warmup a
 
 | Scene | Bernstein (production) | Yuksel, centered | Yuksel, charts |
 |---|---:|---:|---:|
-| One solid torus | 3.63 ms | 2.96 ms | 2.97 ms |
-| One 0.01° shell | 6.30 ms | 7.26 ms | 7.14 ms |
-| Three 0.01° shells, aligned | 21.31 ms | 34.44 ms | 24.84 ms |
-| Three 0.01° shells, XW = 45° | 48.62 ms | 77.61 ms | 54.16 ms |
+| One solid torus | 3.13 ms | 2.86 ms | 2.88 ms |
+| One 0.01° shell | 5.63 ms | 6.38 ms | 5.55 ms |
+| Three 0.01° shells, aligned | 19.78 ms | 33.02 ms | 22.27 ms |
+| Three 0.01° shells, XW = 45° | 38.45 ms | 67.69 ms | 45.74 ms |
 
-Yuksel is faster for the single solid in this run, but neither variant is consistently faster for the shell scenes. At 640 × 360 the centered variant is approximately 50% slower for three aligned shells and 79% slower near the pole; the chart variant is approximately 14% and 18% slower. These measurements support retaining Bernstein for the application's thin-shell workload. They do not establish general solver superiority: this is an adapted baseline, a small scene set and one GPU/compiler stack. Scheduling and thermal variation are visible between blocks, particularly at 1280 × 720. Raw samples, block medians, interquartile ranges, uniforms and source hashes are in `renderer-benchmark.json`, including the two additional refinement controls.
+Yuksel is faster for the single solid in this run, but neither variant is consistently faster for the shell scenes. At 640 × 360 the centered variant is approximately 34% slower for three aligned shells and 55% slower near the pole; the chart variant is approximately 7% and 14% slower. These measurements support retaining Bernstein for the application's thin-shell workload. They do not establish general solver superiority: this is an adapted baseline, a small scene set and one GPU/compiler stack. Scheduling and thermal variation are visible between blocks, particularly at 1280 × 720. Raw samples, block medians, interquartile ranges, uniforms and source hashes are in `renderer-benchmark.json`, including the two additional refinement controls.
 
 Both complete Yuksel renderer variants pass the same native transport suite as production: 31 focused thin-shell cases, 36 refraction paths with 392 events, 31 index-one checks, 625 solid, 403 shell and 133 multi-torus cases, and eight full-fragment smoke checks. The 0.01° single-shell and three-shell paths retain their eight and 24 interfaces. Separate variant reports record normals, Snell residuals and medium transitions. The application continues to use Bernstein; the alternatives are reproducible research variants rather than user-facing settings.
 
@@ -455,7 +467,7 @@ The comparison supports a narrower engineering conclusion: for the sampled confi
 
 ## 13. Limitations
 
-The renderer uses float32 and heuristic stationary-root tolerances. It can merge close contacts, skip features below the origin offset, or lose accuracy for ill-conditioned or extremely distant hits. It does not resolve a ray lying entirely in the surface as a continuum of intersections. Input rounding itself can change topology at the pole. The experiments use a finite, structured corpus and one GPU; they neither certify arbitrary rotations nor cover every grazing or overlapping-shell configuration.
+The renderer uses float32 and heuristic stationary-root tolerances. It can merge close contacts, skip features below the origin offset, or lose accuracy for ill-conditioned or extremely distant hits. It does not resolve a ray lying entirely in the surface as a continuum of intersections. Input rounding itself can change topology at the pole. The final stress corpus contains 109 grazing failures per modern variant at the principal tolerance. The experiments use finite, structured corpora and one GPU; they neither certify arbitrary rotations nor cover every grazing or overlapping-shell configuration.
 
 Optics use a bounded main path and a limited reflected branch, approximate metal Fresnel colors and rough environment reflections, finite absorption for unbounded paths, and no caustics, spectral dispersion or global illumination. The shell is an angular band in $S^3$, not a constant Euclidean wall thickness. Overlapping materials follow an explicit interval-priority rule. Exact surface equations should not be confused with exact numerical roots or complete physical light transport.
 

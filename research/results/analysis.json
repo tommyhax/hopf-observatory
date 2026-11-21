@@ -146971,6 +146971,6 @@
   "hashes": {
     "research/analyze.py": "47c91d1d89b4367e4892cd7b37fa70e09cc6567a9a2f9cf84429b8afdb039490",
     "research/results/reference.json": "636842076ce07ef05fc31bc73c628fdaff25dfc486dea6a7bc4928eefeee58da",
-    "research/results/pole-gpu.json": "74b8d4e4debb2f60695c5b7cad80c04c95ecee642dde0db90f5167b5e4cef4b9"
+    "research/results/pole-gpu.json": "60e8e6e4e1bba1235ebd84ad47a06d6a0aef427025702e41867b5c1f383d8daa"
   }
 }

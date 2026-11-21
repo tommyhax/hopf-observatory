@@ -17,7 +17,7 @@
     "research/yuksel.glsl": "72916647c5d9b97135985d05a9fd22425279970ea2955376d63c4e94ab64bb4e",
     "research/comparison-shader.mjs": "5e2a59a4f5737283ceb39fd983b69ab36a1c5082b031201a12c56069a4c98ae8"
   },
-  "date": "2026-11-21T03:44:17.827Z",
+  "date": "2026-11-21T04:10:58.840Z",
   "execution": "Native macOS offscreen OpenGL; same GLSL bodies with #version 410 core replacing #version 300 es. Browser integration is not tested.",
   "suite": "all",
   "hardware": {

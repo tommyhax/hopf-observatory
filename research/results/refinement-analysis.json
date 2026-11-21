@@ -92168,6 +92168,6 @@
   "hashes": {
     "research/analyze.py": "47c91d1d89b4367e4892cd7b37fa70e09cc6567a9a2f9cf84429b8afdb039490",
     "research/results/reference.json": "636842076ce07ef05fc31bc73c628fdaff25dfc486dea6a7bc4928eefeee58da",
-    "research/results/refinement-gpu.json": "72c4d1d4f181fdc618acd4e4d9470a5198887e48eda000f7494a0dec3a5ae700"
+    "research/results/refinement-gpu.json": "7f35232c3cbc92a4fdc49bbcceb7add2c958b9f681af156d09112ea816f288b4"
   }
 }
