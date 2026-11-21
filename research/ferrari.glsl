@@ -97,39 +97,3 @@ int quarticF(vec4 c, float leading, out vec4 s) {
   s -= A / 4.;
   return n;
 }
-float ferrariHit(vec3 o, vec3 d, float level) {
-  float k = dot(o, d);
-  vec3 C = o - k * d;
-  float L = max(1., length(C));
-  vec4 v0 = vec4(2. * C, dot(C, C) - 1.), v1 = vec4(2. * L * d, 2. * L * dot(C, d)),
-       v2 = vec4(0, 0, 0, L * L);
-  vec4 a = vec4(form(v0, v0, level), 2. * form(v0, v1, level),
-                form(v1, v1, level) + 2. * form(v0, v2, level), 2. * form(v1, v2, level));
-  float a4 = form(v2, v2, level);
-  vec4 roots;
-  int n = quarticF(a, a4, roots);
-  float best = -1., minS = .5 * rayEpsilon(o);
-  for (int i = 0; i < 4; i++) {
-    if (i >= n)
-      break;
-    float x = L * roots[i];
-    if (isnan(x) || isinf(x))
-      continue;
-    // Share the production coordinate polish and acceptance criterion;
-    // only root construction/isolation differs between the two methods.
-    float sg = x < 0. ? -1. : 1.;
-    bool farChart = abs(x) > L;
-    vec4 a, b, c;
-    chartVectors(C, sg * d, L, farChart, a, b, c);
-    float coordinate = farChart ? L / abs(x) : abs(x) / L;
-    coordinate = refineChart(a, b, c, coordinate, level);
-    if (farChart && coordinate <= 0.)
-      continue;
-    float distance = farChart ? L / coordinate : L * coordinate;
-    float s = sg * distance - k;
-    if (s > minS && !isnan(s) && !isinf(s) &&
-        chartResidual(a, b, c, coordinate, farChart, level) < 2e-6 && (best < 0. || s < best))
-      best = s;
-  }
-  return best;
-}

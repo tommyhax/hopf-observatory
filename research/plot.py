@@ -29,6 +29,8 @@ plt.rcParams.update(
 COLORS = {
     "compactified": "#087e82",
     "ferrari": "#b85a39",
+    "yuksel_direct": "#326cb4",
+    "yuksel_charts": "#a25a91",
     "geometryRounding": "#78569a",
 }
 
@@ -136,12 +138,17 @@ bins = analysis["bins"]
 x = [r["delta"] for r in bins]
 fig, axes = plt.subplots(1, 3, figsize=(10, 3.05))
 for method, label in [
-    ("compactified", "Near/reciprocal"),
-    ("ferrari", "Ferrari baseline"),
+    ("compactified", "Bernstein, charts"),
+    ("yuksel_direct", "Yuksel–Peters, affine"),
+    ("yuksel_charts", "Yuksel–Peters, charts"),
+    ("ferrari", "Ferrari, affine"),
 ]:
     axes[0].plot(
         x,
-        [100 * r[method]["failedRays"] / r[method]["rays"] for r in bins],
+        [
+            100 * r[method]["polished"]["failedRays"] / r[method]["polished"]["rays"]
+            for r in bins
+        ],
         "-o",
         ms=4,
         color=COLORS[method],
@@ -149,7 +156,7 @@ for method, label in [
     )
     axes[1].plot(
         x,
-        [max(1e-10, r[method]["maxAllOutputError"] or 0) for r in bins],
+        [max(1e-10, r[method]["polished"]["maxAllOutputError"] or 0) for r in bins],
         "-o",
         ms=4,
         color=COLORS[method],
@@ -158,7 +165,7 @@ for method, label in [
 axes[0].set(
     ylabel="Failed rays (%)",
     ylim=(-3, 103),
-    title="(a) Solver failure rate",
+    title="(a) Failure rate after refinement",
 )
 axes[1].set(
     yscale="log",
@@ -193,7 +200,7 @@ for ax in axes:
     ax.set_xticks([1e-1, 1e-4, 1e-8, 1e-12])
     ax.grid(True, alpha=0.15)
     ax.xaxis.set_minor_formatter(NullFormatter())
-axes[0].legend(fontsize=8, loc="upper right")
+axes[0].legend(fontsize=7, loc="upper right")
 axes[2].legend(fontsize=7, loc="upper left")
 fig.tight_layout()
 save(fig, "pole-errors", True)

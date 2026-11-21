@@ -10,7 +10,7 @@ lang: en
 
 We describe an interactive GPU ray tracer for stereographic projections of rotated Hopf tori. A rank-two projector gives an implicit quartic with analytic normals. Closest-point recentering and near/reciprocal ray coordinates permit Bernstein root isolation on finite parameter intervals even when the projected surface becomes unbounded. The implementation supports three simultaneous material regions, including thin shells, with successive Euclidean reflection and refraction.
 
-An independent exact-rational reference separates solver error from float32 input-geometry rounding. The implementation passes all 867 tested rays and matches all 1,470 expected intersections at relative-distance tolerance $10^{-4}$ in both native GPU and WebGL execution. A conventional float32 Ferrari baseline fails on 381 rays under the same native comparison protocol. The corpus includes projection-pole sweeps, adjacent-float pole offsets, grazing rays and six-plane rotations; its most distant intersection is approximately $2.4\times10^9$ scene units away. These results support a practical implementation study, not a claim of new geometry or a universally robust quartic solver. Input rounding, tangencies and finite-precision transport remain limitations.
+An independent exact-rational reference separates solver error from float32 input-geometry rounding. On an 867-ray corpus, the production Bernstein solver and a Yuksel–Peters Newton-bisection baseline in both centered affine and near/reciprocal coordinates each match all 1,470 distinct positive intersections at relative-distance tolerance $10^{-4}$. All roots are collected from the unchanged original ray, before and after common surface refinement. A conventional float32 Ferrari baseline fails on 378 rays after refinement. The corpus includes projection-pole sweeps, adjacent-float pole offsets, grazing rays and six-plane rotations, with intersections approximately $2.4\times10^9$ scene units away. These results support a practical implementation study; they show no completeness advantage over the modern centered-coordinate baseline at this tolerance. Input rounding, tangencies and finite-precision transport remain limitations.
 
 ## The accompanying demonstration
 
@@ -255,7 +255,7 @@ $$
 g=W^TA_cW,\qquad g'=2(b'+2xc')^TA_cW.
 $$
 
-A correction is stopped if $g'=0$, if it leaves $[0,1]$, or if its size exceeds $0.05\max(x,10^{-6})$. Define $M=|W|^T|A_c||W|$, where absolute values are componentwise. The acceptance residual is
+A proposal is accepted only if it stays in $[0,1]$, moves by at most $0.05\max(x,10^{-6})$, and strictly decreases the computed $|g|$. Refinement stops at a computed zero, zero derivative, float stagnation or rejected proposal; nonfinite residuals cannot pass the decrease test. This guard retains the previous candidate when progress is unresolved. It does not preserve the isolator's final bracket, and a decrease in a rounded residual does not certify a smaller geometric distance error. Define $M=|W|^T|A_c||W|$, where absolute values are componentwise. The acceptance residual is
 
 $$
 \rho=\frac{|g|}{M+|g'|h},\qquad
@@ -338,9 +338,9 @@ The main path allows 8, 16, or 24 interactions according to quality. At the firs
 
 ### Regression checks and thin-shell optics
 
-All 24 JavaScript CPU tests pass. Five independent-reference tests also pass, including an exact double tangent with rational coefficients. These check projector invariants, polynomial identities, finite-difference normals, analytic ring-torus roots, tangencies, degree reduction, material membership and thin-wall origin offsets. The native offscreen GPU suite on an Apple M3 Pro passes 625 solid, 403 shell, and 133 three-torus ray cases, plus 31 focused thin-shell cases. Two same-boundary grazing root pairs below float32 resolution are explicitly counted as single contacts in that regression suite. The independent comparison below uses its own matching rule and does not import those exceptions.
+All 24 JavaScript CPU tests pass. Five independent-reference tests also pass, including an exact double tangent with rational coefficients. Five analysis tests check matching completeness, close-root assignment and failure accounting. These check projector invariants, polynomial identities, finite-difference normals, analytic ring-torus roots, tangencies, degree reduction, material membership and thin-wall origin offsets. The native offscreen GPU suite on an Apple M3 Pro passes 625 solid, 403 shell, and 133 three-torus ray cases, plus 31 focused thin-shell cases. One solid and six shell cases consolidate a same-boundary grazing root pair below the regression suite's float32 resolution threshold. Different shell boundaries are never consolidated. The independent comparison below uses its own matching rule and does not import those exceptions.
 
-Instrumenting the production transport checks hit positions, successive effective media, refractive indices, analytic normals, Snell directions, and total internal reflection. All 36 paths pass, covering 392 events. At $\Delta t=0.01^\circ$, aligned single shells at $t=1^\circ,5^\circ,25^\circ,45^\circ,65^\circ,85^\circ,89^\circ$ retain eight crossings each. Three shells retain 24 crossings, with twelve entries and twelve exits. Oblique paths and both pole-crossing boundaries are included. Some rays enter an unbounded material region and have no finite exit. Maximum measured Snell residual is $1.05\times10^{-7}$ and maximum normal-vector error is $1.08\times10^{-7}$. Thirty-one index-one, opacity-zero checks have zero measured linear-color discrepancy. Full event counts and source hashes are supplied in `docs/gpu-results.json`.
+Instrumenting the production transport checks hit positions, successive effective media, refractive indices, analytic normals, Snell directions, and total internal reflection. All 36 paths pass, covering 392 events. At $\Delta t=0.01^\circ$, aligned single shells at $t=1^\circ,5^\circ,25^\circ,45^\circ,65^\circ,85^\circ,89^\circ$ retain eight crossings each. Three shells retain 24 crossings, with twelve entries and twelve exits. Oblique paths and both pole-crossing boundaries are included. Some rays enter an unbounded material region and have no finite exit. Maximum measured Snell residual is $1.05\times10^{-7}$ and maximum normal-vector error is $9.74\times10^{-8}$. Thirty-one index-one, opacity-zero checks have zero measured linear-color discrepancy. Full event counts and source hashes are supplied in `docs/gpu-results.json`.
 
 ### Independent reference and comparison protocol
 
@@ -351,44 +351,84 @@ The independent reference expands $V(o+sd)^T(P-cI)V(o+sd)$ in exact rational ari
 
 The pole corpus contains 600 rays: $t=25^\circ,45^\circ,65^\circ$ with an XW pole crossing, plus $t=45^\circ$ with an additional spatial rotation; six axial-direction rays sample different line offsets and both directions. Each configuration uses $\delta=0$ and $\delta=\pm10^{-k}$ for $k=1,\ldots,12$. Axial directions avoid introducing direction-normalization differences into this experiment. Nineteen additional rays approach the aligned Clifford torus's outer silhouette from either side. A further 176 cases include 168 adjacent-float pole tests ($t=1^\circ,5^\circ,25^\circ,45^\circ,65^\circ,85^\circ,89^\circ$, two spatial tilts, both adjacent float32 values of $P_{44}$ around $c$, and six rays) plus eight exact chart-boundary, origin and contained-line cases. Another 72 rays use twelve seeded six-plane rotations. The full corpus has 867 rays. The exact input arrays and both reference root sets are in `research/results/reference.json`.
 
-The conventional baseline is a float32 GLSL adaptation of Schwarze's Ferrari/Cardano solver [8]. It uses the same closest-point recentering, ray scale, homogeneous-form chart polish, positive-root cutoff and residual filter as the production method. Exactly zero leading coefficients reduce the degree. The port uses a $10^{-6}$ near-zero tolerance for float32. The quadratic, cubic and quartic port is checked on known roots before any experiment. This is one conventional baseline, not a claim to represent the strongest modern quartic solver.
+The modern baseline adapts Peters's CC0 GLSL implementation [11] of Yuksel's derivative-partitioned Newton-bisection method [5]. The same solver is evaluated in two coordinate systems: the centered affine coordinate $x=\lambda/L$, with a coefficient-only Cauchy bound, and the four bounded near/reciprocal charts. Both variants construct power-basis coefficients directly from the homogeneous quadratic vectors. Exact leading-zero degree reduction, stable quadratic initialization, exact endpoint handling and a 90-iteration limit with float-stagnation stopping are shared. There is no interval-width-scaled absolute stopping tolerance that could erase tiny reciprocal roots. This is an adapted GPU baseline, not Yuksel's complete optimized C++ implementation. Source provenance and all adaptations are recorded in `research/THIRD_PARTY.md`.
 
-Both GPU implementations return successive forward intersections with the production origin offset. No finite far-distance cutoff is applied in this comparison. Matching is one-to-one, with $|s_{\mathrm{GPU}}-s_{\mathrm{ref}}|/\max(1,s_{\mathrm{ref}})\leq10^{-4}$. A ray fails if it has an unmatched reference root or an unmatched returned root. An inaccurate returned position can therefore contribute to both counts. Float32 arithmetic, coefficient construction, polishing and repeated-ray offsets are all included in the measured implementation behavior. This experiment does not isolate compactification from every other algorithmic difference.
+A conventional baseline adapts Schwarze's Ferrari/Cardano solver [8] to float32, with a $10^{-6}$ near-zero tolerance and exact leading-zero degree reduction. It solves the same centered power polynomial as the affine Yuksel–Peters variant. Eleven polynomial checks validate the Newton-bisection port and three validate the Ferrari port. Thirty-two further method/stage fixtures record original-ray collection behavior at chart junctions, at the origin, below the rendering bias, and on a contained line; numerical failures in those fixtures remain in the report.
+
+All four methods enumerate distinct positive roots of the **unchanged original ray**. There is no origin advance, positive-distance bias or finite scene far cutoff. The chart junction belongs to both adjacent intervals, because independently rounded polynomials can retain its root on only one side. Far-chart zero denotes infinity and is excluded. Identical float hit positions are consolidated; no proximity threshold merges neighboring contacts. Up to sixteen outputs are retained, so spurious candidates are not truncated to the quartic's theoretical root count. The contained-line case has no isolated roots and is classified separately by the reference.
+
+Every method reports raw results and results after the same residual-decreasing homogeneous refinement (up to four steps) and conditioned residual filter. Matching maximizes the number of one-to-one assignments satisfying $|s_{\mathrm{GPU}}-s_{\mathrm{ref}}|/\max(1,s_{\mathrm{ref}})\leq10^{-4}$, then minimizes total error among equally complete assignments. A ray fails if any reference root or output is unmatched; nonfinite outputs fail too. Algebraic multiplicities are recorded but repeated copies of the same intersection are not required. The two Yuksel variants isolate a coordinate change while holding the solver and power-basis construction fixed. Comparing them with Bernstein also changes polynomial representation and isolation details.
 
 ### Numerical results and input sensitivity
 
-| Corpus and method | Failed rays | Matched / expected roots | Unmatched outputs |
-|------------------------------|---------------:|-----------------------:|-----------------------:|
-| Pole sweep, near/reciprocal | 0 / 600 | 1,124 / 1,124 | 0 |
-| Pole sweep, Ferrari baseline | 230 / 600 | 663 / 1,124 | 0 |
-| Grazing sweep, near/reciprocal | 0 / 19 | 12 / 12 | 0 |
-| Grazing sweep, Ferrari baseline | 13 / 19 | 4 / 12 | 11 |
-| Precision cases, near/reciprocal | 0 / 176 | 290 / 290 | 0 |
-| Precision cases, Ferrari baseline | 137 / 176 | 26 / 290 | 0 |
-| Six-plane rotations, near/reciprocal | 0 / 72 | 44 / 44 | 0 |
-| Six-plane rotations, Ferrari baseline | 1 / 72 | 43 / 44 | 0 |
+The following all-roots results use native offscreen OpenGL on Apple M3 Pro. Each row covers all 867 rays and 1,470 expected roots. “Refined” includes both the shared Newton steps and residual acceptance filter.
 
-![Measured behavior versus nominal distance from the projection pole; each nonzero magnitude contains 48 rays. Left: a ray fails if any expected root is missing or any returned root is unmatched at relative tolerance $10^{-4}$. Middle: largest returned-root error relative to the nearest reference; missing roots must be read with the left panel. Right: disagreement caused by input rounding alone, and the proportion of uploaded inputs whose $\delta$ is exactly zero.](figures/pole-errors.png){#fig:errors width=100%}
+| Method | Stage | Failed rays | Matched roots | Unmatched outputs |
+|---|---|---:|---:|---:|
+| Bernstein near/reciprocal | Raw | 0 | 1,470 | 0 |
+| Bernstein near/reciprocal | Refined | 0 | 1,470 | 0 |
+| Yuksel–Peters, centered | Raw | 0 | 1,470 | 0 |
+| Yuksel–Peters, centered | Refined | 0 | 1,470 | 0 |
+| Yuksel–Peters, near/reciprocal | Raw | 0 | 1,470 | 0 |
+| Yuksel–Peters, near/reciprocal | Refined | 0 | 1,470 | 0 |
+| Ferrari, centered | Raw | 428 | 682 | 223 |
+| Ferrari, centered | Refined | 378 | 740 | 13 |
 
-The near/reciprocal implementation matches all 1,470 expected intersections across 867 rays. Its largest relative-distance errors are $1.75\times10^{-7}$ in the pole sweep, $7.56\times10^{-5}$ in the grazing sweep, $1.76\times10^{-7}$ in the precision cases, and $1.23\times10^{-5}$ in the six-plane rotation cases. The farthest reference intersection is approximately $2.3983\times10^9$ scene units. These extrema describe this corpus and tolerance, not a guaranteed reach. The Ferrari port fails on 381 rays overall, primarily by omitting roots. Its retained pole-sweep outputs have errors below $1.82\times10^{-7}$; low error among retained outputs does not establish root completeness.
+![All-roots comparison versus nominal distance from the projection pole; each nonzero magnitude contains 48 rays. Left: failed-ray percentage after common refinement, with the three iterative variants overlapping at zero. Middle: largest returned-root relative error after refinement; missing roots must be read with the left panel. Right: disagreement caused by input rounding alone, and the proportion of uploaded inputs whose $\delta$ is exactly zero.](figures/pole-errors.png){#fig:errors width=100%}
 
-Executing the production GLSL ES source through WebGL 2 / ANGLE Metal also passes all 867 rays and matches all 1,470 roots, with maximum relative-distance error $7.56\times10^{-5}$. `research/results/webgl-validation.json` records the browser, renderer and source hashes. This checks the browser compilation path independently of the native shader-version substitution, on the same GPU.
+The three iterative variants match all reference roots before and after refinement. All have maximum relative-distance error $7.56\times10^{-5}$, from the grazing corpus. In the pole sweep, refined Bernstein reaches $1.63\times10^{-7}$ and both Yuksel variants $2.45\times10^{-7}$. Such small error differences on a structured corpus do not establish superiority. The farthest reference intersection is approximately $2.3983\times10^9$ scene units. The Ferrari port's refined failures comprise 227 pole rays, 13 grazing rays and 138 precision cases; its retained outputs must be considered alongside its missing and spurious roots.
+
+Refinement is not uniformly beneficial: in the six-plane rotation subset, Bernstein's maximum error changes from $8.69\times10^{-7}$ raw to $5.84\times10^{-6}$ refined, while centered Yuksel–Peters changes from $4.12\times10^{-6}$ to $2.50\times10^{-6}$. Both remain within the matching tolerance. `research/results/pole-gpu.json` and `analysis.json` retain raw outputs, per-family errors and source hashes.
+
+This experiment demonstrates **no root-completeness advantage for the near/reciprocal formulation over the centered Yuksel–Peters baseline** at the stated tolerance. The all-roots experiment measures accuracy; the full-render comparison below measures cost. Broader independent cases, tolerance sweeps and additional GPU/compiler stacks are needed to assess accuracy–cost tradeoffs.
+
+A separate ray-continuation regression executes the production GLSL ES intersection function through WebGL 2 / ANGLE Metal. It passes all 867 rays and matches 1,470 roots at the same tolerance, with maximum relative-distance error $7.56\times10^{-5}$. Unlike the all-roots comparison, it advances the origin using the production bias. `research/results/webgl-validation.json` records its browser, renderer and source hashes. It checks the production browser compilation path on the same GPU; it is not a WebGL execution of the four-method comparison.
 
 At nominal $|\delta|\leq10^{-9}$, every tested pole-sweep input rounds to $P_{44}=c$. The remote root of the intended geometry can disappear from the uploaded polynomial. All 24 nominal exact-pole cases pass against the rounded-input reference, but this cannot recover geometric information lost before root finding. Across the pole corpus, input rounding alone changes the root set beyond the matching tolerance on 210 of 600 rays. The adjacent-float tests specifically exercise small nonzero *representable* pole offsets. The grazing cases likewise distinguish intended contact from the exact geometry represented by float32 inputs.
 
-### Rendering cost
+### Refinement ablation
+
+Four policies use the same Bernstein candidates and residual acceptance filter: no Newton correction; step-limited Newton without a decrease test; the production residual-decreasing guard; and a conservative noise-aware guard. The last requires $|g_{\mathrm{new}}|+8\epsilon M_{\mathrm{new}}<|g|-8\epsilon M$, where $\epsilon=2^{-23}$ and $M$ is the absolute quadratic-form magnitude. This error floor is a heuristic, not interval arithmetic. All four policies match all 1,470 roots. Maximum relative-distance errors in three subsets are:
+
+| Refinement policy | Pole sweep | Precision cases | Six-plane rotations |
+|---|---:|---:|---:|
+| None | $2.37\times10^{-7}$ | $2.35\times10^{-6}$ | $8.69\times10^{-7}$ |
+| Step-limited, no decrease test | $1.63\times10^{-7}$ | $1.75\times10^{-7}$ | $1.23\times10^{-5}$ |
+| Residual-decreasing (production) | $1.63\times10^{-7}$ | $1.58\times10^{-7}$ | $5.84\times10^{-6}$ |
+| Noise-aware | $2.37\times10^{-7}$ | $2.35\times10^{-6}$ | $8.69\times10^{-7}$ |
+
+The production guard reduces the worst rotation error relative to step-limited Newton while retaining the improvements in the pole and precision subsets. It still has a larger rotation maximum than no correction. The noise-aware policy returns exactly the unrefined roots throughout this corpus, foregoing the precision-subset improvements. The global maximum remains $7.56\times10^{-5}$, from grazing rays, for all policies. These results motivate a limited safeguard, not a claim of uniformly improved accuracy. `refinement-gpu.json` and `refinement-analysis.json` retain the ablation data.
+
+### Full-render solver comparison
+
+The native renderer comparison replaces only intersection and refinement functions in the production optical shader. Both Yuksel variants use the production residual-decreasing guard, residual acceptance, medium transitions, offsets and transport budgets. The bounded-chart variant also shares the Bernstein convex-hull rejection and chart traversal. The centered variant solves a single Cauchy-bounded polynomial per query. Thus timings include coefficient construction, rejection, root finding and the resulting optical paths; they are not isolated polynomial-solver throughput measurements.
+
+On Apple M3 Pro, each scene/resolution/variant has three blocks of five warmup and ten measured frames. Variant order rotates between blocks and scenes. Timing surrounds draw plus `glFinish`, excluding compilation, readback, UI and vsync. The following pooled medians use 1280 × 720 buffers and a 24-interaction cap:
+
+| Scene | Bernstein (production) | Yuksel, centered | Yuksel, charts |
+|---|---:|---:|---:|
+| One solid torus | 3.63 ms | 2.96 ms | 2.97 ms |
+| One 0.01° shell | 6.30 ms | 7.26 ms | 7.14 ms |
+| Three 0.01° shells, aligned | 21.31 ms | 34.44 ms | 24.84 ms |
+| Three 0.01° shells, XW = 45° | 48.62 ms | 77.61 ms | 54.16 ms |
+
+Yuksel is faster for the single solid in this run, but neither variant is consistently faster for the shell scenes. At 640 × 360 the centered variant is approximately 50% slower for three aligned shells and 79% slower near the pole; the chart variant is approximately 14% and 18% slower. These measurements support retaining Bernstein for the application's thin-shell workload. They do not establish general solver superiority: this is an adapted baseline, a small scene set and one GPU/compiler stack. Scheduling and thermal variation are visible between blocks, particularly at 1280 × 720. Raw samples, block medians, interquartile ranges, uniforms and source hashes are in `renderer-benchmark.json`, including the two additional refinement controls.
+
+Both complete Yuksel renderer variants pass the same native transport suite as production: 31 focused thin-shell cases, 36 refraction paths with 392 events, 31 index-one checks, 625 solid, 403 shell and 133 multi-torus cases, and eight full-fragment smoke checks. The 0.01° single-shell and three-shell paths retain their eight and 24 interfaces. Separate variant reports record normals, Snell residuals and medium transitions. The application continues to use Bernstein; the alternatives are reproducible research variants rather than user-facing settings.
+
+### Browser rendering cost
 
 Measurements use an **Apple M3 Pro** on macOS, with the in-app Chromium browser reporting **Chrome/157.0.0.0**, WebGL 2, GLSL ES 3.00, and **ANGLE Metal Renderer: Apple M3 Pro**. This is the embedded Chromium browser, not a separately tested Google Chrome application. Each configuration uses five warmup frames and 30 recorded frames. Drawing-buffer dimensions are fixed, independent of display scaling or adaptive resolution. Browser times surround a draw plus a synchronous one-pixel readback, which forces completion and adds readback overhead. They exclude shader compilation, UI work and display refresh. The complete user-agent string, uniforms and samples are saved in `research/results/webgl-benchmark.json`.
 
 | Scene, 24-interaction cap | 640 × 360 median | 1280 × 720 median |
 |---|---:|---:|
-| One solid torus | 1.70 ms | 2.90 ms |
-| Three 0.01° shells, aligned | 7.80 ms | 17.65 ms |
-| Three 0.01° shells, XW = 45° | 14.60 ms | 44.90 ms |
+| One solid torus | 3.30 ms | 5.30 ms |
+| Three 0.01° shells, aligned | 12.40 ms | 36.40 ms |
+| Three 0.01° shells, XW = 45° | 25.00 ms | 91.90 ms |
 
 ![Browser draw-and-readback timings on Apple M3 Pro. Lines show medians; shading shows the interquartile range of 30 samples. The interaction count is a maximum budget, not a claim that every pixel encounters that many interfaces. Fixed-scene timings are sensitive to scheduling and thermal state; the nonmonotonic small differences should not be treated as algorithmic speedups.](figures/performance.png){#fig:performance width=100%}
 
-An independent native offscreen run uses OpenGL 4.1 Metal 90.5 and changes only the shader version directive to GLSL 4.10. Its draw-and-`glFinish` timings omit readback and browser overhead and are retained separately in `research/results/rendering.json`. The two timing methods should not be conflated. This is a single-device study, not a portability or cross-vendor performance claim. No comparative solver-speed claim is made; the Ferrari comparison measures numerical behavior.
+An independent native offscreen run uses OpenGL 4.1 Metal 90.5 and changes only the shader version directive to GLSL 4.10. Its production draw-and-`glFinish` timings omit readback and browser overhead and are retained separately in `research/results/rendering.json`; the repeated variant comparison is in `renderer-benchmark.json`. Native and browser timings should not be conflated. This is a single-device study, not a portability or cross-vendor performance claim. Ferrari is evaluated numerically, not timed in the full renderer.
 
 ## 11. Reproducibility
 
@@ -411,7 +451,7 @@ The following sources establish that the main geometric and rendering ingredient
 
 Sources for the table: [Banchoff chapter](https://www.math.brown.edu/tbanchof/Beyond3D.new/chapter6/s6_8.html), [book publication record](https://www.math.brown.edu/tbanchof/howison/newbanchoff/oldpubs/52.php), [online preface](https://www.math.brown.edu/tbanchof/Beyond3D.new/preface.html), [3D-XplorMath gallery](https://webapps.math.uci.edu/~vmm/Surface/clifford_torus/clifford_torus.html), [McCuan and Spietz](https://arxiv.org/abs/math/9810023), [Hanrahan paper](https://www.cs.drexel.edu/~deb39/Classes/Papers/p83-hanrahan.pdf), [Seland and Dokken preprint](https://www.sintef.no/globalassets/project/heterogeneous-computing/preprints/algebraic_surface_springer.pdf), [Yuksel paper](https://www.cemyuksel.com/research/polynomials/polynomial_roots_hpg2022.pdf), and [Szente, Karikó, and Valasek author-uploaded paper](https://www.researchgate.net/publication/410684146_Robust_Ray-Surface_Intersections_for_Algebraic_Surfaces).
 
-The comparison supports a narrower engineering conclusion: for the sampled pole-crossing configurations, this near/reciprocal implementation retains more of the reference intersections than the tested Ferrari port, while still having a finite numerical reach. It does not establish priority for compactification, Bernstein evaluation, derivative-root isolation, direct-field polishing, Hopf-torus visualization, or refractive ray tracing. Comparisons with modern robust solvers, alternative compactifications and additional GPUs remain necessary before claiming a broadly superior numerical method.
+The comparison supports a narrower engineering conclusion: for the sampled configurations, both the Bernstein near/reciprocal implementation and the modern centered Newton-bisection baseline retain more reference intersections than the tested Ferrari port. The coordinate comparison does not demonstrate an advantage in completeness at the tested tolerance. It does not establish priority for compactification, Bernstein evaluation, derivative-root isolation, direct-field polishing, Hopf-torus visualization, or refractive ray tracing. The modern baseline matches the same corpus completely; comparisons on broader independent data, alternative compactifications and additional GPUs remain necessary before claiming a broadly superior numerical method.
 
 ## 13. Limitations
 
@@ -435,6 +475,7 @@ Tom Crosby supplied the geometric motivation, directed the project and evaluated
 8. Jochen Schwarze. “Cubic and Quartic Roots.” In *Graphics Gems*, edited by Andrew S. Glassner, Academic Press, 1990, pp. 404–407. [Maintained source repository](https://github.com/erich666/GraphicsGems/blob/master/gems/Roots3And4.c).
 9. Aaron Meurer et al. “SymPy: symbolic computing in Python.” *PeerJ Computer Science* 3:e103, 2017. [DOI: 10.7717/peerj-cs.103](https://doi.org/10.7717/peerj-cs.103). The experiments use SymPy 1.14.0 and its exact-rational real-root isolation.
 10. Thomas Bendokat, Ralf Zimmermann, and P.-A. Absil. “A Grassmann manifold handbook: basic geometry and computational aspects.” *Advances in Computational Mathematics* 50, Article 6, 2024. [DOI: 10.1007/s10444-023-10090-8](https://doi.org/10.1007/s10444-023-10090-8). [Author preprint](https://arxiv.org/abs/2011.13699), Section 2.
+11. Christoph Peters. “Finding Real Polynomial Roots on GPUs.” *Moments in Graphics*, 31 October 2023. [Author's implementation and discussion](https://momentsingraphics.de/GPUPolynomialRoots.html). The accompanying GLSL code is dedicated under CC0 1.0.
 
 ## Implementation map
 

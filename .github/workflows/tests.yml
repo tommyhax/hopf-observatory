@@ -29,10 +29,16 @@ jobs:
       - run: npm test
       - run: python -m pip install -r research/requirements.txt
       - run: python research/test_reference.py
+      - run: python research/test_analysis.py
       - name: Check independent reference reproducibility
         run: |
           python research/reference.py
           git diff --exit-code -- research/results/reference.json
+      - name: Check recorded comparison consistency
+        run: |
+          python research/analyze.py
+          python research/analyze.py --input research/results/refinement-gpu.json --output research/results/refinement-analysis.json
+          git diff --exit-code -- research/results/analysis.json research/results/refinement-analysis.json
       - run: npm run build:site
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser

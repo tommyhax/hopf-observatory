@@ -12,10 +12,11 @@ python3 -m venv .venv
 npm ci
 npm test
 .venv/bin/python research/test_reference.py
+.venv/bin/python research/test_analysis.py
 npm run test:gpu
 ```
 
-There are 24 application tests and five independent-reference tests. Reference tests cover analytic axis roots, a rational double tangent, degree reduction, a contained line and input rounding. The native regression suite checks 625 solid, 403 shell, 133 multi-torus and 31 focused thin-shell rays, 36 production refraction paths, 31 index-one invisibility cases and eight complete-fragment smoke cases.
+There are 24 application tests, five independent-reference tests and five analysis-matching tests. Reference tests cover analytic axis roots, a rational double tangent, degree reduction, a contained line and input rounding. The native regression suite checks 625 solid, 403 shell, 133 multi-torus and 31 focused thin-shell rays, 36 production refraction paths, 31 index-one invisibility cases and eight complete-fragment smoke cases.
 
 [GPU validation](../docs/GPU_VALIDATION.md) describes the regression tolerances and thin-shell results. Its CPU reference shares production solver structure. The independent study below does not.
 
@@ -36,11 +37,56 @@ The 867-ray corpus contains:
 - 176 precision cases: 168 adjacent-float pole offsets spanning seven torus parameters, plus eight exact chart-junction, origin and contained-line cases.
 - 72 rays through twelve seeded six-plane rotations.
 
-`reference.json` stores inputs, brackets and roots. `run-experiment.mjs` queries successive intersections for the production near/reciprocal solver and a conventional Ferrari baseline, with the same origin offsets. `pole-gpu.json` stores outputs, hashes and baseline sanity checks. [THIRD_PARTY.md](THIRD_PARTY.md) records attribution, numerical choices and permission.
+`reference.json` stores inputs, brackets and distinct positive roots with multiplicities. `run-experiment.mjs` collects **all roots of the unchanged original ray**, without moving its origin, applying a near bias or imposing a finite far clip. `all-roots.glsl` adapts the production Bernstein helpers to enumeration; it does not modify the application shader. Four float render targets retain up to sixteen candidates, so false roots are not silently truncated to four.
 
-`analyze.py` matches roots one-to-one at relative-distance tolerance 1e−4, with max(1, reference distance) as denominator and the production positive-root cutoff. There is no far-distance cutoff or same-boundary consolidation. A ray fails if any reference root is missing or any output is unmatched. An inaccurate position can contribute to both counts. `analysis.json` retains per-ray classifications and errors for every output relative to its nearest reference.
+The methods share closest-point recentering and ray scale:
 
-The production solver passes all 867 rays, matching 1,470 roots with maximum relative-distance error 7.56e−5. Its maximum pole-sweep error is 1.75e−7. The farthest reference hit is about 2.4 billion scene units. The Ferrari baseline fails on 381 rays, including 230 of 600 pole rays. Input rounding alone changes 210 pole-sweep root sets; all sampled nominal |δ| ≤ 1e−9 round onto the pole. These finite tests establish neither universal completeness nor superiority to every modern solver.
+| Method | Polynomial representation and domain |
+|---|---|
+| Bernstein near/reciprocal | Production Bernstein construction and isolation on four bounded charts |
+| Yuksel–Peters, centered | Power coefficients in the centered affine ray coordinate; coefficient-only Cauchy bound |
+| Yuksel–Peters, near/reciprocal | The same Newton-bisection implementation and power-coefficient construction on four bounded charts |
+| Ferrari, centered | Conventional float32 analytic solver on the same centered power polynomial |
+
+Every method reports raw roots and a second result after common residual-decreasing homogeneous refinement (up to four steps) and the production residual filter. Both chart intervals include their common junction; far-chart zero denotes infinity and is excluded. Only identical float hit positions are consolidated. This retains a junction root even when independently rounded chart polynomials detect it on only one side. There is no proximity-based consolidation of grazing roots. An identically zero polynomial is a contained line, recorded separately by the reference, with no isolated roots to enumerate.
+
+`pole-gpu.json` stores outputs, hardware, source hashes, eleven Yuksel polynomial sanity checks, three Ferrari polynomial checks and 32 original-ray collection checks. Fixtures include degree loss, multiple roots, closed endpoints, separated scales, chart junctions, origin exclusion, contained lines and a positive hit below the rendering bias. All fourteen polynomial checks and all 24 iterative-method collector fixtures pass. The raw Ferrari baseline fails two collector fixtures near the origin; both failures remain recorded, and its refined outputs pass those fixtures. [THIRD_PARTY.md](THIRD_PARTY.md) documents the ports and licences.
+
+`analyze.py` uses maximum-cardinality one-to-one matching, minimizing total error among assignments with the same cardinality. The tolerance is 1e−4 with `max(1, reference distance)` as denominator. A ray fails if any reference root is missing or any returned root is unmatched; nonfinite outputs also fail. Matching counts distinct positions, not algebraic multiplicity. The analyzer rejects stale source hashes. `analysis.json` retains per-ray classifications and raw/refined error summaries.
+
+On Apple M3 Pro, all three modern variants match all **1,470 roots across 867 rays**, both before and after common refinement. Their largest relative-distance error is 7.56e−5, from the grazing corpus. The Ferrari port fails on 428 rays before refinement and 378 after it (682 and 740 matched roots, respectively; 223 and 13 unmatched outputs). The farthest reference hit is about 2.4 billion scene units. Input rounding alone changes 210 pole-sweep root sets; all sampled nominal |δ| ≤ 1e−9 round onto the pole.
+
+**This corpus demonstrates no root-completeness advantage over the centered Yuksel–Peters baseline at the stated tolerance.** This experiment measures numerical behavior; the full-render experiment below measures cost. The two Yuksel variants hold the solver fixed while changing coordinates. Comparing Bernstein with either power-basis method also changes representation and isolation details, so that difference is not attributed to coordinates alone. Surface refinement can improve or worsen individual errors; both stages are retained.
+
+## Refinement and full-render comparisons
+
+```sh
+node research/run-refinement.mjs
+.venv/bin/python research/analyze.py --input research/results/refinement-gpu.json --output research/results/refinement-analysis.json
+node scripts/run-gpu-checks.mjs --variant=bernstein-guarded
+node scripts/run-gpu-checks.mjs --variant=yuksel-direct
+node scripts/run-gpu-checks.mjs --variant=yuksel-charts
+node research/benchmark-renderers.mjs
+```
+
+`renderer-variants.mjs` replaces complete shader functions while preserving optical transport. It fails if a named function is missing. Variant names identify the following controlled choices:
+
+| Identifier | Refinement / intersection |
+|---|---|
+| `production`, `bernstein-decreasing` | Production Bernstein with strict residual decrease |
+| `bernstein-raw` | Bernstein without Newton correction; residual filter retained |
+| `bernstein-unguarded` | Step-limited Newton without residual-decrease acceptance |
+| `bernstein-guarded` | Noise-aware guard requiring residual improvement beyond an `8 * 2^-23 * M` heuristic floor |
+| `yuksel-direct` | Centered affine Yuksel–Peters; production refinement and optics |
+| `yuksel-charts` | Near/reciprocal Yuksel–Peters; production hull rejection, refinement and optics |
+
+The refinement experiment enumerates all original-ray roots for the four Bernstein policies, with common residual filtering. Its single `polished` stage denotes that filter even for the no-correction control. All policies match all 1,470 roots. Strict residual decrease reduces the rotation-subset maximum from 1.23e−5 for unguarded Newton to 5.84e−6, while the unrefined maximum is 8.69e−7. The noise-aware guard returns exactly the unrefined roots on this corpus and forgoes the precision-subset improvement from 2.35e−6 to 1.58e−7. Residual decrease is not a certificate of distance improvement or bracket preservation.
+
+The full-render benchmark measures five variants (all except `bernstein-raw`) in four fixed scenes at 640×360 and 1280×720, with a 24-interaction cap. Each configuration has three blocks of five warmup and ten measured frames, rotating variant order. Avoid other GPU workloads while timing. Native draw plus `glFinish` wall times exclude compilation, readback, UI and vsync. `renderer-benchmark.json` records raw samples, uniforms, pooled medians, interquartile ranges, block medians and source/shader hashes. This measures the complete optical renderer, including rejection and coefficient construction, rather than isolated root-solver throughput.
+
+On the recorded M3 Pro run, Yuksel is faster for a single solid torus but slower for three thin shells. At 1280×720 near the pole, pooled medians are 48.62 ms for production Bernstein, 77.61 ms for centered Yuksel and 54.16 ms for chart Yuksel. Between-block variation is retained, and small differences should not be overinterpreted. These native results do not establish browser or cross-device speedups; the app retains Bernstein.
+
+All three additional transport variants pass the full native regression suite, including the 0.01° paths with eight single-shell or 24 three-shell interfaces. `transport-*.json` records each variant's source and compiled shader hashes. `docs/gpu-results.json` is the production report. The same two Yuksel shader hashes occur in the transport and timing reports, linking correctness checks to measured variants.
 
 ## Browser verification and timing
 
@@ -50,7 +96,7 @@ Serve the **project root**, rather than only `web`:
 python3 -m http.server 8770 --bind 127.0.0.1
 ```
 
-Open <http://127.0.0.1:8770/research/verify.html>. It runs the production GLSL ES intersection function against all 867 independent cases, with the same matching rule. **Save JSON** writes the report; store it as `research/results/webgl-validation.json`. The recorded WebGL run matches all 1,470 roots. Check source hashes when comparing runs, and use a fresh server origin or clear the browser cache after source edits.
+Open <http://127.0.0.1:8770/research/verify.html>. It checks successive production intersections against all 867 independent cases. This is a separate ray-continuation regression: it advances the origin using the rendering bias and applies the matching tolerance 1e−4. It is not the all-roots coordinate comparison above. **Save JSON** writes the report; store it as `research/results/webgl-validation.json`. The recorded WebGL run matches all 1,470 roots. Check source hashes when comparing runs, and use a fresh server origin or clear the browser cache after source edits.
 
 Open <http://127.0.0.1:8770/research/benchmark.html>, click **Run benchmark**, keep the tab foregrounded until completion, and **Save JSON** to `research/results/webgl-benchmark.json`. Avoid other GPU workloads while timing. Rerun `plot.py` and update the manuscript timing table when replacing measurements.
 
@@ -80,7 +126,7 @@ JavaScript, HTML and CSS use pinned Prettier 3.6.2: `npm run format:check` and `
 
 ```sh
 black research/*.py scripts/*.py
-clang-format -i tests/native-gpu.m research/native-render.m research/ferrari.glsl
+clang-format -i tests/native-gpu.m research/native-render.m research/*.glsl
 python3 scripts/format-glsl.py
 ```
 

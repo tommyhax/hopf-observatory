@@ -1,12 +1,17 @@
 {
+  "variant": "production",
+  "shaderHashes": {
+    "vertex": "276eaeea6c20db9f3703a32a6424e9216f26b1d79f4f9338cccbc1a561f66449",
+    "fragment": "3a70927462b5ad47092c5a3e73cfa5a668b6b83043be4d7a05427d8bc6fa8d32"
+  },
   "sourceHashes": {
-    "web/shader.js": "a0044082576623559b039f9cba76f3b44d67f969190068b6623e7f3cde577a80",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
     "web/math.js": "188900d29bc884af32ba8e4641a093e02d3755e4a4a8ebc1a7d1319af2aabd05",
     "web/scene.js": "6c4ca7b4f3fc35a44e695545927309b5159d562d435b6c59e86afd57e2f8ae3e",
-    "scripts/run-gpu-checks.mjs": "24b463faa26fc867fac6f45409700464e99d4898174744fddaa36429719ba1c7",
+    "scripts/run-gpu-checks.mjs": "80e8635d0724edc8d02024b5ffd9fcc6aa97246c4b13b4fefe2b423e2f49296b",
     "tests/native-gpu.m": "7f15b91fe72b8b1d0937d018a1c98f5adae174b238ddd1752c2985b612dc6659"
   },
-  "date": "2026-11-21T02:21:44.864Z",
+  "date": "2026-11-21T03:43:50.805Z",
   "execution": "Native macOS offscreen OpenGL; same GLSL bodies with #version 410 core replacing #version 300 es. Browser integration is not tested.",
   "suite": "all",
   "hardware": {
@@ -31,7 +36,7 @@
       "exits": 181,
       "totalInternalReflections": 24,
       "maxSnellResidual": 1.0405725225925977e-7,
-      "maxNormalError": 1.0707002611437431e-7,
+      "maxNormalError": 9.738337858364547e-8,
       "failures": [],
       "paths": [
         {
@@ -353,7 +358,7 @@
       "passed": 403,
       "total": 403,
       "hitCount": 1305,
-      "maxRelativeError": 6.490323166644366e-7,
+      "maxRelativeError": 6.63854420931577e-7,
       "unresolvedTangencies": [
         {
           "name": "Pole t=85, width=0.01, XW=4.9950000000000045, ray=0",
@@ -422,7 +427,7 @@
       "passed": 133,
       "total": 133,
       "hitCount": 467,
-      "maxRelativeError": 0.0000012628380061663336,
+      "maxRelativeError": 7.860008479632086e-7,
       "unresolvedTangencies": [],
       "failures": []
     },

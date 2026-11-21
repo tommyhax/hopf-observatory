@@ -1,0 +1,447 @@
+{
+  "variant": "bernstein-guarded",
+  "shaderHashes": {
+    "vertex": "276eaeea6c20db9f3703a32a6424e9216f26b1d79f4f9338cccbc1a561f66449",
+    "fragment": "b188290f3fad2275b4ca2af6a3b882e52336cfe5d2561e6ef93af38983f66022"
+  },
+  "sourceHashes": {
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "web/math.js": "188900d29bc884af32ba8e4641a093e02d3755e4a4a8ebc1a7d1319af2aabd05",
+    "web/scene.js": "6c4ca7b4f3fc35a44e695545927309b5159d562d435b6c59e86afd57e2f8ae3e",
+    "scripts/run-gpu-checks.mjs": "80e8635d0724edc8d02024b5ffd9fcc6aa97246c4b13b4fefe2b423e2f49296b",
+    "tests/native-gpu.m": "7f15b91fe72b8b1d0937d018a1c98f5adae174b238ddd1752c2985b612dc6659",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "research/unguarded-refinement.glsl": "1c2762ad9fe6652d7b60167092c5fb0b4ba95c852f3a3ad8d4839a63bbcdea4f",
+    "research/guarded-refinement.glsl": "5b8d5807ebb970ac20dba374b8e25a653167aec16ded130690e465c5da9db067",
+    "research/yuksel-renderer.glsl": "24894faec2d23830151ed729b4bdc4668b36ea0635330aecfa0f4c8963ccdcc7",
+    "research/yuksel.glsl": "72916647c5d9b97135985d05a9fd22425279970ea2955376d63c4e94ab64bb4e",
+    "research/comparison-shader.mjs": "5e2a59a4f5737283ceb39fd983b69ab36a1c5082b031201a12c56069a4c98ae8"
+  },
+  "date": "2026-11-21T03:44:06.184Z",
+  "execution": "Native macOS offscreen OpenGL; same GLSL bodies with #version 410 core replacing #version 300 es. Browser integration is not tested.",
+  "suite": "all",
+  "hardware": {
+    "renderer": "Apple M3 Pro",
+    "vendor": "Apple",
+    "ready": true,
+    "version": "4.1 Metal - 90.5"
+  },
+  "results": {
+    "thinCrossings": {
+      "passed": 31,
+      "total": 31,
+      "hitCount": 296,
+      "maxRelativeError": 0.00002595634722091886,
+      "failures": []
+    },
+    "refraction": {
+      "passed": 36,
+      "total": 36,
+      "interfaces": 392,
+      "entries": 187,
+      "exits": 181,
+      "totalInternalReflections": 24,
+      "maxSnellResidual": 8.920691518810031e-8,
+      "maxNormalError": 9.70696458585991e-8,
+      "failures": [],
+      "paths": [
+        {
+          "name": "axis t=1, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=5, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=25, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=45, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=65, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=85, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=89, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three shells, width=0.01",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "oblique 0.01 shell, XW=0, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=0, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=22, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=22, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=44.99, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=44.99, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=45.01, y=0.15",
+          "count": 6,
+          "entries": 3,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=45.01, y=0.55",
+          "count": 2,
+          "entries": 1,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=70, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=70, y=0.55",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=-0.005",
+          "count": 3,
+          "entries": 2,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=0",
+          "count": 3,
+          "entries": 2,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=0.005",
+          "count": 2,
+          "entries": 1,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=-0.005",
+          "count": 7,
+          "entries": 4,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=0",
+          "count": 7,
+          "entries": 4,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=0.005",
+          "count": 6,
+          "entries": 3,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=-0.005",
+          "count": 5,
+          "entries": 3,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=0",
+          "count": 5,
+          "entries": 3,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=0.005",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=0",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=24.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=25.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=44.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=45.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=64.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=65.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=80",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "TIR inside a 0.01-degree shell",
+          "count": 24,
+          "entries": 0,
+          "exits": 0,
+          "tir": 24,
+          "budgetReached": true
+        }
+      ]
+    },
+    "invisibility": {
+      "passed": 31,
+      "total": 31,
+      "maxError": 0,
+      "failures": []
+    },
+    "solidSuite": {
+      "passed": 625,
+      "total": 625,
+      "hitCount": 496,
+      "maxRelativeError": 9.523248341025692e-7,
+      "unresolvedTangencies": [
+        {
+          "name": "Pole neighborhood t=85 offset=0 ray=0",
+          "pairs": [
+            {
+              "first": 5.008991425607342,
+              "second": 5.008992005568928,
+              "resolution": 0.000004776947026795318
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "shellSuite": {
+      "passed": 403,
+      "total": 403,
+      "hitCount": 1305,
+      "maxRelativeError": 6.63854420931577e-7,
+      "unresolvedTangencies": [
+        {
+          "name": "Pole t=85, width=0.01, XW=4.9950000000000045, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991424038541,
+              "second": 5.008992005623281,
+              "resolution": 0.000004776947026847153
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.01, XW=5.0049999999999955, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991427166151,
+              "second": 5.008992005514639,
+              "resolution": 0.000004776947026743544
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.05, XW=4.974999999999994, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991417661529,
+              "second": 5.008992005841337,
+              "resolution": 0.000004776947027055108
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.05, XW=5.025000000000006, ray=0",
+          "pairs": [
+            {
+              "first": 5.0089914333035495,
+              "second": 5.008992005298117,
+              "resolution": 0.000004776947026537053
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.5, XW=4.75, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991332571436,
+              "second": 5.008992008367374,
+              "resolution": 0.000004776947029464124
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.5, XW=5.25, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991493038195,
+              "second": 5.008992002930484,
+              "resolution": 0.000004776947024279103
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "sceneSuite": {
+      "passed": 133,
+      "total": 133,
+      "hitCount": 467,
+      "maxRelativeError": 7.860008479632086e-7,
+      "unresolvedTangencies": [],
+      "failures": []
+    },
+    "renderSmoke": {
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    }
+  },
+  "passed": true
+}

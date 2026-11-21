@@ -11,4 +11,4 @@
 
 The note presents an implementation and reproducible numerical study. It claims no new Hopf geometry or universally robust polynomial solver. The assistance statement records Codex's contribution as an AI tool; Tom Crosby is responsible for the conclusions.
 
-The article uses a standard single-column LaTeX format. A journal-specific edition should use the chosen venue's current template and author guidance. Additional GPU/browser stacks and a modern robust-solver comparison would broaden the experimental evidence.
+The article uses a standard single-column LaTeX format. A journal-specific edition should use the chosen venue's current template and author guidance. The experiments include an all-roots Yuksel–Peters comparison in centered and near/reciprocal coordinates, refinement ablation, and repeated full-render timings with transport checks. Broader independent cases and additional GPU/browser stacks would strengthen the experimental evidence.

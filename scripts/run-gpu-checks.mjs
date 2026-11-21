@@ -9,7 +9,8 @@ import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { vertex, fragment } from '../web/shader.js';
+import { vertex, fragment as baseFragment } from '../web/shader.js';
+import { rendererVariant, variantFiles } from '../research/renderer-variants.mjs';
 import { projector, intersect, gradient, dot, shellLevels } from '../web/math.js';
 import {
   scenePreset,
@@ -21,7 +22,16 @@ import {
 } from '../web/scene.js';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..'),
   rad = Math.PI / 180;
-const output = process.env.HOPF_GPU_REPORT || join(root, 'docs/gpu-results.json');
+const variant = process.argv.find((x) => x.startsWith('--variant='))?.split('=')[1] || 'production';
+const fragment = await rendererVariant(baseFragment, variant);
+const output =
+  process.env.HOPF_GPU_REPORT ||
+  join(
+    root,
+    variant === 'production'
+      ? 'docs/gpu-results.json'
+      : 'research/results/transport-' + variant + '.json',
+  );
 const selected = process.argv.find((x) => x.startsWith('--suite='))?.split('=')[1] || 'all';
 if (process.platform !== 'darwin')
   throw Error(
@@ -184,6 +194,7 @@ const sourceHashes = Object.fromEntries(
       'web/scene.js',
       'scripts/run-gpu-checks.mjs',
       'tests/native-gpu.m',
+      ...(variant === 'production' ? [] : variantFiles),
     ].map(async (file) => [
       file,
       createHash('sha256')
@@ -193,6 +204,11 @@ const sourceHashes = Object.fromEntries(
   ),
 );
 const report = {
+  variant,
+  shaderHashes: {
+    vertex: createHash('sha256').update(vertex).digest('hex'),
+    fragment: createHash('sha256').update(fragment).digest('hex'),
+  },
   sourceHashes,
   date: new Date().toISOString(),
   execution:
@@ -725,7 +741,7 @@ try {
     else renderSmoke.failures.push({ environment: i, pixel });
   }
   report.results.renderSmoke = renderSmoke;
-  console.log(`Unmodified production fragment shader: ${renderSmoke.passed}/${renderSmoke.total}`);
+  console.log(`Complete renderer fragment shader: ${renderSmoke.passed}/${renderSmoke.total}`);
   report.passed = Object.values(report.results).every((s) => s.passed === s.total);
   await writeFile(output, JSON.stringify(report, null, 2) + '\n');
   console.log(`Report: ${output}`);

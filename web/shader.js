@@ -189,15 +189,22 @@ Poly chartPoly(vec4 a, vec4 b, vec4 c, float level) {
                    form(middle, end, level)),
               form(end, end, level));
 }
+// Keep the isolated root unless a finite, step-limited Newton proposal reduces
+// the computed homogeneous residual. This guards against drift; float32
+// residual decrease is not a certificate of smaller geometric distance error.
 float refineChart(vec4 a, vec4 b, vec4 c, float x, float level) {
   mat4 A = uP - mat4(level);
   for (int i = 0; i < 4; i++) {
     vec4 w = a + x * (b + x * c), aw = A * w;
     float f = dot(w, aw), df = 2. * dot(b + 2. * x * c, aw);
-    if (df == 0.)
+    if (f == 0. || df == 0.)
       break;
     float next = x - f / df;
-    if (next < 0. || next > 1. || abs(next - x) > .05 * max(x, 1e-6))
+    if (next < 0. || next > 1. || next == x || abs(next - x) > .05 * max(x, 1e-6))
+      break;
+    vec4 nextW = a + next * (b + next * c);
+    float nextF = dot(nextW, A * nextW);
+    if (!(abs(nextF) < abs(f)))
       break;
     x = next;
   }
