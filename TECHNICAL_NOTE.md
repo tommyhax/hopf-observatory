@@ -103,6 +103,21 @@ The rotated torus is characterized by $q^TPq=c$ on $S^3$. The matrix $P$ is a sy
 
 The implementation constructs $R$ by successively left-multiplying rotations in the six coordinate planes. Changing their order generally changes the result. Every supported rotation still uses the same projector and intersection formulas.
 
+The six rotation parameters do not give six independent geometric degrees of freedom for the torus. For $H=\operatorname{diag}(H_1,H_2)$ with $H_1,H_2\in SO(2)$,
+
+$$
+HP_0H^T=P_0,\qquad (RH)P_0(RH)^T=RP_0R^T.
+$$
+
+These two rotations shift the circle phases $a,b$ without changing the surface. The full stabilizer of $P_0$ within $SO(4)$ is $S(O(2)\times O(2))$, the block-diagonal orthogonal matrices with total determinant one; its identity component is $SO(2)\times SO(2)$. Thus the projectors form the unoriented Grassmannian of two-planes in $\mathbb R^4$,
+
+$$
+\operatorname{Gr}_2(\mathbb R^4)\cong SO(4)/S(O(2)\times O(2)),\qquad
+\dim\operatorname{Gr}_2(\mathbb R^4)=6-2=4.
+$$
+
+This is the standard projector/quotient description of the Grassmannian [10]. At fixed $t$, the torus therefore has four continuous rotational degrees of freedom; allowing $t$ to vary adds one. At $t=\pi/4$, $P$ and $I-P$ additionally describe the same boundary, a discrete identification that leaves the dimension unchanged but reverses the field sign used to select a solid's material side. The six sliders provide a convenient redundant description of $R$; the redundancy need not correspond to two individual sliders in an ordered product of fixed-plane rotations.
+
 Substitute $q=Q(p)$ and multiply by the strictly positive $D^2$:
 
 $$
@@ -419,6 +434,7 @@ Tom Crosby supplied the geometric motivation, directed the project and evaluated
 7. 3D-XplorMath / Virtual Math Museum. [“Clifford Torus” gallery](https://webapps.math.uci.edu/~vmm/Surface/clifford_torus/clifford_torus.html). Undated web demonstration; consulted November 2026.
 8. Jochen Schwarze. “Cubic and Quartic Roots.” In *Graphics Gems*, edited by Andrew S. Glassner, Academic Press, 1990, pp. 404–407. [Maintained source repository](https://github.com/erich666/GraphicsGems/blob/master/gems/Roots3And4.c).
 9. Aaron Meurer et al. “SymPy: symbolic computing in Python.” *PeerJ Computer Science* 3:e103, 2017. [DOI: 10.7717/peerj-cs.103](https://doi.org/10.7717/peerj-cs.103). The experiments use SymPy 1.14.0 and its exact-rational real-root isolation.
+10. Thomas Bendokat, Ralf Zimmermann, and P.-A. Absil. “A Grassmann manifold handbook: basic geometry and computational aspects.” *Advances in Computational Mathematics* 50, Article 6, 2024. [DOI: 10.1007/s10444-023-10090-8](https://doi.org/10.1007/s10444-023-10090-8). [Author preprint](https://arxiv.org/abs/2011.13699), Section 2.
 
 ## Implementation map
 

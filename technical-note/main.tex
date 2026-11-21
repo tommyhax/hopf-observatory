@@ -251,6 +251,36 @@ rotations in the six coordinate planes. Changing their order generally
 changes the result. Every supported rotation still uses the same
 projector and intersection formulas.
 
+The six rotation parameters do not give six independent geometric
+degrees of freedom for the torus. For \(H=\operatorname{diag}(H_1,H_2)\)
+with \(H_1,H_2\in SO(2)\),
+
+\[
+HP_0H^T=P_0,\qquad (RH)P_0(RH)^T=RP_0R^T.
+\]
+
+These two rotations shift the circle phases \(a,b\) without changing the
+surface. The full stabilizer of \(P_0\) within \(SO(4)\) is
+\(S(O(2)\times O(2))\), the block-diagonal orthogonal matrices with
+total determinant one; its identity component is \(SO(2)\times SO(2)\).
+Thus the projectors form the unoriented Grassmannian of two-planes in
+\(\mathbb R^4\),
+
+\[
+\operatorname{Gr}_2(\mathbb R^4)\cong SO(4)/S(O(2)\times O(2)),\qquad
+\dim\operatorname{Gr}_2(\mathbb R^4)=6-2=4.
+\]
+
+This is the standard projector/quotient description of the Grassmannian
+{[}10{]}. At fixed \(t\), the torus therefore has four continuous
+rotational degrees of freedom; allowing \(t\) to vary adds one. At
+\(t=\pi/4\), \(P\) and \(I-P\) additionally describe the same boundary,
+a discrete identification that leaves the dimension unchanged but
+reverses the field sign used to select a solid's material side. The six
+sliders provide a convenient redundant description of \(R\); the
+redundancy need not correspond to two individual sliders in an ordered
+product of fixed-plane rotations.
+
 Substitute \(q=Q(p)\) and multiply by the strictly positive \(D^2\):
 
 \[
@@ -1072,6 +1102,13 @@ outputs of the supplied code and data, not AI-generated illustrations.
   \href{https://doi.org/10.7717/peerj-cs.103}{DOI:
   10.7717/peerj-cs.103}. The experiments use SymPy 1.14.0 and its
   exact-rational real-root isolation.
+\item
+  Thomas Bendokat, Ralf Zimmermann, and P.-A. Absil. ``A Grassmann
+  manifold handbook: basic geometry and computational aspects.''
+  \emph{Advances in Computational Mathematics} 50, Article 6, 2024.
+  \href{https://doi.org/10.1007/s10444-023-10090-8}{DOI:
+  10.1007/s10444-023-10090-8}.
+  \href{https://arxiv.org/abs/2011.13699}{Author preprint}, Section 2.
 \end{enumerate}
 
 \section*{Implementation map}\label{implementation-map}
