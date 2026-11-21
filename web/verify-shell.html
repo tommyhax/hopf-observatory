@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="UTF-8" /><title>Hopf shell verification</title>
+  <style>
+    body {
+      background: #101c25;
+      color: #cee4e6;
+      font: 16px/1.6 system-ui;
+      margin: 40px;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+    a {
+      color: #a7dacd;
+    }
+  </style>
+  <h1>GPU shell verification</h1>
+  <p>
+    Both quartic boundaries, outward normals, medium classification, and index-one transparency.
+  </p>
+  <pre id="result">Running…</pre>
+  <a href="./">Return to the observatory</a>
+  <script type="module">
+    import { vertex, fragment } from './shader.js';
+    import { projector, shellLevels, shellIntersections, dot } from './math.js';
+    const result = document.getElementById('result');
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = 1;
+      const gl = canvas.getContext('webgl2');
+      if (!gl || !gl.getExtension('EXT_color_buffer_float'))
+        throw new Error('Float framebuffer unavailable');
+      const compile = (type, src) => {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+        return s;
+      };
+      const program = (body) => {
+        const p = gl.createProgram();
+        gl.attachShader(p, compile(gl.VERTEX_SHADER, vertex));
+        gl.attachShader(
+          p,
+          compile(
+            gl.FRAGMENT_SHADER,
+            fragment.slice(0, fragment.lastIndexOf('void main()')) + body,
+          ),
+        );
+        gl.linkProgram(p);
+        if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+        return p;
+      };
+      const hit = program(
+        'void main(){float level,sign;float s=boundaryHit(uEye,normalize(uForward),level,sign);outColor=vec4(s,level,sign,inMaterial(uEye)?1.:0.);}',
+      );
+      const optical = program(
+        'void main(){vec3 d=normalize(uForward);outColor=vec4(abs(trace(uEye,d)-environment(d)),1.);}',
+      );
+      const texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, 1, 1, 0, gl.RGBA, gl.FLOAT, null);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      const fb = gl.createFramebuffer();
+      gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+      if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE)
+        throw new Error('Incomplete framebuffer');
+      gl.viewport(0, 0, 1, 1);
+      const envTexture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, envTexture);
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        1,
+        1,
+        0,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        new Uint8Array([128, 128, 128, 255]),
+      );
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      const uniforms = (p) =>
+        Object.fromEntries(
+          [
+            'uP',
+            'uC',
+            'uShell',
+            'uShellLow',
+            'uShellHigh',
+            'uRayBias',
+            'uEye',
+            'uForward',
+            'uOpacity',
+            'uIOR',
+            'uBounces',
+            'uMode',
+            'uEnvironment',
+          ].map((k) => [k, gl.getUniformLocation(p, k)]),
+        );
+      const U = uniforms(hit),
+        OU = uniforms(optical);
+      const configure = (p, u, test) => {
+        gl.useProgram(p);
+        gl.uniformMatrix4fv(u.uP, false, new Float32Array(test.P.flat()));
+        gl.uniform1f(u.uC, 0.5);
+        gl.uniform1i(u.uShell, 1);
+        gl.uniform1f(u.uShellLow, test.low);
+        gl.uniform1f(u.uShellHigh, test.high);
+        gl.uniform1f(u.uRayBias, test.bias);
+        gl.uniform3fv(u.uEye, test.o);
+        gl.uniform3fv(u.uForward, test.d);
+      };
+      const draw = () => {
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        const out = new Float32Array(4);
+        gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.FLOAT, out);
+        return [...out];
+      };
+      const cases = [];
+      const add = (name, t, width, angles, o, d) => {
+        const b = shellLevels(t, width);
+        cases.push({
+          name,
+          P: projector(angles.map((x) => (x * Math.PI) / 180)).map((r) => r.map(Math.fround)),
+          low: Math.fround(b.cLow),
+          high: Math.fround(b.cHigh),
+          bias: Math.max(1e-6, Math.min(4e-4, (0.05 * b.width * Math.PI) / 180)),
+          o: o.map(Math.fround),
+          d: d.map(Math.fround),
+        });
+      };
+      add('Eight successive crossings', 45, 6, [0, 0, 0, 0, 0, 0], [-4, 0, 0], [1, 0, 0]);
+      add(
+        'Origin in shell material',
+        45,
+        6,
+        [0, 0, 0, 0, 0, 0],
+        [Math.SQRT2 + 1, 0, 0],
+        [-1, 0, 0],
+      );
+      add('Origin in air cavity', 45, 6, [0, 0, 0, 0, 0, 0], [Math.SQRT2, 0, 0], [1, 0, 0]);
+      for (const t of [5, 45, 85])
+        for (const width of [0.01, 0.05, 0.5, 6]) {
+          const b = shellLevels(t, width);
+          for (const angle of [
+            90 - b.upperT - 0.01,
+            90 - b.upperT,
+            90 - t,
+            90 - b.lowerT,
+            90 - b.lowerT + 0.01,
+          ]) {
+            for (let j = 0; j < 4; j++) {
+              const o = [4 * Math.sin(j), 0.3, 5 * Math.cos(j)],
+                len = Math.hypot(...o);
+              add(
+                `Pole t=${t}, width=${width}, XW=${angle}, ray=${j}`,
+                t,
+                width,
+                [0, 0, angle, 0, 0, 0],
+                o,
+                o.map((x) => -x / len),
+              );
+            }
+          }
+        }
+      let seed = 921;
+      const random = () => {
+        seed = (1664525 * seed + 1013904223) >>> 0;
+        return seed / 4294967296;
+      };
+      for (let i = 0; i < 160; i++) {
+        const o = Array.from({ length: 3 }, () => random() * 10 - 5),
+          d = Array.from({ length: 3 }, () => random() * 2 - 1),
+          len = Math.hypot(...d);
+        add(
+          `Random shell ray ${i}`,
+          5 + 80 * random(),
+          0.5 + 12 * random(),
+          Array.from({ length: 6 }, () => 360 * random()),
+          o,
+          d.map((x) => x / len),
+        );
+      }
+      const failures = [];
+      let passed = 0,
+        hitCount = 0,
+        maxRelativeError = 0,
+        mediumChecks = 0;
+      for (const test of cases) {
+        const len = Math.hypot(...test.d),
+          d = test.d.map((x) => x / len),
+          expected = shellIntersections(test.o, d, test.P, test.low, test.high).filter(
+            (h) => h.s < 1e7,
+          );
+        let o = test.o.slice(),
+          total = 0,
+          actual = [],
+          mediumOK = true;
+        for (let j = 0; j < 9; j++) {
+          o = o.map(Math.fround);
+          configure(hit, U, { ...test, o });
+          const out = draw();
+          const r = dot(o, o),
+            q = [...o.map((x) => (2 * x) / (1 + r)), (r - 1) / (1 + r)],
+            h = dot(
+              q,
+              test.P.map((row) => dot(row, q)),
+            );
+          mediumChecks++;
+          if (out[3] !== Number(h > test.low && h < test.high)) mediumOK = false;
+          if (out[0] < 0) break;
+          actual.push({ s: total + out[0], level: out[1], normalSign: out[2] });
+          const p = o.map((x, i) => x + out[0] * d[i]),
+            eps = test.bias * Math.max(1, Math.hypot(...p));
+          o = p.map((x, i) => x + eps * d[i]);
+          total += out[0] + eps;
+        }
+        hitCount += actual.length;
+        let err = 0,
+          levelsOK = actual.length === expected.length;
+        expected.forEach((h, i) => {
+          const a = actual[i];
+          if (!a) {
+            err = Infinity;
+            return;
+          }
+          err = Math.max(err, Math.abs(h.s - a.s) / Math.max(1, h.s));
+          if (a.level !== h.level || a.normalSign !== h.normalSign) levelsOK = false;
+        });
+        maxRelativeError = Math.max(maxRelativeError, err);
+        if (err > 0.003 || !levelsOK || !mediumOK)
+          failures.push({ name: test.name, expected, actual, relativeError: err, mediumOK });
+        else passed++;
+      }
+      let opticalPassed = 0,
+        opticalMaxError = 0;
+      for (const test of cases.slice(0, 35)) {
+        configure(optical, OU, test);
+        gl.uniform1f(OU.uOpacity, 0);
+        gl.uniform1f(OU.uIOR, 1);
+        gl.uniform1i(OU.uBounces, 12);
+        gl.uniform1i(OU.uMode, 0);
+        gl.uniform1i(OU.uEnvironment, 0);
+        const out = draw(),
+          error = Math.max(...out.slice(0, 3));
+        opticalMaxError = Math.max(opticalMaxError, error);
+        if (error < 0.001) opticalPassed++;
+      }
+      const report = {
+        passed,
+        total: cases.length,
+        hitCount,
+        mediumChecks,
+        maxRelativeError,
+        failureCount: failures.length,
+        failures: failures.slice(0, 8),
+        optics: { passed: opticalPassed, total: 35, maxColorError: opticalMaxError },
+        glError: gl.getError(),
+      };
+      result.textContent = JSON.stringify(report, null, 2);
+      result.dataset.status = failures.length || opticalPassed !== 35 ? 'failed' : 'passed';
+    } catch (error) {
+      result.textContent = error.stack;
+      result.dataset.status = 'error';
+    }
+  </script>
+</html>

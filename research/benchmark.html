@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><title>Hopf Observatory reproducible WebGL benchmark</title>
+  <style>
+    body {
+      font: 16px/1.5 system-ui;
+      max-width: 1000px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+    button,
+    a {
+      margin: 10px;
+    }
+    canvas {
+      max-width: 100%;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  </style>
+  <h1>WebGL rendering benchmark</h1>
+  <p>
+    Fixed scenes, 640×360 and 1280×720 drawing buffers, 8/16/24 interface limits. Five warmup
+    frames, 30 measured frames. Draw-and-readback wall time includes a synchronous one-pixel
+    readback and excludes display refresh. Keep this tab in the foreground.
+  </p>
+  <button id="run">Run benchmark</button
+  ><button id="save" disabled>Save JSON</button
+  ><canvas width="640" height="360"></canvas>
+  <pre id="result">Ready</pre>
+  <script type="module">
+    import { vertex, fragment } from '../web/shader.js';
+    import { benchmarkScenes, sceneUniforms } from './scenes.mjs';
+    import { compileProgram, sourceHashes } from './webgl.mjs';
+    const canvas = document.querySelector('canvas'),
+      output = document.querySelector('#result'),
+      run = document.querySelector('#run'),
+      save = document.querySelector('#save');
+    let report;
+    run.onclick = async () => {
+      run.disabled = true;
+      try {
+        const gl = canvas.getContext('webgl2', { antialias: false, preserveDrawingBuffer: true });
+        if (!gl) throw Error('WebGL2 unavailable');
+        const { set } = compileProgram(gl, vertex, fragment);
+        const env = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, env);
+        gl.texImage2D(
+          gl.TEXTURE_2D,
+          0,
+          gl.RGBA,
+          1,
+          1,
+          0,
+          gl.RGBA,
+          gl.UNSIGNED_BYTE,
+          new Uint8Array([128, 128, 128, 255]),
+        );
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        const pixel = new Uint8Array(4),
+          timer = gl.getExtension('EXT_disjoint_timer_query_webgl2');
+        const debug = gl.getExtension('WEBGL_debug_renderer_info');
+        report = {
+          date: new Date().toISOString(),
+          sourceHashes: await sourceHashes([
+            '../web/shader.js',
+            '../web/math.js',
+            '../web/scene.js',
+            'scenes.mjs',
+            'benchmark.html',
+            'webgl.mjs',
+          ]),
+          userAgent: navigator.userAgent,
+          renderer: debug
+            ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL)
+            : gl.getParameter(gl.RENDERER),
+          version: gl.getParameter(gl.VERSION),
+          shadingLanguage: gl.getParameter(gl.SHADING_LANGUAGE_VERSION),
+          timerQueryAvailable: !!timer,
+          method:
+            'performance.now around drawArrays plus synchronous 1-pixel readPixels; five warmup, 30 measured frames; no display/vsync timing',
+          measurements: [],
+        };
+        for (const scene of benchmarkScenes())
+          for (const [width, height] of [
+            [640, 360],
+            [1280, 720],
+          ])
+            for (const budget of [8, 16, 24]) {
+              canvas.width = width;
+              canvas.height = height;
+              gl.viewport(0, 0, width, height);
+              const uniforms = sceneUniforms(scene.objects, scene.angles, scene.eye, budget);
+              uniforms.uResolution = [width, height];
+              set(uniforms);
+              for (let i = 0; i < 5; i++) {
+                gl.drawArrays(gl.TRIANGLES, 0, 3);
+                gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
+              }
+              const times = [];
+              for (let i = 0; i < 30; i++) {
+                const start = performance.now();
+                gl.drawArrays(gl.TRIANGLES, 0, 3);
+                gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
+                times.push(performance.now() - start);
+              }
+              const sorted = times.slice().sort((a, b) => a - b);
+              report.measurements.push({
+                scene: scene.name,
+                width,
+                height,
+                budget,
+                milliseconds: times,
+                median: (sorted[14] + sorted[15]) / 2,
+                p95: sorted[28],
+                samplePixel: [...pixel],
+                glError: gl.getError(),
+                uniforms,
+              });
+              output.textContent = JSON.stringify(report, null, 2);
+              await new Promise(requestAnimationFrame);
+            }
+        report.completed = true;
+        output.textContent = JSON.stringify(report, null, 2);
+        save.disabled = false;
+      } catch (e) {
+        output.textContent = e.stack;
+      } finally {
+        run.disabled = false;
+      }
+    };
+    save.onclick = () => {
+      const url = URL.createObjectURL(
+          new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' }),
+        ),
+        a = document.createElement('a');
+      a.href = url;
+      a.download = 'hopf-webgl-benchmark.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    };
+  </script>
+</html>

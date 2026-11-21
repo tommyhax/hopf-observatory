@@ -1,0 +1,9 @@
+# Local TeX build products; retain the delivered technical-note.pdf.
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+main.pdf

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Hopf Observatory WebGL intersection checks</title>
+  <style>
+    body {
+      font: 16px/1.5 system-ui;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    canvas {
+      display: none;
+    }
+  </style>
+  <h1>WebGL intersection checks</h1>
+  <p>Production GLSL compared with independent exact-rational reference roots.</p>
+  <p id="status" role="status">Running…</p>
+  <button id="save" disabled>Save JSON</button>
+  <canvas width="1" height="1"></canvas>
+  <pre id="result"></pre>
+  <script type="module" src="verify.mjs"></script>
+</html>

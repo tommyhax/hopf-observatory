@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-21T02:22:05.371Z",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+  "sourceHashes": {
+    "../web/shader.js": "a0044082576623559b039f9cba76f3b44d67f969190068b6623e7f3cde577a80",
+    "verify.mjs": "b8e4232b4a15a0f163380862b7a91c47132e7bf8f202d0de4e4510770ec0f003",
+    "webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "results/reference.json": "636842076ce07ef05fc31bc73c628fdaff25dfc486dea6a7bc4928eefeee58da"
+  },
+  "tolerance": 0.0001,
+  "total": 867,
+  "passed": 867,
+  "rootCount": 1470,
+  "maxRelativeError": 0.00007552001808248005,
+  "failures": [],
+  "completed": true
+}

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="UTF-8" /><title>Three-torus GPU verification</title>
+  <style>
+    body {
+      background: #101c25;
+      color: #cee4e6;
+      font: 16px/1.6 system-ui;
+      margin: 40px;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+    a {
+      color: #a7dacd;
+    }
+  </style>
+  <h1>Three-torus GPU verification</h1>
+  <p>
+    Compiles the actual renderer and checks scene intersections, coincident media, transparent
+    transmission, and metal reflections. No screen capture.
+  </p>
+  <pre id="result">Running…</pre>
+  <a href="./">Return to the observatory</a>
+  <script type="module">
+    import { vertex, fragment } from './shader.js';
+    import { projector, intersect } from './math.js';
+    import {
+      scenePreset,
+      objectLevels,
+      linearColor,
+      applyMaterial,
+      rayBiasScale,
+    } from './scene.js';
+    const result = document.getElementById('result');
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = 1;
+      const gl = canvas.getContext('webgl2');
+      if (!gl || !gl.getExtension('EXT_color_buffer_float'))
+        throw Error('WebGL 2 / float framebuffer unavailable');
+      const compile = (type, src) => {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw Error(gl.getShaderInfoLog(s));
+        return s;
+      };
+      const make = (body) => {
+        const p = gl.createProgram();
+        gl.attachShader(p, compile(gl.VERTEX_SHADER, vertex));
+        gl.attachShader(
+          p,
+          compile(
+            gl.FRAGMENT_SHADER,
+            fragment.slice(0, fragment.lastIndexOf('void main()')) + body,
+          ),
+        );
+        gl.linkProgram(p);
+        if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw Error(gl.getProgramInfoLog(p));
+        return p;
+      };
+      const hit = make(
+        'void main(){float level,sign;int id;float s=sceneHit(uEye,normalize(uForward),level,sign,id);outColor=vec4(s,level,sign,float(id));}',
+      );
+      const optical = make(
+        'void main(){vec3 d=normalize(uForward);outColor=vec4(abs(trace(uEye,d)-environment(d)),1.);}',
+      );
+      const medium = make(
+        'void main(){int mask=materialMask(uEye);outColor=vec4(float(mask),float(mediumFor(mask)),0,1);}',
+      );
+      const texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, 1, 1, 0, gl.RGBA, gl.FLOAT, null);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      const fb = gl.createFramebuffer();
+      gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+      if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE)
+        throw Error('Incomplete framebuffer');
+      gl.viewport(0, 0, 1, 1);
+      const env = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, env);
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        1,
+        1,
+        0,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        new Uint8Array([128, 128, 128, 255]),
+      );
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      const names = [
+        'uP',
+        'uCount',
+        'uEnabled',
+        'uShells',
+        'uLevels',
+        'uLows',
+        'uHighs',
+        'uOptics[0]',
+        'uColors[0]',
+        'uEye',
+        'uForward',
+        'uBounces',
+        'uEnvironment',
+        'uRayBias',
+      ];
+      const uniforms = new Map(
+        [hit, optical, medium].map((p) => [
+          p,
+          Object.fromEntries(names.map((n) => [n, gl.getUniformLocation(p, n)])),
+        ]),
+      );
+      const configure = (program, objects, P, o, d) => {
+        gl.useProgram(program);
+        const u = uniforms.get(program),
+          b = objects.map(objectLevels);
+        gl.uniformMatrix4fv(u.uP, false, new Float32Array(P.flat()));
+        gl.uniform1f(u.uRayBias, rayBiasScale(objects));
+        gl.uniform1i(u.uCount, 3);
+        gl.uniform3iv(
+          u.uEnabled,
+          objects.map((x) => +x.enabled),
+        );
+        gl.uniform3iv(
+          u.uShells,
+          objects.map((x) => +x.shell),
+        );
+        gl.uniform3fv(
+          u.uLevels,
+          b.map((x) => x.c),
+        );
+        gl.uniform3fv(
+          u.uLows,
+          b.map((x) => x.low),
+        );
+        gl.uniform3fv(
+          u.uHighs,
+          b.map((x) => x.high),
+        );
+        gl.uniform4fv(
+          u['uOptics[0]'],
+          objects.flatMap((x) => [x.opacity, x.ior, x.roughness, x.metallic]),
+        );
+        gl.uniform3fv(
+          u['uColors[0]'],
+          objects.flatMap((x) => linearColor(x.color)),
+        );
+        gl.uniform3fv(u.uEye, o);
+        gl.uniform3fv(u.uForward, d);
+        gl.uniform1i(u.uBounces, 24);
+        gl.uniform1i(u.uEnvironment, 3);
+      };
+      const draw = () => {
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        const a = new Float32Array(4);
+        gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.FLOAT, a);
+        return [...a];
+      };
+      const cases = [
+        {
+          name: '24 shell crossings',
+          objects: scenePreset('glass'),
+          angles: [0, 0, 0, 0, 0, 0],
+          o: [-8, 0, 0],
+          d: [1, 0, 0],
+        },
+      ];
+      for (const width of [0.01, 0.05]) {
+        const objects = scenePreset('glass');
+        objects.forEach((o) => (o.shellWidth = width));
+        cases.push({
+          name: `24 thin crossings, width=${width}`,
+          objects,
+          angles: [0, 0, 0, 0, 0, 0],
+          o: [-8, 0, 0],
+          d: [1, 0, 0],
+        });
+      }
+      let seed = 2971;
+      const random = () => {
+        seed = (1664525 * seed + 1013904223) >>> 0;
+        return seed / 4294967296;
+      };
+      for (let i = 0; i < 120; i++) {
+        const o = Array.from({ length: 3 }, () => 12 * random() - 6),
+          v = Array.from({ length: 3 }, () => 2 * random() - 1),
+          len = Math.hypot(...v);
+        cases.push({
+          name: `Random family ${i}`,
+          objects: scenePreset('glass'),
+          angles: Array.from({ length: 6 }, () => 6.28 * random()),
+          o,
+          d: v.map((x) => x / len),
+        });
+      }
+      for (const angle of [23.5, 25, 26.5, 43.5, 45, 46.5, 63.5, 65, 66.5, 80])
+        cases.push({
+          name: `Pole crossing XW=${angle}`,
+          objects: scenePreset('glass'),
+          angles: [0, 0, (angle * Math.PI) / 180, 0, 0, 0],
+          o: [0, 0.3, 6],
+          d: [0, 0, -1],
+        });
+      let failures = [],
+        passed = 0,
+        hitCount = 0,
+        maxRelativeError = 0;
+      for (const test of cases) {
+        const P = projector(test.angles).map((row) => row.map(Math.fround)),
+          o = test.o.map(Math.fround),
+          v = test.d.map(Math.fround),
+          len = Math.hypot(...v),
+          d = v.map((x) => x / len),
+          expected = [];
+        test.objects.forEach((object, id) => {
+          if (!object.enabled) return;
+          const b = objectLevels(object);
+          for (const [level, sign] of object.shell
+            ? [
+                [b.low, -1],
+                [b.high, 1],
+              ]
+            : [[b.c, -1]])
+            for (const s of intersect(o, d, P, Math.fround(level)))
+              if (s > 0.5 * rayBiasScale(test.objects) * Math.max(1, Math.hypot(...o)) && s < 1e7)
+                expected.push({ s, id, level: Math.fround(level), sign });
+        });
+        expected.sort((a, b) => a.s - b.s || a.id - b.id);
+        const actual = [];
+        let origin = o.slice(),
+          total = 0;
+        // JS repeats the nearest-hit query, avoiding GPU dynamic vector-output indexing.
+        for (let j = 0; j < 25; j++) {
+          origin = origin.map(Math.fround);
+          configure(hit, test.objects, P, origin, d);
+          const a = draw();
+          if (a[0] < 0) break;
+          const distance = total + a[0];
+          if (distance < 1e7) actual.push({ s: distance, level: a[1], sign: a[2], id: a[3] });
+          const p = origin.map((x, i) => x + a[0] * d[i]),
+            eps = rayBiasScale(test.objects) * Math.max(1, Math.hypot(...p));
+          origin = p.map((x, i) => x + eps * d[i]);
+          total += a[0] + eps;
+        }
+        hitCount += actual.length;
+        let error = 0,
+          valid = actual.length === expected.length;
+        expected.forEach((e, i) => {
+          const a = actual[i];
+          if (!a) {
+            valid = false;
+            return;
+          }
+          error = Math.max(error, Math.abs(a.s - e.s) / Math.max(1, e.s));
+          if (a.id !== e.id || a.level !== e.level || a.sign !== e.sign) valid = false;
+        });
+        maxRelativeError = Math.max(maxRelativeError, error);
+        if (valid && error < 0.003) passed++;
+        else failures.push({ name: test.name, expected, actual, error });
+      }
+      let invisiblePassed = 0,
+        maxInvisibleError = 0;
+      for (const test of cases.slice(0, 35)) {
+        const objects = structuredClone(test.objects);
+        objects.forEach((o) => Object.assign(o, { opacity: 0, ior: 1, metallic: 0, roughness: 0 }));
+        configure(optical, objects, projector(test.angles), test.o, test.d);
+        const a = draw(),
+          err = Math.max(...a.slice(0, 3));
+        maxInvisibleError = Math.max(maxInvisibleError, err);
+        if (Number.isFinite(err) && err < 0.001) invisiblePassed++;
+      }
+      const nested = scenePreset('glass');
+      nested.forEach((o) => (o.shell = false));
+      applyMaterial(nested[0], 'chrome');
+      configure(
+        medium,
+        nested,
+        projector([0, 0, (80 * Math.PI) / 180, 0, 0, 0]),
+        [1e5, 0, 0],
+        [1, 0, 0],
+      );
+      const outside = draw(),
+        chromeAtInfinity = outside[0] === 7 && outside[1] === 0;
+      const metal = scenePreset('single');
+      applyMaterial(metal[0], 'chrome');
+      configure(optical, metal, projector([0, 0, 0, 0, 0, 0]), [-4, 0, 0], [1, 0, 0]);
+      const metalDifference = draw().slice(0, 3),
+        metalReflects =
+          metalDifference.every(Number.isFinite) && Math.max(...metalDifference) > 1e-4;
+      const report = {
+        passed,
+        total: cases.length,
+        hitCount,
+        maxRelativeError,
+        failureCount: failures.length,
+        failures: failures.slice(0, 5),
+        invisibility: { passed: invisiblePassed, total: 35, maxError: maxInvisibleError },
+        chromeAtInfinity,
+        metalReflects,
+        glError: gl.getError(),
+      };
+      result.textContent = JSON.stringify(report, null, 2);
+      result.dataset.status =
+        failures.length ||
+        invisiblePassed !== 35 ||
+        !chromeAtInfinity ||
+        !metalReflects ||
+        report.glError
+          ? 'failed'
+          : 'passed';
+    } catch (error) {
+      result.textContent = error.stack;
+      result.dataset.status = 'error';
+    }
+  </script>
+</html>

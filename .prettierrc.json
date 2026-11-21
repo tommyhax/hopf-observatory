@@ -1,0 +1,7 @@
+{
+  "singleQuote": true,
+  "printWidth": 100,
+  "trailingComma": "all",
+  "embeddedLanguageFormatting": "off",
+  "overrides": [{ "files": "**/*.html", "options": { "embeddedLanguageFormatting": "auto" } }]
+}

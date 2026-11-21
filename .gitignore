@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+*.tar.gz
+*.log
+
+.venv/
+__pycache__/
+release/
+research/figures/*.ppm
+
+_site/
+playwright-report/
+test-results/

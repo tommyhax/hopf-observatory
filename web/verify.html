@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="UTF-8" /><title>Hopf GPU verification</title
+  ><style>
+    body {
+      background: #101c25;
+      color: #cee4e6;
+      font: 16px/1.6 system-ui;
+      margin: 40px;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+    a {
+      color: #a7dacd;
+    }
+  </style>
+  <h1>GPU intersection verification</h1>
+  <p>Real GLSL execution compared with the double-precision CPU reference.</p>
+  <pre id="result">Running…</pre>
+  <a href="./">Return to the observatory</a>
+  <script type="module">
+    import { vertex, fragment } from './shader.js';
+    import { projector, intersect, field, dot } from './math.js';
+    const result = document.getElementById('result');
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1;
+      canvas.height = 1;
+      const gl = canvas.getContext('webgl2');
+      if (!gl || !gl.getExtension('EXT_color_buffer_float'))
+        throw new Error('Float framebuffer unavailable');
+      const compile = (type, src) => {
+        let s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+        return s;
+      };
+      const main = fragment.lastIndexOf('void main()');
+      const src =
+        fragment.slice(0, main) +
+        `void main(){vec3 o=uEye,d=normalize(uForward);vec4 result=vec4(-1);float total=0.;
+    float s0=intersection(o,d,uC);if(s0>=0.){result.x=s0;total=s0;float e=4e-4*max(1.,length(o+s0*d));o+=d*(s0+e);total+=e;
+    float s1=intersection(o,d,uC);if(s1>=0.){result.y=total+s1;total+=s1;float e=4e-4*max(1.,length(o+s1*d));o+=d*(s1+e);total+=e;
+    float s2=intersection(o,d,uC);if(s2>=0.){result.z=total+s2;total+=s2;float e=4e-4*max(1.,length(o+s2*d));o+=d*(s2+e);total+=e;
+    float s3=intersection(o,d,uC);if(s3>=0.)result.w=total+s3;}}}outColor=result;}`;
+
+      const program = gl.createProgram();
+      gl.attachShader(program, compile(gl.VERTEX_SHADER, vertex));
+      gl.attachShader(program, compile(gl.FRAGMENT_SHADER, src));
+      gl.linkProgram(program);
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS))
+        throw new Error(gl.getProgramInfoLog(program));
+      gl.useProgram(program);
+      const texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, 1, 1, 0, gl.RGBA, gl.FLOAT, null);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+      const fb = gl.createFramebuffer();
+      gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+      if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) !== gl.FRAMEBUFFER_COMPLETE)
+        throw new Error('Incomplete framebuffer');
+      gl.viewport(0, 0, 1, 1);
+      const envTexture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, envTexture);
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        1,
+        1,
+        0,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        new Uint8Array([128, 128, 128, 255]),
+      );
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      const U = Object.fromEntries(
+        ['uP', 'uC', 'uEye', 'uForward'].map((k) => [k, gl.getUniformLocation(program, k)]),
+      );
+      let seed = 9741;
+      const random = () => {
+        seed = (1664525 * seed + 1013904223) >>> 0;
+        return seed / 4294967296;
+      };
+      const cases = [
+        { name: 'Four crossings', angles: [0, 0, 0, 0, 0, 0], c: 0.5, o: [-4, 0, 0], d: [1, 0, 0] },
+        {
+          name: 'Double tangent',
+          angles: [0, 0, 0, 0, 0, 0],
+          c: 0.5,
+          o: [-4, Math.SQRT2 + 1, 0],
+          d: [1, 0, 0],
+          tangent: true,
+        },
+        {
+          name: 'Exact pole',
+          angles: [0, 0, Math.PI / 4, 0, 0, 0],
+          c: 0.5,
+          o: [0, 0.5, 5],
+          d: [0, 0, -1],
+        },
+        {
+          name: 'Far root before pole',
+          angles: [0, 0, (44.9 * Math.PI) / 180, 0, 0, 0],
+          c: 0.5,
+          o: [0, 0, 0],
+          d: [1, 0, 0],
+        },
+        {
+          name: 'Far root after pole',
+          angles: [0, 0, (45.1 * Math.PI) / 180, 0, 0, 0],
+          c: 0.5,
+          o: [0, 0, 0],
+          d: [-1, 0, 0],
+        },
+      ];
+      for (let i = 0; i < 500; i++) {
+        let v = Array.from({ length: 3 }, () => random() * 2 - 1);
+        cases.push({
+          name: `Random ray ${i}`,
+          angles: Array.from({ length: 6 }, () => random() * 6.28),
+          c: 0.01 + 0.98 * random(),
+          o: Array.from({ length: 3 }, () => random() * 12 - 6),
+          d: v.map((x) => x / Math.hypot(...v)),
+        });
+      }
+
+      for (const t of [1, 5, 45, 85, 89])
+        for (const offset of [-0.01, 0, 0.01])
+          for (let j = 0; j < 8; j++) {
+            const c = Math.cos((t * Math.PI) / 180) ** 2,
+              ang = ((90 - t + offset) * Math.PI) / 180;
+            const o = [3 * Math.sin(j), 0.3, 5 * Math.cos(j)],
+              v = o.map((x) => -x),
+              len = Math.hypot(...v);
+            cases.push({
+              name: `Pole neighborhood t=${t} offset=${offset} ray=${j}`,
+              angles: [0, 0, ang, 0, 0, 0],
+              c,
+              o,
+              d: v.map((x) => x / len),
+            });
+          }
+      let failed = [],
+        passed = 0,
+        hitCount = 0,
+        maxError = 0;
+      for (const test of cases) {
+        const P = projector(test.angles).map((r) => r.map(Math.fround)),
+          c = Math.fround(test.c),
+          o = test.o.map(Math.fround),
+          d = test.d.map(Math.fround),
+          dl = Math.hypot(...d);
+        const expected = intersect(
+          o,
+          d.map((x) => x / dl),
+          P,
+          c,
+        ).filter((x) => x < 1e7);
+        gl.uniformMatrix4fv(U.uP, false, new Float32Array(P.flat()));
+        gl.uniform1f(U.uC, test.c);
+        gl.uniform3fv(U.uEye, test.o);
+        gl.uniform3fv(U.uForward, test.d);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        const out = new Float32Array(4);
+        gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.FLOAT, out);
+        const actual = [...out].filter((x) => x > 0);
+        hitCount += actual.length;
+        const errors = expected.map((e) =>
+          Math.min(...actual.map((a) => Math.abs(a - e) / Math.max(1, e))),
+        );
+        const err = Math.max(0, ...errors);
+        maxError = Math.max(maxError, err);
+        const valid = actual.every((a) => {
+          const p = test.o.map((x, i) => x + a * test.d[i]);
+          return Math.abs(field(p, P, c)) / (1 + dot(p, p)) ** 2 < 5e-5;
+        });
+        if (
+          (actual.length !== expected.length && !test.tangent) ||
+          err > (test.tangent ? 0.003 : 0.002) ||
+          !valid
+        )
+          failed.push({ name: test.name, expected, actual, relativeError: err, valid });
+        else passed++;
+      }
+
+      const opticalSource =
+        fragment.slice(0, main) +
+        `void main(){vec3 d=normalize(uForward);outColor=vec4(abs(trace(uEye,d)-environment(d)),1);}`;
+      const opticalProgram = gl.createProgram();
+      gl.attachShader(opticalProgram, compile(gl.VERTEX_SHADER, vertex));
+      gl.attachShader(opticalProgram, compile(gl.FRAGMENT_SHADER, opticalSource));
+      gl.linkProgram(opticalProgram);
+      if (!gl.getProgramParameter(opticalProgram, gl.LINK_STATUS))
+        throw new Error(gl.getProgramInfoLog(opticalProgram));
+      gl.useProgram(opticalProgram);
+      const OU = Object.fromEntries(
+        [
+          'uP',
+          'uC',
+          'uEye',
+          'uForward',
+          'uOpacity',
+          'uIOR',
+          'uBounces',
+          'uMode',
+          'uEnvironment',
+        ].map((k) => [k, gl.getUniformLocation(opticalProgram, k)]),
+      );
+      gl.uniform1f(OU.uOpacity, 0);
+      gl.uniform1f(OU.uIOR, 1);
+      gl.uniform1i(OU.uBounces, 12);
+      gl.uniform1i(OU.uMode, 0);
+      gl.uniform1i(OU.uEnvironment, 0);
+      let opticalMaxError = 0,
+        opticalPassed = 0;
+      for (let i = 0; i < 35; i++) {
+        const test = cases[i],
+          P = projector(test.angles);
+        gl.uniformMatrix4fv(OU.uP, false, new Float32Array(P.flat()));
+        gl.uniform1f(OU.uC, test.c);
+        gl.uniform3fv(OU.uEye, test.o);
+        gl.uniform3fv(OU.uForward, test.d);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        const out = new Float32Array(4);
+        gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.FLOAT, out);
+        const err = Math.max(...out.slice(0, 3));
+        opticalMaxError = Math.max(opticalMaxError, err);
+        if (err < 0.001) opticalPassed++;
+      }
+      const report = {
+        passed,
+        total: cases.length,
+        hitCount,
+        maxRelativeError: maxError,
+        failures: failed.slice(0, 8),
+        failureCount: failed.length,
+        optics: {
+          test: 'Opacity 0 / index 1 is optically invisible through all interfaces',
+          passed: opticalPassed,
+          total: 35,
+          maxColorError: opticalMaxError,
+        },
+        glError: gl.getError(),
+      };
+      result.textContent = JSON.stringify(report, null, 2);
+      result.dataset.status = failed.length || opticalPassed !== 35 ? 'failed' : 'passed';
+    } catch (error) {
+      result.textContent = error.stack;
+      result.dataset.status = 'error';
+    }
+  </script>
+</html>

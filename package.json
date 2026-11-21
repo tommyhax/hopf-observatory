@@ -1,0 +1,18 @@
+{
+  "name": "hopf-observatory",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/math.test.js",
+    "test:gpu": "node scripts/run-gpu-checks.mjs",
+    "start": "python3 -m http.server 8765 --directory web",
+    "format": "prettier --write web/*.js web/index.html web/style.css web/verify*.html scripts/*.mjs research/*.mjs research/*.html tests/*.js package.json .prettierrc.json tests/browser/*.js playwright.config.js .github/workflows/*.yml",
+    "format:check": "prettier --check web/*.js web/index.html web/style.css web/verify*.html scripts/*.mjs research/*.mjs research/*.html tests/*.js package.json .prettierrc.json tests/browser/*.js playwright.config.js .github/workflows/*.yml",
+    "build:site": "node scripts/build-site.mjs",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "prettier": "3.6.2"
+  }
+}

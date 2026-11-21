@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0c1319" />
+    <meta
+      name="description"
+      content="Explore Clifford and Hopf tori through exact quartic ray tracing, four-dimensional rotation, and refractive glass."
+    />
+    <title>Hopf Observatory</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Hopf Observatory home"
+        ><svg viewBox="0 0 48 48" aria-hidden="true">
+          <ellipse cx="24" cy="24" rx="20" ry="10" transform="rotate(-40 24 24)" />
+          <ellipse cx="24" cy="24" rx="20" ry="10" transform="rotate(40 24 24)" /></svg
+        ><span>HOPF <span class="brand-light">OBSERVATORY</span></span></a
+      >
+      <div class="mast-right">
+        <button id="about" class="text-button">
+          The mathematics <span aria-hidden="true">ⓘ</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="stage" aria-label="Interactive ray-traced torus">
+        <canvas
+          id="canvas"
+          tabindex="0"
+          aria-label="3D torus. Drag or use arrow keys to orbit. Scroll or use plus and minus to zoom."
+        ></canvas>
+        <div class="stage-heading">
+          <div class="eyebrow">
+            S³ <span class="projection-line"></span> R³ <span class="slash">/</span> STEREOGRAPHIC
+            PROJECTOR
+          </div>
+          <h1 id="view-title">Clifford torus</h1>
+          <p id="view-description">Rotate in four dimensions.</p>
+        </div>
+        <div class="stage-top-right">
+          <span class="render-status"><i></i> <span id="render-state">INITIALIZING</span></span
+          ><span id="fps">— fps</span>
+        </div>
+        <div id="error" class="error" role="alert" hidden></div>
+        <div class="axis-gizmo" aria-hidden="true">
+          <svg viewBox="0 0 82 82">
+            <path d="M40 43L66 54" stroke="#dcad73" />
+            <path d="M40 43L17 59" stroke="#86bbb6" />
+            <path d="M40 43V12" stroke="#a0b9d4" />
+            <circle cx="40" cy="43" r="3" fill="#d9e3e4" />
+            <text x="68" y="60" fill="#dcad73">x</text>
+            <text x="8" y="67" fill="#86bbb6">y</text>
+            <text x="36" y="9" fill="#a0b9d4">z</text>
+          </svg>
+        </div>
+        <div class="stage-bottom">
+          <div class="interaction-hint">
+            <svg viewBox="0 0 20 24" aria-hidden="true">
+              <rect x="4" y="2" width="12" height="19" rx="6" />
+              <path d="M10 2v7" /></svg
+            ><span>Drag to orbit <b>·</b> Scroll to zoom</span
+            ><button id="reset-camera" title="Reset camera" aria-label="Reset camera">↺</button>
+          </div>
+          <button id="capture" class="text-button">
+            Save image <span aria-hidden="true">⊡</span>
+          </button>
+        </div>
+        <div class="infinity-status" id="infinity-status">
+          <span class="infinity-icon">∞</span><span id="pole-label">Bounded projection</span
+          ><span id="pole-value">pole distance 0.500</span>
+        </div>
+      </section>
+      <aside class="controls" aria-label="Projection controls">
+        <div class="panel-heading">
+          <h2>Controls</h2>
+          <button
+            id="reset"
+            class="icon-button"
+            title="Reset all controls"
+            aria-label="Reset all controls"
+          >
+            ↺
+          </button>
+        </div>
+        <section class="control-section scene-controls">
+          <div class="section-title">
+            <h3>Tori</h3>
+            <span id="scene-count">1 / 3 visible</span>
+          </div>
+
+          <div class="torus-list">
+            <div class="torus-row">
+              <input type="checkbox" id="visible-0" aria-label="Show torus 1" /><button
+                id="select-torus-0"
+                aria-pressed="false"
+              >
+                <span class="torus-swatch"></span
+                ><span>Torus 1<small class="torus-summary"></small></span
+                ><span class="edit-marker">Edit</span>
+              </button>
+            </div>
+            <div class="torus-row">
+              <input type="checkbox" id="visible-1" checked aria-label="Show torus 2" /><button
+                id="select-torus-1"
+                aria-pressed="true"
+              >
+                <span class="torus-swatch"></span
+                ><span>Torus 2<small class="torus-summary"></small></span
+                ><span class="edit-marker">Edit</span>
+              </button>
+            </div>
+            <div class="torus-row">
+              <input type="checkbox" id="visible-2" aria-label="Show torus 3" /><button
+                id="select-torus-2"
+                aria-pressed="false"
+              >
+                <span class="torus-swatch"></span
+                ><span>Torus 3<small class="torus-summary"></small></span
+                ><span class="edit-marker">Edit</span>
+              </button>
+            </div>
+          </div>
+        </section>
+        <details class="control-group" id="torus-panel" open>
+          <summary>Selected torus <span id="selected-torus">Torus 2</span></summary>
+          <div class="group-content">
+            <section class="control-section">
+              <div class="range-label">
+                <label for="torus">Torus parameter <i>t</i></label
+                ><output for="torus" id="torus-value">45.0°</output>
+              </div>
+              <input id="torus" type="range" min="1" max="89" step="0.1" value="45" />
+              <div class="range-extents">
+                <span>1°</span><button id="clifford-t">45° · Clifford</button><span>89°</span>
+              </div>
+              <div class="display-row material-shape">
+                <label for="material-shape">Volume</label
+                ><select id="material-shape">
+                  <option value="solid">Solid torus</option>
+                  <option value="shell" selected>Torus shell</option>
+                </select>
+              </div>
+              <div id="shell-controls">
+                <div class="range-label">
+                  <label for="shell-width">Shell width Δt</label
+                  ><output id="shell-width-value" for="shell-width">0.01°</output>
+                </div>
+                <input id="shell-width" type="range" min="0.01" max="30" step="0.01" value="0.01" />
+                <div class="display-row exact-shell-width">
+                  <label for="shell-width-number">Exact width (degrees)</label
+                  ><input
+                    id="shell-width-number"
+                    type="number"
+                    min="0.01"
+                    max="30"
+                    step="0.01"
+                    value="0.01"
+                    inputmode="decimal"
+                  />
+                </div>
+                <button id="apply-shell-width-all" class="apply-button">
+                  Apply shell width to all three
+                </button>
+                <p class="shell-caption" id="shell-limits">t₋ = 44.995° · t₊ = 45.005°</p>
+                <p class="shell-caption">Down to 0.01° in S³; projected wall thickness varies.</p>
+              </div>
+            </section>
+            <details class="material-controls">
+              <summary>
+                Material <span class="material-chip" id="material-chip">SHELL</span>
+              </summary>
+              <section class="control-section material">
+                <div class="display-row material-choice">
+                  <label for="material-preset">Finish</label
+                  ><select id="material-preset">
+                    <option value="glass">Tinted glass</option>
+                    <option value="crystal">Clear crystal</option>
+                    <option value="chrome">Chrome</option>
+                    <option value="ceramic">Ceramic</option>
+                  </select>
+                </div>
+                <div class="display-row color-row">
+                  <label for="material-color">Color / metal tint</label
+                  ><input type="color" id="material-color" value="#dea1d6" />
+                </div>
+                <div class="range-label">
+                  <label for="roughness">Roughness</label
+                  ><output id="roughness-value" for="roughness">0.03</output>
+                </div>
+                <input type="range" id="roughness" min="0" max="1" step="0.01" value="0.03" />
+
+                <div class="range-label">
+                  <label for="opacity">Opacity</label
+                  ><output id="opacity-value" for="opacity">18%</output>
+                </div>
+                <input id="opacity" type="range" min="0" max="1" step="0.01" value="0.18" />
+                <div class="range-label second">
+                  <label for="ior">Refractive index</label
+                  ><output for="ior" id="ior-value">1.45</output>
+                </div>
+                <input id="ior" type="range" min="1" max="2.5" step="0.01" value="1.45" />
+                <div class="range-extents">
+                  <span>Air · 1.00</span><span>Dense glass · 2.50</span>
+                </div>
+                <p class="shell-caption" id="material-hint"></p>
+                <button id="apply-material-all" class="apply-button">
+                  Apply material to all three
+                </button>
+              </section>
+            </details>
+          </div>
+        </details>
+        <details class="control-group" id="rotation-panel">
+          <summary>Rotation <span>All tori</span></summary>
+          <div class="group-content">
+            <section class="control-section rotations">
+              <div class="section-title">
+                <span class="group-hint">Applies to all three tori</span
+                ><button id="zero-angles" class="subtle-button">Zero all</button>
+              </div>
+              <div id="angles" class="angle-grid"></div>
+            </section>
+            <section class="animation-box">
+              <div class="animation-top">
+                <span><span class="orbit-symbol">◌</span> Automatic rotation</span
+                ><button id="play" aria-label="Play animation" aria-pressed="false">
+                  <span id="play-icon">▶</span>
+                </button>
+              </div>
+              <div class="animation-settings">
+                <label for="animate-plane">Plane</label
+                ><select id="animate-plane">
+                  <option value="2">XW</option>
+                  <option value="4">YW</option>
+                  <option value="5">ZW</option>
+                  <option value="1">XZ</option>
+                  <option value="3">YZ</option>
+                  <option value="0">XY</option></select
+                ><label for="speed">Speed</label
+                ><input
+                  id="speed"
+                  type="range"
+                  min="2"
+                  max="40"
+                  step="1"
+                  value="12"
+                  aria-label="Animation speed"
+                /><output id="speed-value">12°/s</output>
+              </div>
+            </section>
+          </div>
+        </details>
+        <details class="control-group" id="environment-panel">
+          <summary>Environment</summary>
+          <div class="group-content">
+            <section class="control-section display">
+              <div class="display-row">
+                <label for="environment">Environment</label
+                ><select id="environment">
+                  <option value="0">Midnight studio</option>
+                  <option value="1">Daylight studio</option>
+                  <option value="2">Coordinate grid</option>
+                  <option value="3" selected>Softbox studio</option>
+                  <option value="4">Sunset horizon</option>
+                  <option value="5">Window gallery</option>
+                  <option id="custom-environment" value="6" disabled>My panorama</option>
+                </select>
+              </div>
+              <div class="environment-controls">
+                <div class="range-label">
+                  <label for="env-rotation">Environment rotation</label
+                  ><output id="env-rotation-value" for="env-rotation">0°</output>
+                </div>
+                <input id="env-rotation" type="range" min="0" max="360" step="1" value="0" />
+                <div class="range-label second">
+                  <label for="exposure">Environment exposure</label
+                  ><output id="exposure-value" for="exposure">0.0 EV</output>
+                </div>
+                <input id="exposure" type="range" min="-3" max="3" step="0.1" value="0" /><label
+                  class="upload-label"
+                  for="environment-file"
+                  >Load panorama</label
+                ><input
+                  type="file"
+                  id="environment-file"
+                  accept="image/jpeg,image/png,image/webp"
+                />
+                <p class="shell-caption" id="environment-file-name">
+                  Local 2:1 equirectangular JPEG, PNG or WebP.
+                </p>
+              </div>
+            </section>
+          </div>
+        </details>
+        <details class="control-group" id="rendering-panel">
+          <summary>Rendering</summary>
+          <div class="group-content">
+            <section class="control-section display">
+              <div class="display-row">
+                <label for="mode">View</label
+                ><select id="mode">
+                  <option value="0">Materials</option>
+                  <option value="1">Analytic normals</option>
+                  <option value="2">Intersection depth</option>
+                </select>
+              </div>
+              <div class="display-row">
+                <label for="quality">Quality</label
+                ><select id="quality">
+                  <option value="adaptive">Adaptive · 16 interfaces</option>
+                  <option value="high">High · 24 interfaces</option>
+                  <option value="fast">Fast · 8 interfaces</option>
+                </select>
+              </div>
+            </section>
+          </div>
+        </details>
+      </aside>
+    </main>
+    <footer><button id="shortcuts" class="text-button">Keyboard shortcuts</button></footer>
+    <dialog id="math-dialog">
+      <button class="dialog-close icon-button" aria-label="Close mathematics">×</button>
+      <h2>The geometry</h2>
+      <p>
+        Two circles in perpendicular planes make a torus on the unit 3-sphere. A rotation in four
+        dimensions changes how that torus projects into our three-dimensional world.
+      </p>
+      <div class="formula">X = (cos t cos u, cos t sin u,<br />sin t cos v, sin t sin v)</div>
+      <p>
+        For a point p = (x, y, z), let V = (2x, 2y, 2z, |p|² − 1). With P = R diag(1, 1, 0, 0) Rᵀ,
+        every point on the projected surface satisfies:
+      </p>
+      <div class="formula">VᵀPV − cos²t (1 + |p|²)² = 0</div>
+      <p>
+        Each camera ray produces a quartic polynomial. The renderer centers each ray line at its
+        closest point to the origin and covers each half-ray with a near-distance and a
+        reciprocal-distance coordinate. It isolates real roots between derivative roots in a
+        Bernstein basis and polishes them against the homogeneous surface equation. A scaled
+        residual and a positive-distance cutoff select finite forward hits. Stationary candidates
+        handle tangencies; infinity is excluded. No finite bounding sphere, surface mesh or spatial
+        ray marching is used.
+      </p>
+      <h3>Through the projection pole</h3>
+      <p>
+        The pole lies on the torus when P₄₄ = cos²t. At that instant, the projected surface is
+        unbounded and the quartic drops degree. Use XW rotation to move through the transition. For
+        an otherwise aligned solid, the pole crossing occurs at XW = 90° − t. “At pole” is shown
+        within a small numerical neighborhood of the crossing.
+      </p>
+      <h3>Solid or shell</h3>
+      <p>
+        <strong>Solid torus</strong> fills f &gt; 0. One surface bounds the glass, and its outward
+        normal is −∇f. Entry and exit are different intersections with that same surface.
+      </p>
+      <p>
+        <strong>Torus shell</strong> puts glass between t₋ = t − Δt/2 and t₊ = t + Δt/2, so cos²t₊
+        &lt; QᵀPQ &lt; cos²t₋. Rays test both quartics at every bounce. The lower scalar boundary
+        uses −∇f; the upper uses +∇f. Width is measured in the S³ parameter, not as a constant 3D
+        wall thickness. The width control is limited near the degenerate endpoint circles. The shell
+        can also extend through infinity when the pole lies inside its band.
+      </p>
+      <h3>Three tori, one Hopf family</h3>
+      <p>
+        Each torus has its own parameter, volume and material. The six rotations act on all three
+        together. Materials follow the tori through the pole; they are not reassigned to keep a
+        particular color on the inside. The visibility checkboxes let you inspect individual tori.
+        When material regions overlap, the narrower interval in QᵀPQ takes priority. This keeps an
+        inner solid’s material distinct from its surroundings. Equal intervals use the
+        higher-numbered torus. Touching boundaries change media together.
+      </p>
+      <h3>Materials and environments</h3>
+      <p>
+        Chrome uses a tinted Schlick approximation for metal Fresnel reflectance. Its reflected rays
+        intersect the other tori. Roughness broadens the distant environment reflection; it is not a
+        complete microfacet transport model. Six procedural environments and locally loaded
+        equirectangular panoramas share rotation and exposure controls. Panorama images stay in this
+        browser tab.
+      </p>
+      <h3>Glass and light</h3>
+      <p>
+        Refraction follows Snell’s law at successive interfaces, with exact dielectric Fresnel
+        reflectance, total internal reflection, and distance-dependent absorption. The first
+        reflected branch also intersects the torus. Subsequent reflection branches sample the
+        procedural environment.
+      </p>
+      <p>
+        Transport is bounded to 8, 16, or 24 interfaces. Remaining energy resolves to the
+        environment; an unbounded material segment uses a finite absorption approximation.
+        Single-precision arithmetic limits extremely distant and grazing intersections. Opacity
+        blends local surface lighting with glass transmission.
+      </p>
+      <div class="formula small">∇f = 4[(PV)₁:₃ + p((PV)₄ − cos²t(1 + |p|²))]</div>
+      <p><a href="technical-note.html">Read the technical note and derivation</a></p>
+      <p class="muted">
+        Rotation order: XY, XZ, XW, YZ, YW, ZW (left multiplication). XY and ZW can leave an aligned
+        torus unchanged because of its symmetry. Orbiting the camera changes only the 3D viewpoint.
+      </p>
+    </dialog>
+    <dialog id="keys-dialog">
+      <button class="dialog-close icon-button" aria-label="Close shortcuts">×</button>
+      <h2>Keyboard shortcuts</h2>
+      <dl>
+        <dt>Space</dt>
+        <dd>Play / pause rotation</dd>
+        <dt>Arrow keys</dt>
+        <dd>Orbit the focused canvas</dd>
+        <dt>+ / −</dt>
+        <dd>Zoom the focused canvas</dd>
+        <dt>R</dt>
+        <dd>Reset camera</dd>
+        <dt>Escape</dt>
+        <dd>Close dialog</dd>
+      </dl>
+    </dialog>
+    <div id="toast" role="status" hidden></div>
+  </body>
+</html>
