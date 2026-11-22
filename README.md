@@ -2,7 +2,7 @@
 
 An interactive WebGL 2 ray tracer for stereographic projections of rotated Clifford/Hopf tori. Each surface is an implicit quartic with analytic normals and successive reflection/refraction intersections. A screen-filling triangle invokes the shader; the surface uses no mesh, point cloud or spatial ray marching.
 
-For independent review, start with [REVIEW.md](REVIEW.md) and the [short manuscript](paper/manuscript.pdf). The detailed technical note is supplementary.
+For independent review, start with [REVIEW.md](REVIEW.md) and the [JCGT review manuscript](paper/manuscript.pdf). The detailed technical note is supplementary.
 
 ## Run
 
@@ -52,9 +52,11 @@ Refinement ablation and full-render timing experiments are also reproducible. Th
 
 The final [seeded stress validation](research/STRESS.md) adds 2,400 boundary queries. All modern variants pass all 1,800 random, pole and shell queries, but fail the same **109 of 600 deliberately grazing queries** at 1e−4. Input rounding separately changes 570 intended root sets. Twelve additional exact-reference transport paths pass per solver, with explicit budget/energy termination. These results qualify any broad robustness claim; representative failures and image differences are retained.
 
+A separate [grazing diagnostic](research/diagnostics/grazing/README.md) preserves those results and traces all 600 grazing queries through construction, isolation, refinement and acceptance. Exact solving of the captured GPU coefficients fails on the same 109 IDs; disabling proximity merging changes no outputs, and residual filtering rejects no grazing candidates. The study identifies polynomial construction as a necessary target for improvement on this corpus, while retaining intermediate cancellations and instrumentation limits.
+
 ## GitHub Pages and automation
 
-`npm run build:site` assembles `_site/` with the app, illustrated HTML note, figures, detailed PDF and short `paper.pdf`. All site links work below a repository subpath such as `/hopf-observatory/`.
+`npm run build:site` assembles `_site/` with the app, illustrated HTML note, figures, detailed PDF and canonical `paper.pdf`. All site links work below a repository subpath such as `/hopf-observatory/`.
 
 The **Tests** workflow runs on pushes and pull requests. It checks formatting, CPU tests, independent-reference reproducibility, site assembly and Chromium browser tests. Browser CI uses SwiftShader software WebGL with a quarter device-pixel ratio to limit CPU rendering cost while keeping the desktop layout. The render check reads an actual shader pixel; numerical checks still cover all 867 rays. The suite has a three-minute limit. Recorded Apple GPU measurements are a separate hardware result. To run the browser suite locally, install Chromium with `npx playwright install chromium`, build the site, then run `npm run test:browser`.
 
@@ -62,7 +64,7 @@ The **Tests** workflow runs on pushes and pull requests. It checks formatting, C
 
 ## Maintenance and licence
 
-[Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh`; regenerate LaTeX with `python3 scripts/build-latex.py`. Create a reproducible supplementary archive and per-file SHA-256 manifest with `python3 scripts/package-release.py`.
+[Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh` and the technical-note LaTeX with `python3 scripts/build-latex.py`. Rebuild the canonical JCGT manuscript with `python3 scripts/build-paper.py --pdf` ([instructions](paper/README.md)). Create a reproducible supplementary archive and per-file SHA-256 manifest with `python3 scripts/package-release.py`.
 
 The implementation is MIT licensed, copyright 2026 Tom Crosby. The numerical baseline retains its [Graphics Gems permission notice](research/THIRD_PARTY.md).
 

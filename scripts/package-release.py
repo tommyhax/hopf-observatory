@@ -7,7 +7,7 @@ import json
 import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
-NAME = "hopf-observatory-2026-11-21"
+NAME = "hopf-observatory-2026-11-22-grazing-diagnostic"
 OUT = ROOT / "release"
 OUT.mkdir(exist_ok=True)
 TOP = [
@@ -35,7 +35,18 @@ DIRECTORIES = [
     ".github",
 ]
 OMIT = {".DS_Store"}
-TEMP_SUFFIXES = {".pyc", ".ppm", ".aux", ".log", ".out", ".toc", ".synctex"}
+TEMP_SUFFIXES = {
+    ".pyc",
+    ".ppm",
+    ".aux",
+    ".log",
+    ".out",
+    ".toc",
+    ".synctex",
+    ".bbl",
+    ".blg",
+    ".brf",
+}
 
 files = [ROOT / name for name in TOP]
 for directory in DIRECTORIES:
@@ -65,7 +76,7 @@ with zipfile.ZipFile(
     archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
 ) as z:
     for name, data in sorted(payloads.items()):
-        info = zipfile.ZipInfo(f"{NAME}/{name}", date_time=(2026, 11, 21, 0, 0, 0))
+        info = zipfile.ZipInfo(f"{NAME}/{name}", date_time=(2026, 11, 22, 0, 0, 0))
         info.compress_type = zipfile.ZIP_DEFLATED
         info.create_system = 3
         executable = (ROOT / name).exists() and bool(

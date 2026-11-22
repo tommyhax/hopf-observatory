@@ -4,6 +4,8 @@ Run commands from the project root. Recorded results are under `research/results
 
 The final 2,400-query independent stress corpus, captured transport paths and complete-render comparisons are documented in [STRESS.md](STRESS.md). It includes significant grazing failures; the original 867-case success below must not be read as a universal robustness result.
 
+The separate [post-hoc grazing diagnostic](diagnostics/grazing/README.md) traces all 600 grazing queries through construction and root solving while preserving the original evidence. Exact isolation of captured coefficients reproduces the same 109 failing queries. Its capture, analysis, ablation, figures and reproduction commands live entirely under `diagnostics/grazing/`; they do not overwrite `results/`.
+
 ## Requirements and regression tests
 
 The application needs an HTTP server and WebGL 2. Research scripts use Node.js, Python 3.12 or later and pinned scientific packages. Native experiments require macOS, Xcode command-line tools (`clang`) and graphics-driver access. Browser experiments also run on other platforms; the recorded hardware results use Apple M3 Pro.
@@ -122,7 +124,7 @@ The renderer writes PPM images into `research/figures/` directly from the produc
 python3 scripts/build-latex.py
 ```
 
-Both require Pandoc. Compile the PDF using [the LaTeX instructions](../technical-note/README.md). `npm run build:site` assembles the app, HTML note and PDF for Pages.
+Rebuild the canonical JCGT manuscript separately with `python3 scripts/build-paper.py --pdf` ([instructions](../paper/README.md)). These document generators require Pandoc. Compile the PDF using [the LaTeX instructions](../technical-note/README.md). `npm run build:site` assembles the app, HTML note and PDF for Pages.
 
 JavaScript, HTML and CSS use pinned Prettier 3.6.2: `npm run format:check` and `npm run format`. Python uses Black 25.1.0; Objective-C and embedded GLSL use clang-format 19.1.7. With those optional tools installed:
 
