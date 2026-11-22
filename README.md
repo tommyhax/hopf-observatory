@@ -1,5 +1,9 @@
 # Hopf Observatory
 
+![Three translucent Hopf tori before and after a shared four-dimensional rotation, rendered directly by the application.](technical-note/figures/three-tori.png)
+
+**[Open the live observatory](https://tommyhax.github.io/hopf-observatory/)** · **[Read the manuscript (PDF)](paper/manuscript.pdf)** · **[Read the technical note (PDF)](technical-note/technical-note.pdf)**
+
 An interactive WebGL 2 ray tracer for stereographic projections of rotated Clifford/Hopf tori. Each surface is an implicit quartic with analytic normals and successive reflection/refraction intersections. A screen-filling triangle invokes the shader; the surface uses no mesh, point cloud or spatial ray marching.
 
 For independent review, start with [REVIEW.md](REVIEW.md) and the [JCGT review manuscript](paper/manuscript.pdf). The detailed technical note is supplementary.

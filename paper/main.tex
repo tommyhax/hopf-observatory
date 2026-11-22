@@ -41,21 +41,20 @@ supplied with the software.}\label{fig:teaser}
 We present a browser-based renderer for stereographic projections of
 rotated Hopf tori, including solid regions and thin angular shells. A
 rank-two projector supplies implicit quartic intersections and analytic
-normals. Centered near/reciprocal ray coordinates cover surfaces passing
-through infinity without a finite clipping sphere. We evaluate the
-float32 implementation against an independent exact-rational reference
-and an adapted Yuksel--Peters GPU baseline. All three modern variants
-match the original 867-case corpus at relative-distance tolerance
-\(10^{-4}\). A frozen, seeded 2,400-query stress corpus exposes the same
-109 grazing failures in each variant; all 1,800 other queries pass.
-Exact replay of captured GPU coefficients reproduces those failures
-before root isolation. Independent checks of selected optical paths
-retain thin-shell boundaries and Snell-law refraction. Complete-render
-comparisons show close image agreement and workload-dependent
-performance on Apple M3 Pro. The contribution is an implementation and
-reproducible account of its numerical behavior, with explicit
-limitations at tangencies and during finite-precision polynomial
-construction.
+normals. The implementation study provides a homogeneous construction of
+bounded ray charts for surfaces passing through infinity, a workflow
+separating numerical failure stages, and comparisons of complete
+refractive renderers. We evaluate the float32 implementation against an
+independent exact-rational reference and an adapted Yuksel--Peters GPU
+baseline. All three modern variants match the original 867-case corpus
+at relative-distance tolerance \(10^{-4}\). A frozen, seeded 2,400-query
+stress corpus exposes the same 109 grazing failures in each variant; all
+1,800 other queries pass. Exact replay of captured GPU coefficients
+reproduces those failures before root isolation. Independent checks of
+selected optical paths retain thin-shell boundaries and Snell-law
+refraction. Complete-render comparisons show close image agreement and
+workload-dependent performance on Apple M3 Pro. Tangencies and
+finite-precision polynomial construction remain explicit limitations.
 
 \end{abstract}
 \section{Motivation and scope}\label{motivation-and-scope}
@@ -69,31 +68,43 @@ investigating how an interactive implicit renderer handles distant
 intersections, changing material regions and closely spaced optical
 boundaries.
 
-Hopf Observatory supports six-plane \(SO(4)\) rotations, an orbitable
-camera, up to three torus regions, angular shells down to
-\(0.01^\circ\), and projected Euclidean reflection/refraction. The
-surface is not tessellated or sampled into a point cloud. A fullscreen
-triangle dispatches per-pixel ray calculations. Figure~\ref{fig:teaser} shows the
-resulting family under a shared rotation.
+This implementation study offers three reusable elements:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Bounded ray charts from a homogeneous implicit form.} Near and
+  reciprocal coordinates cover the unbounded ray domain without a finite
+  clipping sphere, with explicit handling of finite intersections and
+  material boundaries through the projection pole (Sections 2 and 3).
+\item
+  \textbf{A workflow for separating numerical failures.} Independent
+  references and intermediate captures distinguish input quantization,
+  polynomial construction, root isolation and ray transport. This
+  prevents an upstream construction error from being attributed to the
+  root finder (Section 4).
+\item
+  \textbf{Comparisons of complete refractive renderers.} Shared scenes
+  and transport settings connect intersection accuracy to boundary
+  retention, image differences and rendering cost. The measured solver
+  ranking changes with the optical workload (Section 4).
+\end{itemize}
+
+Hopf Observatory implements these elements in WebGL 2, with six-plane
+\(SO(4)\) rotations, up to three torus regions, angular shells down to
+\(0.01^\circ\), and projected Euclidean reflection/refraction. Figure~\ref{fig:teaser}
+shows the family under a shared rotation. A fullscreen triangle
+dispatches per-pixel ray calculations without tessellating the surface.
 
 Ray tracing algebraic surfaces \citep{hanrahan1983}, GPU Bernstein
 methods \citep{seland2007}, derivative-partitioned root finding
 \citep{yuksel2022, peters2023}, and refinement against the original
-implicit field \citep{szente2026} all predate this work. We contribute a
-documented integration for stereographic Hopf tori and a reproducible
-evaluation separating input representation, intersection computation and
-optical transport. We claim neither a new general root-finding algorithm
-nor superior root completeness over the modern baseline.
-
-The reusable elements are the construction of bounded ray charts from a
-homogeneous implicit form, the explicit treatment of material boundaries
-through the projection pole, and a validation workflow that measures
-represented geometry separately from intended geometry. The experiments
-also show why a small field residual, a successful primary-ray test and
-an isolated solver timing are each insufficient to characterize a
-complete refractive renderer. These lessons are relevant to other
-implicit renderers, although their numerical thresholds and performance
-must be evaluated for the new geometry and workload.
+implicit field \citep{szente2026} all predate this work. The
+contribution is the concrete construction and evaluation workflow
+supplied with this implementation. We claim neither a new general
+root-finding algorithm nor superior root completeness over the modern
+baseline. Reusing the approach for other implicit surfaces requires
+evaluating their numerical thresholds and rendering workloads.
 
 \section{Geometry and the projection
 pole}\label{geometry-and-the-projection-pole}
