@@ -1,0 +1,6578 @@
+{
+  "date": "2026-11-23T03:08:01.973Z",
+  "hardware": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "hashes": {
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "research/diagnostics/algorithm1010/solver.glsl": "f718df70659cc1080d0adb0c9100e857b312e8aa889a10bbdfc3e0723fe7c9a5",
+    "research/diagnostics/algorithm1010/renderer.mjs": "7f29a23fc96e52daa6198f377fc1af2820f77878961921d57167819628801c47",
+    "research/diagnostics/algorithm1010/run-suite.mjs": "af72be744b6f236a858851d0ea707699bad90f007f390e915920abd4b5e32d01",
+    "research/yuksel-renderer.glsl": "24894faec2d23830151ed729b4bdc4668b36ea0635330aecfa0f4c8963ccdcc7",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "research/diagnostics/algorithm1010/final/variants.mjs": "c8af57efd8218183864e34b133a6b94773d032376d1bc5301f8651543b48bad1",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/diagnostics/algorithm1010/final/benchmark-webgl.mjs": "d3ea9150ddd66e29ee69add03f55039b318352cae3a48602a89287d21ffbf750",
+    "research/diagnostics/algorithm1010/final/results/webgl-benchmark.json": "069c159d1c3ae1087a338fd380ea0213b8e7ff22d97f813c4073f3522714ccc8",
+    "research/diagnostics/algorithm1010/traversal/run.mjs": "99dd08333f6c11d225915f49711b01d767598cbb903f0d1abf2e5e73d48a94d0",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-production.json": "d95cc36abe663bf3c7308984a8729243409d9fe307190d73682d985f16dc4109",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-production-unrolled.json": "d4fbe58053a54116c8a4aec3009a9a85a647eb313cded7b73ede40c790cb6680",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-odm-loop.json": "3fcd5c167fe4a652e7f44f76bf3eaab1a64711ac40dcf4fe47aae41a569fc233",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-odm-direct.json": "d9b14ec4017a455a98c4fb786b401f352ca4c447478dc78880f8756f206761ff"
+  },
+  "shaderHashes": {
+    "production": "3a70927462b5ad47092c5a3e73cfa5a668b6b83043be4d7a05427d8bc6fa8d32",
+    "production-unrolled": "097927dc13cbcbe151b31938d19cb6b897f69061a35e66d91022a6b4abc0fde8",
+    "odm-loop": "9dd8420d1927ea1f1110848446fe600c16cdb16e7c921b48921cf20759abadbe",
+    "odm-direct": "2a6d260631ab7adaa17b78235c8621d5bddbbd9f67cda61c2a22ade31479c3ec"
+  },
+  "compiledShaderHashes": {
+    "production": "779dc98252e9fc75525b199cef552be6c9c4bd8570cb5ef6c096976278c31193",
+    "production-unrolled": "42508201a6d714eebe3fc830301623bfc2ebd1b92f2a6262b6b917183df7fe44",
+    "odm-loop": "96eb57d404f9e83c3da232708ca01668f5192f56f97ff574086838a6426b39f6",
+    "odm-direct": "4cc426290d6fbab7705e8eeaaee01da507f74d95c97042015a90fdc2ea777621"
+  },
+  "method": "WebGL2 RGBA8 offscreen 1280x720, same four native scenes/uniforms, 24 interactions. Three alternating-order blocks per scene/variant; five warmup and ten measured completed frames. Every draw has a separate EXT_disjoint_timer_query_webgl2 elapsed query and synchronous 1-pixel readback before the next draw. Disjoint samples reject the run. GPU elapsed and draw-plus-readback wall times reported separately. Compilation, warmup, timer-result polling, full-image readback, Playwright IPC, UI and vsync excluded. Per-frame completion prevents elimination of earlier identical fullscreen draws.",
+  "ordering": "Four variants in listed order, reversed when (round + sceneIndex) is odd. Same three blocks, five warmups and ten completed measured frames as accepted protocol. No full-image capture during timing.",
+  "variants": [
+    "production",
+    "production-unrolled",
+    "odm-loop",
+    "odm-direct"
+  ],
+  "measurements": [
+    {
+      "variant": "production",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 0,
+      "position": 0,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.835083,
+        4.883916,
+        5.371124,
+        4.5475,
+        6.084166,
+        6.814666,
+        4.893458,
+        5.09875,
+        4.900749,
+        4.4785
+      ],
+      "completionMilliseconds": [
+        5.5,
+        5.400000095367432,
+        5.800000190734863,
+        5,
+        6.599999904632568,
+        7.299999713897705,
+        5.5,
+        6,
+        5.699999809265137,
+        5.300000190734863
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 0,
+      "position": 1,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.729333,
+        4.263374,
+        4.527958,
+        5.708375,
+        4.4505,
+        4.6795,
+        5.157166,
+        5.395875,
+        4.268791,
+        4.28975
+      ],
+      "completionMilliseconds": [
+        5.099999904632568,
+        4.700000286102295,
+        5,
+        6.100000381469727,
+        4.799999713897705,
+        5,
+        5.400000095367432,
+        6.200000286102295,
+        5,
+        4.899999618530273
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 0,
+      "position": 2,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        5.116291,
+        4.754499,
+        4.367666,
+        5.112499,
+        5.561208,
+        5.628624,
+        4.84075,
+        6.131624,
+        4.638541,
+        4.734291
+      ],
+      "completionMilliseconds": [
+        5.5,
+        5.199999809265137,
+        4.799999713897705,
+        5.5,
+        6.099999904632568,
+        6.099999904632568,
+        5.299999713897705,
+        6.5,
+        5.300000190734863,
+        5.199999809265137
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 0,
+      "position": 3,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.690041,
+        5.128749,
+        4.583708,
+        4.943208,
+        5.224166,
+        4.885375,
+        6.223374,
+        4.914874,
+        4.917458,
+        5.033083
+      ],
+      "completionMilliseconds": [
+        5.400000095367432,
+        5.599999904632568,
+        5,
+        5.300000190734863,
+        5.800000190734863,
+        5.5,
+        7.300000190734863,
+        5.599999904632568,
+        5.699999809265137,
+        5.600000381469727
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 1,
+      "position": 0,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.853249,
+        4.846916,
+        6.119874,
+        6.534832,
+        6.324749,
+        6.404708,
+        6.142875,
+        5.125333,
+        6.233916,
+        5.64925
+      ],
+      "completionMilliseconds": [
+        5.400000095367432,
+        5.300000190734863,
+        6.5,
+        7.099999904632568,
+        6.800000190734863,
+        6.800000190734863,
+        6.400000095367432,
+        5.400000095367432,
+        7.300000190734863,
+        6.5
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 1,
+      "position": 1,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        5.072874,
+        5.887375,
+        5.634374,
+        4.579625,
+        7.240999,
+        5.616416,
+        5.995124,
+        6.254124,
+        6.95725,
+        4.705583
+      ],
+      "completionMilliseconds": [
+        5.900000095367432,
+        6.699999809265137,
+        6.5,
+        5.599999904632568,
+        8,
+        6.799999713897705,
+        7.099999904632568,
+        7.5,
+        8,
+        5.800000190734863
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 1,
+      "position": 2,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        6.730708,
+        4.976083,
+        4.896374,
+        4.430999,
+        4.307708,
+        4.664333,
+        4.416124,
+        5.267583,
+        4.394208,
+        4.690874
+      ],
+      "completionMilliseconds": [
+        7.5,
+        5.899999618530273,
+        5.899999618530273,
+        5.5,
+        5.400000095367432,
+        5.600000381469727,
+        5.5,
+        6.400000095367432,
+        5.700000286102295,
+        5.699999809265137
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 1,
+      "position": 3,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.867999,
+        4.168833,
+        4.326041,
+        6.60425,
+        5.002249,
+        5.897541,
+        5.057374,
+        4.514375,
+        5.060791,
+        4.981166
+      ],
+      "completionMilliseconds": [
+        5.699999809265137,
+        5.200000286102295,
+        5.300000190734863,
+        7.699999809265137,
+        5.800000190734863,
+        7,
+        6.099999904632568,
+        5.300000190734863,
+        6.300000190734863,
+        6.099999904632568
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 2,
+      "position": 0,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.282416,
+        5.234749,
+        4.557541,
+        4.325625,
+        4.578499,
+        4.768624,
+        4.863416,
+        6.17825,
+        4.878375,
+        4.498625
+      ],
+      "completionMilliseconds": [
+        4.900000095367432,
+        6.299999713897705,
+        5.5,
+        5.099999904632568,
+        5.599999904632568,
+        5.700000286102295,
+        5.800000190734863,
+        7.299999713897705,
+        5.700000286102295,
+        5.699999809265137
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 2,
+      "position": 1,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.788374,
+        4.408374,
+        5.183541,
+        4.71225,
+        6.392625,
+        6.572458,
+        4.5925,
+        4.413625,
+        5.4155,
+        4.968999
+      ],
+      "completionMilliseconds": [
+        5.5,
+        5.400000095367432,
+        6.200000286102295,
+        5.599999904632568,
+        7.599999904632568,
+        7.199999809265137,
+        5.399999618530273,
+        5.099999904632568,
+        6.300000190734863,
+        5.900000095367432
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 2,
+      "position": 2,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        5.816958,
+        4.821625,
+        4.844082,
+        4.851041,
+        5.132374,
+        5.040375,
+        4.725666,
+        4.509042,
+        6.558999,
+        6.047208
+      ],
+      "completionMilliseconds": [
+        6.599999904632568,
+        5.800000190734863,
+        5.800000190734863,
+        5.700000286102295,
+        6.200000286102295,
+        6,
+        5.699999809265137,
+        5.5,
+        7.700000286102295,
+        7
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "round": 2,
+      "position": 3,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        4.772333,
+        4.699749,
+        6.803208,
+        4.918208,
+        5.052541,
+        5.157666,
+        5.430541,
+        4.954583,
+        4.859625,
+        4.744375
+      ],
+      "completionMilliseconds": [
+        5.5,
+        5.5,
+        7.5,
+        5.700000286102295,
+        5.599999904632568,
+        5.900000095367432,
+        6.599999904632568,
+        5.900000095367432,
+        5.800000190734863,
+        5.800000190734863
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 0,
+      "position": 0,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        11.373375,
+        9.448083,
+        10.089291,
+        9.86375,
+        9.852583,
+        12.536499,
+        10.514208,
+        9.851499,
+        9.879416,
+        11.013375
+      ],
+      "completionMilliseconds": [
+        12.199999809265137,
+        10.400000095367432,
+        11.300000190734863,
+        10.699999809265137,
+        10.900000095367432,
+        13.800000190734863,
+        11.199999809265137,
+        10.900000095367432,
+        10.799999713897705,
+        12
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 0,
+      "position": 1,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        13.91125,
+        10.192458,
+        12.893,
+        9.969916,
+        9.955374,
+        13.221374,
+        12.573125,
+        10.084125,
+        10.292749,
+        18.546
+      ],
+      "completionMilliseconds": [
+        14.699999809265137,
+        11.099999904632568,
+        13.700000286102295,
+        10.800000190734863,
+        11.099999904632568,
+        14.099999904632568,
+        13.600000381469727,
+        11.099999904632568,
+        11.600000381469727,
+        19.799999713897705
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 0,
+      "position": 2,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        8.284624,
+        9.088833,
+        9.570625,
+        8.101833,
+        13.883125,
+        9.015291,
+        11.679916,
+        8.672499,
+        9.837749,
+        13.905499
+      ],
+      "completionMilliseconds": [
+        9.099999904632568,
+        9.799999713897705,
+        10.599999904632568,
+        9.199999809265137,
+        15.300000190734863,
+        10.199999809265137,
+        12.800000190734863,
+        10.200000286102295,
+        12.199999809265137,
+        15.199999809265137
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 0,
+      "position": 3,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        11.64275,
+        8.054875,
+        10.996874,
+        11.551625,
+        15.541708,
+        9.808707,
+        8.292291,
+        9.057541,
+        13.228166,
+        10.725375
+      ],
+      "completionMilliseconds": [
+        12.699999809265137,
+        9.200000286102295,
+        11.900000095367432,
+        12.5,
+        16.90000009536743,
+        10.800000190734863,
+        9.599999904632568,
+        10,
+        14.5,
+        12.099999904632568
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 1,
+      "position": 0,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        10.312541,
+        10.735999,
+        9.670833,
+        9.053916,
+        10.28825,
+        12.73175,
+        9.1125,
+        8.341708,
+        10.37925,
+        10.085083
+      ],
+      "completionMilliseconds": [
+        11.400000095367432,
+        11.900000095367432,
+        10.700000286102295,
+        10,
+        11.399999618530273,
+        14.199999809265137,
+        10.199999809265137,
+        9.699999809265137,
+        11.800000190734863,
+        12
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 1,
+      "position": 1,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        11.822541,
+        9.1095,
+        12.848541,
+        8.663833,
+        8.995499,
+        8.40625,
+        9.3215,
+        8.1905,
+        10.008499,
+        8.725916
+      ],
+      "completionMilliseconds": [
+        12.900000095367432,
+        10.200000286102295,
+        14.300000190734863,
+        9.5,
+        10.299999713897705,
+        9.5,
+        10.300000190734863,
+        9.400000095367432,
+        11.199999809265137,
+        9.599999904632568
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 1,
+      "position": 2,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        10.35875,
+        16.700999,
+        9.911249,
+        14.922874,
+        9.327,
+        10.047458,
+        15.205833,
+        9.934125,
+        10.677416,
+        9.998041
+      ],
+      "completionMilliseconds": [
+        11.199999809265137,
+        17.699999809265137,
+        10.700000286102295,
+        16,
+        10.299999713897705,
+        11.099999904632568,
+        16.300000190734863,
+        10.900000095367432,
+        11.699999809265137,
+        11.199999809265137
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 1,
+      "position": 3,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        10.304625,
+        10.618125,
+        9.860041,
+        11.716916,
+        8.741124,
+        15.264749,
+        13.304958,
+        15.539125,
+        11.15325,
+        14.985958
+      ],
+      "completionMilliseconds": [
+        11.200000286102295,
+        11.5,
+        11,
+        12.5,
+        9.699999809265137,
+        16.399999618530273,
+        14.5,
+        16.800000190734863,
+        12.599999904632568,
+        16.40000009536743
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 2,
+      "position": 0,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        13.253666,
+        10.878374,
+        10.353833,
+        12.412041,
+        9.898124,
+        15.590749,
+        11.889875,
+        9.837375,
+        12.164124,
+        10.961625
+      ],
+      "completionMilliseconds": [
+        14.400000095367432,
+        12.099999904632568,
+        11.300000190734863,
+        13.700000286102295,
+        11,
+        16.799999713897705,
+        13.099999904632568,
+        11,
+        14,
+        12
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 2,
+      "position": 1,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        17.046249,
+        14.341333,
+        11.755375,
+        10.731916,
+        10.60025,
+        15.430291,
+        9.251374,
+        10.73625,
+        10.109624,
+        11.9345
+      ],
+      "completionMilliseconds": [
+        18.09999990463257,
+        15.300000190734863,
+        12.599999904632568,
+        12.199999809265137,
+        11.699999809265137,
+        16.399999618530273,
+        10.299999713897705,
+        12,
+        11.300000190734863,
+        13.099999904632568
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 2,
+      "position": 2,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        11.752708,
+        8.242125,
+        9.286083,
+        11.454666,
+        10.118416,
+        11.796874,
+        9.040291,
+        9.768291,
+        8.387416,
+        12.279208
+      ],
+      "completionMilliseconds": [
+        12.599999904632568,
+        9,
+        10.399999618530273,
+        12.900000095367432,
+        11.300000190734863,
+        12.900000095367432,
+        10.200000286102295,
+        10.799999713897705,
+        9.599999904632568,
+        13.5
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "round": 2,
+      "position": 3,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        9.874958,
+        11.340999,
+        8.316999,
+        14.962458,
+        11.760749,
+        8.882166,
+        8.374749,
+        11.704999,
+        8.906,
+        8.519249
+      ],
+      "completionMilliseconds": [
+        11,
+        12.399999618530273,
+        8.900000095367432,
+        15.900000095367432,
+        12.700000286102295,
+        9.700000286102295,
+        9.5,
+        13.599999904632568,
+        10.100000381469727,
+        9.699999809265137
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 0,
+      "position": 0,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        24.529374,
+        35.470791,
+        37.483499,
+        29.874083,
+        31.141916,
+        31.475625,
+        32.723,
+        36.215999,
+        41.483791,
+        32.066291
+      ],
+      "completionMilliseconds": [
+        25.40000009536743,
+        37.40000009536743,
+        38.69999980926514,
+        31.09999990463257,
+        32.09999990463257,
+        32.69999980926514,
+        33.89999961853027,
+        37.299999713897705,
+        42.60000038146973,
+        33.299999713897705
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 0,
+      "position": 1,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        33.389458,
+        32.67825,
+        36.124499,
+        23.851499,
+        31.386083,
+        27.457,
+        35.413458,
+        29.347,
+        34.317333,
+        25.293583
+      ],
+      "completionMilliseconds": [
+        35.30000019073486,
+        33.90000009536743,
+        37.19999980926514,
+        25.09999990463257,
+        32.40000009536743,
+        28.40000009536743,
+        36.5,
+        30.5,
+        35.40000009536743,
+        26.40000009536743
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 0,
+      "position": 2,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        39.011833,
+        44.913874,
+        42.794375,
+        51.645624,
+        46.671083,
+        49.152541,
+        43.244124,
+        40.331749,
+        42.860375,
+        34.018333
+      ],
+      "completionMilliseconds": [
+        39.799999713897705,
+        45.90000009536743,
+        43.90000009536743,
+        52.90000009536743,
+        47.69999980926514,
+        50.09999990463257,
+        44.39999961853027,
+        41.39999961853027,
+        44,
+        35.09999990463257
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 0,
+      "position": 3,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        47.092,
+        66.763124,
+        41.337166,
+        49.173291,
+        34.712499,
+        50.672791,
+        45.281624,
+        38.179708,
+        42.775041,
+        50.592583
+      ],
+      "completionMilliseconds": [
+        47.90000009536743,
+        67.40000009536743,
+        41.90000009536743,
+        49.80000019073486,
+        35.30000019073486,
+        51.200000286102295,
+        45.700000286102295,
+        39.19999980926514,
+        43.59999990463257,
+        51.39999961853027
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 1,
+      "position": 0,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        50.570291,
+        47.542666,
+        46.568125,
+        60.1775,
+        57.81825,
+        49.433874,
+        48.849874,
+        56.244499,
+        53.403583,
+        38.588374
+      ],
+      "completionMilliseconds": [
+        51.200000286102295,
+        48.09999990463257,
+        47,
+        60.69999980926514,
+        58.40000009536743,
+        49.90000009536743,
+        49.30000019073486,
+        56.80000019073486,
+        54.19999980926514,
+        39.39999961853027
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 1,
+      "position": 1,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        50.258999,
+        47.642041,
+        50.925749,
+        48.767041,
+        45.565874,
+        59.104625,
+        48.397583,
+        55.829958,
+        43.627416,
+        48.306125
+      ],
+      "completionMilliseconds": [
+        50.799999713897705,
+        48.299999713897705,
+        51.69999980926514,
+        49.5,
+        46.19999980926514,
+        59.59999990463257,
+        49.19999980926514,
+        56.80000019073486,
+        44.5,
+        48.90000009536743
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 1,
+      "position": 2,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        37.649708,
+        43.689541,
+        35.270083,
+        24.732,
+        32.126833,
+        25.330166,
+        29.407,
+        23.980791,
+        29.272374,
+        37.796124
+      ],
+      "completionMilliseconds": [
+        38.299999713897705,
+        44.5,
+        35.90000009536743,
+        25.399999618530273,
+        32.69999980926514,
+        26,
+        30,
+        24.399999618530273,
+        29.800000190734863,
+        38.40000009536743
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 1,
+      "position": 3,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        25.36675,
+        26.4965,
+        36.111833,
+        35.8825,
+        35.214208,
+        23.476874,
+        40.436083,
+        36.666749,
+        34.711416,
+        31.001041
+      ],
+      "completionMilliseconds": [
+        26,
+        27,
+        36.59999990463257,
+        36.5,
+        35.80000019073486,
+        24,
+        40.90000009536743,
+        37.59999990463257,
+        35.60000038146973,
+        31.899999618530273
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 2,
+      "position": 0,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        34.350541,
+        33.387125,
+        41.780333,
+        25.642958,
+        33.567,
+        33.818375,
+        47.547458,
+        28.1895,
+        32.307833,
+        31.917166
+      ],
+      "completionMilliseconds": [
+        34.90000009536743,
+        33.80000019073486,
+        42.40000009536743,
+        26.09999990463257,
+        34,
+        34.299999713897705,
+        48.10000038146973,
+        29.09999990463257,
+        33.19999980926514,
+        32.90000009536743
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 2,
+      "position": 1,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        31.175791,
+        31.331125,
+        26.699,
+        31.539708,
+        35.870666,
+        37.438,
+        33.842249,
+        28.234291,
+        29.477,
+        24.476958
+      ],
+      "completionMilliseconds": [
+        31.699999809265137,
+        31.799999713897705,
+        27.09999990463257,
+        32,
+        36.40000009536743,
+        37.90000009536743,
+        34.19999980926514,
+        29.09999990463257,
+        30.299999713897705,
+        25.300000190734863
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 2,
+      "position": 2,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        40.903917,
+        39.378125,
+        44.796,
+        48.974666,
+        44.333458,
+        47.634374,
+        45.340875,
+        46.319291,
+        58.002625,
+        34.593291
+      ],
+      "completionMilliseconds": [
+        41.5,
+        39.89999961853027,
+        45.40000009536743,
+        49.40000009536743,
+        45,
+        48.10000038146973,
+        45.80000019073486,
+        47,
+        58.799999713897705,
+        35.39999961853027
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "round": 2,
+      "position": 3,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        35.690666,
+        60.522958,
+        39.829083,
+        48.88775,
+        55.909708,
+        64.299958,
+        61.277749,
+        49.587624,
+        52.913749,
+        51.291
+      ],
+      "completionMilliseconds": [
+        36.30000019073486,
+        61.09999990463257,
+        40.5,
+        49.5,
+        56.5,
+        65.19999980926514,
+        61.90000009536743,
+        50.39999961853027,
+        53.59999990463257,
+        52
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 0,
+      "position": 0,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        151.289749,
+        134.351249,
+        134.085916,
+        133.499624,
+        134.653124,
+        131.922125,
+        138.450875,
+        129.607708,
+        134.310499,
+        142.234958
+      ],
+      "completionMilliseconds": [
+        152,
+        135,
+        134.69999980926514,
+        134.19999980926514,
+        135.10000038146973,
+        132.5,
+        139,
+        130.09999990463257,
+        135.2000002861023,
+        143.19999980926514
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 0,
+      "position": 1,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        134.041958,
+        134.004708,
+        130.784625,
+        124.692874,
+        137.346041,
+        134.026749,
+        130.790916,
+        131.729499,
+        128.369958,
+        134.962125
+      ],
+      "completionMilliseconds": [
+        134.5,
+        134.59999990463257,
+        131.19999980926514,
+        125.30000019073486,
+        137.90000009536743,
+        134.59999990463257,
+        131.5,
+        132.60000038146973,
+        129.2999997138977,
+        135.7999997138977
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 0,
+      "position": 2,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        82.140708,
+        90.82975,
+        88.531291,
+        82.968458,
+        79.605625,
+        86.291874,
+        90.285624,
+        87.647208,
+        84.446666,
+        75.495583
+      ],
+      "completionMilliseconds": [
+        82.69999980926514,
+        91.5,
+        89.19999980926514,
+        83.5,
+        80.40000009536743,
+        86.90000009536743,
+        90.7000002861023,
+        88.5,
+        85.2000002861023,
+        76.39999961853027
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 0,
+      "position": 3,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        89.147916,
+        92.051374,
+        90.233874,
+        74.361833,
+        77.41925,
+        91.06425,
+        80.395999,
+        79.538958,
+        85.789,
+        87.42275
+      ],
+      "completionMilliseconds": [
+        89.59999990463257,
+        92.7000002861023,
+        90.7000002861023,
+        74.80000019073486,
+        78.09999990463257,
+        91.59999990463257,
+        81,
+        80.40000009536743,
+        86.7000002861023,
+        88.2999997138977
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 1,
+      "position": 0,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        90.064708,
+        94.374875,
+        72.411249,
+        78.885499,
+        80.906374,
+        90.48725,
+        86.014499,
+        96.043541,
+        83.800041,
+        112.497624
+      ],
+      "completionMilliseconds": [
+        90.5,
+        95,
+        73,
+        79.40000009536743,
+        81.40000009536743,
+        91.09999990463257,
+        86.7999997138977,
+        96.89999961853027,
+        84.5,
+        113
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 1,
+      "position": 1,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        81.061874,
+        86.274083,
+        81.488708,
+        72.217875,
+        75.81675,
+        81.566125,
+        77.385624,
+        79.790125,
+        87.342666,
+        88.876416
+      ],
+      "completionMilliseconds": [
+        82,
+        86.80000019073486,
+        82.09999990463257,
+        72.7999997138977,
+        76.2999997138977,
+        82.09999990463257,
+        77.89999961853027,
+        80.2999997138977,
+        88.40000009536743,
+        89.69999980926514
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 1,
+      "position": 2,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        151.407625,
+        133.017624,
+        135.515125,
+        128.44875,
+        137.782166,
+        139.660249,
+        137.504416,
+        134.877874,
+        137.171749,
+        129.6935
+      ],
+      "completionMilliseconds": [
+        152.09999990463257,
+        133.59999990463257,
+        136.09999990463257,
+        129,
+        138.5,
+        140.19999980926514,
+        138.30000019073486,
+        135.40000009536743,
+        138,
+        130.69999980926514
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 1,
+      "position": 3,
+      "order": [
+        "production",
+        "production-unrolled",
+        "odm-loop",
+        "odm-direct"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        138.525125,
+        143.003125,
+        139.909499,
+        139.090083,
+        140.946874,
+        145.098875,
+        138.833041,
+        136.168041,
+        138.23975,
+        138.604875
+      ],
+      "completionMilliseconds": [
+        139.30000019073486,
+        143.90000009536743,
+        140.40000009536743,
+        139.59999990463257,
+        141.5,
+        145.90000009536743,
+        139.40000009536743,
+        137.09999990463257,
+        139.30000019073486,
+        139.2999997138977
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-direct",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 2,
+      "position": 0,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        143.0675,
+        141.331208,
+        142.928458,
+        135.092124,
+        135.2695,
+        145.287625,
+        140.818374,
+        125.171916,
+        133.190166,
+        136.169374
+      ],
+      "completionMilliseconds": [
+        143.7000002861023,
+        142.09999990463257,
+        143.7000002861023,
+        135.60000038146973,
+        135.90000009536743,
+        145.90000009536743,
+        141.5,
+        126.19999980926514,
+        134.09999990463257,
+        136.69999980926514
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "odm-loop",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 2,
+      "position": 1,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        141.002249,
+        132.80175,
+        139.023333,
+        131.081374,
+        133.69375,
+        137.114,
+        139.700375,
+        138.481583,
+        140.366,
+        128.121541
+      ],
+      "completionMilliseconds": [
+        141.80000019073486,
+        133.39999961853027,
+        139.69999980926514,
+        131.69999980926514,
+        134.40000009536743,
+        137.69999980926514,
+        140.2000002861023,
+        139.09999990463257,
+        140.90000009536743,
+        129.09999990463257
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production-unrolled",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 2,
+      "position": 2,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        89.334249,
+        89.831749,
+        84.238125,
+        84.148083,
+        91.122125,
+        87.976749,
+        88.609999,
+        79.828124,
+        75.809374,
+        88.627499
+      ],
+      "completionMilliseconds": [
+        89.90000009536743,
+        90.40000009536743,
+        84.89999961853027,
+        85.09999990463257,
+        91.7000002861023,
+        88.59999990463257,
+        89.09999990463257,
+        81,
+        76.80000019073486,
+        89.19999980926514
+      ],
+      "disjoint": false
+    },
+    {
+      "variant": "production",
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "round": 2,
+      "position": 3,
+      "order": [
+        "odm-direct",
+        "odm-loop",
+        "production-unrolled",
+        "production"
+      ],
+      "width": 1280,
+      "height": 720,
+      "frames": 10,
+      "warmup": 5,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "gpuMilliseconds": [
+        81.66375,
+        81.227833,
+        90.206875,
+        102.35475,
+        96.167999,
+        89.850333,
+        92.434624,
+        84.920958,
+        85.804375,
+        81.669874
+      ],
+      "completionMilliseconds": [
+        82.5,
+        81.89999961853027,
+        91.30000019073486,
+        103.40000009536743,
+        97.2999997138977,
+        90.5,
+        93.2000002861023,
+        85.90000009536743,
+        86.80000019073486,
+        82.19999980926514
+      ],
+      "disjoint": false
+    }
+  ]
+}

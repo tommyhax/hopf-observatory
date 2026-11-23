@@ -1,0 +1,1777 @@
+{
+  "effectConvention": "Positive percentages mean more GPU time for after relative to before. Percentages use pooled medians; paired block ratios and full timing distributions are also retained. Three blocks are not independent device-level replicates.",
+  "timingSummaries": [
+    {
+      "scene": "single solid",
+      "variant": "production",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 4.168833,
+        "p05": 4.301860049999999,
+        "p25": 4.55001025,
+        "median": 4.881145500000001,
+        "p75": 5.08926025,
+        "p95": 6.4125499999999995,
+        "max": 6.814666
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 4.900000095367432,
+        "p05": 5.044999957084656,
+        "p25": 5.425000071525574,
+        "median": 5.700000047683716,
+        "p75": 6.099999904632568,
+        "p95": 7.299999713897705,
+        "max": 7.699999809265137
+      },
+      "gpuBlockMedians": [
+        4.8971035,
+        4.9917075,
+        4.6735615
+      ]
+    },
+    {
+      "scene": "single solid",
+      "variant": "production-unrolled",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 4.263374,
+        "p05": 4.27822255,
+        "p25": 4.41984275,
+        "median": 4.701562,
+        "p75": 5.17694725,
+        "p95": 6.4915331499999995,
+        "max": 6.730708
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 4.700000286102295,
+        "p05": 4.844999670982361,
+        "p25": 5.174999833106995,
+        "median": 5.549999952316284,
+        "p75": 6.050000309944153,
+        "p95": 7.364999914169311,
+        "max": 7.599999904632568
+      },
+      "gpuBlockMedians": [
+        4.6037289999999995,
+        4.6776035,
+        4.878686500000001
+      ]
+    },
+    {
+      "scene": "single solid",
+      "variant": "odm-loop",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 4.367666,
+        "p05": 4.54080435,
+        "p25": 4.7712805,
+        "median": 5.114395,
+        "p75": 5.86977075,
+        "p95": 6.778037049999999,
+        "max": 7.240999
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 4.799999713897705,
+        "p05": 5.199999809265137,
+        "p25": 5.524999976158142,
+        "median": 5.950000047683716,
+        "p75": 6.674999833106995,
+        "p95": 7.865000128746032,
+        "max": 8.0
+      },
+      "gpuBlockMedians": [
+        4.9766245,
+        5.7608745,
+        4.945708
+      ]
+    },
+    {
+      "scene": "single solid",
+      "variant": "odm-direct",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 4.583708,
+        "p05": 4.6944096,
+        "p25": 4.8660625,
+        "median": 5.042812,
+        "p75": 6.002218,
+        "p95": 6.4762762,
+        "max": 6.803208
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 5.0,
+        "p05": 5.300000190734863,
+        "p25": 5.5,
+        "median": 5.750000238418579,
+        "p75": 6.5,
+        "p95": 7.300000190734863,
+        "max": 7.5
+      },
+      "gpuBlockMedians": [
+        4.930333,
+        6.1313745,
+        4.9363955
+      ]
+    },
+    {
+      "scene": "single 0.01 shell",
+      "variant": "production",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 8.054875,
+        "p05": 8.3034096,
+        "p25": 8.942979000000001,
+        "median": 10.1866665,
+        "p75": 11.4989685,
+        "p95": 14.182026599999995,
+        "max": 15.541708
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 8.900000095367432,
+        "p05": 9.335000157356262,
+        "p25": 10.0,
+        "median": 11.399999856948853,
+        "p75": 12.474999904632568,
+        "p95": 15.270000052452083,
+        "max": 16.90000009536743
+      },
+      "gpuBlockMedians": [
+        10.861124499999999,
+        10.1866665,
+        9.390479
+      ]
+    },
+    {
+      "scene": "single 0.01 shell",
+      "variant": "production-unrolled",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 8.101833,
+        "p05": 8.21373125,
+        "p25": 8.685853250000001,
+        "median": 9.303791499999999,
+        "p75": 11.6236035,
+        "p95": 13.417562199999997,
+        "max": 13.905499
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 9.0,
+        "p05": 9.144999861717224,
+        "p25": 9.649999856948853,
+        "median": 10.349999904632568,
+        "p75": 12.75000011920929,
+        "p95": 14.79499998092651,
+        "max": 15.300000190734863
+      },
+      "gpuBlockMedians": [
+        9.329729,
+        9.0524995,
+        9.9433535
+      ]
+    },
+    {
+      "scene": "single 0.01 shell",
+      "variant": "odm-loop",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 9.251374,
+        "p05": 9.58991205,
+        "p25": 10.056624750000001,
+        "median": 10.704666,
+        "p75": 13.738781000000001,
+        "p95": 16.890886499999997,
+        "max": 18.546
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 10.299999713897705,
+        "p05": 10.47999997138977,
+        "p25": 11.099999904632568,
+        "median": 11.849999904632568,
+        "p75": 14.549999833106995,
+        "p95": 17.919999861717223,
+        "max": 19.799999713897705
+      },
+      "gpuBlockMedians": [
+        11.432936999999999,
+        10.203104,
+        11.2458125
+      ]
+    },
+    {
+      "scene": "single 0.01 shell",
+      "variant": "odm-direct",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 8.741124,
+        "p05": 9.6232644,
+        "p25": 9.884093,
+        "median": 10.9199995,
+        "p75": 12.35006175,
+        "p95": 15.4156558,
+        "max": 15.590749
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 9.699999809265137,
+        "p05": 10.534999966621399,
+        "p25": 11.0,
+        "median": 12.0,
+        "p75": 13.775000214576721,
+        "p95": 16.619999885559082,
+        "max": 16.800000190734863
+      },
+      "gpuBlockMedians": [
+        9.984353500000001,
+        11.435082999999999,
+        11.42575
+      ]
+    },
+    {
+      "scene": "three thin shells",
+      "variant": "production",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 23.476874,
+        "p05": 24.9061932,
+        "p25": 31.03625975,
+        "median": 33.4770625,
+        "p75": 36.05449975,
+        "p95": 41.646889099999996,
+        "max": 47.547458
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 24.0,
+        "p05": 25.67000005245209,
+        "p25": 31.949999690055847,
+        "median": 33.94999980926514,
+        "p75": 37.12499976158142,
+        "p95": 42.51000025272369,
+        "max": 48.10000038146973
+      },
+      "gpuBlockMedians": [
+        32.394645499999996,
+        34.962812,
+        33.4770625
+      ]
+    },
+    {
+      "scene": "three thin shells",
+      "variant": "production-unrolled",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 23.851499,
+        "p05": 24.20406615,
+        "p25": 27.65132275,
+        "median": 31.358604,
+        "p75": 35.0318955,
+        "p95": 37.7302368,
+        "max": 43.689541
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 24.399999618530273,
+        "p05": 25.190000033378602,
+        "p25": 28.575000047683716,
+        "median": 31.899999856948853,
+        "p75": 35.77500009536743,
+        "p95": 38.35499992370605,
+        "max": 44.5
+      },
+      "gpuBlockMedians": [
+        32.0321665,
+        30.7669165,
+        31.253458000000002
+      ]
+    },
+    {
+      "scene": "three thin shells",
+      "variant": "odm-loop",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 34.018333,
+        "p05": 36.581634900000005,
+        "p25": 42.956312249999996,
+        "median": 45.9425825,
+        "p75": 48.92275975,
+        "p95": 57.02492484999999,
+        "max": 59.104625
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 35.09999990463257,
+        "p05": 37.379999661445616,
+        "p25": 44.09999990463257,
+        "median": 46.59999990463257,
+        "p75": 49.47500002384186,
+        "p95": 57.89999992847442,
+        "max": 59.59999990463257
+      },
+      "gpuBlockMedians": [
+        43.0522495,
+        48.582312,
+        45.0684375
+      ]
+    },
+    {
+      "scene": "three thin shells",
+      "variant": "odm-direct",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 34.712499,
+        "p05": 36.8107349,
+        "p25": 45.603249250000005,
+        "median": 49.510749000000004,
+        "p75": 55.28317675,
+        "p95": 62.93996394999999,
+        "max": 66.763124
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 35.30000019073486,
+        "p05": 37.605000019073486,
+        "p25": 46.02500021457672,
+        "median": 50.14999985694885,
+        "p75": 55.924999952316284,
+        "p95": 63.71499993801116,
+        "max": 67.40000009536743
+      },
+      "gpuBlockMedians": [
+        46.186812,
+        50.0020825,
+        52.102374499999996
+      ]
+    },
+    {
+      "scene": "three thin shells near pole",
+      "variant": "production",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 72.411249,
+        "p05": 75.73767065,
+        "p25": 81.33681225000001,
+        "median": 86.7186245,
+        "p75": 90.92,
+        "p95": 99.57071204999998,
+        "max": 112.497624
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 73.0,
+        "p05": 76.28500006198882,
+        "p25": 81.97499966621399,
+        "median": 87.54999995231628,
+        "p75": 91.52499997615814,
+        "p95": 100.65499992370604,
+        "max": 113.0
+      },
+      "gpuBlockMedians": [
+        86.605875,
+        88.0396035,
+        87.827354
+      ]
+    },
+    {
+      "scene": "three thin shells near pole",
+      "variant": "production-unrolled",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 72.217875,
+        "p05": 75.63678895,
+        "p25": 80.1365615,
+        "median": 84.3423955,
+        "p75": 88.590322,
+        "p95": 90.5848933,
+        "max": 91.122125
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 72.7999997138977,
+        "p05": 76.34499967098236,
+        "p25": 81.25,
+        "median": 85.15000009536743,
+        "p75": 89.174999833107,
+        "p95": 91.14000012874602,
+        "max": 91.7000002861023
+      },
+      "gpuBlockMedians": [
+        85.36927,
+        81.27529100000001,
+        88.293374
+      ]
+    },
+    {
+      "scene": "three thin shells near pole",
+      "variant": "odm-loop",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 124.692874,
+        "p05": 128.23332865,
+        "p25": 131.24340525000002,
+        "median": 134.459916,
+        "p75": 137.7127285,
+        "p95": 140.71593695,
+        "max": 151.407625
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 125.30000019073486,
+        "p05": 129.04499995708466,
+        "p25": 131.92499995231628,
+        "median": 135.0,
+        "p75": 138.45000004768372,
+        "p95": 141.39500014781953,
+        "max": 152.09999990463257
+      },
+      "gpuBlockMedians": [
+        132.86710349999998,
+        136.343437,
+        137.79779150000002
+      ]
+    },
+    {
+      "scene": "three thin shells near pole",
+      "variant": "odm-direct",
+      "gpuMilliseconds": {
+        "count": 30,
+        "min": 125.171916,
+        "p05": 130.64919565,
+        "p25": 134.42671775,
+        "median": 138.488,
+        "p75": 141.2351245,
+        "p95": 145.2026875,
+        "max": 151.289749
+      },
+      "completionMilliseconds": {
+        "count": 30,
+        "min": 126.19999980926514,
+        "p05": 131.1799999475479,
+        "p25": 135.12500035762787,
+        "median": 139.29999995231628,
+        "p75": 141.94999992847443,
+        "p95": 145.90000009536743,
+        "max": 152.0
+      },
+      "gpuBlockMedians": [
+        134.330874,
+        138.96156200000001,
+        138.493874
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "scene": "single solid",
+      "bernsteinExpansion": {
+        "before": "production",
+        "after": "production-unrolled",
+        "milliseconds": -0.17958350000000056,
+        "percent": -3.679126139550659,
+        "pairedBlockPercent": [
+          -5.990775976043805,
+          -6.2925161380149035,
+          4.389051048113957
+        ],
+        "pairedBlockPercentMedian": -5.990775976043805
+      },
+      "odmExpansion": {
+        "before": "odm-loop",
+        "after": "odm-direct",
+        "milliseconds": -0.0715830000000004,
+        "percent": -1.3996376893063656,
+        "pairedBlockPercent": [
+          -0.9301786783390997,
+          6.4313152456280775,
+          -0.18829457784406145
+        ],
+        "pairedBlockPercentMedian": -0.18829457784406145
+      },
+      "solverWithLoop": {
+        "before": "production",
+        "after": "odm-loop",
+        "milliseconds": 0.23324949999999944,
+        "percent": 4.778581175258956,
+        "pairedBlockPercent": [
+          1.6238374377833598,
+          15.408895653441213,
+          5.8231072812457985
+        ],
+        "pairedBlockPercentMedian": 5.8231072812457985
+      },
+      "solverWithExpansion": {
+        "before": "production-unrolled",
+        "after": "odm-direct",
+        "milliseconds": 0.3412499999999996,
+        "percent": 7.258226095923015,
+        "pairedBlockPercent": [
+          7.0943359176876,
+          31.079397815569433,
+          1.182879859158792
+        ],
+        "pairedBlockPercentMedian": 7.0943359176876
+      },
+      "originalMixedTraversal": {
+        "before": "production",
+        "after": "odm-direct",
+        "milliseconds": 0.16166649999999905,
+        "percent": 3.3120606628095572,
+        "pairedBlockPercent": [
+          0.6785541698271169,
+          22.83120555441198,
+          5.623848108129104
+        ],
+        "pairedBlockPercentMedian": 5.623848108129104
+      },
+      "interactionMilliseconds": 0.10800050000000017
+    },
+    {
+      "scene": "single 0.01 shell",
+      "bernsteinExpansion": {
+        "before": "production",
+        "after": "production-unrolled",
+        "milliseconds": -0.8828750000000003,
+        "percent": -8.666966764839124,
+        "pairedBlockPercent": [
+          -14.09978773376549,
+          -11.133838532948925,
+          5.887607011314344
+        ],
+        "pairedBlockPercentMedian": -11.133838532948925
+      },
+      "odmExpansion": {
+        "before": "odm-loop",
+        "after": "odm-direct",
+        "milliseconds": 0.21533349999999984,
+        "percent": 2.011585415182493,
+        "pairedBlockPercent": [
+          -12.670265741864917,
+          12.074551038585902,
+          1.6000400148944438
+        ],
+        "pairedBlockPercentMedian": 1.6000400148944438
+      },
+      "solverWithLoop": {
+        "before": "production",
+        "after": "odm-loop",
+        "milliseconds": 0.5179995000000002,
+        "percent": 5.08507370885265,
+        "pairedBlockPercent": [
+          5.264763330905553,
+          0.1613628953102575,
+          19.75760235446988
+        ],
+        "pairedBlockPercentMedian": 5.264763330905553
+      },
+      "solverWithExpansion": {
+        "before": "production-unrolled",
+        "after": "odm-direct",
+        "milliseconds": 1.6162080000000003,
+        "percent": 17.37149849069597,
+        "pairedBlockPercent": [
+          7.016543567342648,
+          26.319620343530524,
+          14.908415958459088
+        ],
+        "pairedBlockPercentMedian": 14.908415958459088
+      },
+      "originalMixedTraversal": {
+        "before": "production",
+        "after": "odm-direct",
+        "milliseconds": 0.733333,
+        "percent": 7.198949725113701,
+        "pairedBlockPercent": [
+          -8.072561915665343,
+          12.255397779047739,
+          21.67377191301958
+        ],
+        "pairedBlockPercentMedian": 12.255397779047739
+      },
+      "interactionMilliseconds": 1.0982085000000001
+    },
+    {
+      "scene": "three thin shells",
+      "bernsteinExpansion": {
+        "before": "production",
+        "after": "production-unrolled",
+        "milliseconds": -2.1184585000000027,
+        "percent": -6.328089568790574,
+        "pairedBlockPercent": [
+          -1.1189472655287802,
+          -12.001024116710058,
+          -6.642173279092212
+        ],
+        "pairedBlockPercentMedian": -6.642173279092212
+      },
+      "odmExpansion": {
+        "before": "odm-loop",
+        "after": "odm-direct",
+        "milliseconds": 3.568166500000004,
+        "percent": 7.7665779889495745,
+        "pairedBlockPercent": [
+          7.280833258201769,
+          2.9224020874099255,
+          15.60723510771811
+        ],
+        "pairedBlockPercentMedian": 7.280833258201769
+      },
+      "solverWithLoop": {
+        "before": "production",
+        "after": "odm-loop",
+        "milliseconds": 12.465519999999998,
+        "percent": 37.2360030095233,
+        "pairedBlockPercent": [
+          32.89927651778133,
+          38.95424658634439,
+          34.62482707376131
+        ],
+        "pairedBlockPercentMedian": 34.62482707376131
+      },
+      "solverWithExpansion": {
+        "before": "production-unrolled",
+        "after": "odm-direct",
+        "milliseconds": 18.152145000000004,
+        "percent": 57.885692232983345,
+        "pairedBlockPercent": [
+          44.1888484189791,
+          62.518991787818564,
+          66.70915103218336
+        ],
+        "pairedBlockPercentMedian": 62.518991787818564
+      },
+      "originalMixedTraversal": {
+        "before": "production",
+        "after": "odm-direct",
+        "milliseconds": 16.0336865,
+        "percent": 47.89454421217514,
+        "pairedBlockPercent": [
+          42.57545124239748,
+          43.01504838912842,
+          55.63604034852219
+        ],
+        "pairedBlockPercentMedian": 43.01504838912842
+      },
+      "interactionMilliseconds": 5.6866250000000065
+    },
+    {
+      "scene": "three thin shells near pole",
+      "bernsteinExpansion": {
+        "before": "production",
+        "after": "production-unrolled",
+        "milliseconds": -2.3762290000000093,
+        "percent": -2.7401599295431733,
+        "pairedBlockPercent": [
+          -1.4278534799169185,
+          -7.683260976976102,
+          0.5306091767264265
+        ],
+        "pairedBlockPercentMedian": -1.4278534799169185
+      },
+      "odmExpansion": {
+        "before": "odm-loop",
+        "after": "odm-direct",
+        "milliseconds": 4.028084000000007,
+        "percent": 2.9957507931211325,
+        "pairedBlockPercent": [
+          1.1016801461319004,
+          1.9202427763354901,
+          0.5051477911385716
+        ],
+        "pairedBlockPercentMedian": 1.1016801461319004
+      },
+      "solverWithLoop": {
+        "before": "production",
+        "after": "odm-loop",
+        "milliseconds": 47.74129149999999,
+        "percent": 55.05310050207264,
+        "pairedBlockPercent": [
+          53.41580868503435,
+          54.86602799159586,
+          56.89621197058949
+        ],
+        "pairedBlockPercentMedian": 54.86602799159586
+      },
+      "solverWithExpansion": {
+        "before": "production-unrolled",
+        "after": "odm-direct",
+        "milliseconds": 54.145604500000005,
+        "percent": 64.19737568397616,
+        "pairedBlockPercent": [
+          57.35272657245398,
+          70.97639428937879,
+          56.856474869790354
+        ],
+        "pairedBlockPercentMedian": 57.35272657245398
+      },
+      "originalMixedTraversal": {
+        "before": "production",
+        "after": "odm-direct",
+        "milliseconds": 51.769375499999995,
+        "percent": 59.69810499012238,
+        "pairedBlockPercent": [
+          55.10596019034506,
+          57.839831707102164,
+          57.68876971973902
+        ],
+        "pairedBlockPercentMedian": 57.68876971973902
+      },
+      "interactionMilliseconds": 6.404313000000016
+    }
+  ],
+  "transport": {
+    "production": {
+      "passed": true,
+      "sameResultsAsPriorSuite": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "production-unrolled": {
+      "passed": true,
+      "sameResultsAsPriorSuite": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "odm-loop": {
+      "passed": true,
+      "sameResultsAsPriorSuite": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "odm-direct": {
+      "passed": true,
+      "sameResultsAsPriorSuite": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    }
+  },
+  "imageMetric": "RGB8 output differences; comparison baseline is not independent physical truth. No new numerical corpus.",
+  "imageComparisons": [
+    {
+      "scene": "single solid",
+      "mode": 0,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 0,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 0,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 27,
+      "pixelsOver1Code": 8,
+      "pixelsOver3Codes": 5,
+      "pixelsOver13Codes": 3,
+      "maxChannelDifferenceCodes": 51,
+      "meanAbsoluteChannelDifferenceCodes": 0.00011899594907407407
+    },
+    {
+      "scene": "single solid",
+      "mode": 0,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 27,
+      "pixelsOver1Code": 8,
+      "pixelsOver3Codes": 5,
+      "pixelsOver13Codes": 3,
+      "maxChannelDifferenceCodes": 51,
+      "meanAbsoluteChannelDifferenceCodes": 0.00011899594907407407
+    },
+    {
+      "scene": "single solid",
+      "mode": 0,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 27,
+      "pixelsOver1Code": 8,
+      "pixelsOver3Codes": 5,
+      "pixelsOver13Codes": 3,
+      "maxChannelDifferenceCodes": 51,
+      "meanAbsoluteChannelDifferenceCodes": 0.00011899594907407407
+    },
+    {
+      "scene": "single solid",
+      "mode": 1,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 1,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 1,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 1,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 1,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 2,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 2,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 2,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 2,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single solid",
+      "mode": 2,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 0,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 0,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 0,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 3,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 1.0850694444444444e-06
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 0,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 3,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 1.0850694444444444e-06
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 0,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 3,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 1.0850694444444444e-06
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 1,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 1,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 1,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 1,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 1,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 2,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 2,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 2,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 2,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "single 0.01 shell",
+      "mode": 2,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 0,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 0,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 0,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 18,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 7.2337962962962966e-06
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 0,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 18,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 7.2337962962962966e-06
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 0,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 18,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 7.2337962962962966e-06
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 1,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 1,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 1,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 1,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 1,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 2,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 2,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 2,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 2,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 7.233796296296296e-07
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 2,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 2,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 7.233796296296296e-07
+    },
+    {
+      "scene": "three thin shells",
+      "mode": 2,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 2,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 7.233796296296296e-07
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 0,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 0,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 0,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 65,
+      "pixelsOver1Code": 1,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 2,
+      "meanAbsoluteChannelDifferenceCodes": 2.4956597222222224e-05
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 0,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 65,
+      "pixelsOver1Code": 1,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 2,
+      "meanAbsoluteChannelDifferenceCodes": 2.4956597222222224e-05
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 0,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 65,
+      "pixelsOver1Code": 1,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 2,
+      "meanAbsoluteChannelDifferenceCodes": 2.4956597222222224e-05
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 1,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 1,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 1,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 3,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 1.0850694444444444e-06
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 1,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 3,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 1.0850694444444444e-06
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 1,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 3,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 1.0850694444444444e-06
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 2,
+      "comparison": "bernsteinExpansion",
+      "before": "production",
+      "after": "production-unrolled",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 2,
+      "comparison": "odmExpansion",
+      "before": "odm-loop",
+      "after": "odm-direct",
+      "identical": true,
+      "pixels": 921600,
+      "changedPixels": 0,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 0,
+      "meanAbsoluteChannelDifferenceCodes": 0.0
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 2,
+      "comparison": "solverWithLoop",
+      "before": "production",
+      "after": "odm-loop",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 11,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 3.978587962962963e-06
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 2,
+      "comparison": "solverWithExpansion",
+      "before": "production-unrolled",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 11,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 3.978587962962963e-06
+    },
+    {
+      "scene": "three thin shells near pole",
+      "mode": 2,
+      "comparison": "originalMixedTraversal",
+      "before": "production",
+      "after": "odm-direct",
+      "identical": false,
+      "pixels": 921600,
+      "changedPixels": 11,
+      "pixelsOver1Code": 0,
+      "pixelsOver3Codes": 0,
+      "pixelsOver13Codes": 0,
+      "maxChannelDifferenceCodes": 1,
+      "meanAbsoluteChannelDifferenceCodes": 3.978587962962963e-06
+    }
+  ],
+  "hashes": {
+    "research/diagnostics/algorithm1010/traversal/analyze.py": "dffb279c1f4a1ee217da9f2ebe82096a832c3c0a92425282c4a96fa9730d9cb1",
+    "research/diagnostics/algorithm1010/traversal/results/benchmark.json": "d8b5d85f3dace185c09ddb7851a9472eaa2f77fad413069ee5b37ada81dbe550",
+    "research/diagnostics/algorithm1010/traversal/results/renders.json": "87a567d9ae8d6035c86df174685b3af466edaebe8b9e9f7a8e6d2a0143740856",
+    "research/diagnostics/algorithm1010/traversal/results/webgl-transport-production.json": "01fdbe85167b0df2ae76f00d115310c3c7a78ad71ee87b030ed6941b197bf4ce",
+    "research/diagnostics/algorithm1010/traversal/results/webgl-transport-production-unrolled.json": "e66b3b2281ffd5d92f70a8320f55f2271ade96298a2c6518e23fcd3b2ba5082b",
+    "research/diagnostics/algorithm1010/traversal/results/webgl-transport-odm-loop.json": "a0321bec080968bcae1629a8b414fd445a5fea433e9cc1940f8f18ed161791f8",
+    "research/diagnostics/algorithm1010/traversal/results/webgl-transport-odm-direct.json": "928efc0ece3fac116d5d1125a49ee72b579946693ccd085c8cfe4c0539aa364c"
+  }
+}

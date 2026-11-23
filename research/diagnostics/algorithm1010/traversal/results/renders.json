@@ -1,0 +1,5130 @@
+{
+  "date": "2026-11-23T03:19:10.745Z",
+  "hardware": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "hashes": {
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "research/diagnostics/algorithm1010/solver.glsl": "f718df70659cc1080d0adb0c9100e857b312e8aa889a10bbdfc3e0723fe7c9a5",
+    "research/diagnostics/algorithm1010/renderer.mjs": "7f29a23fc96e52daa6198f377fc1af2820f77878961921d57167819628801c47",
+    "research/diagnostics/algorithm1010/run-suite.mjs": "af72be744b6f236a858851d0ea707699bad90f007f390e915920abd4b5e32d01",
+    "research/yuksel-renderer.glsl": "24894faec2d23830151ed729b4bdc4668b36ea0635330aecfa0f4c8963ccdcc7",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "research/diagnostics/algorithm1010/final/variants.mjs": "c8af57efd8218183864e34b133a6b94773d032376d1bc5301f8651543b48bad1",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/diagnostics/algorithm1010/final/benchmark-webgl.mjs": "d3ea9150ddd66e29ee69add03f55039b318352cae3a48602a89287d21ffbf750",
+    "research/diagnostics/algorithm1010/final/results/webgl-benchmark.json": "069c159d1c3ae1087a338fd380ea0213b8e7ff22d97f813c4073f3522714ccc8",
+    "research/diagnostics/algorithm1010/traversal/run.mjs": "99dd08333f6c11d225915f49711b01d767598cbb903f0d1abf2e5e73d48a94d0",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-production.json": "d95cc36abe663bf3c7308984a8729243409d9fe307190d73682d985f16dc4109",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-production-unrolled.json": "d4fbe58053a54116c8a4aec3009a9a85a647eb313cded7b73ede40c790cb6680",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-odm-loop.json": "3fcd5c167fe4a652e7f44f76bf3eaab1a64711ac40dcf4fe47aae41a569fc233",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-odm-direct.json": "d9b14ec4017a455a98c4fb786b401f352ca4c447478dc78880f8756f206761ff"
+  },
+  "shaderHashes": {
+    "production": "3a70927462b5ad47092c5a3e73cfa5a668b6b83043be4d7a05427d8bc6fa8d32",
+    "production-unrolled": "097927dc13cbcbe151b31938d19cb6b897f69061a35e66d91022a6b4abc0fde8",
+    "odm-loop": "9dd8420d1927ea1f1110848446fe600c16cdb16e7c921b48921cf20759abadbe",
+    "odm-direct": "2a6d260631ab7adaa17b78235c8621d5bddbbd9f67cda61c2a22ade31479c3ec"
+  },
+  "compiledShaderHashes": {
+    "production": "779dc98252e9fc75525b199cef552be6c9c4bd8570cb5ef6c096976278c31193",
+    "production-unrolled": "42508201a6d714eebe3fc830301623bfc2ebd1b92f2a6262b6b917183df7fe44",
+    "odm-loop": "96eb57d404f9e83c3da232708ca01668f5192f56f97ff574086838a6426b39f6",
+    "odm-direct": "4cc426290d6fbab7705e8eeaaee01da507f74d95c97042015a90fdc2ea777621"
+  },
+  "renders": [
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 0,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-0-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "1808e2b0361a4665c14a8628bb576d1808286176c6ba3c866ebc8e02e47db776",
+      "fileSHA256": "37e0b65fc1ecbc0b9458a3c3aa14d74be1ed6ba26429fb7c418a45530a2119ef"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 0,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-0-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "1808e2b0361a4665c14a8628bb576d1808286176c6ba3c866ebc8e02e47db776",
+      "fileSHA256": "37e0b65fc1ecbc0b9458a3c3aa14d74be1ed6ba26429fb7c418a45530a2119ef"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 0,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-0-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "c583dbfb5de55cc5477ad7632c4143e1c101a1360bc75174a501b4787eedfba7",
+      "fileSHA256": "73d31630b9a0252f95e7cd44d332fce13ad07b4c48ab2b7d83020ffb3a3f26ca"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 0,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-0-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "c583dbfb5de55cc5477ad7632c4143e1c101a1360bc75174a501b4787eedfba7",
+      "fileSHA256": "73d31630b9a0252f95e7cd44d332fce13ad07b4c48ab2b7d83020ffb3a3f26ca"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 1,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-1-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "89f7c5870628f3217dbd34f94792b94233938594c5231e28fcfc259f0b377de9",
+      "fileSHA256": "74d085c576834270d401175e7aaf47de1b7182000402b7d0cfe82d691a649f9b"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 1,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-1-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "89f7c5870628f3217dbd34f94792b94233938594c5231e28fcfc259f0b377de9",
+      "fileSHA256": "74d085c576834270d401175e7aaf47de1b7182000402b7d0cfe82d691a649f9b"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 1,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-1-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "89f7c5870628f3217dbd34f94792b94233938594c5231e28fcfc259f0b377de9",
+      "fileSHA256": "74d085c576834270d401175e7aaf47de1b7182000402b7d0cfe82d691a649f9b"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 1,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-1-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "89f7c5870628f3217dbd34f94792b94233938594c5231e28fcfc259f0b377de9",
+      "fileSHA256": "74d085c576834270d401175e7aaf47de1b7182000402b7d0cfe82d691a649f9b"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 2,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-2-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "1ab8dd17ea452fe1783bc19aca63568e9d85a8b7bd252ab4dae720ecbe016d6a",
+      "fileSHA256": "327359cf5b6e05d07a0d42b265280d15ccb1b83da40a65373ce790bddb67c49a"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 2,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-2-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "1ab8dd17ea452fe1783bc19aca63568e9d85a8b7bd252ab4dae720ecbe016d6a",
+      "fileSHA256": "327359cf5b6e05d07a0d42b265280d15ccb1b83da40a65373ce790bddb67c49a"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 2,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-2-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "1ab8dd17ea452fe1783bc19aca63568e9d85a8b7bd252ab4dae720ecbe016d6a",
+      "fileSHA256": "327359cf5b6e05d07a0d42b265280d15ccb1b83da40a65373ce790bddb67c49a"
+    },
+    {
+      "scene": "single solid",
+      "sceneIndex": 0,
+      "mode": 2,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/0-2-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "1ab8dd17ea452fe1783bc19aca63568e9d85a8b7bd252ab4dae720ecbe016d6a",
+      "fileSHA256": "327359cf5b6e05d07a0d42b265280d15ccb1b83da40a65373ce790bddb67c49a"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 0,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-0-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "d30c42ff028ed1becd48d615f22f6f8e2d5b3d0190cb21acc5b6d45dac0ddcab",
+      "fileSHA256": "8a820ca964bc45757343013f2819cadae18642fedd5adbf4bfda88d46dcb045c"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 0,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-0-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "d30c42ff028ed1becd48d615f22f6f8e2d5b3d0190cb21acc5b6d45dac0ddcab",
+      "fileSHA256": "8a820ca964bc45757343013f2819cadae18642fedd5adbf4bfda88d46dcb045c"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 0,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-0-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "5eaa1ca16d1471b905f7f652d204752b54017093b36026e68c3b99d094d1e8a6",
+      "fileSHA256": "1a14e93affa0cf45233bc73c62ea22848bae0552edb7f3fd74236bb8b59ac6cc"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 0,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-0-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "5eaa1ca16d1471b905f7f652d204752b54017093b36026e68c3b99d094d1e8a6",
+      "fileSHA256": "1a14e93affa0cf45233bc73c62ea22848bae0552edb7f3fd74236bb8b59ac6cc"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 1,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-1-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "920e601684c84286b25f6f12f7e5c6bdc27f2e8118fe665d72c7d17b53d2a9ec",
+      "fileSHA256": "73cb95b0224fd93b4634be873ee2d9305622eea6b348ceba98f689792c2c2449"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 1,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-1-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "920e601684c84286b25f6f12f7e5c6bdc27f2e8118fe665d72c7d17b53d2a9ec",
+      "fileSHA256": "73cb95b0224fd93b4634be873ee2d9305622eea6b348ceba98f689792c2c2449"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 1,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-1-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "920e601684c84286b25f6f12f7e5c6bdc27f2e8118fe665d72c7d17b53d2a9ec",
+      "fileSHA256": "73cb95b0224fd93b4634be873ee2d9305622eea6b348ceba98f689792c2c2449"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 1,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-1-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "920e601684c84286b25f6f12f7e5c6bdc27f2e8118fe665d72c7d17b53d2a9ec",
+      "fileSHA256": "73cb95b0224fd93b4634be873ee2d9305622eea6b348ceba98f689792c2c2449"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 2,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-2-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "0a1bbfae4bccb5a3e456b4aa3bff7186145f8b6d5051daa2421fbfd18078cc9a",
+      "fileSHA256": "319849d27aacfce6635fa3632f0c1e6d1a3cf0e8fc25bbdc5dcb6aeb3a84b680"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 2,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-2-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "0a1bbfae4bccb5a3e456b4aa3bff7186145f8b6d5051daa2421fbfd18078cc9a",
+      "fileSHA256": "319849d27aacfce6635fa3632f0c1e6d1a3cf0e8fc25bbdc5dcb6aeb3a84b680"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 2,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-2-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "0a1bbfae4bccb5a3e456b4aa3bff7186145f8b6d5051daa2421fbfd18078cc9a",
+      "fileSHA256": "319849d27aacfce6635fa3632f0c1e6d1a3cf0e8fc25bbdc5dcb6aeb3a84b680"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "sceneIndex": 1,
+      "mode": 2,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/1-2-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "0a1bbfae4bccb5a3e456b4aa3bff7186145f8b6d5051daa2421fbfd18078cc9a",
+      "fileSHA256": "319849d27aacfce6635fa3632f0c1e6d1a3cf0e8fc25bbdc5dcb6aeb3a84b680"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 0,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-0-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "411f44aa66545ddb8a83579bc8ef6d58bc18198af5a179276247572d65711bc9",
+      "fileSHA256": "e0b06910ee6cda140bafad15a839fd28f6f0a1c87fdcb1a93aea46ddc2cbde95"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 0,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-0-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "411f44aa66545ddb8a83579bc8ef6d58bc18198af5a179276247572d65711bc9",
+      "fileSHA256": "e0b06910ee6cda140bafad15a839fd28f6f0a1c87fdcb1a93aea46ddc2cbde95"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 0,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-0-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "b00626b3d543dac9f61ca7039d11c41d335d64050bcaea6608e0479268d80e69",
+      "fileSHA256": "fcc1738c0bf78a417c9edd83df28a95da2dd242f297c9f72a5f1e5aa5fff4da2"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 0,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-0-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "b00626b3d543dac9f61ca7039d11c41d335d64050bcaea6608e0479268d80e69",
+      "fileSHA256": "fcc1738c0bf78a417c9edd83df28a95da2dd242f297c9f72a5f1e5aa5fff4da2"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 1,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-1-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "245a34ea1c25aeb72cd756976aee3120442a8ab0c83c298d90dd40032e94ce9d",
+      "fileSHA256": "37146e6e22ed06ec75ca4eba8f87c3219a67307994359d7a1e0cba88a67c0cdd"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 1,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-1-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "245a34ea1c25aeb72cd756976aee3120442a8ab0c83c298d90dd40032e94ce9d",
+      "fileSHA256": "37146e6e22ed06ec75ca4eba8f87c3219a67307994359d7a1e0cba88a67c0cdd"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 1,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-1-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "245a34ea1c25aeb72cd756976aee3120442a8ab0c83c298d90dd40032e94ce9d",
+      "fileSHA256": "37146e6e22ed06ec75ca4eba8f87c3219a67307994359d7a1e0cba88a67c0cdd"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 1,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-1-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "245a34ea1c25aeb72cd756976aee3120442a8ab0c83c298d90dd40032e94ce9d",
+      "fileSHA256": "37146e6e22ed06ec75ca4eba8f87c3219a67307994359d7a1e0cba88a67c0cdd"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 2,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-2-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "91df33afd65ec34c4f51ad30e725771bcd51203d7dd83f3d3756d95d75d4c6b1",
+      "fileSHA256": "322e89b432ca0c269632b91cf9776d1624d8352279a7f10644935f879bf543aa"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 2,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-2-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "91df33afd65ec34c4f51ad30e725771bcd51203d7dd83f3d3756d95d75d4c6b1",
+      "fileSHA256": "322e89b432ca0c269632b91cf9776d1624d8352279a7f10644935f879bf543aa"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 2,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-2-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "d71e0c6f000ef54994edce137f4b64b7711dfa723f9ca9c6f8db9e743768aa29",
+      "fileSHA256": "081cff9129cb36ec62bdd4c3eadcaaa12426207ec2ab0e99ab1136ed286cd6f6"
+    },
+    {
+      "scene": "three thin shells",
+      "sceneIndex": 2,
+      "mode": 2,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/2-2-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "d71e0c6f000ef54994edce137f4b64b7711dfa723f9ca9c6f8db9e743768aa29",
+      "fileSHA256": "081cff9129cb36ec62bdd4c3eadcaaa12426207ec2ab0e99ab1136ed286cd6f6"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 0,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-0-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "089ae13571e90297aeddba8c4a4b797e49f6778838045fe53a4278c100b3d523",
+      "fileSHA256": "c791c31e2026e38f4058bf1cc36f32975db01b964f78690e4f6510d060d3da45"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 0,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-0-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "089ae13571e90297aeddba8c4a4b797e49f6778838045fe53a4278c100b3d523",
+      "fileSHA256": "c791c31e2026e38f4058bf1cc36f32975db01b964f78690e4f6510d060d3da45"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 0,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-0-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "25a39d580c40989ae19c78ceee3f7ac6a34c24e78636601d750e967622c2792c",
+      "fileSHA256": "76d7458b2b39d744ea90998fc04a1f8df1622a5296430da84b749e80e909b3c0"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 0,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-0-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "25a39d580c40989ae19c78ceee3f7ac6a34c24e78636601d750e967622c2792c",
+      "fileSHA256": "76d7458b2b39d744ea90998fc04a1f8df1622a5296430da84b749e80e909b3c0"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 1,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-1-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "64e6daab33ccfb4eb6dcf758033d3b8de999a36fcb08f8759bf3c1eca8fb4b4c",
+      "fileSHA256": "8080d65005c054902e29a22df819694561df2ff5cc8f959756453895333ab363"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 1,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-1-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "64e6daab33ccfb4eb6dcf758033d3b8de999a36fcb08f8759bf3c1eca8fb4b4c",
+      "fileSHA256": "8080d65005c054902e29a22df819694561df2ff5cc8f959756453895333ab363"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 1,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-1-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "7b77b7cb7dab622d161fb7b18652efd72a11e26fa0494ba47e1e76e475b41dfe",
+      "fileSHA256": "247bd1b3ade0a37129e982cc2c0ee4df2c5bdb980c4de7ea6035d40b323bad19"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 1,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-1-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "7b77b7cb7dab622d161fb7b18652efd72a11e26fa0494ba47e1e76e475b41dfe",
+      "fileSHA256": "247bd1b3ade0a37129e982cc2c0ee4df2c5bdb980c4de7ea6035d40b323bad19"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 2,
+      "variant": "production",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-2-production.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "7be3627c8118d450b2cc69d18dfe8d709ebe325647018738a685c5f622515919",
+      "fileSHA256": "4454137b862a9d7224ce4499ba9c723a2d91a6d03640f77ab4824e00eb979bb6"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 2,
+      "variant": "production-unrolled",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-2-production-unrolled.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "7be3627c8118d450b2cc69d18dfe8d709ebe325647018738a685c5f622515919",
+      "fileSHA256": "4454137b862a9d7224ce4499ba9c723a2d91a6d03640f77ab4824e00eb979bb6"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 2,
+      "variant": "odm-loop",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-2-odm-loop.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "e2802f22ae34ad06df3fd51a2bf2d341ffe694f555aba42c84cb456049800663",
+      "fileSHA256": "4d26b9655b4b0e1febc1f858bc2975b661569d0585a3f2d305ccdee4ab5469a9"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "sceneIndex": 3,
+      "mode": 2,
+      "variant": "odm-direct",
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/algorithm1010/traversal/figures/3-2-odm-direct.rgba.gz",
+      "format": "RGBA8, bottom row first",
+      "rgbaSHA256": "e2802f22ae34ad06df3fd51a2bf2d341ffe694f555aba42c84cb456049800663",
+      "fileSHA256": "4d26b9655b4b0e1febc1f858bc2975b661569d0585a3f2d305ccdee4ab5469a9"
+    }
+  ]
+}
