@@ -6,6 +6,8 @@ The final 2,400-query independent stress corpus, captured transport paths and co
 
 The separate [post-hoc grazing diagnostic](diagnostics/grazing/README.md) traces all 600 grazing queries through construction and root solving while preserving the original evidence. Exact isolation of captured coefficients reproduces the same 109 failing queries. Its capture, analysis, ablation, figures and reproduction commands live entirely under `diagnostics/grazing/`; they do not overwrite `results/`.
 
+The subsequent [corrected Algorithm 1010 evaluation](diagnostics/algorithm1010/final/README.md) tests algebraic factorization in float32, with native and actual WebGL transport and timing. The decision is **retain as experimental**: native gains do not carry over to Chrome/ANGLE Metal, where the shell scenes are slower. The production shader and original evidence remain unchanged. Its sources, licence, two-pixel investigation, loop controls and final source-hash verification are separate from the studies below.
+
 ## Requirements and regression tests
 
 The application needs an HTTP server and WebGL 2. Research scripts use Node.js, Python 3.12 or later and pinned scientific packages. Native experiments require macOS, Xcode command-line tools (`clang`) and graphics-driver access. Browser experiments also run on other platforms; the recorded hardware results use Apple M3 Pro.

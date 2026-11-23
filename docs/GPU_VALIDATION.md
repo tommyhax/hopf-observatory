@@ -1,5 +1,7 @@
 # Hardware validation
 
+The 23 November 2026 [Algorithm 1010 adoption pass](../research/diagnostics/algorithm1010/final/README.md) adds actual hardware WebGL optical regressions for production Bernstein and corrected centered factorization. Both pass the complete optical suite; the candidate also passes its 54 polynomial fixtures, and all 867 original ray records replay exactly. Individually completed-frame GPU timings show the factorization variant approximately 20--60% slower for the three shell workloads in Chrome 157 / ANGLE Metal; Bernstein remains the default. The native loop-control failures and passing expanded traversal are retained explicitly. These new results are separate from the historical reports below.
+
 The current shader passes numerical checks on **Apple M3 Pro**, vendor Apple, OpenGL **4.1 Metal – 90.5**. Execution time is recorded in UTC in [gpu-results.json](gpu-results.json); the local date is 21 November in Pacific/Auckland. That file includes SHA-256 hashes of the shader, mathematical reference, scene code and test harness.
 
 ## Execution and scope

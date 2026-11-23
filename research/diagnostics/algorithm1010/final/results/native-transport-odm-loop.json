@@ -1,0 +1,5409 @@
+{
+  "variant": "odm-loop",
+  "shaderHashes": {
+    "vertex": "276eaeea6c20db9f3703a32a6424e9216f26b1d79f4f9338cccbc1a561f66449",
+    "fragment": "9dd8420d1927ea1f1110848446fe600c16cdb16e7c921b48921cf20759abadbe"
+  },
+  "sourceHashes": {
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "web/math.js": "188900d29bc884af32ba8e4641a093e02d3755e4a4a8ebc1a7d1319af2aabd05",
+    "web/scene.js": "6c4ca7b4f3fc35a44e695545927309b5159d562d435b6c59e86afd57e2f8ae3e",
+    "scripts/run-gpu-checks.mjs": "80e8635d0724edc8d02024b5ffd9fcc6aa97246c4b13b4fefe2b423e2f49296b",
+    "tests/native-gpu.m": "7f15b91fe72b8b1d0937d018a1c98f5adae174b238ddd1752c2985b612dc6659",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/diagnostics/algorithm1010/final/run-webgl-suite.mjs": "5ba6db53c82789d6a091fb550d2e9d27eb58798a0c2836b2e6b066408c0d70f8",
+    "research/diagnostics/algorithm1010/final/variants.mjs": "c8af57efd8218183864e34b133a6b94773d032376d1bc5301f8651543b48bad1",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "research/diagnostics/algorithm1010/solver.glsl": "f718df70659cc1080d0adb0c9100e857b312e8aa889a10bbdfc3e0723fe7c9a5",
+    "research/diagnostics/algorithm1010/renderer.mjs": "7f29a23fc96e52daa6198f377fc1af2820f77878961921d57167819628801c47",
+    "research/diagnostics/algorithm1010/run-suite.mjs": "af72be744b6f236a858851d0ea707699bad90f007f390e915920abd4b5e32d01",
+    "research/yuksel-renderer.glsl": "24894faec2d23830151ed729b4bdc4668b36ea0635330aecfa0f4c8963ccdcc7",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a"
+  },
+  "date": "2026-11-23T02:51:38.120Z",
+  "execution": "Native macOS offscreen OpenGL; same GLSL bodies with #version 410 core replacing #version 300 es. Browser integration is not tested.",
+  "suite": "all",
+  "hardware": {
+    "renderer": "Apple M3 Pro",
+    "vendor": "Apple",
+    "ready": true,
+    "version": "4.1 Metal - 90.5"
+  },
+  "results": {
+    "thinCrossings": {
+      "passed": 28,
+      "total": 31,
+      "hitCount": 284,
+      "maxRelativeError": 0.3319164812287865,
+      "failures": [
+        {
+          "name": "three shells, width=0.01",
+          "expected": [
+            {
+              "s": 3.488359904476919,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.490222643202121,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.585488477867691,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.58608433462239,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.4301633185129345,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.4304655866525415,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362868382180147,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362991060284866,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 7.585735320275338,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 7.58583755313088,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.778259563414448,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778351114267226,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221648885732774,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221740436585552,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.41416244686912,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.414264679724662,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.637008939715134,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.637131617819852,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569534413347458,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569836681487065,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.41391566537761,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 10.414511522132308,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 12.50977735679788,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 12.51164009552308,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.4883599281311035,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.490222248073733,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.585488129567322,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.586084027348708,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.430163010331383,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.430465315431215,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362868092727296,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.585735069514668,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.58583731584855,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.7782592980670975,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778350845367242,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221648613532636,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.22174016083278,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.41426439481944,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.63713134180449,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569534155765325,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569836458226963,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.413915346998364,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.50977734332485,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.511639647013872,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "error": 0.307403675050981
+        },
+        {
+          "name": "three shells, width=0.05",
+          "expected": [
+            {
+              "s": 3.4846298389672166,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.493943957632867,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.584295908733476,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.587275295567453,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.429558394942857,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.431069870772181,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.3626229866003206,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.363236431854712,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 7.585530832356113,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 7.58604201416254,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.778076439663037,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778534214397325,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221465785602675,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221923560336963,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.41395798583746,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.414469167643887,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.63676356814529,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.637377013399679,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.56893012922782,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.570441605057143,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.412724704432547,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 10.415704091266523,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 12.506056042367133,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 12.515370161032784,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.4846296310424805,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.493943777702226,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.584296231414638,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.587275533936458,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.429558557590354,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.431069990271139,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362623147010822,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.585530990846678,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.58604216291053,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.778076618694399,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778534399897694,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221465965190077,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221923746393372,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.414469371610835,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.63737721544669,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.568930343458419,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.570441829398847,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.412724937189495,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.50605640654499,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.51537062363936,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "error": 0.30771088107638406
+        },
+        {
+          "name": "three shells, width=3",
+          "expected": [
+            {
+              "s": 3.192314507354099,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.7531518881129164,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.493480164610327,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.672436994842033,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.38401796435501,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.474746534643482,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.344371265030198,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.381181239678281,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 7.570366087713216,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 7.601040460210626,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.7645312538489515,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.7919997051534144,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.208000294846586,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.23546874615105,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.398959539789374,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.429633912286784,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.61881876032172,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.655628734969802,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.525253465356519,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.61598203564499,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.327563005157966,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 10.506519835389673,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 12.246848111887083,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 12.807685492645902,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.192314624786377,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.753151883458194,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.493479725364743,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.672436768701079,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.384017761090126,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.474746441684454,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.344371104211385,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.570365922793352,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.601040284155241,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.764531079423685,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.791999515559363,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.208000113407687,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.235468549543365,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.42963371295489,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.655628531536857,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.525253199075886,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.615981827838931,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.327562859621919,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.24684791924119,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.807684956475498,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "error": 0.3319164812287865
+        }
+      ]
+    },
+    "refraction": {
+      "passed": 36,
+      "total": 36,
+      "interfaces": 392,
+      "entries": 187,
+      "exits": 181,
+      "totalInternalReflections": 24,
+      "maxSnellResidual": 1.0405725225925977e-7,
+      "maxNormalError": 1.0460593600386608e-7,
+      "failures": [],
+      "paths": [
+        {
+          "name": "axis t=1, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=5, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=25, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=45, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=65, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=85, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=89, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three shells, width=0.01",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "oblique 0.01 shell, XW=0, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=0, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=22, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=22, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=44.99, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=44.99, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=45.01, y=0.15",
+          "count": 6,
+          "entries": 3,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=45.01, y=0.55",
+          "count": 2,
+          "entries": 1,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=70, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=70, y=0.55",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=-0.005",
+          "count": 3,
+          "entries": 2,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=0",
+          "count": 3,
+          "entries": 2,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=0.005",
+          "count": 2,
+          "entries": 1,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=-0.005",
+          "count": 7,
+          "entries": 4,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=0",
+          "count": 7,
+          "entries": 4,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=0.005",
+          "count": 6,
+          "entries": 3,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=-0.005",
+          "count": 5,
+          "entries": 3,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=0",
+          "count": 5,
+          "entries": 3,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=0.005",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=0",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=24.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=25.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=44.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=45.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=64.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=65.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=80",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "TIR inside a 0.01-degree shell",
+          "count": 24,
+          "entries": 0,
+          "exits": 0,
+          "tir": 24,
+          "budgetReached": true
+        }
+      ]
+    },
+    "invisibility": {
+      "passed": 31,
+      "total": 31,
+      "maxError": 0,
+      "failures": []
+    },
+    "solidSuite": {
+      "passed": 625,
+      "total": 625,
+      "hitCount": 496,
+      "maxRelativeError": 7.099374710430059e-7,
+      "unresolvedTangencies": [
+        {
+          "name": "Pole neighborhood t=85 offset=0 ray=0",
+          "pairs": [
+            {
+              "first": 5.008991425607342,
+              "second": 5.008992005568928,
+              "resolution": 0.000004776947026795318
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "shellSuite": {
+      "passed": 403,
+      "total": 403,
+      "hitCount": 1305,
+      "maxRelativeError": 6.490323166644366e-7,
+      "unresolvedTangencies": [
+        {
+          "name": "Pole t=85, width=0.01, XW=4.9950000000000045, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991424038541,
+              "second": 5.008992005623281,
+              "resolution": 0.000004776947026847153
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.01, XW=5.0049999999999955, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991427166151,
+              "second": 5.008992005514639,
+              "resolution": 0.000004776947026743544
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.05, XW=4.974999999999994, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991417661529,
+              "second": 5.008992005841337,
+              "resolution": 0.000004776947027055108
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.05, XW=5.025000000000006, ray=0",
+          "pairs": [
+            {
+              "first": 5.0089914333035495,
+              "second": 5.008992005298117,
+              "resolution": 0.000004776947026537053
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.5, XW=4.75, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991332571436,
+              "second": 5.008992008367374,
+              "resolution": 0.000004776947029464124
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.5, XW=5.25, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991493038195,
+              "second": 5.008992002930484,
+              "resolution": 0.000004776947024279103
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "sceneSuite": {
+      "passed": 114,
+      "total": 133,
+      "hitCount": 425,
+      "maxRelativeError": 450.5771549922477,
+      "unresolvedTangencies": [],
+      "failures": [
+        {
+          "name": "24 crossings",
+          "test": {
+            "name": "24 crossings",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              -8,
+              0,
+              0
+            ],
+            "d": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expected": [
+            {
+              "s": 3.192314507354099,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.7531518881129164,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.493480164610327,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.672436994842033,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.38401796435501,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.474746534643482,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.344371265030198,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.381181239678281,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 7.570366087713216,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 7.601040460210626,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.7645312538489515,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.7919997051534144,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.208000294846586,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.23546874615105,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.398959539789374,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.429633912286784,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.61881876032172,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.655628734969802,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.525253465356519,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.61598203564499,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.327563005157966,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 10.506519835389673,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 12.246848111887083,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 12.807685492645902,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.192314624786377,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.753151883458194,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.493479725364743,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.672436768701079,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.384017761090126,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.474746441684454,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.344371104211385,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.570365922793352,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.601040284155241,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.764531079423685,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.791999515559363,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.208000113407687,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.235468549543365,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.42963371295489,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.655628531536857,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.525253199075886,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.615981827838931,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.327562859621919,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.24684791924119,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.807684956475498,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "error": 0.3319164812287865
+        },
+        {
+          "name": "24 thin crossings, width=0.01",
+          "test": {
+            "name": "24 thin crossings, width=0.01",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 0.01,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 0.01,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 0.01,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              -8,
+              0,
+              0
+            ],
+            "d": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expected": [
+            {
+              "s": 3.488359904476919,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.490222643202121,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.585488477867691,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.58608433462239,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.4301633185129345,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.4304655866525415,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362868382180147,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362991060284866,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 7.585735320275338,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 7.58583755313088,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.778259563414448,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778351114267226,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221648885732774,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221740436585552,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.41416244686912,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.414264679724662,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.637008939715134,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.637131617819852,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569534413347458,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569836681487065,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.41391566537761,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 10.414511522132308,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 12.50977735679788,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 12.51164009552308,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.4883599281311035,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.490222248073733,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.585488129567322,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.586084027348708,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.430163010331383,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.430465315431215,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362868092727296,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.585735069514668,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.58583731584855,
+              "level": 0.49991273880004883,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.7782592980670975,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778350845367242,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221648613532636,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.22174016083278,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.41426439481944,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.63713134180449,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569534155765325,
+              "level": 0.8214606642723083,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.569836458226963,
+              "level": 0.8213269710540771,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.413915346998364,
+              "level": 0.5000872611999512,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.50977734332485,
+              "level": 0.17867304384708405,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.511639647013872,
+              "level": 0.17853935062885284,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "error": 0.307403675050981
+        },
+        {
+          "name": "24 thin crossings, width=0.05",
+          "test": {
+            "name": "24 thin crossings, width=0.05",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 0.05,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 0.05,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 0.05,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              -8,
+              0,
+              0
+            ],
+            "d": [
+              1,
+              0,
+              0
+            ]
+          },
+          "expected": [
+            {
+              "s": 3.4846298389672166,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.493943957632867,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.584295908733476,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.587275295567453,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.429558394942857,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.431069870772181,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.3626229866003206,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.363236431854712,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 7.585530832356113,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 7.58604201416254,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.778076439663037,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778534214397325,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221465785602675,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221923560336963,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.41395798583746,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.414469167643887,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.63676356814529,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.637377013399679,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.56893012922782,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.570441605057143,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.412724704432547,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 10.415704091266523,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 12.506056042367133,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 12.515370161032784,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.4846296310424805,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 3.493943777702226,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.584296231414638,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.587275533936458,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.429558557590354,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.431069990271139,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.362623147010822,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.585530990846678,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 7.58604216291053,
+              "level": 0.49956366419792175,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.778076618694399,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.778534399897694,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221465965190077,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.221923746393372,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.414469371610835,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 8.63737721544669,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.568930343458419,
+              "level": 0.8217279314994812,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 9.570441829398847,
+              "level": 0.8210594058036804,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.412724937189495,
+              "level": 0.5004363059997559,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.50605640654499,
+              "level": 0.1789405643939972,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 12.51537062363936,
+              "level": 0.1782720685005188,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "error": 0.30771088107638406
+        },
+        {
+          "name": "Random family 9",
+          "test": {
+            "name": "Random family 9",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              2.7848539759218696,
+              4.146778218923137,
+              0.4173599033989012,
+              1.3157119255233556,
+              6.195338632948697,
+              3.720515798693523
+            ],
+            "o": [
+              2.76171906106174,
+              5.25292946677655,
+              3.2535019107162952
+            ],
+            "d": [
+              -0.2779796868636791,
+              -0.743891576728077,
+              -0.6077438734896357
+            ]
+          },
+          "expected": [
+            {
+              "s": 3.4814319196695434,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.169156963068823,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.324622167655858,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 6.458145030727357,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 6.583027556076864,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.599221464958576,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.753603218772649,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 12.76183797945306,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 14.147890491145711,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 5.169157028198242,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.324622152311004,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 6.458144964463275,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 6.583027433171514,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.599221409653848,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.75360318857486,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 12.761838061867063,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 14.14789068092698,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            }
+          ],
+          "error": 0.6459235405506332
+        },
+        {
+          "name": "Random family 39",
+          "test": {
+            "name": "Random family 39",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              3.61750624768436,
+              3.7894336780440065,
+              1.6954530689306557,
+              0.2620686691720039,
+              6.2540603991970425,
+              5.648480325778946
+            ],
+            "o": [
+              1.3314198609441519,
+              0.4768537385389209,
+              -2.198042828589678
+            ],
+            "d": [
+              -0.4224087922888326,
+              -0.8720880149671467,
+              0.24704919823337104
+            ]
+          },
+          "expected": [
+            {
+              "s": 0.09787178239943461,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 0.32168863526298774,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 1.5845789561011936,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 1.9343322242990348,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.4212527593980075,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 4.13597462912461,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 15.111031464528594,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 27.66123082109673,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "actual": [
+            {
+              "s": 0.09787189960479736,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 0.3216887895378516,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 1.9343326342452323,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.421252149991734,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 4.135974505780883,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 15.111032378329586,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 27.661233068839103,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            }
+          ],
+          "error": 2.6535602205876865
+        },
+        {
+          "name": "Random family 46",
+          "test": {
+            "name": "Random family 46",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              1.052110526971519,
+              6.117414137115702,
+              3.5690893833898008,
+              3.9483937776181848,
+              5.7951967783272265,
+              1.8399519963841886
+            ],
+            "o": [
+              0.21474643237888813,
+              -2.3618288571015,
+              -0.3455512002110481
+            ],
+            "d": [
+              -0.5530240494506037,
+              0.031347063494634606,
+              0.8325753793738557
+            ]
+          },
+          "expected": [
+            {
+              "s": 0.5687086175754912,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 0.7887296305282891,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 2.366823114652435,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 2.809759014054726,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            }
+          ],
+          "actual": [
+            {
+              "s": 0.5687085390090942,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 0.7887297249850255,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 2.809758961402661,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            }
+          ],
+          "error": 0.1871436204962325
+        },
+        {
+          "name": "Random family 49",
+          "test": {
+            "name": "Random family 49",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              2.839733879417181,
+              4.238143752692268,
+              4.152456965688616,
+              1.4333197130728514,
+              0.8579094572737813,
+              4.021875510280952
+            ],
+            "o": [
+              0.20047436468303204,
+              1.4246896980330348,
+              -5.5475658886134624
+            ],
+            "d": [
+              0.2823438739462145,
+              0.2532215841382553,
+              0.9252895580149798
+            ]
+          },
+          "expected": [
+            {
+              "s": 0.7097728965299401,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 3.5289595683274606,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.984201964483925,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.825096092228858,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.313198209201937,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 9.675878888848683,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.962838975775771,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.5289595127105713,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 3.98420276391787,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.825096572350403,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.313198390319675,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 9.675879305129856,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 10.962838785065822,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "error": 2.819186616180631
+        },
+        {
+          "name": "Random family 57",
+          "test": {
+            "name": "Random family 57",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              4.93956855610013,
+              3.353349438486621,
+              2.3766038119234145,
+              1.5025486909318715,
+              2.5022802429273727,
+              6.263865554099903
+            ],
+            "o": [
+              4.183050407096744,
+              -1.1883116187527776,
+              0.43561120703816414
+            ],
+            "d": [
+              0.11570407068716414,
+              0.9548321457827197,
+              0.2736935172896632
+            ]
+          },
+          "expected": [
+            {
+              "s": 0.6664542798472332,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 3.2788013089961296,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 15.62283418016597,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 38.41687757149816,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.278801918029785,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 15.622833883656394,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 38.41688038221662,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            }
+          ],
+          "error": 3.764800428983492
+        },
+        {
+          "name": "Random family 62",
+          "test": {
+            "name": "Random family 62",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              2.5122169015929106,
+              4.56063080846332,
+              2.6389642774127426,
+              2.136367314467207,
+              0.8466203965246678,
+              2.8580320920329543
+            ],
+            "o": [
+              -1.1512563060969114,
+              -0.07009028736501932,
+              -0.20276058465242386
+            ],
+            "d": [
+              0.5267060497414227,
+              -0.3432997049676721,
+              0.7776413374653479
+            ]
+          },
+          "expected": [
+            {
+              "s": 0.5015046563479713,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 0.5582345604371262,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 0.84575719608752,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 0.8946943751175304,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 1.1818590223535184,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 1.23627397749009,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 2.6716505129016914,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 2.8979023127604213,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 0.50150465965271,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 0.5582345507282298,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 0.8946943594492041,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 1.1818590407783631,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 1.236273946524603,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 2.6716504855990193,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 2.8979022621167996,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            }
+          ],
+          "error": 1.1610504906226868
+        },
+        {
+          "name": "Random family 66",
+          "test": {
+            "name": "Random family 66",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              5.238544750474394,
+              4.383290259083733,
+              6.261008220072836,
+              2.710023606279865,
+              4.645749861598015,
+              2.3508833051007243
+            ],
+            "o": [
+              0.8639605958014727,
+              -5.156457879580557,
+              -2.2191931530833244
+            ],
+            "d": [
+              0.05768164534084335,
+              0.8838510731317423,
+              0.46419835018517736
+            ]
+          },
+          "expected": [
+            {
+              "s": 2.8247502894445597,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.068670690972679,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.039821500053075,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.17219148158867,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.575841872027742,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.74690291185145,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.642912877558489,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 7.986933167403885,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 11.987214444811144,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 14.229430091307407,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 2.8247499465942383,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.0686705407571413,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.039821360941419,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.1721912825026894,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.5758418351988155,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.746902700775758,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 7.986933238013346,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 11.987214397202056,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 14.22943132361654,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "error": 0.5008532243795454
+        },
+        {
+          "name": "Random family 81",
+          "test": {
+            "name": "Random family 81",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              1.9132567749917508,
+              1.855900013325736,
+              4.932187890056521,
+              1.7302031995821745,
+              3.9232913883402944,
+              3.0806839979346843
+            ],
+            "o": [
+              0.2690613102167845,
+              -1.8897957326844335,
+              -1.4091308824717999
+            ],
+            "d": [
+              0.45291233423549826,
+              0.4171350618395873,
+              0.7879522559657
+            ]
+          },
+          "expected": [
+            {
+              "s": 1.2639961785581202,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 1.3961611970997092,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 2.3539147694783935,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 2.734416336893199,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            }
+          ],
+          "actual": [
+            {
+              "s": 1.2639961242675781,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 2.353914927007729,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 2.734416294336566,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            }
+          ],
+          "error": 0.6859907952588802
+        },
+        {
+          "name": "Random family 93",
+          "test": {
+            "name": "Random family 93",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              4.987000694274903,
+              3.1731448012869805,
+              5.172869080696255,
+              1.5490528032649309,
+              2.47986142847687,
+              5.346742331599817
+            ],
+            "o": [
+              2.7094003837555647,
+              3.5065864054486156,
+              3.5693450309336185
+            ],
+            "d": [
+              -0.6152802701503115,
+              -0.7092715467014811,
+              -0.34404078566857205
+            ]
+          },
+          "expected": [
+            {
+              "s": 2.5731867797080064,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 3.2177034420776236,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 4.567681469231708,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 4.70969358593478,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.398423013499267,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.516468545008255,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.1377836826374335,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.34899569502879,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 9.241646356620922,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 9.870579427379983,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 4173.316152715338,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 2.5731863975524902,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 4.567681482763537,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 5.398422981771274,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.516468504202359,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.137783647175974,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.34899584170596,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 9.241646949415653,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 9.87058015347414,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 4173.316369167347,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            }
+          ],
+          "error": 450.5771549922477
+        },
+        {
+          "name": "Random family 99",
+          "test": {
+            "name": "Random family 99",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              5.952661472037435,
+              3.6792499802540988,
+              5.575889323223382,
+              2.938245269777253,
+              1.8301828519627452,
+              2.55417015790008
+            ],
+            "o": [
+              -2.0078970585018396,
+              -0.01848710048943758,
+              -1.4081265069544315
+            ],
+            "d": [
+              0.8089765368312878,
+              0.5478463756613098,
+              0.21312276164507415
+            ]
+          },
+          "expected": [
+            {
+              "s": 0.12084091241767547,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 0.929341682868885,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 1.0387407063081775,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 1.6189985884006077,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 1.7378376204100463,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 2.420787262231508,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 2.5563378049102137,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 3.3388520637287167,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 3.5219445854638876,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.183844133681363,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.26243191382478,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 0.9293416738510132,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 1.618998467160604,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 1.7378374632257858,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 2.420787169890257,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 2.556337678745786,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 3.3388519954125684,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 3.521944438246657,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.183843917489021,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 8.26243153850423,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "error": 1.3459856729733177
+        },
+        {
+          "name": "Pole crossing XW=45",
+          "test": {
+            "name": "Pole crossing XW=45",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              0.7853981633974483,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              0,
+              0.3,
+              6
+            ],
+            "d": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "expected": [
+            {
+              "s": 3.994386831180643,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.228462810935838,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.260559256813341,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.3336093815043215,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.670146391582482,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.731069560221728,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.268930439778272,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.329853608417518,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.6663906184956785,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 6.739440743186659,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.771537189064162,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.005613168819357,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 14.610485230092838,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.994386911392212,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.228462766449521,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.26055926255921,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.333609456717196,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.670146453453154,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.731069605794429,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.268930469374564,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.66639062523299,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.739440759786331,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.771537317774883,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 8.0056130934027,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            }
+          ],
+          "error": 0.1531427627183514
+        },
+        {
+          "name": "Pole crossing XW=46.5",
+          "test": {
+            "name": "Pole crossing XW=46.5",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              0.8115781021773633,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              0,
+              0.3,
+              6
+            ],
+            "d": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "expected": [
+            {
+              "s": 4.049211237130825,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.26749117705849,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.257973706266671,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.329743915625407,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.65752016330428,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.715310624756784,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.284689375243216,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.34247983669572,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.670256084374593,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 6.742026293733329,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.73250882294151,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.950788762869175,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 12.157705514606945,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            }
+          ],
+          "actual": [
+            {
+              "s": 4.049211502075195,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.267491067594062,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.257973677496072,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.329743861907507,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.6575201083497335,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.715310559770903,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.284689286624659,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.670255991269248,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.7420261756806825,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.7325087972449795,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.9507886173635125,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            }
+          ],
+          "error": 0.14691169395650347
+        },
+        {
+          "name": "Pole crossing XW=63.5",
+          "test": {
+            "name": "Pole crossing XW=63.5",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              1.1082840750163994,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              0,
+              0.3,
+              6
+            ],
+            "d": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "expected": [
+            {
+              "s": 2.946276601678243,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.275068329493131,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.372118275250129,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.507610316206298,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.236078329998135,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.297660028534562,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.564661053499827,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.605814085939984,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.850425502757953,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.914535587353249,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.085464412646751,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.149574497242047,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.394185914060016,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.435338946500173,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.702339971465438,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 6.763921670001865,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.492389683793702,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.627881724749871,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.72493167050687,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 9.053723398321758,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            }
+          ],
+          "actual": [
+            {
+              "s": 2.9462766647338867,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.275068273829063,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.372118296770716,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.507610412469752,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.236078389913909,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.297660113975307,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.564661110221077,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.605814146948414,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.850425537552819,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.914535616139783,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.085464445227426,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.149574538715551,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.394185929319955,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.702339969074255,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.763921693135653,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.492389687243285,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.62788175020914,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 9.053723349398165,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            }
+          ],
+          "error": 0.1869249781393339
+        },
+        {
+          "name": "Pole crossing XW=65",
+          "test": {
+            "name": "Pole crossing XW=65",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              1.1344640137963142,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              0,
+              0.3,
+              6
+            ],
+            "d": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "expected": [
+            {
+              "s": 3.0353642548202715,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.3393138011133154,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.386393031970088,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.51860266263518,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.2347406049224805,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.295734270211169,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.5595900558861455,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.600050771369392,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.83460829485066,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.889008223337192,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.110991776662808,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.16539170514934,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.399949228630608,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.4404099441138545,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.704265729788831,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 6.7652593950775195,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.48139733736482,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.613606968029912,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.660686198886685,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.964635745179729,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 18.576637936146838,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.0353641510009766,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.3393138014395514,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.3863930489762915,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.51860272521187,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.234740688496604,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.295734353132648,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.5595901016805875,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.6000508304588585,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.8346083480011295,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.889008263710057,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.110991808907929,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.399949278742643,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.704265762850046,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.7652594274860895,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.48139742596155,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.613607042612373,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.96463586023589,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            }
+          ],
+          "error": 0.19825688383949855
+        },
+        {
+          "name": "Pole crossing XW=66.5",
+          "test": {
+            "name": "Pole crossing XW=66.5",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              1.160643952576229,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              0,
+              0.3,
+              6
+            ],
+            "d": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "expected": [
+            {
+              "s": 3.111948913564542,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.3954050374642537,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.399341398643346,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.528598895184298,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.233490317050418,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.293937677053796,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.554898588024971,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.5947326925621095,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.821060620542746,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.869556285258625,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.130443714741375,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.178939379457254,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.4052673074378905,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.445101411975029,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.706062322946204,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 6.766509682949582,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.471401104815702,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.600658601356654,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.604594962535746,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.888051086435457,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 15.03855934404714,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 3.1119489669799805,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.3954051534320957,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.399341366889202,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.5285989788670165,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.233490395613348,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.293937724075381,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.5548986240381915,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.594732729185939,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.821060648325233,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.869556306736644,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.130443714172447,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.405267313405506,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.706062325297257,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.7665096537592895,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.4714010902306605,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.600658623500735,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.888051053555635,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            }
+          ],
+          "error": 0.18960967680169516
+        },
+        {
+          "name": "Pole crossing XW=80",
+          "test": {
+            "name": "Pole crossing XW=80",
+            "objects": [
+              {
+                "t": 25,
+                "color": "#83e3da",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 45,
+                "color": "#dea1d6",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              },
+              {
+                "t": 65,
+                "color": "#f2c381",
+                "enabled": true,
+                "shell": true,
+                "shellWidth": 3,
+                "opacity": 0.04,
+                "ior": 1.2,
+                "roughness": 0.025,
+                "metallic": 0,
+                "material": "glass"
+              }
+            ],
+            "angles": [
+              0,
+              0,
+              1.3962634015954636,
+              0,
+              0,
+              0
+            ],
+            "o": [
+              0,
+              0.3,
+              6
+            ],
+            "d": [
+              0,
+              0,
+              -1
+            ]
+          },
+          "expected": [
+            {
+              "s": 0.7195830509460288,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 1.4477673498938115,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 3.4754335530381084,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.6723875398502335,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.470511411892431,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.5839569635083315,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.225924701595983,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.283131922550951,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.5274156415809275,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 5.563819737286534,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.754167413226108,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.786383384368797,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.213616615631203,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.245832586773892,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 6.436180262713466,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.4725843584190725,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 6.716868077449049,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 6.774075298404017,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.4160430364916685,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.529488588107569,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.327612460149766,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.524566446961892,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 10.552232650106188,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 11.280416949053972,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "actual": [
+            {
+              "s": 0.7195830345153809,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 1.4477671040279,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 3.475433421431839,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 3.6723875095914615,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 4.470511319284709,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 4.583956947342088,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.225924710420942,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 5.283131930392984,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 5.563819702799948,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 5.754167382428705,
+              "level": 0.8009074926376343,
+              "sign": -1,
+              "id": 0
+            },
+            {
+              "s": 5.786383343421904,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.21361655578744,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.436180203190589,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 0
+            },
+            {
+              "s": 6.716867975597553,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 6.774075195569595,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.4160429622259025,
+              "level": 0.15900081396102905,
+              "sign": -1,
+              "id": 2
+            },
+            {
+              "s": 7.529488591477547,
+              "level": 0.19909249246120453,
+              "sign": 1,
+              "id": 2
+            },
+            {
+              "s": 8.32761229723268,
+              "level": 0.47383201122283936,
+              "sign": -1,
+              "id": 1
+            },
+            {
+              "s": 8.524566401534997,
+              "level": 0.5261679887771606,
+              "sign": 1,
+              "id": 1
+            },
+            {
+              "s": 11.280417031290078,
+              "level": 0.840999186038971,
+              "sign": 1,
+              "id": 0
+            }
+          ],
+          "error": 0.49816510102783124
+        }
+      ]
+    },
+    "renderSmoke": {
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    }
+  },
+  "passed": false
+}

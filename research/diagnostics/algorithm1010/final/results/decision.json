@@ -1,0 +1,452 @@
+{
+  "decision": "retain as experimental",
+  "reason": "Correctness checks pass with expanded traversal, but completed-frame WebGL GPU timing regresses materially in all three shell workloads. Keep production Bernstein.",
+  "comparedFrameTimes": [
+    {
+      "scene": "single solid",
+      "nativeBernsteinMs": 3.1235218048095703,
+      "nativeOdmMs": 1.9805431365966797,
+      "nativeReductionPercent": 36.59262651705977,
+      "webglBernsteinMs": 4.817686999999999,
+      "webglOdmMs": 4.9093745,
+      "webglReductionPercent": -1.9031435624605963
+    },
+    {
+      "scene": "single 0.01 shell",
+      "nativeBernsteinMs": 5.631506443023682,
+      "nativeOdmMs": 3.1314492225646973,
+      "nativeReductionPercent": 44.39411098527747,
+      "webglBernsteinMs": 8.920375,
+      "webglOdmMs": 10.710291,
+      "webglReductionPercent": -20.065479310006594
+    },
+    {
+      "scene": "three thin shells",
+      "nativeBernsteinMs": 20.168542861938477,
+      "nativeOdmMs": 13.45449686050415,
+      "nativeReductionPercent": 33.28969300060288,
+      "webglBernsteinMs": 32.5821865,
+      "webglOdmMs": 47.023895499999995,
+      "webglReductionPercent": -44.32394062933744
+    },
+    {
+      "scene": "three thin shells near pole",
+      "nativeBernsteinMs": 46.80997133255005,
+      "nativeOdmMs": 37.01949119567871,
+      "nativeReductionPercent": 20.91537306724085,
+      "webglBernsteinMs": 83.4048325,
+      "webglOdmMs": 133.287562,
+      "webglReductionPercent": -59.80796076774091
+    }
+  ],
+  "originalRayReplayExact": true,
+  "polynomialFixturesPassed": 54,
+  "nativeGrazingFailedIds": [
+    1201,
+    1257,
+    1258,
+    1259,
+    1260,
+    1263,
+    1264,
+    1265,
+    1273,
+    1308,
+    1309,
+    1311,
+    1341,
+    1342,
+    1343,
+    1347,
+    1348,
+    1362,
+    1363,
+    1364,
+    1374,
+    1375,
+    1398,
+    1399,
+    1400,
+    1401,
+    1402,
+    1403,
+    1407,
+    1408,
+    1409,
+    1413,
+    1420,
+    1426,
+    1428,
+    1431,
+    1432,
+    1433,
+    1440,
+    1449,
+    1450,
+    1451,
+    1452,
+    1467,
+    1506,
+    1509,
+    1510,
+    1511,
+    1526,
+    1531,
+    1533,
+    1542,
+    1543,
+    1544,
+    1554,
+    1555,
+    1556,
+    1560,
+    1561,
+    1562,
+    1563,
+    1566,
+    1567,
+    1568,
+    1575,
+    1576,
+    1577,
+    1590,
+    1596,
+    1598,
+    1602,
+    1603,
+    1604,
+    1608,
+    1614,
+    1620,
+    1621,
+    1632,
+    1635,
+    1636,
+    1637,
+    1644,
+    1662,
+    1668,
+    1669,
+    1670,
+    1678,
+    1692,
+    1693,
+    1694,
+    1705,
+    1716,
+    1719,
+    1731,
+    1732,
+    1733,
+    1734,
+    1735,
+    1736,
+    1743,
+    1744,
+    1745,
+    1749,
+    1750,
+    1751,
+    1755,
+    1770,
+    1780,
+    1797
+  ],
+  "nativeGrazingIdsMatchCapturedCoefficients": true,
+  "transport": {
+    "native/production": {
+      "passed": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "native/production-unrolled": {
+      "passed": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "native/odm-loop": {
+      "passed": false,
+      "suites": {
+        "thinCrossings": {
+          "passed": 28,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 114,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "native/odm-direct": {
+      "passed": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "webgl/production": {
+      "passed": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "webgl/production-unrolled": {
+      "passed": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "webgl/odm-loop": {
+      "passed": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "webgl/odm-direct": {
+      "passed": true,
+      "suites": {
+        "thinCrossings": {
+          "passed": 31,
+          "total": 31
+        },
+        "refraction": {
+          "passed": 36,
+          "total": 36
+        },
+        "invisibility": {
+          "passed": 31,
+          "total": 31
+        },
+        "solidSuite": {
+          "passed": 625,
+          "total": 625
+        },
+        "shellSuite": {
+          "passed": 403,
+          "total": 403
+        },
+        "sceneSuite": {
+          "passed": 133,
+          "total": 133
+        },
+        "renderSmoke": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    }
+  },
+  "pixelReferenceChecksPassed": true,
+  "nativeLoopFailureExactlyReproduced": true,
+  "verifiedHistoricalAndCurrentHashEntries": 289,
+  "frozenBaselinePathsUnchanged": 65,
+  "hashes": {
+    "research/diagnostics/algorithm1010/final/verify-results.py": "1dd73f6172e51df59b9431ec151c89ea4b65006d886db721269023bb2c11dfbc",
+    "research/diagnostics/algorithm1010/final/README.md": "6b6171459bee9e4676dff387718e0a9cc9b67d927e6cb2a58b78b63bfa6c3d4e",
+    "PAPER.md": "929bdf48c9f47c2156a19a1676e738e6198211687a788435e1a18db82760b005",
+    "paper/references.bib": "00efdaed85fc11bc090b5a8c53b4d11ae1f87ac007dc08b2e34c131d4c11c68b",
+    "paper/main.tex": "ff2e82bea648e45b577c6e24ec7e57f59976ebb05669d69f05d5f52a605f3700",
+    "paper/manuscript.pdf": "1219f68a1ddaf33209dc9156b9866cc187f1ea6b3e1d00d123f77b392b8483ae",
+    "research/diagnostics/grazing/frozen-manifest.json": "9236f2bd6fc2d257f3a71101ef4ca30eda1de01ff08a4584dd2468270a8ec591",
+    "research/diagnostics/grazing/results/analysis.json": "3a9e0392e5681910aff6a8e2e3576d9e682355b2cb184598eedbe3f029d977e3",
+    "research/diagnostics/algorithm1010/final/results/native-transport-odm-direct.json": "6f384f720f217cfc2f2ea82cc5387bac5553b2f812bca00fdc743047fc0b19ec",
+    "research/diagnostics/algorithm1010/final/results/native-transport-odm-loop.json": "713344287f1b6ee2c2d7549375c68cb4b5acfef335795bc01646e3cdbf04223c",
+    "research/diagnostics/algorithm1010/final/results/native-transport-production-unrolled.json": "5556bb526e70922e7bb62d692d1dcb03586e16557737acb8bcd86e733c3b6596",
+    "research/diagnostics/algorithm1010/final/results/native-transport-production.json": "a54321d77a4639dcc7ece497668d20fcc8d0c61da09563ae1d1695bf2f4fe19a",
+    "research/diagnostics/algorithm1010/final/results/pixel-analysis.json": "183320115613ae15c253b4378770a84e99d6aa5b550cd57f33921bd2c06c152d",
+    "research/diagnostics/algorithm1010/final/results/pixels-native.json": "3a18628b6e9b8a557eb9fee809e48a98a5c61e0b60813591713d90d5948361a0",
+    "research/diagnostics/algorithm1010/final/results/pixels-webgl.json": "aff8855c7be9ef4a27c99c3665fb76d7a3cf24cdd9d3120957404388724ef3bc",
+    "research/diagnostics/algorithm1010/final/results/validation.json": "71f033da9ec90030346223573f428bcd3d62af1b04e4190132e96d3550da323b",
+    "research/diagnostics/algorithm1010/final/results/webgl-benchmark.json": "069c159d1c3ae1087a338fd380ea0213b8e7ff22d97f813c4073f3522714ccc8",
+    "research/diagnostics/algorithm1010/final/results/webgl-roots.json": "f44ac1664562e4f4d140dcaed6c135d5fc4ac9fb447051fa65403bfbe2a59306",
+    "research/diagnostics/algorithm1010/final/results/webgl-timing-batched.json": "a8722a6ecdfa69f35b1323afc52febeb13708f3c600f03a9595a4e0af592a0f6",
+    "research/diagnostics/algorithm1010/final/results/webgl-timing-initial.json": "03e4b296d30fbb8d156f79600ce73b2e1044514536327b48290c1353d7657e44",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-odm-direct.json": "d9b14ec4017a455a98c4fb786b401f352ca4c447478dc78880f8756f206761ff",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-odm-loop.json": "3fcd5c167fe4a652e7f44f76bf3eaab1a64711ac40dcf4fe47aae41a569fc233",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-production-unrolled.json": "d4fbe58053a54116c8a4aec3009a9a85a647eb313cded7b73ede40c790cb6680",
+    "research/diagnostics/algorithm1010/final/results/webgl-transport-production.json": "d95cc36abe663bf3c7308984a8729243409d9fe307190d73682d985f16dc4109"
+  }
+}

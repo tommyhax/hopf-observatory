@@ -36,6 +36,8 @@ For `P = R diag(1,1,0,0) Rᵀ`, `A = P − cos²(t) I` and `V = (2p, |p|²−1)`
 
 The ray line is recentered at its closest point to the origin. Each half-line uses a near coordinate `x = λ/L` and a reciprocal coordinate `x = L/λ`, each on [0,1], with `L = max(1, |C|)`. Bernstein derivative roots partition each chart into monotone intervals. Bisection and bracket interpolation find crossings; stationary candidates retain tangencies. Step-limited Newton corrections are accepted only when they reduce the computed homogeneous residual, followed by a distance-scaled residual test. The reciprocal endpoint at zero represents infinity and is excluded. There is no finite far clipping sphere.
 
+The [Algorithm 1010 adoption evaluation](research/diagnostics/algorithm1010/final/README.md) retains Bernstein as the production default. Corrected centered factorization passes the tested accuracy and optical checks and improves native timings, but is slower for the browser's thin-shell workloads. It remains an attributed, reproducible research variant.
+
 Solid material is `QᵀPQ > cos²t`; shell material is `cos²(t+Δt/2) < QᵀPQ < cos²(t−Δt/2)`. Every tracing step chooses the nearest boundary across enabled tori. Reflection, Snell refraction, total internal reflection and lighting occur in projected Euclidean 3D.
 
 ## Validation

@@ -52,6 +52,16 @@ The browser integration run uses SwiftShader. Earlier recorded ANGLE Metal valid
 
 ## Reproduction routes
 
+The 23 November 2026 [Algorithm 1010 follow-up](research/diagnostics/algorithm1010/final/README.md)
+retains corrected factorization as experimental. It adds actual Chrome WebGL
+optical tests and GPU timing, two-pixel exact-reference diagnosis, and native /
+browser traversal controls. Correctness checks pass with expanded traversal,
+but browser shell rendering is slower despite native gains. The canonical
+manuscript includes a concise comparison with attribution to the 2020 paper
+and 2024 correction. Production code, the earlier technical-note editions,
+original captures and all existing `release/` files remain unchanged. This
+working revision is not a replacement for any immutable review release.
+
 To inspect the result, read the supplied PDFs and run the buildless app. To run checks, use Node.js and the pinned scientific Python environment:
 
 ```sh

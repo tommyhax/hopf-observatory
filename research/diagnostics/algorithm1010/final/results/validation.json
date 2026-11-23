@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-23T02:59:11.073738+00:00",
+  "checks": {
+    "npm test": {
+      "passed": 24,
+      "failed": 0
+    },
+    "research/test_reference.py": {
+      "passed": 5,
+      "failed": 0
+    },
+    "research/test_analysis.py": {
+      "passed": 5,
+      "failed": 0
+    },
+    "research/diagnostics/grazing/test_diagnostic.py": {
+      "passed": 5,
+      "failed": 0
+    },
+    "research/check-evidence.py": {
+      "sourceInputHashesVerified": 153
+    },
+    "npm run format:check": "passed",
+    "study Prettier / Black / clang-format checks": "passed",
+    "npm run build:site": "passed",
+    "python3 scripts/build-paper.py --pdf": "passed",
+    "PDF layout review": {
+      "pages": 14,
+      "method": "Poppler rendered pages; visual inspection of all page overviews and full added section; final date-only rebuild inspected on page 9"
+    },
+    "GPU regressions": "See individual final/results/*transport*.json; native odm-loop intentionally fails and exactly reproduces initial results; all seven other backend/variant combinations pass",
+    "polynomial / original-ray replay": "54 fixtures pass; all 867 original browser ray records replay exactly",
+    "pixel analysis": "All eight captured paths pass exact nearest-root, analytic-normal and continuation checks"
+  },
+  "existingReleaseFilesUnchanged": true,
+  "preservedReleaseFilesSHA256": {
+    "release/technical-note.pdf": "2b6172dcae31baf02403a62a8193016eaad600a66bbac4d31fe776c1503d388b",
+    "release/hopf-observatory-2026-11-22.zip": "c5e8ba32fe14cebfdcb929137ece8214024daefa6d54438e2b7676d81fff3fed",
+    "release/hopf-observatory-2026-11-21.zip": "d1820d5671ca08b02139c714855c86f9c996db31c9e37c5c12c307aff7fd0a56",
+    "release/MANIFEST.json": "9c3b8173b6b26dc81c9518578f3daa6ea148780aac714a649bc5480378753cd0",
+    "release/hopf-observatory-2026-11-22-grazing-diagnostic.zip": "d9359c19de34b5d59f72344ae77a48404cb67bcae59a4489ca077b01ece8683d",
+    "release/SHA256SUMS": "e775459270c705062bc3c872b9bf039e64c157157100421993dbe1b97009d291",
+    "release/SHA256SUMS.txt": "e775459270c705062bc3c872b9bf039e64c157157100421993dbe1b97009d291",
+    "release/manuscript.pdf": "17d675615a4fca8ad56030058e5dea91ce6e9f954bc76b87360c2252defb06aa"
+  },
+  "hashes": {
+    "PAPER.md": "929bdf48c9f47c2156a19a1676e738e6198211687a788435e1a18db82760b005",
+    "paper/main.tex": "ff2e82bea648e45b577c6e24ec7e57f59976ebb05669d69f05d5f52a605f3700",
+    "paper/manuscript.pdf": "1219f68a1ddaf33209dc9156b9866cc187f1ea6b3e1d00d123f77b392b8483ae",
+    "paper/references.bib": "00efdaed85fc11bc090b5a8c53b4d11ae1f87ac007dc08b2e34c131d4c11c68b",
+    "research/diagnostics/algorithm1010/final/README.md": "6b6171459bee9e4676dff387718e0a9cc9b67d927e6cb2a58b78b63bfa6c3d4e",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3"
+  }
+}

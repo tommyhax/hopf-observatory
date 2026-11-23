@@ -20,7 +20,7 @@
 \pagestyle{fancy}
 \fancyhead[L]{\small JCGT review draft (not submitted)}
 \fancyhead[C]{}
-\fancyhead[R]{\small 22 November 2026}
+\fancyhead[R]{\small 23 November 2026}
 \setciteauthor{Tom Crosby}
 \setcitetitle{Interactive ray tracing of stereographic Hopf tori}
 \begin{document}
@@ -470,6 +470,27 @@ application's three-shell scenes. It establishes neither general solver
 superiority nor a browser-speed or cross-vendor claim. Raw samples,
 block medians and interquartile ranges remain available; small timing
 differences should not be overinterpreted.
+
+A bounded follow-up evaluates a float32 implementation of Orellana--De
+Michele quartic factorization \citep{orellana2020}, including the
+revised 2024 correction \citep{demichele2024}. Its centered variant
+passes 54 polynomial fixtures, all 867 original rays and the complete
+optical regression suite in native OpenGL and browser WebGL; the native
+stress failures have exactly the same 109 grazing IDs. Across the same
+four 720p scenes, native frame time falls by 21--44\%, but Chrome 157 /
+ANGLE Metal GPU time rises by approximately 2\%, 20\%, 44\% and 60\%,
+respectively. Browser measurements use elapsed-time queries around
+individually completed frames; they are distinct from native
+draw-plus-\passthrough{\lstinline!glFinish!} timings. The candidate also
+requires expansion of the fixed three-object traversal for reliable
+native execution. Two isolated image differences trace to
+round-off-sensitive internal-reflection paths, with no incorrect nearest
+intersection found on the captured rays. Bernstein therefore remains the
+browser default. This comparison illustrates backend dependence and the
+coefficient-construction ceiling, rather than general solver
+superiority; implementation adaptations, raw measurements and
+limitations are recorded in
+\passthrough{\lstinline!research/diagnostics/algorithm1010/final/!}.
 
 \subsection{Post-hoc diagnosis of grazing
 failures}\label{post-hoc-diagnosis-of-grazing-failures}

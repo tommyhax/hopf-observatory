@@ -1,7 +1,7 @@
 ---
 title: "Interactive ray tracing of stereographic Hopf tori"
 author: "Tom Crosby"
-date: "22 November 2026 · JCGT review draft"
+date: "23 November 2026 · JCGT review draft"
 bibliography: paper/references.bib
 ---
 
@@ -178,6 +178,8 @@ Full optical-renderer timings use three blocks of five warmup and ten measured f
 | Three shells, XW = 45° | 38.45 ms | 67.69 ms | 45.74 ms |
 
 The workload-dependent result supports retaining Bernstein for this application's three-shell scenes. It establishes neither general solver superiority nor a browser-speed or cross-vendor claim. Raw samples, block medians and interquartile ranges remain available; small timing differences should not be overinterpreted.
+
+A bounded follow-up evaluates a float32 implementation of Orellana--De Michele quartic factorization [@orellana2020], including the revised 2024 correction [@demichele2024]. Its centered variant passes 54 polynomial fixtures, all 867 original rays and the complete optical regression suite in native OpenGL and browser WebGL; the native stress failures have exactly the same 109 grazing IDs. Across the same four 720p scenes, native frame time falls by 21--44%, but Chrome 157 / ANGLE Metal GPU time rises by approximately 2%, 20%, 44% and 60%, respectively. Browser measurements use elapsed-time queries around individually completed frames; they are distinct from native draw-plus-`glFinish` timings. The candidate also requires expansion of the fixed three-object traversal for reliable native execution. Two isolated image differences trace to round-off-sensitive internal-reflection paths, with no incorrect nearest intersection found on the captured rays. Bernstein therefore remains the browser default. This comparison illustrates backend dependence and the coefficient-construction ceiling, rather than general solver superiority; implementation adaptations, raw measurements and limitations are recorded in `research/diagnostics/algorithm1010/final/`.
 
 ### 4.4 Post-hoc diagnosis of grazing failures
 

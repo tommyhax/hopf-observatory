@@ -1,0 +1,2267 @@
+{
+  "method": "Exact-rational roots of each captured float32 incoming ray; nearest root above unchanged bias. Independent analytic normals and single-solid Snell/TIR continuation. Two already-observed pixels only; not a new stress campaign or a high-precision full-image reference.",
+  "reports": [
+    {
+      "backend": "native",
+      "variant": "production",
+      "pixel": [
+        284,
+        77
+      ],
+      "color": [
+        0.4287056028842926,
+        0.5007748007774353,
+        0.502028226852417
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.737825393676758,
+          "expected": 7.737824812480546,
+          "relativeError": 7.511105848618877e-08,
+          "normalError": 3.131310087863285e-08,
+          "tir": false,
+          "snellDiscriminant": 0.5300883952976956,
+          "outgoingDirectionError": 7.838168854850839e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.4922693967819214,
+          "expected": 1.4922695465602092,
+          "relativeError": 1.0036945947041288e-07,
+          "normalError": 4.379029708252775e-08,
+          "tir": true,
+          "snellDiscriminant": -0.045863057331853474,
+          "outgoingDirectionError": 3.4254690174938984e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 1.8730604648590088,
+          "expected": 1.8730604432133207,
+          "relativeError": 1.155632121174637e-08,
+          "normalError": 3.70130594849942e-08,
+          "tir": true,
+          "snellDiscriminant": -0.504864022375056,
+          "outgoingDirectionError": 2.1459507223771318e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.3430171012878418,
+          "expected": 1.3430169919283512,
+          "relativeError": 8.142822557837653e-08,
+          "normalError": 5.921197604016191e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2815934116606764,
+          "outgoingDirectionError": 5.654920986841868e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.2734788656234741,
+          "expected": 1.273478823011881,
+          "relativeError": 3.346077875257791e-08,
+          "normalError": 3.3953977772262024e-08,
+          "tir": true,
+          "snellDiscriminant": -0.27341479707702976,
+          "outgoingDirectionError": 5.983995651952595e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.2837051153182983,
+          "expected": 1.2837050189469124,
+          "relativeError": 7.507284349605955e-08,
+          "normalError": 2.7475635876682826e-08,
+          "tir": true,
+          "snellDiscriminant": -0.29970166168666856,
+          "outgoingDirectionError": 1.0093888624372366e-08
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.6095199584960938,
+          "expected": 2.609519735338166,
+          "relativeError": 8.55168576310546e-08,
+          "normalError": 1.5956089459499127e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0344875933320763,
+          "outgoingDirectionError": 3.503284697559425e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.4547821283340454,
+          "expected": 0.4547820159291327,
+          "relativeError": 1.1240491271102826e-07,
+          "normalError": 2.1904000717762814e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0210042414850644,
+          "outgoingDirectionError": 3.1470497812887355e-08
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.4258796274662018,
+          "expected": 0.42587976749607476,
+          "relativeError": 1.4002987297478953e-07,
+          "normalError": 4.42148958747879e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0154806539760215,
+          "outgoingDirectionError": 3.183686686802894e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.4231707751750946,
+          "expected": 0.4231704336184145,
+          "relativeError": 3.415566801057146e-07,
+          "normalError": 6.963936609388463e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0114495583675778,
+          "outgoingDirectionError": 5.111552754446113e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.4273698031902313,
+          "expected": 0.4273696779492276,
+          "relativeError": 1.2524100373445535e-07,
+          "normalError": 3.086185013023538e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0076316946298158,
+          "outgoingDirectionError": 4.39109650743091e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.4342327117919922,
+          "expected": 0.4342320584788006,
+          "relativeError": 6.533131916008905e-07,
+          "normalError": 3.4605929240719874e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0037980806654034,
+          "outgoingDirectionError": 4.1845937977195944e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 0.44238045811653137,
+          "expected": 0.4423807346559187,
+          "relativeError": 2.7653938733385175e-07,
+          "normalError": 3.230341423835703e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0000343052558325,
+          "outgoingDirectionError": 2.8406338050239997e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 0.4513746500015259,
+          "expected": 0.45137480693954796,
+          "relativeError": 1.5693802207783492e-07,
+          "normalError": 3.889077662005058e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9966044417743596,
+          "outgoingDirectionError": 3.6564290635935756e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 0.4617152214050293,
+          "expected": 0.4617157237798903,
+          "relativeError": 5.023748609889189e-07,
+          "normalError": 4.150615324204721e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9941237018076394,
+          "outgoingDirectionError": 2.8116861056536102e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 0.47691574692726135,
+          "expected": 0.476915870305828,
+          "relativeError": 1.233785666410192e-07,
+          "normalError": 3.116962164075607e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9946096601400429,
+          "outgoingDirectionError": 2.890754299562104e-08
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 0.518295168876648,
+          "expected": 0.5182951750536331,
+          "relativeError": 6.176985145600611e-09,
+          "normalError": 1.9851700038042203e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0085640690361317,
+          "outgoingDirectionError": 4.522697897002974e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 2.5418267250061035,
+          "expected": 2.541826715881403,
+          "relativeError": 3.5898200666822204e-09,
+          "normalError": 3.275886193541415e-08,
+          "tir": true,
+          "snellDiscriminant": -0.41008501346675663,
+          "outgoingDirectionError": 4.05578913759935e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.2021986246109009,
+          "expected": 1.2021985318646953,
+          "relativeError": 7.714716259097682e-08,
+          "normalError": 5.591144209598839e-09,
+          "tir": true,
+          "snellDiscriminant": -0.37792248505632164,
+          "outgoingDirectionError": 2.2633323564626083e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 1.1912869215011597,
+          "expected": 1.1912867532411249,
+          "relativeError": 1.412422612240956e-07,
+          "normalError": 5.6774231042549205e-08,
+          "tir": true,
+          "snellDiscriminant": -0.37699822733773125,
+          "outgoingDirectionError": 1.521063013125549e-08
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": 1.2197211980819702,
+          "expected": 1.2197213434814278,
+          "relativeError": 1.1920711100296113e-07,
+          "normalError": 5.906206269683247e-08,
+          "tir": true,
+          "snellDiscriminant": -0.4400854067303972,
+          "outgoingDirectionError": 4.487449764850894e-08
+        },
+        {
+          "path": 0,
+          "step": 21,
+          "actual": 1.856248140335083,
+          "expected": 1.8562480936653307,
+          "relativeError": 2.514197991325721e-08,
+          "normalError": 1.2206227004096602e-08,
+          "tir": true,
+          "snellDiscriminant": -0.759531091928525,
+          "outgoingDirectionError": 4.780519392539971e-08
+        },
+        {
+          "path": 0,
+          "step": 22,
+          "actual": 1.0402497053146362,
+          "expected": 1.0402498537268245,
+          "relativeError": 1.426697516802541e-07,
+          "normalError": 4.2797710180392267e-08,
+          "tir": true,
+          "snellDiscriminant": -0.6342644635276657,
+          "outgoingDirectionError": 8.976894322568401e-09
+        },
+        {
+          "path": 0,
+          "step": 23,
+          "actual": 0.9700445532798767,
+          "expected": 0.9700444674876976,
+          "relativeError": 8.57921791386218e-08,
+          "normalError": 1.877507713208132e-08,
+          "tir": true,
+          "snellDiscriminant": -0.6239118869122176
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 24,
+      "internalReflections": 23,
+      "maxRelativeDistanceError": 6.533131916008905e-07
+    },
+    {
+      "backend": "native",
+      "variant": "production",
+      "pixel": [
+        312,
+        126
+      ],
+      "color": [
+        0.5850457549095154,
+        0.6603528261184692,
+        0.6701683402061462
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.779672622680664,
+          "expected": 7.779671321537528,
+          "relativeError": 1.6724911407800547e-07,
+          "normalError": 5.570068872405506e-08,
+          "tir": false,
+          "snellDiscriminant": 0.5279337562581232,
+          "outgoingDirectionError": 2.2426949464061836e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.5043610334396362,
+          "expected": 1.5043610480494904,
+          "relativeError": 9.711667444627778e-09,
+          "normalError": 8.180122151135609e-08,
+          "tir": true,
+          "snellDiscriminant": -0.07552519874831254,
+          "outgoingDirectionError": 2.9654431522745057e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 2.040889263153076,
+          "expected": 2.040889352882244,
+          "relativeError": 4.396571892781828e-08,
+          "normalError": 3.088813890123109e-08,
+          "tir": true,
+          "snellDiscriminant": -0.4776281459706164,
+          "outgoingDirectionError": 5.208138930151902e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.3410308361053467,
+          "expected": 1.3410308426001085,
+          "relativeError": 4.843111458089808e-09,
+          "normalError": 1.2410070984189846e-07,
+          "tir": true,
+          "snellDiscriminant": -0.28489371691060095,
+          "outgoingDirectionError": 3.75812859722534e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.2766671180725098,
+          "expected": 1.2766675857758534,
+          "relativeError": 3.663470027911296e-07,
+          "normalError": 1.0402934489754056e-07,
+          "tir": true,
+          "snellDiscriminant": -0.27826814482173656,
+          "outgoingDirectionError": 3.07239415601513e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.2989859580993652,
+          "expected": 1.2989859780012636,
+          "relativeError": 1.532110329795207e-08,
+          "normalError": 1.4727939940984844e-08,
+          "tir": true,
+          "snellDiscriminant": -0.33556917347552306,
+          "outgoingDirectionError": 3.630289598177882e-08
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.2510738372802734,
+          "expected": 2.2510740002395115,
+          "relativeError": 7.239177303201574e-08,
+          "normalError": 1.785516798561448e-08,
+          "tir": true,
+          "snellDiscriminant": -0.864284497409241,
+          "outgoingDirectionError": 1.5288137877659116e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.890720546245575,
+          "expected": 0.8907203645201831,
+          "relativeError": 1.8172539184568848e-07,
+          "normalError": 3.1679678080105454e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7782254734139358,
+          "outgoingDirectionError": 2.218157482106645e-08
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.8194360733032227,
+          "expected": 0.8194358318862125,
+          "relativeError": 2.414170101605606e-07,
+          "normalError": 5.009902685050384e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7674610097817605,
+          "outgoingDirectionError": 9.751179031109253e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.8147919774055481,
+          "expected": 0.8147920649139216,
+          "relativeError": 8.750837354742913e-08,
+          "normalError": 7.355616291746223e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7634989358030646,
+          "outgoingDirectionError": 2.8767308715901564e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.8212705254554749,
+          "expected": 0.8212705803187905,
+          "relativeError": 5.4863315668285395e-08,
+          "normalError": 1.2781823993607147e-07,
+          "tir": true,
+          "snellDiscriminant": -0.7637942526325037,
+          "outgoingDirectionError": 2.1235202489367306e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.8519481420516968,
+          "expected": 0.8519481393311846,
+          "relativeError": 2.7205121488904638e-09,
+          "normalError": 1.0328302784668708e-07,
+          "tir": true,
+          "snellDiscriminant": -0.7909226287011533,
+          "outgoingDirectionError": 2.6007656093212687e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 3.0186266899108887,
+          "expected": 3.0186265583222474,
+          "relativeError": 4.3592222745770584e-08,
+          "normalError": 6.311474944735617e-08,
+          "tir": true,
+          "snellDiscriminant": -0.1625415505626746,
+          "outgoingDirectionError": 7.424101424608444e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 1.397978663444519,
+          "expected": 1.3979785262135336,
+          "relativeError": 9.81638722562049e-08,
+          "normalError": 4.494495517052063e-08,
+          "tir": true,
+          "snellDiscriminant": -0.12664485875704545,
+          "outgoingDirectionError": 3.308175588235194e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 1.3976092338562012,
+          "expected": 1.397609239199625,
+          "relativeError": 3.82326030458439e-09,
+          "normalError": 5.770776865585868e-08,
+          "tir": true,
+          "snellDiscriminant": -0.15442142870948472,
+          "outgoingDirectionError": 4.958717398161372e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 3.2962756156921387,
+          "expected": 3.2962756989507045,
+          "relativeError": 2.525837442723035e-08,
+          "normalError": 6.565780771341085e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5439814676957091,
+          "outgoingDirectionError": 3.496790853244126e-08
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 1.0942102670669556,
+          "expected": 1.094210176565401,
+          "relativeError": 8.270947977914076e-08,
+          "normalError": 5.2538234878239744e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5127593253463776,
+          "outgoingDirectionError": 4.1363130820082106e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 1.0804414749145508,
+          "expected": 1.080441531889593,
+          "relativeError": 5.2733110083270084e-08,
+          "normalError": 6.090558236715173e-08,
+          "tir": true,
+          "snellDiscriminant": -0.510016038587431,
+          "outgoingDirectionError": 5.084921034410614e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.0988479852676392,
+          "expected": 1.0988479425016715,
+          "relativeError": 3.891891316527764e-08,
+          "normalError": 4.089414572485307e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5373193885571803,
+          "outgoingDirectionError": 1.5667553793682155e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 3.263762950897217,
+          "expected": 3.2637630916193747,
+          "relativeError": 4.311653572151721e-08,
+          "normalError": 6.239522029760922e-08,
+          "tir": true,
+          "snellDiscriminant": -0.20187384020615484,
+          "outgoingDirectionError": 5.729426557957534e-08
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": 1.3661781549453735,
+          "expected": 1.3661783292515899,
+          "relativeError": 1.2758672320984187e-07,
+          "normalError": 4.583196631859558e-08,
+          "tir": true,
+          "snellDiscriminant": -0.16948008966335615,
+          "outgoingDirectionError": 6.924037913879179e-08
+        },
+        {
+          "path": 0,
+          "step": 21,
+          "actual": 1.3653143644332886,
+          "expected": 1.3653141476332378,
+          "relativeError": 1.5879133104753604e-07,
+          "normalError": 8.481917522680723e-08,
+          "tir": true,
+          "snellDiscriminant": -0.19211197607538688,
+          "outgoingDirectionError": 3.468615414210055e-08
+        },
+        {
+          "path": 0,
+          "step": 22,
+          "actual": 3.6197152137756348,
+          "expected": 3.6197151718372664,
+          "relativeError": 1.158609623761467e-08,
+          "normalError": 4.58021794970328e-08,
+          "tir": true,
+          "snellDiscriminant": -0.09172388531339637,
+          "outgoingDirectionError": 3.1219618393707864e-08
+        },
+        {
+          "path": 0,
+          "step": 23,
+          "actual": 1.4371976852416992,
+          "expected": 1.437197630003301,
+          "relativeError": 3.8434796402899157e-08,
+          "normalError": 5.5929224845182805e-08,
+          "tir": true,
+          "snellDiscriminant": -0.06602753730540334
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 24,
+      "internalReflections": 23,
+      "maxRelativeDistanceError": 3.663470027911296e-07
+    },
+    {
+      "backend": "native",
+      "variant": "odm-direct",
+      "pixel": [
+        284,
+        77
+      ],
+      "color": [
+        0.39024490118026733,
+        0.46623745560646057,
+        0.46595051884651184
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.737824440002441,
+          "expected": 7.737824812480546,
+          "relativeError": 4.813731421773224e-08,
+          "normalError": 6.677873146983931e-08,
+          "tir": false,
+          "snellDiscriminant": 0.5300884927876297,
+          "outgoingDirectionError": 3.018677112397068e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.4922696352005005,
+          "expected": 1.4922696349096034,
+          "relativeError": 1.949360071353501e-10,
+          "normalError": 9.699562856366445e-08,
+          "tir": true,
+          "snellDiscriminant": -0.045862788212376104,
+          "outgoingDirectionError": 1.5827228133788662e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 1.873060941696167,
+          "expected": 1.8730608804887907,
+          "relativeError": 3.267772922708622e-08,
+          "normalError": 1.624944496405276e-08,
+          "tir": true,
+          "snellDiscriminant": -0.50486546057948,
+          "outgoingDirectionError": 4.7792501608756583e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.3430166244506836,
+          "expected": 1.343016506266246,
+          "relativeError": 8.799924425224779e-08,
+          "normalError": 1.3542608631787236e-07,
+          "tir": true,
+          "snellDiscriminant": -0.28159415832645407,
+          "outgoingDirectionError": 4.180234957460107e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.2734785079956055,
+          "expected": 1.2734786695316187,
+          "relativeError": 1.2684626534948892e-07,
+          "normalError": 6.778010870887495e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2734153318705286,
+          "outgoingDirectionError": 3.241957821904773e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.283704400062561,
+          "expected": 1.2837045015572803,
+          "relativeError": 7.906392722977418e-08,
+          "normalError": 5.795323247770416e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2997015935218552,
+          "outgoingDirectionError": 6.342304624154474e-08
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.609539031982422,
+          "expected": 2.6095388319051085,
+          "relativeError": 7.66715217790438e-08,
+          "normalError": 4.230405776300783e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0344815619276524,
+          "outgoingDirectionError": 1.8769245752637296e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.4547957181930542,
+          "expected": 0.4547956799375495,
+          "relativeError": 3.825550470848427e-08,
+          "normalError": 4.632062216851839e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0209976800420746,
+          "outgoingDirectionError": 4.26734489800725e-09
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.42589426040649414,
+          "expected": 0.4258941157891795,
+          "relativeError": 1.4461731462356298e-07,
+          "normalError": 4.8825787324153055e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0154739836862299,
+          "outgoingDirectionError": 2.7519352027908792e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.42318570613861084,
+          "expected": 0.42318519215563355,
+          "relativeError": 5.139829772904392e-07,
+          "normalError": 7.353253877502172e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0114427453747115,
+          "outgoingDirectionError": 2.289323806062583e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.42738455533981323,
+          "expected": 0.4273849443011843,
+          "relativeError": 3.8896137105615125e-07,
+          "normalError": 9.070832315360523e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0076253455853128,
+          "outgoingDirectionError": 3.934212556396014e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.4342462718486786,
+          "expected": 0.4342465131419056,
+          "relativeError": 2.412932270101642e-07,
+          "normalError": 8.069621670176654e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0037920102636564,
+          "outgoingDirectionError": 4.8911317345195584e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 0.44239431619644165,
+          "expected": 0.4423943047414872,
+          "relativeError": 1.1454954429446218e-08,
+          "normalError": 5.06447256618528e-08,
+          "tir": true,
+          "snellDiscriminant": -1.000027732302844,
+          "outgoingDirectionError": 1.3601960363660178e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 0.4513888359069824,
+          "expected": 0.4513887970183687,
+          "relativeError": 3.888861371814656e-08,
+          "normalError": 5.929785509802864e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9965983466791026,
+          "outgoingDirectionError": 2.9079736113334452e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 0.46172934770584106,
+          "expected": 0.46172950599063894,
+          "relativeError": 1.582847978798263e-07,
+          "normalError": 7.801633065828654e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9941184792767959,
+          "outgoingDirectionError": 2.3867449968989107e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 0.47693121433258057,
+          "expected": 0.47693121600520527,
+          "relativeError": 1.6726247054066334e-09,
+          "normalError": 4.536067259507263e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9946070521634336,
+          "outgoingDirectionError": 1.2223027388442212e-08
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 0.5183289647102356,
+          "expected": 0.5183288306307119,
+          "relativeError": 1.3407952370592113e-07,
+          "normalError": 9.003621669392126e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0085714764436768,
+          "outgoingDirectionError": 4.4621624150504943e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 2.5413427352905273,
+          "expected": 2.5413426978704092,
+          "relativeError": 1.4724546259190975e-08,
+          "normalError": 3.055673097041011e-08,
+          "tir": true,
+          "snellDiscriminant": -0.41041351917551494,
+          "outgoingDirectionError": 2.060205528690022e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.2019474506378174,
+          "expected": 1.2019470646947852,
+          "relativeError": 3.210981943680893e-07,
+          "normalError": 3.808763702340241e-08,
+          "tir": true,
+          "snellDiscriminant": -0.3782421596734571,
+          "outgoingDirectionError": 3.119431529767355e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 1.1910232305526733,
+          "expected": 1.1910233648203146,
+          "relativeError": 1.1273300356096518e-07,
+          "normalError": 4.139315006212189e-08,
+          "tir": true,
+          "snellDiscriminant": -0.37730803918354927,
+          "outgoingDirectionError": 2.5997496794897305e-08
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": 1.2193772792816162,
+          "expected": 1.2193774403105795,
+          "relativeError": 1.3205834219282475e-07,
+          "normalError": 5.487746284385473e-08,
+          "tir": true,
+          "snellDiscriminant": -0.440142208801205,
+          "outgoingDirectionError": 3.9660264062881235e-08
+        },
+        {
+          "path": 0,
+          "step": 21,
+          "actual": 1.856636643409729,
+          "expected": 1.8566366212156786,
+          "relativeError": 1.195390100662688e-08,
+          "normalError": 2.228662364000769e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7621062165464791,
+          "outgoingDirectionError": 4.556556787368938e-08
+        },
+        {
+          "path": 0,
+          "step": 22,
+          "actual": 1.0380244255065918,
+          "expected": 1.0380242322578983,
+          "relativeError": 1.861697323496557e-07,
+          "normalError": 1.4339191955760482e-08,
+          "tir": true,
+          "snellDiscriminant": -0.6369075926822487,
+          "outgoingDirectionError": 2.372230855484582e-08
+        },
+        {
+          "path": 0,
+          "step": 23,
+          "actual": 0.9674726724624634,
+          "expected": 0.9674728198804002,
+          "relativeError": 1.4741793685768556e-07,
+          "normalError": 3.386087517524491e-08,
+          "tir": true,
+          "snellDiscriminant": -0.6265253373629966
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 24,
+      "internalReflections": 23,
+      "maxRelativeDistanceError": 5.139829772904392e-07
+    },
+    {
+      "backend": "native",
+      "variant": "odm-direct",
+      "pixel": [
+        312,
+        126
+      ],
+      "color": [
+        0.26716360449790955,
+        0.3418632447719574,
+        0.33139678835868835
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.779672622680664,
+          "expected": 7.779671321537528,
+          "relativeError": 1.6724911407800547e-07,
+          "normalError": 5.570068872405506e-08,
+          "tir": false,
+          "snellDiscriminant": 0.5279337562581232,
+          "outgoingDirectionError": 2.2426949464061836e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.5043609142303467,
+          "expected": 1.5043610480494904,
+          "relativeError": 8.895414032395714e-08,
+          "normalError": 1.4366343109263751e-07,
+          "tir": true,
+          "snellDiscriminant": -0.07552496042032408,
+          "outgoingDirectionError": 1.9791934135219607e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 2.040888786315918,
+          "expected": 2.040888691322,
+          "relativeError": 4.6545369411336e-08,
+          "normalError": 9.077476640731206e-08,
+          "tir": true,
+          "snellDiscriminant": -0.47762675415428024,
+          "outgoingDirectionError": 3.789359018664196e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.341031789779663,
+          "expected": 1.3410318388456168,
+          "relativeError": 3.6588209409456217e-08,
+          "normalError": 7.363552821934346e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2848912552273013,
+          "outgoingDirectionError": 1.6009906217401163e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.276668667793274,
+          "expected": 1.2766686539622325,
+          "relativeError": 1.0833697044528961e-08,
+          "normalError": 9.849297072733497e-08,
+          "tir": true,
+          "snellDiscriminant": -0.27826546987779577,
+          "outgoingDirectionError": 5.8678038295984285e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.2989873886108398,
+          "expected": 1.2989874398605739,
+          "relativeError": 3.945360242871993e-08,
+          "normalError": 3.042013427328656e-08,
+          "tir": true,
+          "snellDiscriminant": -0.3355686382096654,
+          "outgoingDirectionError": 5.91676701584385e-09
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.251060962677002,
+          "expected": 2.251061013432377,
+          "relativeError": 2.2547312005811374e-08,
+          "normalError": 8.028045883574983e-08,
+          "tir": true,
+          "snellDiscriminant": -0.8642768807993064,
+          "outgoingDirectionError": 4.7136515408071015e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.8907338976860046,
+          "expected": 0.8907336783800163,
+          "relativeError": 2.1930598836927828e-07,
+          "normalError": 2.6612191806824464e-08,
+          "tir": true,
+          "snellDiscriminant": -0.778214395062861,
+          "outgoingDirectionError": 1.35609811394085e-08
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.8194487690925598,
+          "expected": 0.8194487466601658,
+          "relativeError": 2.243239405341768e-08,
+          "normalError": 1.327862284152094e-07,
+          "tir": true,
+          "snellDiscriminant": -0.7674502640435341,
+          "outgoingDirectionError": 2.5059687397958502e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.8148045539855957,
+          "expected": 0.8148049003610484,
+          "relativeError": 3.463754526533691e-07,
+          "normalError": 3.3549669777547105e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7634878920066903,
+          "outgoingDirectionError": 2.9919927889223294e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.8212841749191284,
+          "expected": 0.8212841934938968,
+          "relativeError": 1.857476839006722e-08,
+          "normalError": 6.867338294574138e-08,
+          "tir": true,
+          "snellDiscriminant": -0.763783557815779,
+          "outgoingDirectionError": 4.311178486447576e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.8519663214683533,
+          "expected": 0.8519663100837989,
+          "relativeError": 1.138455441029862e-08,
+          "normalError": 9.983332302446287e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7909192912321752,
+          "outgoingDirectionError": 6.173064007597146e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 3.0183844566345215,
+          "expected": 3.0183843596192688,
+          "relativeError": 3.214145090933647e-08,
+          "normalError": 2.467961767098051e-08,
+          "tir": true,
+          "snellDiscriminant": -0.16278419718816628,
+          "outgoingDirectionError": 5.0081584012286244e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 1.3978140354156494,
+          "expected": 1.3978141380520717,
+          "relativeError": 7.342637297479824e-08,
+          "normalError": 3.2612963949363316e-08,
+          "tir": true,
+          "snellDiscriminant": -0.12688018817132796,
+          "outgoingDirectionError": 6.992967895410683e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 1.3974249362945557,
+          "expected": 1.3974250174834202,
+          "relativeError": 5.8098905847881214e-08,
+          "normalError": 6.105257425580613e-08,
+          "tir": true,
+          "snellDiscriminant": -0.1546018580202524,
+          "outgoingDirectionError": 4.9418399789863376e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 3.299804449081421,
+          "expected": 3.2998044640359274,
+          "relativeError": 4.5319371753658114e-09,
+          "normalError": 9.399082293163265e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5399625374931891,
+          "outgoingDirectionError": 2.0866487437677957e-08
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 1.097700834274292,
+          "expected": 1.097700905374112,
+          "relativeError": 6.477157819895778e-08,
+          "normalError": 3.4357454817047286e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5087627164122446,
+          "outgoingDirectionError": 4.955743644747393e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 1.0840716361999512,
+          "expected": 1.084071467456317,
+          "relativeError": 1.5565729681345798e-07,
+          "normalError": 8.901166820620056e-09,
+          "tir": true,
+          "snellDiscriminant": -0.5061243064569014,
+          "outgoingDirectionError": 3.7898531647402283e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.1031192541122437,
+          "expected": 1.1031192681716253,
+          "relativeError": 1.2745114752808843e-08,
+          "normalError": 1.4005540425957307e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5348706163145447,
+          "outgoingDirectionError": 6.849629909143336e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 3.1987431049346924,
+          "expected": 3.1987429768502516,
+          "relativeError": 4.0042117093592425e-08,
+          "normalError": 5.368609003954254e-08,
+          "tir": true,
+          "snellDiscriminant": -0.27992290021130084,
+          "outgoingDirectionError": 1.3889156291896108e-08
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": 1.3107759952545166,
+          "expected": 1.31077577470406,
+          "relativeError": 1.682594848186248e-07,
+          "normalError": 2.2394078468114148e-08,
+          "tir": true,
+          "snellDiscriminant": -0.24590843072566893,
+          "outgoingDirectionError": 3.448967609757929e-08
+        },
+        {
+          "path": 0,
+          "step": 21,
+          "actual": 1.3050192594528198,
+          "expected": 1.3050191981122696,
+          "relativeError": 4.70035615441746e-08,
+          "normalError": 3.522908959291687e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2571982174655909,
+          "outgoingDirectionError": 3.910786983887524e-08
+        },
+        {
+          "path": 0,
+          "step": 22,
+          "actual": 1.5029109716415405,
+          "expected": 1.5029109708577226,
+          "relativeError": 5.215331544404387e-10,
+          "normalError": 4.130244734856659e-08,
+          "tir": true,
+          "snellDiscriminant": -0.8479603946066283,
+          "outgoingDirectionError": 3.187532441202113e-08
+        },
+        {
+          "path": 0,
+          "step": 23,
+          "actual": 2.140031576156616,
+          "expected": 2.1400315527005094,
+          "relativeError": 1.0960635979890206e-08,
+          "normalError": 2.5136690334754193e-08,
+          "tir": false,
+          "snellDiscriminant": 0.46104338628405717
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 24,
+      "internalReflections": 22,
+      "maxRelativeDistanceError": 3.463754526533691e-07
+    },
+    {
+      "backend": "webgl",
+      "variant": "production",
+      "pixel": [
+        284,
+        77
+      ],
+      "color": [
+        0.5066976547241211,
+        0.5717831254005432,
+        0.5754169821739197
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.737826824188232,
+          "expected": 7.737825990581461,
+          "relativeError": 1.0773139279448783e-07,
+          "normalError": 1.3642705448165493e-07,
+          "tir": false,
+          "snellDiscriminant": 0.5300882682662199,
+          "outgoingDirectionError": 8.353231313603305e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.4922696352005005,
+          "expected": 1.4922695236911172,
+          "relativeError": 7.472469383869738e-08,
+          "normalError": 1.0169475827139532e-07,
+          "tir": true,
+          "snellDiscriminant": -0.04586314504420841,
+          "outgoingDirectionError": 3.192123230341404e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 1.8730602264404297,
+          "expected": 1.8730601074147242,
+          "relativeError": 6.354612168757581e-08,
+          "normalError": 3.5286255390957144e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5048622482427823,
+          "outgoingDirectionError": 3.9594940404657595e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.343017816543579,
+          "expected": 1.3430177250767807,
+          "relativeError": 6.810542902727332e-08,
+          "normalError": 5.750345996792335e-08,
+          "tir": true,
+          "snellDiscriminant": -0.28159229708202105,
+          "outgoingDirectionError": 1.527151405488212e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.2734798192977905,
+          "expected": 1.2734797702990772,
+          "relativeError": 3.8476240024984756e-08,
+          "normalError": 5.6064993773926156e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2734140743675286,
+          "outgoingDirectionError": 3.814176726392631e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.2837060689926147,
+          "expected": 1.2837059388787135,
+          "relativeError": 1.0135802699684006e-07,
+          "normalError": 2.510836298360013e-08,
+          "tir": true,
+          "snellDiscriminant": -0.29970147864910235,
+          "outgoingDirectionError": 1.697267300724557e-08
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.6094841957092285,
+          "expected": 2.609484251640915,
+          "relativeError": 2.1434000361694184e-08,
+          "normalError": 3.972981988683659e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0345001509111666,
+          "outgoingDirectionError": 2.20952019554861e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.4547528028488159,
+          "expected": 0.45475289570105876,
+          "relativeError": 9.285224283894777e-08,
+          "normalError": 6.199429012886893e-08,
+          "tir": true,
+          "snellDiscriminant": -1.02101786861365,
+          "outgoingDirectionError": 3.588979670833929e-08
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.42584991455078125,
+          "expected": 0.42584937426252845,
+          "relativeError": 5.402882528038333e-07,
+          "normalError": 8.97435387577188e-09,
+          "tir": true,
+          "snellDiscriminant": -1.015493900090938,
+          "outgoingDirectionError": 2.2756988231824814e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.42314040660858154,
+          "expected": 0.42314044243014864,
+          "relativeError": 3.582156710146833e-08,
+          "normalError": 2.600244447390229e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0114636209151913,
+          "outgoingDirectionError": 3.4348160914025043e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.42733871936798096,
+          "expected": 0.42733872960418184,
+          "relativeError": 1.0236200886915015e-08,
+          "normalError": 6.5695713818707e-08,
+          "tir": true,
+          "snellDiscriminant": -1.007645626411795,
+          "outgoingDirectionError": 1.66779676547776e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.43420132994651794,
+          "expected": 0.43420148026623057,
+          "relativeError": 1.5031971262180477e-07,
+          "normalError": 8.275674350898621e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0038124967924111,
+          "outgoingDirectionError": 2.948500541338781e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 0.44234997034072876,
+          "expected": 0.44234996147952194,
+          "relativeError": 8.861206823862489e-09,
+          "normalError": 5.757396864049502e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0000474053854491,
+          "outgoingDirectionError": 2.4604625602933306e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 0.45134609937667847,
+          "expected": 0.4513457075457441,
+          "relativeError": 3.918309343653448e-07,
+          "normalError": 5.2863057006405154e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9966168554646642,
+          "outgoingDirectionError": 1.6913456522328833e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 0.46168553829193115,
+          "expected": 0.46168564819057567,
+          "relativeError": 1.098986445180472e-07,
+          "normalError": 4.2463494589469226e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9941355885839633,
+          "outgoingDirectionError": 1.2868781711322998e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 0.4768785238265991,
+          "expected": 0.4768787412212598,
+          "relativeError": 2.1739466066206248e-07,
+          "normalError": 7.076766588723155e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9946182194925355,
+          "outgoingDirectionError": 6.5357109978395485e-09
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 0.518214762210846,
+          "expected": 0.5182149006309417,
+          "relativeError": 1.3842009571884972e-07,
+          "normalError": 7.495399327168363e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0085505184168486,
+          "outgoingDirectionError": 2.800485190967497e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 2.542886734008789,
+          "expected": 2.5428868287716404,
+          "relativeError": 3.726585480387426e-08,
+          "normalError": 5.835252122110097e-08,
+          "tir": true,
+          "snellDiscriminant": -0.4093631635075614,
+          "outgoingDirectionError": 2.6550419995424008e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.202750325202942,
+          "expected": 1.2027505459075802,
+          "relativeError": 1.834999278061883e-07,
+          "normalError": 1.4315031753142299e-07,
+          "tir": true,
+          "snellDiscriminant": -0.3772200321291095,
+          "outgoingDirectionError": 2.1816600775976393e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 1.1918647289276123,
+          "expected": 1.1918647086913852,
+          "relativeError": 1.697862768387905e-08,
+          "normalError": 6.291073290786804e-08,
+          "tir": true,
+          "snellDiscriminant": -0.37631865440610635,
+          "outgoingDirectionError": 5.52715391400573e-08
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": 1.220476508140564,
+          "expected": 1.2204764985426892,
+          "relativeError": 7.864038945998348e-09,
+          "normalError": 9.173240442191639e-08,
+          "tir": true,
+          "snellDiscriminant": -0.43996395929685206,
+          "outgoingDirectionError": 8.414400949149262e-08
+        },
+        {
+          "path": 0,
+          "step": 21,
+          "actual": 1.8554097414016724,
+          "expected": 1.855409749100296,
+          "relativeError": 4.149284944869371e-09,
+          "normalError": 3.174881680089427e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7538735593954222,
+          "outgoingDirectionError": 4.1094552368446773e-08
+        },
+        {
+          "path": 0,
+          "step": 22,
+          "actual": 1.0451035499572754,
+          "expected": 1.04510337348037,
+          "relativeError": 1.6886071731231727e-07,
+          "normalError": 6.349466800292901e-08,
+          "tir": true,
+          "snellDiscriminant": -0.6284745324358394,
+          "outgoingDirectionError": 2.377914808418352e-08
+        },
+        {
+          "path": 0,
+          "step": 23,
+          "actual": 0.9756536483764648,
+          "expected": 0.9756536492547261,
+          "relativeError": 8.782612415103586e-10,
+          "normalError": 6.664945211584126e-08,
+          "tir": true,
+          "snellDiscriminant": -0.618190856615898
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 24,
+      "internalReflections": 23,
+      "maxRelativeDistanceError": 5.402882528038333e-07
+    },
+    {
+      "backend": "webgl",
+      "variant": "production",
+      "pixel": [
+        312,
+        126
+      ],
+      "color": [
+        0.5639271140098572,
+        0.6249880194664001,
+        0.6294437050819397
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.779670238494873,
+          "expected": 7.779671321537528,
+          "relativeError": 1.3921444877395688e-07,
+          "normalError": 2.342743852659972e-07,
+          "tir": false,
+          "snellDiscriminant": 0.5279339621457965,
+          "outgoingDirectionError": 4.255716819644534e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.5043611526489258,
+          "expected": 1.504361214922845,
+          "relativeError": 4.139558938023259e-08,
+          "normalError": 6.156304595355806e-08,
+          "tir": true,
+          "snellDiscriminant": -0.07552486698139416,
+          "outgoingDirectionError": 7.411877718641509e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 2.0408897399902344,
+          "expected": 2.040889839163479,
+          "relativeError": 4.8593139533769814e-08,
+          "normalError": 4.366801921050495e-08,
+          "tir": true,
+          "snellDiscriminant": -0.4776332030332524,
+          "outgoingDirectionError": 5.692729013407667e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.341027855873108,
+          "expected": 1.3410279712039976,
+          "relativeError": 8.60018524622681e-08,
+          "normalError": 7.708087148960025e-08,
+          "tir": true,
+          "snellDiscriminant": -0.28489838771225506,
+          "outgoingDirectionError": 3.603620099734764e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.2766642570495605,
+          "expected": 1.2766639733036893,
+          "relativeError": 2.2225572051602922e-07,
+          "normalError": 3.815450367528189e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2782717130516912,
+          "outgoingDirectionError": 2.342099576675768e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.2989821434020996,
+          "expected": 1.2989821838303888,
+          "relativeError": 3.1123051312089435e-08,
+          "normalError": 2.1795846881135075e-08,
+          "tir": true,
+          "snellDiscriminant": -0.33557159044335094,
+          "outgoingDirectionError": 1.735358858714584e-08
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.251110792160034,
+          "expected": 2.251110959875262,
+          "relativeError": 7.450331454878344e-08,
+          "normalError": 5.452879736919916e-08,
+          "tir": true,
+          "snellDiscriminant": -0.8643055191951592,
+          "outgoingDirectionError": 2.242479101470585e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.8906824588775635,
+          "expected": 0.8906824683265196,
+          "relativeError": 9.448956173052636e-09,
+          "normalError": 7.297312384391078e-08,
+          "tir": true,
+          "snellDiscriminant": -0.778256321342117,
+          "outgoingDirectionError": 3.321020001078294e-08
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.8193992376327515,
+          "expected": 0.8193994634761905,
+          "relativeError": 2.2584343906117965e-07,
+          "normalError": 1.9160280039275585e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7674924071155189,
+          "outgoingDirectionError": 7.683866098208307e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.8147554993629456,
+          "expected": 0.81475536695347,
+          "relativeError": 1.3240947560611005e-07,
+          "normalError": 6.58283462431981e-08,
+          "tir": true,
+          "snellDiscriminant": -0.763528562781294,
+          "outgoingDirectionError": 3.0981557335152435e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.8212331533432007,
+          "expected": 0.8212331914025556,
+          "relativeError": 3.805935488987444e-08,
+          "normalError": 5.21221416009494e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7638226640211359,
+          "outgoingDirectionError": 4.290622375875339e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.851896345615387,
+          "expected": 0.8518965803864972,
+          "relativeError": 2.347711102190786e-07,
+          "normalError": 1.2259949652037204e-07,
+          "tir": true,
+          "snellDiscriminant": -0.790932095672499,
+          "outgoingDirectionError": 4.0208069645410476e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 3.019298791885376,
+          "expected": 3.0192988007144494,
+          "relativeError": 2.9242132213738192e-09,
+          "normalError": 4.774947747279197e-08,
+          "tir": true,
+          "snellDiscriminant": -0.16186025434982554,
+          "outgoingDirectionError": 4.1733743870757773e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 1.3984370231628418,
+          "expected": 1.398436964826151,
+          "relativeError": 4.171563844395157e-08,
+          "normalError": 2.9489222379011548e-08,
+          "tir": true,
+          "snellDiscriminant": -0.1259839678973944,
+          "outgoingDirectionError": 6.592748788378295e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 1.3981236219406128,
+          "expected": 1.39812331778148,
+          "relativeError": 2.175481439303072e-07,
+          "normalError": 1.3102649769595292e-07,
+          "tir": true,
+          "snellDiscriminant": -0.1539123629653678,
+          "outgoingDirectionError": 5.882774522884869e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 3.286341905593872,
+          "expected": 3.2863417578281884,
+          "relativeError": 4.49635779167011e-08,
+          "normalError": 8.383517712600656e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5551988189725992,
+          "outgoingDirectionError": 3.992245125767965e-08
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 1.0844064950942993,
+          "expected": 1.0844065914518761,
+          "relativeError": 8.885742448086087e-08,
+          "normalError": 1.0800651628549244e-07,
+          "tir": true,
+          "snellDiscriminant": -0.5239192176840044,
+          "outgoingDirectionError": 3.132959535061657e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 1.0702509880065918,
+          "expected": 1.0702505861611473,
+          "relativeError": 3.7546855817830586e-07,
+          "normalError": 6.791262266000404e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5208884491984316,
+          "outgoingDirectionError": 3.354429180004841e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.086981177330017,
+          "expected": 1.0869812776035903,
+          "relativeError": 9.224958634391282e-08,
+          "normalError": 6.924354608969308e-08,
+          "tir": true,
+          "snellDiscriminant": -0.544501943689212,
+          "outgoingDirectionError": 3.797773915243665e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 3.4359631538391113,
+          "expected": 3.4359633639890963,
+          "relativeError": 6.116188175108945e-08,
+          "normalError": 9.806010060195243e-08,
+          "tir": false,
+          "snellDiscriminant": 0.025994258443459484,
+          "outgoingDirectionError": 3.7328484626170207e-07
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 20,
+      "internalReflections": 18,
+      "maxRelativeDistanceError": 3.7546855817830586e-07
+    },
+    {
+      "backend": "webgl",
+      "variant": "odm-direct",
+      "pixel": [
+        284,
+        77
+      ],
+      "color": [
+        0.5046026110649109,
+        0.5698678493499756,
+        0.5734502077102661
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.737827301025391,
+          "expected": 7.737825990581461,
+          "relativeError": 1.693555697640313e-07,
+          "normalError": 1.0645563010654132e-07,
+          "tir": false,
+          "snellDiscriminant": 0.5300882169371122,
+          "outgoingDirectionError": 1.6604873372177087e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.4922691583633423,
+          "expected": 1.4922692812558724,
+          "relativeError": 8.23527842433109e-08,
+          "normalError": 4.2233894425829005e-08,
+          "tir": true,
+          "snellDiscriminant": -0.04586336212531039,
+          "outgoingDirectionError": 2.1105874543889368e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 1.8730602264404297,
+          "expected": 1.873060253280245,
+          "relativeError": 1.4329392347197744e-08,
+          "normalError": 7.803914569983356e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5048620119384972,
+          "outgoingDirectionError": 1.3224502151030992e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.343017578125,
+          "expected": 1.3430175796050272,
+          "relativeError": 1.1020162612709928e-09,
+          "normalError": 1.2019835081226622e-07,
+          "tir": true,
+          "snellDiscriminant": -0.28159260396622754,
+          "outgoingDirectionError": 1.091174557522028e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.2734794616699219,
+          "expected": 1.2734793817576018,
+          "relativeError": 6.275116915063847e-08,
+          "normalError": 4.8983782051127266e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2734140222624264,
+          "outgoingDirectionError": 6.042273547397448e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.283705711364746,
+          "expected": 1.2837056904071984,
+          "relativeError": 1.6325819737245766e-08,
+          "normalError": 2.8782638973882455e-08,
+          "tir": true,
+          "snellDiscriminant": -0.2997015615092764,
+          "outgoingDirectionError": 5.8535503839887e-08
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.6094863414764404,
+          "expected": 2.6094862919396298,
+          "relativeError": 1.8983357301574196e-08,
+          "normalError": 5.936077891685597e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0344991685947815,
+          "outgoingDirectionError": 2.6155063611990124e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.45475471019744873,
+          "expected": 0.4547546990739415,
+          "relativeError": 1.1123507226429297e-08,
+          "normalError": 8.252884347619072e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0210169047578717,
+          "outgoingDirectionError": 2.3740652696370842e-08
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.42585182189941406,
+          "expected": 0.4258513593475297,
+          "relativeError": 4.6255188435040395e-07,
+          "normalError": 3.7253485204664066e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0154930305964704,
+          "outgoingDirectionError": 3.786050582482874e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.42314255237579346,
+          "expected": 0.42314236120827897,
+          "relativeError": 1.9116751448500224e-07,
+          "normalError": 6.238068658613752e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0114623581151574,
+          "outgoingDirectionError": 7.878960753929952e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.42734044790267944,
+          "expected": 0.42734093584221594,
+          "relativeError": 4.879395364976169e-07,
+          "normalError": 5.8934851708248875e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0076451866585967,
+          "outgoingDirectionError": 3.395010292311154e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.43420296907424927,
+          "expected": 0.4342027150037437,
+          "relativeError": 2.5407050557868516e-07,
+          "normalError": 8.781055953048995e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0038112971194777,
+          "outgoingDirectionError": 1.95719992368057e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 0.44235140085220337,
+          "expected": 0.44235141926895644,
+          "relativeError": 1.8416753067018732e-08,
+          "normalError": 3.880540950660779e-08,
+          "tir": true,
+          "snellDiscriminant": -1.0000471893281375,
+          "outgoingDirectionError": 2.1691508143105805e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 0.45134562253952026,
+          "expected": 0.4513462351074512,
+          "relativeError": 6.125679309354481e-07,
+          "normalError": 1.1028953532219639e-07,
+          "tir": true,
+          "snellDiscriminant": -0.9966174303362285,
+          "outgoingDirectionError": 2.0020494351061168e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 0.4616848826408386,
+          "expected": 0.46168515585173364,
+          "relativeError": 2.732108950187495e-07,
+          "normalError": 8.667846215444633e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9941356637342449,
+          "outgoingDirectionError": 2.8062135648432845e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 0.4768787622451782,
+          "expected": 0.47687875453626805,
+          "relativeError": 7.708910176873474e-09,
+          "normalError": 1.3269487229602332e-08,
+          "tir": true,
+          "snellDiscriminant": -0.9946184124902897,
+          "outgoingDirectionError": 2.5045016217872394e-08
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 0.518216609954834,
+          "expected": 0.5182166193297324,
+          "relativeError": 9.374898413128108e-09,
+          "normalError": 5.091083669960289e-08,
+          "tir": true,
+          "snellDiscriminant": -1.008551629418096,
+          "outgoingDirectionError": 2.4710706204514577e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 2.5428497791290283,
+          "expected": 2.54284987484575,
+          "relativeError": 3.764151498151719e-08,
+          "normalError": 3.506295212005685e-08,
+          "tir": true,
+          "snellDiscriminant": -0.4093850469358109,
+          "outgoingDirectionError": 3.6449107657646004e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.2027335166931152,
+          "expected": 1.2027334144097699,
+          "relativeError": 8.504240767202976e-08,
+          "normalError": 4.100261851366966e-08,
+          "tir": true,
+          "snellDiscriminant": -0.3772410113927074,
+          "outgoingDirectionError": 4.725184958449537e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 1.191847562789917,
+          "expected": 1.1918475826538522,
+          "relativeError": 1.666650623158506e-08,
+          "normalError": 7.672505418226234e-08,
+          "tir": true,
+          "snellDiscriminant": -0.37633926160844133,
+          "outgoingDirectionError": 7.290887908565368e-08
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": 1.2204537391662598,
+          "expected": 1.220453481964495,
+          "relativeError": 2.1074278419940935e-07,
+          "normalError": 1.0321764899346207e-07,
+          "tir": true,
+          "snellDiscriminant": -0.4399669466268221,
+          "outgoingDirectionError": 3.702075205303775e-08
+        },
+        {
+          "path": 0,
+          "step": 21,
+          "actual": 1.8554362058639526,
+          "expected": 1.8554362580111572,
+          "relativeError": 2.810509082666276e-08,
+          "normalError": 7.309984279619188e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7540446029131334,
+          "outgoingDirectionError": 1.954683200291473e-08
+        },
+        {
+          "path": 0,
+          "step": 22,
+          "actual": 1.044956922531128,
+          "expected": 1.0449568174614043,
+          "relativeError": 1.0054934503754154e-07,
+          "normalError": 2.8715002560617074e-08,
+          "tir": true,
+          "snellDiscriminant": -0.6286495271107477,
+          "outgoingDirectionError": 1.0414875029028449e-08
+        },
+        {
+          "path": 0,
+          "step": 23,
+          "actual": 0.9754843711853027,
+          "expected": 0.9754843558108712,
+          "relativeError": 1.5374431505676966e-08,
+          "normalError": 1.2253198574894976e-07,
+          "tir": true,
+          "snellDiscriminant": -0.6183634582654933
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 24,
+      "internalReflections": 23,
+      "maxRelativeDistanceError": 6.125679309354481e-07
+    },
+    {
+      "backend": "webgl",
+      "variant": "odm-direct",
+      "pixel": [
+        312,
+        126
+      ],
+      "color": [
+        0.5852787494659424,
+        0.6450961828231812,
+        0.6497710943222046
+      ],
+      "instrumentedColorError": 0.0,
+      "events": [
+        {
+          "path": 0,
+          "step": 0,
+          "actual": 7.779669761657715,
+          "expected": 7.779671321537528,
+          "relativeError": 2.0050716134434934e-07,
+          "normalError": 2.3258900426045197e-07,
+          "tir": false,
+          "snellDiscriminant": 0.5279339644651737,
+          "outgoingDirectionError": 9.718964494182389e-08
+        },
+        {
+          "path": 0,
+          "step": 1,
+          "actual": 1.5043610334396362,
+          "expected": 1.5043610579263587,
+          "relativeError": 1.62771578661109e-08,
+          "normalError": 2.5966800341082204e-08,
+          "tir": true,
+          "snellDiscriminant": -0.07552461370106922,
+          "outgoingDirectionError": 2.4681372479990216e-08
+        },
+        {
+          "path": 0,
+          "step": 2,
+          "actual": 2.0408897399902344,
+          "expected": 2.040889639848971,
+          "relativeError": 4.906745633200352e-08,
+          "normalError": 9.640889405680088e-08,
+          "tir": true,
+          "snellDiscriminant": -0.4776328162792727,
+          "outgoingDirectionError": 2.5088344909190366e-08
+        },
+        {
+          "path": 0,
+          "step": 3,
+          "actual": 1.3410282135009766,
+          "expected": 1.3410281938029571,
+          "relativeError": 1.4688743703394095e-08,
+          "normalError": 8.979352265864132e-08,
+          "tir": true,
+          "snellDiscriminant": -0.28489729402317643,
+          "outgoingDirectionError": 7.202704007295319e-08
+        },
+        {
+          "path": 0,
+          "step": 4,
+          "actual": 1.276663899421692,
+          "expected": 1.2766642024046473,
+          "relativeError": 2.3732392184307235e-07,
+          "normalError": 1.4336098303324228e-07,
+          "tir": true,
+          "snellDiscriminant": -0.2782716085366379,
+          "outgoingDirectionError": 7.037784279250155e-08
+        },
+        {
+          "path": 0,
+          "step": 5,
+          "actual": 1.298981785774231,
+          "expected": 1.2989818709074645,
+          "relativeError": 6.553843089000784e-08,
+          "normalError": 2.6548844861541786e-08,
+          "tir": true,
+          "snellDiscriminant": -0.33556999074190585,
+          "outgoingDirectionError": 2.47076143905832e-08
+        },
+        {
+          "path": 0,
+          "step": 6,
+          "actual": 2.2511045932769775,
+          "expected": 2.2511045649302845,
+          "relativeError": 1.2592348411756518e-08,
+          "normalError": 7.78727846246525e-08,
+          "tir": true,
+          "snellDiscriminant": -0.8643035229541776,
+          "outgoingDirectionError": 1.9602308075131142e-08
+        },
+        {
+          "path": 0,
+          "step": 7,
+          "actual": 0.8906859159469604,
+          "expected": 0.8906859387144428,
+          "relativeError": 2.2767482343866163e-08,
+          "normalError": 3.225605607364466e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7782531571866194,
+          "outgoingDirectionError": 2.3510188729829293e-08
+        },
+        {
+          "path": 0,
+          "step": 8,
+          "actual": 0.8194027543067932,
+          "expected": 0.819402626704251,
+          "relativeError": 1.276025421992344e-07,
+          "normalError": 2.1211158786233823e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7674886483841568,
+          "outgoingDirectionError": 6.48677327465806e-08
+        },
+        {
+          "path": 0,
+          "step": 9,
+          "actual": 0.814758837223053,
+          "expected": 0.8147589606237375,
+          "relativeError": 1.2340068455962694e-07,
+          "normalError": 3.807107669733871e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7635256110774993,
+          "outgoingDirectionError": 2.7667814893813608e-08
+        },
+        {
+          "path": 0,
+          "step": 10,
+          "actual": 0.8212366104125977,
+          "expected": 0.8212364303683922,
+          "relativeError": 1.8004420543338284e-07,
+          "normalError": 6.112097619397208e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7638194979531454,
+          "outgoingDirectionError": 1.6328786876344878e-08
+        },
+        {
+          "path": 0,
+          "step": 11,
+          "actual": 0.8519012331962585,
+          "expected": 0.8519010914610078,
+          "relativeError": 1.4173525075822369e-07,
+          "normalError": 3.2980119732028e-08,
+          "tir": true,
+          "snellDiscriminant": -0.7909307381118913,
+          "outgoingDirectionError": 3.809474417269452e-08
+        },
+        {
+          "path": 0,
+          "step": 12,
+          "actual": 3.0192339420318604,
+          "expected": 3.0192340878612023,
+          "relativeError": 4.830011111815275e-08,
+          "normalError": 6.842979673795523e-08,
+          "tir": true,
+          "snellDiscriminant": -0.16192494909745747,
+          "outgoingDirectionError": 3.679258565499889e-08
+        },
+        {
+          "path": 0,
+          "step": 13,
+          "actual": 1.3983925580978394,
+          "expected": 1.398392595667297,
+          "relativeError": 2.686617310572481e-08,
+          "normalError": 5.556015264565567e-08,
+          "tir": true,
+          "snellDiscriminant": -0.1260466502094597,
+          "outgoingDirectionError": 7.625454930217995e-08
+        },
+        {
+          "path": 0,
+          "step": 14,
+          "actual": 1.3980737924575806,
+          "expected": 1.3980736665279956,
+          "relativeError": 9.007364060777137e-08,
+          "normalError": 1.0596214212458798e-07,
+          "tir": true,
+          "snellDiscriminant": -0.1539601913976727,
+          "outgoingDirectionError": 4.101839398754051e-08
+        },
+        {
+          "path": 0,
+          "step": 15,
+          "actual": 3.287292957305908,
+          "expected": 3.287293052109494,
+          "relativeError": 2.883940809892637e-08,
+          "normalError": 2.3502267220645025e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5541300619102807,
+          "outgoingDirectionError": 4.4937945272525116e-08
+        },
+        {
+          "path": 0,
+          "step": 16,
+          "actual": 1.085343599319458,
+          "expected": 1.0853436672652623,
+          "relativeError": 6.26030319847365e-08,
+          "normalError": 5.783348218816996e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5228559973036155,
+          "outgoingDirectionError": 5.652860702106563e-08
+        },
+        {
+          "path": 0,
+          "step": 17,
+          "actual": 1.0712244510650635,
+          "expected": 1.0712245486136476,
+          "relativeError": 9.106268543370928e-08,
+          "normalError": 1.1885251074983986e-07,
+          "tir": true,
+          "snellDiscriminant": -0.5198525666974261,
+          "outgoingDirectionError": 5.262423198818602e-08
+        },
+        {
+          "path": 0,
+          "step": 18,
+          "actual": 1.0881085395812988,
+          "expected": 1.0881083286492408,
+          "relativeError": 1.9385207565150539e-07,
+          "normalError": 5.5004252164888074e-08,
+          "tir": true,
+          "snellDiscriminant": -0.5437964282049492,
+          "outgoingDirectionError": 2.883308639973264e-08
+        },
+        {
+          "path": 0,
+          "step": 19,
+          "actual": 3.4202029705047607,
+          "expected": 3.4202030348171615,
+          "relativeError": 1.880367922124519e-08,
+          "normalError": 1.0025163637173305e-07,
+          "tir": false,
+          "snellDiscriminant": 0.00396461363723033,
+          "outgoingDirectionError": 6.04187143775265e-07
+        },
+        {
+          "path": 0,
+          "step": 20,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        },
+        {
+          "path": 1,
+          "step": 0,
+          "actual": -1,
+          "expected": null,
+          "relativeError": null
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "primaryHits": 20,
+      "internalReflections": 18,
+      "maxRelativeDistanceError": 2.3732392184307235e-07
+    }
+  ],
+  "hashes": {
+    "research/diagnostics/algorithm1010/final/analyze-pixels.py": "789b79b85404931e27bccb7960be0cdbf20007e9492c941f3949c0c0cb9d44ad",
+    "research/reference.py": "a35866db58586707c6269205c0f4d05e681d92546f9ac39db450256385d34b76",
+    "research/diagnostics/algorithm1010/final/results/pixels-native.json": "3a18628b6e9b8a557eb9fee809e48a98a5c61e0b60813591713d90d5948361a0",
+    "research/diagnostics/algorithm1010/final/results/pixels-webgl.json": "aff8855c7be9ef4a27c99c3665fb76d7a3cf24cdd9d3120957404388724ef3bc"
+  }
+}
