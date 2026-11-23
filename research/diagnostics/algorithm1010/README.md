@@ -1,10 +1,26 @@
 # Corrected Algorithm 1010 in the shader
 
-**Final decision: retain as experimental.** The subsequent bounded
-[browser adoption pass](final/README.md) confirms the accuracy checks but finds
-slower WebGL shell rendering. The native gains below do not establish a browser
-improvement. That follow-up also diagnoses the two pixel outliers and repeats
-the traversal controls.
+**Final evaluation: investigation closed. Bernstein remains the production
+default; Algorithm 1010 remains experimental.** The
+[browser adoption pass](final/README.md) and the controlled
+[2×2 solver/traversal comparison](traversal/README.md) establish that the native
+gains below do not carry over to the tested WebGL shell workloads.
+
+Holding the original loop constant, Algorithm 1010 takes **37.2% more GPU time
+for three aligned thin shells and 55.1% more near the projection pole**.
+Expansion adds 7.8% and 3.0% to Algorithm 1010's time, respectively: it partly
+explains the aligned-shell slowdown and makes little difference near the pole,
+but is not the main cause. Bernstein has lower pooled medians under either
+traversal in all four scenes; the small single-object effects vary between
+measurement blocks.
+
+All four variants pass the existing WebGL correctness suite, and all 24
+within-solver loop/expanded image pairs are bit-identical across the four
+scenes and three rendering modes. Looped Algorithm 1010's known native OpenGL
+failure remains an additional portability limitation. The results support
+retaining the current default, with no further optimization work planned in
+this investigation. Detailed measurements, attribution, numerical limitations
+and immutable historical records remain in the linked reports.
 
 Experiment dated 23 November 2026. Orellana–De Michele quartic factorization is
 a viable performance candidate for this renderer: the centered-coordinate
@@ -141,10 +157,11 @@ block medians, uniforms, hardware, and source/shader hashes. Near-pole timings
 show substantial between-block variation; these results are evidence from
 one GPU/compiler stack, not a portable speedup guarantee.
 
-The centered variant is the stronger candidate for further integration.
+The centered variant is the fastest Algorithm 1010 variant in the native study;
+the final browser evaluation nevertheless supports retaining Bernstein.
 Remaining limits include grazing coefficient error, the float32 tie-handling
 choice documented in SOURCES, the scene-loop workaround, incomplete upstream
-extreme-range rescaling support, and unmeasured full-render browser behavior.
+extreme-range rescaling support, and validation on a single GPU.
 
 ## Reproduce
 
