@@ -30,6 +30,9 @@ jobs:
       - run: python -m pip install -r research/requirements.txt
       - run: python research/test_reference.py
       - run: python research/test_analysis.py
+      - run: python research/diagnostics/grazing/test_diagnostic.py
+      - name: Verify supplied evidence without GPU capture
+        run: python scripts/verify-release.py
       - name: Check independent reference reproducibility
         run: |
           python research/reference.py

@@ -16,7 +16,7 @@ Checked 22 November 2026 against JCGT's [author guidance](https://jcgt.org/write
 
 The journal welcomes implementation studies and asks for usable detail, relevant comparisons and explicit limitations. The reviewer form also asks what improves on existing literature; a lack of algorithmic novelty does not remove that requirement. Venue fit and acceptance remain editorial judgments.
 
-JCGT distributes published articles under CC BY-ND 4.0 and requires supplied code/data under non-restrictive open-source terms. Project software and original data are supplied under the repository's MIT licence. Peters's CC0 attribution and the Graphics Gems permission notice remain in [`research/THIRD_PARTY.md`](../research/THIRD_PARTY.md); the latter is a separate upstream permission grant, not MIT. The journal template's provenance is recorded in [`paper/README.md`](../paper/README.md). No third-party material has been relicensed in this preparation pass.
+JCGT distributes published articles under CC BY-ND 4.0 and requires supplied code/data under non-restrictive open-source terms. Project software and original data are supplied under the repository's MIT licence. Peters's CC0 attribution and the Graphics Gems permission notice remain in [`research/THIRD_PARTY.md`](../research/THIRD_PARTY.md); the latter is a separate upstream permission grant, not MIT. The added corrected Algorithm 1010 implementation retains the OpenMC port's [BSD licence](../research/diagnostics/algorithm1010/LICENSE) and [source attribution](../research/diagnostics/algorithm1010/SOURCES.md). The journal template's provenance is recorded in [`paper/README.md`](../paper/README.md). No third-party material has been relicensed in this preparation pass.
 
 ## Editorial changes
 

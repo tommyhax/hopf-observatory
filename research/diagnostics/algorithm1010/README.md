@@ -22,8 +22,45 @@ retaining the current default, with no further optimization work planned in
 this investigation. Detailed measurements, attribution, numerical limitations
 and immutable historical records remain in the linked reports.
 
-Experiment dated 23 November 2026. Orellana–De Michele quartic factorization is
-a viable performance candidate for this renderer: the centered-coordinate
+## Study map and scope
+
+All three stages were recorded on 23 November 2026:
+
+1. **Initial implementation and native study** (historical report below):
+   corrected float32 factorization, polynomial/ray fixtures, native transport,
+   native timings and the initial image comparison.
+2. **[Browser adoption evaluation](final/README.md)**: complete native and
+   WebGL transport, accepted browser timings, the two-pixel investigation,
+   rejected timing pilots and the failing native loop control. The directory
+   name `final/` identifies this adoption stage, not the last experiment.
+3. **[Controlled traversal comparison](traversal/README.md)**: the same four
+   browser scenes in a solver × traversal comparison. It establishes that
+   expansion is not the principal explanation for the browser shell slowdown.
+
+The preceding [algebraic investigation](../algebraic/README.md) found the
+conventional Ferrari port unsuitable and motivated testing corrected modern
+factorization; it did not rule out algebraic methods generally.
+
+Native wall time and browser GPU time are distinct measurements on one
+hardware/backend stack. The native 109 grazing failures are not the browser
+stress counts. Within-solver traversal image identity is not cross-solver
+image identity. The pixel diagnosis supports round-off-sensitive paths, not
+a high-precision physical image reference or universal solver completeness.
+
+For read-only offline verification, run `python3 scripts/verify-release.py`
+from the repository root. [Release and provenance instructions](../../../docs/RELEASE.md)
+distinguish historical document versions from unchanged numerical evidence,
+and offline reanalysis from capture on the expected Metal/browser stack.
+
+## Historical initial implementation and native study
+
+The remainder records the initial stage. Its native performance result is
+superseded as an adoption criterion by the browser evaluation above. The later
+adoption report supplies complete browser transport and diagnoses the isolated
+image differences; the original measurements below are retained in their own run.
+
+At the initial stage, Orellana–De Michele quartic factorization was
+a promising native performance candidate: the centered-coordinate
 variant reduced native frame time by **21–44% at 1280×720** across four scenes
 on an Apple M3 Pro. Both variants pass the original ray corpus, independent
 polynomial fixtures, and the complete native optical-transport suite. The
@@ -35,7 +72,7 @@ refines their coefficients, extracts roots with stable quadratic formulas, and
 uses the renderer's existing homogeneous root refinement. It does not march
 along the ray, and it does not remove numerical iteration altogether.
 
-## Implementation
+### Implementation
 
 [solver.glsl](solver.glsl) ports Algorithm 1010 to float32 GLSL, including the
 2024 correction for near-degenerate factorization. It supports exact degree
@@ -58,7 +95,7 @@ adapter source are preserved in [integration-initial.json](results/integration-i
 Timings therefore measure the complete replacement, including this change,
 rather than isolating the factorization algorithm's cost.
 
-## Root accuracy
+### Root accuracy
 
 Reference geometry is the unchanged, uploaded float32 geometry, expanded with
 exact rational arithmetic. Every distinct positive intersection is matched at
@@ -102,7 +139,7 @@ root solver alone cannot repair that information loss.
 See [native analysis](results/analysis.json), [WebGL analysis](results/webgl-analysis.json),
 and the full root captures [native](results/gpu.json) / [WebGL](results/webgl.json).
 
-## Optical transport and images
+### Optical transport and images
 
 Both variants pass the complete native suite:
 
@@ -118,16 +155,20 @@ Both variants pass the complete native suite:
 
 This includes all 24 crossings through three thin shells. Reports are saved
 for [direct](results/transport-odm-direct.json) and [charts](results/transport-odm-charts.json).
-Full optical transport was tested natively; the browser experiment checks
-polynomial and ray-root accuracy, not complete browser transport.
+At this initial stage, full optical transport was tested natively; the browser
+experiment checked polynomial and ray-root accuracy only. The subsequent
+[adoption evaluation](final/README.md#correctness-and-remaining-grazing-failures)
+adds complete browser transport checks.
 
 The image comparison renders five scenes in three modes at 480×270. Across
 all four thin-shell scenes and all modes, either variant differs from the
 production baseline by at most one RGB8 code value. The solid physical image
 has two pixels exceeding three codes for direct and one for charts; the
 largest channel differences are 86 and 25 codes respectively. These isolated
-differences remain unresolved. Production is a comparison baseline, not an
-independent image reference, and these sampled images do not prove general
+differences were unresolved at this initial stage. The later
+[two-pixel investigation](final/README.md#two-isolated-solid-scene-pixels)
+checks captured paths and supports accumulated round-off sensitivity. Production
+is a comparison baseline, not an independent image reference, and these sampled images do not prove general
 equivalence. The other two solid modes are pixel-identical.
 
 See [image metrics](results/render-comparison-analysis.json) and the
@@ -135,7 +176,7 @@ See [image metrics](results/render-comparison-analysis.json) and the
 images beside absolute differences amplified eightfold. The full render
 [capture](results/render-comparison.json) retains uniforms and shader hashes.
 
-## Performance
+### Performance
 
 Native OpenGL 4.1 Metal 90.5 on Apple M3 Pro; full optical renderer with a
 24-interaction budget. Each configuration uses three rotating-order blocks,
@@ -163,9 +204,11 @@ Remaining limits include grazing coefficient error, the float32 tie-handling
 choice documented in SOURCES, the scene-loop workaround, incomplete upstream
 extreme-range rescaling support, and validation on a single GPU.
 
-## Reproduce
+### Reproduce
 
-From the repository root with the existing Node and Python dependencies:
+These historical capture commands overwrite outputs; use a disposable copy.
+For offline review use the read-only gate above. From the repository root with
+the existing Node and Python dependencies:
 
 ```sh
 .venv/bin/python research/diagnostics/algorithm1010/generate-fixtures.py
