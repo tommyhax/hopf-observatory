@@ -157,29 +157,33 @@ measured behavior under a difficult geometric condition.
 \section{A family of tori and a coordinate on the
 three-sphere}\label{a-family-of-tori-and-a-coordinate-on-the-three-sphere}
 
-Write a point of \(S^3\subset\mathbb R^4\) as two complex coordinates
-\((z_1,z_2)\), with \(|z_1|^2+|z_2|^2=1\). For \(0<t<\pi/2\) define
+Write a point \(q=(q_1,q_2,q_3,q_4)^T\) of \(S^3\subset\mathbb R^4\) as
+two complex coordinates \(z_1=q_1+iq_2\) and \(z_2=q_3+iq_4\), with
+\(|z_1|^2+|z_2|^2=1\). For \(0<t<\pi/2\) define
 
 \[
-X(t,a,b)=(\cos t\cos a,\ \cos t\sin a,\ \sin t\cos b,\ \sin t\sin b).
+X(t,u,v)=(\cos t\cos u,\cos t\sin u,\sin t\cos v,\sin t\sin v)^T.
 \]
 
 For each fixed \(t\), the image \(T_t\) is
-\(S^1(\cos t)\times S^1(\sin t)\). At \(t=\pi/4\) this is the standard
-Clifford torus. Every point away from the two circles \(z_1=0\) and
-\(z_2=0\) has a unique value
+\(S^1(\cos t)\times S^1(\sin t)\). The angles \(u,v\) locate a point on
+this torus; \(t\) selects the two circle radii. The identity
+\(|X(t,u,v)|^2=\cos^2t+\sin^2t=1\) places every member in \(S^3\). At
+\(t=\pi/4\) this is the standard Clifford torus, obtained by dividing
+\((\cos u,\sin u,\cos v,\sin v)\) by \(\sqrt{2}\). Every point away from
+the two circles \(z_1=0\) and \(z_2=0\) has a unique value
 
 \[
 \tau(q)=\operatorname{atan2}\!\left(\sqrt{q_3^2+q_4^2},\sqrt{q_1^2+q_2^2}\right).
 \]
 
-With \(a,b\) taken modulo \(2\pi\), the parameters give coordinates on
-the complement of those circles. Thus the family foliates that
-complement by disjoint tori. The value \(t\) alone labels a torus, not a
-point. At the endpoints a circle factor collapses, so the same
-coordinate description is no longer bijective there. ``A family of
-embeddings'' or ``a foliation by tori away from two circles'' is more
-precise here than treating \(t\) as a bijection with \(S^3\).
+With \(u,v\) taken modulo \(2\pi\), \(X\) gives coordinates on the
+complement of those circles: \((0,\pi/2)\times T^2\). Thus the family
+foliates that complement by disjoint tori. At \(t=0\) the \(v\)-circle
+collapses, and at \(t=\pi/2\) the \(u\)-circle collapses; including
+these endpoint images gives all of \(S^3\). For \(q\in S^3\), membership
+in \(T_t\) is exactly \(q_1^2+q_2^2=\cos^2t\). We use \(X\) for the
+parameterization and \(q\) for a point on the sphere throughout.
 
 For the Hopf map
 
@@ -252,9 +256,10 @@ Let \(R\in SO(4)\) and
 P_0=\operatorname{diag}(1,1,0,0),\qquad P=RP_0R^T,\qquad c=\cos^2t.
 \]
 
-The rotated torus is characterized by \(q^TPq=c\) on \(S^3\). The matrix
-\(P\) is a symmetric rank-two orthogonal projector: \(P^T=P\),
-\(P^2=P\), and \(\operatorname{tr}P=2\).
+The rotated torus is parameterized by \(RX(t,u,v)\). Applying the
+unrotated membership test to \(R^Tq\) characterizes it by \(q^TPq=c\) on
+\(S^3\). The matrix \(P\) is a symmetric rank-two orthogonal projector:
+\(P^T=P\), \(P^2=P\), and \(\operatorname{tr}P=2\).
 
 The implementation constructs \(R\) by successively left-multiplying
 rotations in the six coordinate planes. Changing their order generally
@@ -269,7 +274,7 @@ with \(H_1,H_2\in SO(2)\),
 HP_0H^T=P_0,\qquad (RH)P_0(RH)^T=RP_0R^T.
 \]
 
-These two rotations shift the circle phases \(a,b\) without changing the
+These two rotations shift the circle phases \(u,v\) without changing the
 surface. The full stabilizer of \(P_0\) within \(SO(4)\) is
 \(S(O(2)\times O(2))\), the block-diagonal orthogonal matrices with
 total determinant one; its identity component is \(SO(2)\times SO(2)\).

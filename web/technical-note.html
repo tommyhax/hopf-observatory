@@ -247,17 +247,21 @@ combination, implementation detail, and measured behavior under a
 difficult geometric condition.</p>
 <h2 id="a-family-of-tori-and-a-coordinate-on-the-three-sphere">1. A
 family of tori and a coordinate on the three-sphere</h2>
-<p>Write a point of
+<p>Write a point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>,</mo><msub><mi>q</mi><mn>2</mn></msub><mo>,</mo><msub><mi>q</mi><mn>3</mn></msub><mo>,</mo><msub><mi>q</mi><mn>4</mn></msub><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">q=(q_1,q_2,q_3,q_4)^T</annotation></semantics></math>
+of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mn>3</mn></msup><mo>⊂</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">S^3\subset\mathbb R^4</annotation></semantics></math>
 as two complex coordinates
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mo>,</mo><msub><mi>z</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(z_1,z_2)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>1</mn></msub><mo>=</mo><msub><mi>q</mi><mn>1</mn></msub><mo>+</mo><mi>i</mi><msub><mi>q</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">z_1=q_1+iq_2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>2</mn></msub><mo>=</mo><msub><mi>q</mi><mn>3</mn></msub><mo>+</mo><mi>i</mi><msub><mi>q</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">z_2=q_3+iq_4</annotation></semantics></math>,
 with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>1</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>2</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|z_1|^2+|z_2|^2=1</annotation></semantics></math>.
 For
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>t</mi><mo>&lt;</mo><mi>π</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">0&lt;t&lt;\pi/2</annotation></semantics></math>
 define</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>a</mi><mo>,</mo><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>a</mi><mo>,</mo><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>b</mi><mo>,</mo><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
-X(t,a,b)=(\cos t\cos a,\ \cos t\sin a,\ \sin t\cos b,\ \sin t\sin b).
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>u</mi><mo>,</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>u</mi><mo>,</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>v</mi><mo>,</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>v</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X(t,u,v)=(\cos t\cos u,\cos t\sin u,\sin t\cos v,\sin t\sin v)^T.
 </annotation></semantics></math></p>
 <p>For each fixed
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
@@ -265,10 +269,21 @@ the image
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mi>t</mi></msub><annotation encoding="application/x-tex">T_t</annotation></semantics></math>
 is
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mn>1</mn></msup><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><msup><mi>S</mi><mn>1</mn></msup><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">S^1(\cos t)\times S^1(\sin t)</annotation></semantics></math>.
+The angles
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>,</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">u,v</annotation></semantics></math>
+locate a point on this torus;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+selects the two circle radii. The identity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>=</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>t</mi><mo>+</mo><msup><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>t</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|X(t,u,v)|^2=\cos^2t+\sin^2t=1</annotation></semantics></math>
+places every member in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>.
 At
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mi>π</mi><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">t=\pi/4</annotation></semantics></math>
-this is the standard Clifford torus. Every point away from the two
-circles
+this is the standard Clifford torus, obtained by dividing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>u</mi><mo>,</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>u</mi><mo>,</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>v</mi><mo>,</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>v</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\cos u,\sin u,\cos v,\sin v)</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mn>2</mn></msqrt><annotation encoding="application/x-tex">\sqrt{2}</annotation></semantics></math>.
+Every point away from the two circles
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">z_1=0</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">z_2=0</annotation></semantics></math>
@@ -277,19 +292,33 @@ has a unique value</p>
 \tau(q)=\operatorname{atan2}\!\left(\sqrt{q_3^2+q_4^2},\sqrt{q_1^2+q_2^2}\right).
 </annotation></semantics></math></p>
 <p>With
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>,</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">u,v</annotation></semantics></math>
 taken modulo
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">2\pi</annotation></semantics></math>,
-the parameters give coordinates on the complement of those circles. Thus
-the family foliates that complement by disjoint tori. The value
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
-alone labels a torus, not a point. At the endpoints a circle factor
-collapses, so the same coordinate description is no longer bijective
-there. “A family of embeddings” or “a foliation by tori away from two
-circles” is more precise here than treating
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
-as a bijection with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+gives coordinates on the complement of those circles:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>π</mi><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>×</mo><msup><mi>T</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(0,\pi/2)\times T^2</annotation></semantics></math>.
+Thus the family foliates that complement by disjoint tori. At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math>
+the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>-circle
+collapses, and at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mi>π</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">t=\pi/2</annotation></semantics></math>
+the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>-circle
+collapses; including these endpoint images gives all of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>∈</mo><msup><mi>S</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">q\in S^3</annotation></semantics></math>,
+membership in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mi>t</mi></msub><annotation encoding="application/x-tex">T_t</annotation></semantics></math>
+is exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>q</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>q</mi><mn>2</mn><mn>2</mn></msubsup><mo>=</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>t</mi></mrow><annotation encoding="application/x-tex">q_1^2+q_2^2=\cos^2t</annotation></semantics></math>.
+We use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+for the parameterization and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+for a point on the sphere throughout.</p>
 <p>For the Hopf map</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mo>,</mo><msub><mi>z</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mn>2</mn><mrow><mi mathvariant="normal">Re</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mover><msub><mi>z</mi><mn>2</mn></msub><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="0.222em"></mspace><mn>2</mn><mrow><mi mathvariant="normal">Im</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mover><msub><mi>z</mi><mn>2</mn></msub><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>1</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>−</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>2</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
 H(z_1,z_2)=\bigl(2\operatorname{Re}(z_1\overline{z_2}),\ 2\operatorname{Im}(z_1\overline{z_2}),\ |z_1|^2-|z_2|^2\bigr),
@@ -385,7 +414,11 @@ and</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>0</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">diag</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>P</mi><mo>=</mo><mi>R</mi><msub><mi>P</mi><mn>0</mn></msub><msup><mi>R</mi><mi>T</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>c</mi><mo>=</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 P_0=\operatorname{diag}(1,1,0,0),\qquad P=RP_0R^T,\qquad c=\cos^2t.
 </annotation></semantics></math></p>
-<p>The rotated torus is characterized by
+<p>The rotated torus is parameterized by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">RX(t,u,v)</annotation></semantics></math>.
+Applying the unrotated membership test to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mi>T</mi></msup><mi>q</mi></mrow><annotation encoding="application/x-tex">R^Tq</annotation></semantics></math>
+characterizes it by
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>q</mi><mi>T</mi></msup><mi>P</mi><mi>q</mi><mo>=</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">q^TPq=c</annotation></semantics></math>
 on
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>.
@@ -410,7 +443,7 @@ with
 HP_0H^T=P_0,\qquad (RH)P_0(RH)^T=RP_0R^T.
 </annotation></semantics></math></p>
 <p>These two rotations shift the circle phases
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>,</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">u,v</annotation></semantics></math>
 without changing the surface. The full stabilizer of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mn>0</mn></msub><annotation encoding="application/x-tex">P_0</annotation></semantics></math>
 within

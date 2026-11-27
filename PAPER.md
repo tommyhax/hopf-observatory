@@ -11,7 +11,15 @@ We present a browser-based renderer for stereographic projections of rotated Hop
 
 ## 1. Motivation and scope
 
-A torus in the unit three-sphere can pass through the stereographic projection pole while remaining a smooth compact surface in four dimensions. Its three-dimensional image becomes unbounded and subsequently appears to turn inside out. This geometry is established [@banchoff1990; @mccuan1998]. It provides a useful setting for investigating how an interactive implicit renderer handles distant intersections, changing material regions and closely spaced optical boundaries.
+The starting aim was to ray trace three-dimensional stereographic images of the product of two circles,
+$$
+(\cos u,\sin u,\cos v,\sin v).
+$$
+The angles $u$ and $v$ independently traverse the two circles. This surface has constant distance $\sqrt{2}$ from the origin in $\mathbb R^4$; dividing its coordinates by $\sqrt{2}$ places it in the unit three-sphere $S^3$, where it is the standard Clifford torus. We wanted to render the images obtained by rotating this torus in four dimensions before projecting it into three.
+
+In its initial orientation, the stereographic image is an ordinary ring torus. Under rotation it deforms and can appear to turn inside out: the torus passes through the projection pole, making its three-dimensional image unbounded while the surface in $S^3$ remains smooth and compact. This geometry is established [@banchoff1990; @mccuan1998]. For ray tracing, the challenge is to find the nearest surface intersection as these images change, including intersections arbitrarily far along a ray near the pole-crossing configuration. Reflection and refraction require repeating that calculation at successive boundaries.
+
+The useful geometric step is to place the original torus in a family: give the two circles radii $\cos t$ and $\sin t$, with $0<t<\pi/2$. Every member still lies in $S^3$, and $t$ selects a torus by a simple scalar membership condition. Inverse stereographic projection carries a straight camera ray to a circular arc on $S^3$. Every point of that arc is already on the sphere; the intersections we seek occur where it meets the selected torus. Section 2 develops this condition into a polynomial of degree at most four in the original ray parameter. Finding its forward roots supplies the intersections without constructing a surface mesh.
 
 This implementation study offers three reusable elements:
 
@@ -27,22 +35,40 @@ Ray tracing algebraic surfaces [@hanrahan1983], GPU Bernstein methods [@seland20
 
 ## 2. Geometry and the projection pole
 
-The family in $S^3\subset\mathbb R^4$ is
+Write $q=(q_1,q_2,q_3,q_4)^T$ for a point of the unit sphere $S^3\subset\mathbb R^4$. The family described above is parameterized by
 $$
-q(t,a,b)=(\cos t\cos a,\cos t\sin a,\sin t\cos b,\sin t\sin b)^T,
+X(t,u,v)=(\cos t\cos u,\cos t\sin u,\sin t\cos v,\sin t\sin v)^T,
 \quad 0<t<\pi/2.
 $$
-For $R\in SO(4)$, set $P=R\,\mathrm{diag}(1,1,0,0)R^T$ and $c=\cos^2t$. A rotated torus satisfies $q^TPq=c$. The six rotation controls are redundant: $SO(2)\times SO(2)$ stabilizes the original projector, leaving four continuous rotational degrees of freedom at fixed $t$.
+For fixed $t$, the angles $u,v$ modulo $2\pi$ locate a point on the torus $T_t=S^1(\cos t)\times S^1(\sin t)$. The parameter $t$ selects its two radii, and $|X(t,u,v)|^2=\cos^2t+\sin^2t=1$. At $t=\pi/4$ this is the normalized product of circles introduced in Section 1.
 
-For $p=(x,y,z)$, inverse stereographic projection is $Q(p)=V/(1+|p|^2)$, where $V=(2p,|p|^2-1)^T$. Clearing the positive denominator gives
+As $t$ varies over $(0,\pi/2)$, these disjoint tori cover $S^3$ except for the two circles where one coordinate pair vanishes. At $t=0$ the $v$-circle collapses, and at $t=\pi/2$ the $u$-circle collapses. Including those endpoint images gives all of $S^3$. Thus the open interval times the torus describes the complement of the two circles; the endpoint collapses complete the sphere.
+
+For a point already on $S^3$, membership in $T_t$ is exactly the condition
+$$
+q_1^2+q_2^2=\cos^2t.
+$$
+For a rotated torus $RT_t$, with $R\in SO(4)$, apply the same test to $R^Tq$. Setting $P=R\,\mathrm{diag}(1,1,0,0)R^T$ and $c=\cos^2t$ writes this condition as $q^TPq=c$. Here $P$ projects onto the rotated plane of the first circle. Rotations within either circle's plane only shift $u$ or $v$, so the six rotation controls are redundant: $SO(2)\times SO(2)$ stabilizes the original projector, leaving four continuous rotational degrees of freedom at fixed $t$.
+
+Use the north pole $N=(0,0,0,1)^T$ and stereographic projection $p=q_{1:3}/(1-q_4)$. Its inverse is
+$$
+Q(p)=\frac{V(p)}{1+|p|^2},\qquad V(p)=(2p,|p|^2-1)^T.
+$$
+Since $|Q(p)|=1$, a camera ray $p(s)=o+sd$, $s\geq0$, lifts to a curve entirely on $S^3$. The lift of the complete line, together with its limiting point $N$, is a circle; the forward ray traces an arc approaching $N$ as $s\to+\infty$. Its intersections with the rotated torus satisfy
+$$
+Q(o+sd)^TPQ(o+sd)-c=0.
+$$
+This is the scalar equation to solve along the lifted ray. Clearing the strictly positive denominator $(1+|p|^2)^2$, and using $V^TV=(1+|p|^2)^2$, gives the implicit surface equation
 $$
 f_c(p)=V^T(P-cI)V=0.
 $$
+Substituting $p=o+sd$ gives a polynomial of degree at most four, because $V(o+sd)$ is quadratic in $s$. Its positive real roots give forward intersections. The supplementary technical note derives the circular lift and the full polynomial coefficients.
+
 The exact gradient is
 $$
 \nabla f_c=4\left[(PV)_{1:3}+p\big((PV)_4-c(1+|p|^2)\big)\right].
 $$
-Its normalized direction supplies smooth surface normals. Substituting $p=o+sd$ gives a polynomial of degree at most four. Its leading coefficient is $(P_{44}-c)|d|^4$. Thus the pole condition $P_{44}=c$ removes the quartic term; it does not justify discarding all remaining finite intersections. A three-dimensional line lifts to a circle through the projection pole in $S^3$. The supplementary technical note gives this construction and the full coefficient derivation.
+Its normalized direction supplies smooth surface normals. The pole lies on the rotated torus when $N^TPN=c$, equivalently $P_{44}=c$. The ray polynomial's leading coefficient is $(P_{44}-c)|d|^4$, so this pole condition removes the quartic term; the remaining polynomial still describes finite intersections.
 
 Figure 2 shows the projected surface on both sides of the pole condition.
 
@@ -61,7 +87,7 @@ b&=(2e/L,2C\cdot e/L)^T,\qquad h=(0,0,0,e\cdot e)^T.
 $$
 The near numerator is $W(x)=a+bx+hx^2=V(C+Lxe)/L^2$. In the reciprocal chart, multiplication by $x^2$ reverses the coefficients: $W(x)=h+bx+ax^2=x^2V(C+Le/x)/L^2$. Both yield bounded polynomial domains for $g=W^T(P-cI)W$. The reciprocal endpoint $x=0$ represents infinity and is excluded from finite hits. Although $C\cdot e=0$ and $e\cdot e=1$ in exact arithmetic, the shader retains their computed values.
 
-For either chart, write $W=u+vx+wx^2$, set $w_0=u$, $w_1=u+v/2$, $w_2=u+v+w$, and define $B(a,b)=a^T(P-cI)b$. The quartic Bernstein coefficients are constructed directly:
+For either chart, write $W=a'+b'x+c'x^2$, set $w_0=a'$, $w_1=a'+b'/2$, $w_2=a'+b'+c'$, and define $B(a,b)=a^T(P-cI)b$. The quartic Bernstein coefficients are constructed directly:
 $$
 \begin{aligned}
 b_0&=B(w_0,w_0), & b_1&=B(w_0,w_1),\\
@@ -77,7 +103,7 @@ Derivative roots partition the quartic into monotone intervals. The shader solve
 
 After normalizing each polynomial by its maximum absolute coefficient, the stationary-value threshold is $2.5\times10^{-7}E(x)+2\times10^{-9}$, where $E$ evaluates the polynomial with absolute Bernstein coefficients. This is the heuristic called `errorBound` in the shader, not an interval-arithmetic bound. The Bernstein solver consolidates successive chart candidates within $3\times10^{-7}\max(|x_i|,|x_j|)$. The all-roots collector removes only identical float hit distances; it adds no distance tolerance to the solver's internal candidate handling. Distinct reference roots remain separately accountable.
 
-Up to four Newton proposals evaluate the homogeneous form, with $g'=2(v+2xw)^T(P-cI)W$. A proposal must remain in $[0,1]$, move by at most $0.05\max(x,10^{-6})$, and strictly reduce the computed $|g|$. A rejected proposal retains the preceding candidate. This guard does not certify distance accuracy or preserve the final isolation bracket. With $M=|W|^T|P-cI||W|$, using componentwise absolute values, the final acceptance test is
+Up to four Newton proposals evaluate the homogeneous form, with $g'=2(b'+2xc')^T(P-cI)W$. A proposal must remain in $[0,1]$, move by at most $0.05\max(x,10^{-6})$, and strictly reduce the computed $|g|$. A rejected proposal retains the preceding candidate. This guard does not certify distance accuracy or preserve the final isolation bracket. With $M=|W|^T|P-cI||W|$, using componentwise absolute values, the final acceptance test is
 $$
 \rho=\frac{|g|}{M+|g'|\,\eta}<2\times10^{-6},\qquad
 \eta=\begin{cases}1&\text{near chart},\\x&\text{reciprocal chart}.\end{cases}
