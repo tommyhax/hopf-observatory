@@ -1,6 +1,6 @@
 # Canonical JCGT review manuscript
 
-Edit the prose in [`paper.md`](paper.md) and the bibliography in [`references.bib`](references.bib). `main.tex` is generated; `manuscript.pdf` is the canonical review PDF. The extended [technical note](../technical-note/technical-note.pdf) is the supplement, with the full derivation, implementation and experiments. This is a local draft, not a submitted or accepted article.
+Edit the prose in [`paper.md`](paper.md) and the bibliography in [`references.bib`](references.bib). `main.tex` is generated; `manuscript.pdf` is the canonical review PDF. The extended [technical note](../technical-note/technical-note.pdf) is the supplement, with the full derivation, implementation and experiments. This is a local draft, not a submitted or accepted article, and it is on hold while the [JMA paper](../jma/README.md) is prepared.
 
 From the repository root:
 

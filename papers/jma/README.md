@@ -1,6 +1,6 @@
 # Journal of Mathematics and the Arts submission
 
-[DRAFT1.md](DRAFT1.md) adapts the Bridges draft as a JMA **Research Article**. Requirements below are from the journal's instructions for authors (Taylor & Francis, updated 27 November 2026); check them again before submitting.
+[DRAFT1.md](DRAFT1.md) is a JMA **Research Article** on the geometry and the images, and is the project's current paper. Requirements below are from the journal's instructions for authors (Taylor & Francis, updated 27 November 2026); check them again before submitting.
 
 ## Requirements
 
@@ -28,4 +28,5 @@
 - [ ] Archive a tagged release (for example on Zenodo) and add its DOI to the data availability statement
 - [ ] Make the supplemental video of a passage through infinity
 - [ ] Transfer into the T&F LaTeX template, with theorem environments, and render references in APA
-- [ ] Do not submit the same work to Bridges at the same time; the JCGT paper is distinct (graphics and numerics) and is cited
+- [ ] "Crosby (2026)" now cites the [technical note](../technical-note/technical-note.md) at its live-site URL. Redeploy GitHub Pages before submitting so the published note matches the repository, and consider citing the archived release's DOI instead once it exists
+- [ ] If the JCGT paper is revived, keep it distinct (graphics and numerics) and cite this paper from it

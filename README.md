@@ -2,11 +2,11 @@
 
 ![Three translucent Hopf tori before and after a shared four-dimensional rotation, rendered directly by the application.](papers/technical-note/figures/three-tori.png)
 
-**[Open the live observatory](https://tommyhax.github.io/hopf-observatory/)** · **[Read the manuscript (PDF)](papers/jcgt/manuscript.pdf)** · **[Read the technical note (PDF)](papers/technical-note/technical-note.pdf)**
+**[Open the live observatory](https://tommyhax.github.io/hopf-observatory/)** · **[Read the JCGT manuscript (PDF)](papers/jcgt/manuscript.pdf)** · **[Read the technical note (PDF)](papers/technical-note/technical-note.pdf)**
 
 An interactive WebGL 2 ray tracer for stereographic images of rotated Clifford/Hopf tori. The surfaces are never meshed: every pixel's ray is intersected with the exact surface by solving a quartic, with analytic normals and successive reflection and refraction. A screen-filling triangle invokes the shader; there is no mesh, point cloud or ray marching.
 
-For review, start with [REVIEW.md](REVIEW.md) and the [JCGT review manuscript](papers/jcgt/manuscript.pdf). The [technical note](papers/technical-note/technical-note.pdf) has the full derivation, implementation and experiments. All the papers, including drafts for Bridges and the *Journal of Mathematics and the Arts*, are indexed in [papers/](papers/README.md).
+The paper in progress is a [draft](papers/jma/DRAFT1.md) for the *Journal of Mathematics and the Arts*, on the geometry and the images. The [JCGT review manuscript](papers/jcgt/manuscript.pdf), on rendering and numerical accuracy, is on hold; [REVIEW.md](REVIEW.md) is its review guide. The [technical note](papers/technical-note/technical-note.pdf) has the full derivation, implementation and experiments. All the papers are indexed in [papers/](papers/README.md).
 
 ## Run
 

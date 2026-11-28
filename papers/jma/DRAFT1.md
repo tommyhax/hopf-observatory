@@ -256,7 +256,7 @@ The source code of Hopf Observatory, the scene settings used for every figure, a
 
 Banchoff, T. F. (1990). *Beyond the third dimension: Geometry, computer graphics, and higher dimensions*. Scientific American Library.
 
-Crosby, T. (2026). *Interactive ray tracing of stereographic Hopf tori* [Manuscript in preparation].
+Crosby, T. (2026). *Ray tracing stereographic Hopf tori across the projection pole: Geometry, quartic intersections, and solid and shell optics in Hopf Observatory* [Technical note]. https://tommyhax.github.io/hopf-observatory/technical-note.html
 
 Hanrahan, P. (1983). Ray tracing algebraic surfaces. *Computer Graphics, 17*(3), 83–90. https://doi.org/10.1145/964967.801136
 

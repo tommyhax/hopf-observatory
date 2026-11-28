@@ -1,8 +1,10 @@
 # Review package
 
+This guide is for the JCGT manuscript, which is on hold while the *Journal of Mathematics and the Arts* paper is prepared; see [papers/](papers/README.md).
+
 Start with the **[JCGT review manuscript](papers/jcgt/manuscript.pdf)** ([editable source](papers/jcgt/paper.md)). The **[technical note](papers/technical-note/technical-note.pdf)** ([source](papers/technical-note/technical-note.md)) has the complete derivation, implementation and experiments. The application runs in the browser with `npm start`, at `http://localhost:8765/`.
 
-The paper is an implementation and visualization study. It claims exact, interactive, refractive ray tracing of stereographic Hopf tori, including surfaces through infinity, and a measured account of where float32 fails and what fixing it costs. It does not claim a new root-finding algorithm.
+The paper is an implementation and visualization study. It claims interactive, refractive ray tracing of stereographic Hopf tori directly from their implicit equations, including surfaces through infinity, and a measured account of where float32 fails and what fixing it costs. It does not claim a new root-finding algorithm.
 
 ## Navigate
 
@@ -59,7 +61,7 @@ Rebuild the manuscript with `python3 scripts/build-paper.py --pdf`. Rebuild the 
 
 ## Questions for a reviewer
 
-1. Does exact, interactive rendering of this family, with the accompanying numerical account, merit a JCGT implementation paper given the cited prior work?
+1. Does interactive rendering of this family without tessellation, with the accompanying numerical account, merit a JCGT implementation paper given the cited prior work?
 2. Are the baseline adaptations, the shared construction and refinement, and the matching criterion fair for the comparative claims made?
 3. Is the deliberately grazing corpus, with explicit failure reporting, an appropriate test? It does not estimate how often failures appear in ordinary views.
 4. Are the finite-precision and optical limits given enough weight relative to the visual results?

@@ -8,7 +8,7 @@
 - Editable prose: [`papers/jcgt/paper.md`](../papers/jcgt/paper.md); bibliography: [`papers/jcgt/references.bib`](../papers/jcgt/references.bib)
 - Generated LaTeX and official template: [`papers/jcgt/`](../papers/jcgt/)
 - Supplement: extended technical note, runnable application, figures, raw measurements, executable experiments and SHA-256 manifest
-- Status: JCGT review draft, prepared locally; not submitted
+- Status: JCGT review draft, prepared locally; not submitted. On hold while the *Journal of Mathematics and the Arts* paper is prepared; its requirements and checklist are in [`papers/jma/README.md`](../papers/jma/README.md)
 
 ## Verified venue guidance
 
