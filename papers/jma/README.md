@@ -20,7 +20,7 @@
 
 ## Checklist
 
-- [ ] Read Theorem 1 and Corollary 1 carefully, and check McCuan & Spietz (1998) and the cyclide literature for prior statements
+- [ ] Read Theorem 1 and Corollary 1 carefully, and check the cyclide literature for prior statements. McCuan & Spietz (1998) has been read in full and is credited: they treat only the Clifford torus, state the reduction to an $xw$ rotation in their proof of Theorem 12, and their Lemma 18 already chooses that angle from $P_{44}$. They do not discuss passage through infinity, cyclides or other tori.
 - [ ] Make Figures 2, 4, 5 and the gallery renders at 300 dpi; Figure 5 (the map of shapes) is the centrepiece
 - [ ] Choose the graphical abstract (Figure 5 or the hero image), 525 px wide
 - [ ] Decide whether any figure needs colour in print (online colour is free)

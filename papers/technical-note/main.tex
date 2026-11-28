@@ -83,9 +83,10 @@ baselines. Section 11 shows that these failures arise when the
 polynomial coefficients are constructed in float32, not when they are
 solved. Constructing them in higher precision removes every failure on
 the CPU and in WebGL. With that construction, a closed-form Ferrari
-solver is also correct on the GPU but slower than iterative isolation
-there, while in binary64 on the CPU it is 12 times faster than
-bisection. The short review manuscript is supplied separately as
+solver is also correct on the GPU and faster than iterative isolation in
+three of four scenes, but 3--6 times slower than the float32 renderer;
+in binary64 on the CPU it is 12 times faster than bisection. The short
+review manuscript is supplied separately as
 \texttt{papers/jcgt/paper.md}.
 
 \end{abstract}
@@ -258,8 +259,16 @@ two-plane, and \(q^TPq=|Pq|^2\). Projecting the lifted circle into that
 plane gives an ellipse, possibly degenerate, while the torus becomes the
 circle of radius \(\cos t\) about the origin. The intersections are the
 points where the ellipse crosses that circle, of which there are at most
-four. The ellipse depends only on the ray and \(P\), so every torus in a
-family sharing \(P\) is a different circle in the same picture.
+four unless the two curves coincide. The lifted circle passes through
+\(N\), so the ellipse passes through \(PN\), and \(|PN|^2=P_{44}\);
+coincidence therefore requires the pole condition \(P_{44}=c\) of
+Section 6. Under that condition \(PN\) is a common point of the two
+curves for every ray but corresponds to no finite hit, and a line whose
+ellipse is the circle lies entirely on the surface. At \(t=45^\circ\)
+after a \(45^\circ\) XW rotation, for example, the line through the
+origin in direction \((0,1,1)\) is contained in the surface. The ellipse
+depends only on the ray and \(P\), so every torus in a family sharing
+\(P\) is a different circle in the same picture.
 
 The projected tori are Dupin cyclides, which are quartic surfaces
 {[}1{]}; a line can meet one four times, so no method avoids a
@@ -419,11 +428,12 @@ a_4&=B(v_2,v_2)=P_{44}-c.
 \end{aligned}
 \]
 
-Positive real roots are forward intersections. A generic line has at
-most four intersections with one boundary. Reflection or refraction
-changes the direction, after which the same calculation is repeated for
-the new ray. A shell uses two such quartics and can have eight crossings
-along a single straight line.
+Positive real roots are forward intersections. A line has at most four
+isolated intersections with one boundary; a line contained in the
+surface (Section 6) has none. Reflection or refraction changes the
+direction, after which the same calculation is repeated for the new ray.
+A shell uses two such quartics and can have eight crossings along a
+single straight line.
 
 \section{The projection pole and apparent
 eversion}\label{the-projection-pole-and-apparent-eversion}
@@ -436,8 +446,11 @@ N^TPN=c\quad\Longleftrightarrow\quad P_{44}=c.
 
 This is also exactly the condition \(a_4=0\). The ray polynomial then
 has degree at most three, with further reductions possible for special
-rays. Finite roots remain legitimate intersections; a root at the
-compactified endpoint representing infinity is not a finite hit.
+rays. Only under this condition can a whole line lie on the projected
+surface, because the closure of its lifted circle contains \(N\); such a
+line has an identically zero polynomial and no isolated intersections.
+Finite roots remain legitimate intersections; a root at the compactified
+endpoint representing infinity is not a finite hit.
 
 The torus remains embedded and smooth in \(S^3\) throughout the
 rotation. Its Euclidean projection becomes unbounded when the pole is on
@@ -1167,20 +1180,22 @@ method, similarly ran 21--44\% faster than Bernstein natively but took
 37--55\% more browser GPU time on three-shell scenes. Its results are in
 \texttt{research/diagnostics/algorithm1010/}.
 
-\subsection{Why the closed form is not faster on the
-GPU}\label{why-the-closed-form-is-not-faster-on-the-gpu}
+\subsection{Why the closed form gains less on the
+GPU}\label{why-the-closed-form-gains-less-on-the-gpu}
 
-The GPU penalizes what the closed form needs. Cube roots, square roots,
-inverse cosine and trigonometric functions run on lower-throughput
-units, and in paired arithmetic they become software expansions. The
-formula branches on discriminant signs and degenerate cases, and
-divergent branches serialize within SIMD groups. Its long chain of
-dependent operations amplifies rounding, so the float32 guard escalates
-84\% of corpus queries to the paired path, which then pays for both
-evaluations. Iterative isolation evaluates a quartic with a few
-multiply--adds, rejects a chart with no possible root by one sign test,
-and stops at the first chart containing a hit. These costs have not been
-timed separately.
+Against paired Bernstein, the closed form's twelvefold CPU advantage
+shrinks on the GPU to at most 1.5 times, and it is 11\% slower for a
+single shell. The causes have not been timed separately; the likely ones
+are these. Cube roots, square roots, inverse cosine and trigonometric
+functions run on lower-throughput units, and in paired arithmetic they
+become software expansions. The formula branches on discriminant signs
+and degenerate cases, and divergent branches can serialize within SIMD
+groups. One contributing factor is measured: the long chain of dependent
+operations amplifies rounding, so the float32 guard escalates 84\% of
+corpus queries to the paired path, which then pays for both evaluations.
+Iterative isolation evaluates a quartic with a few multiply--adds,
+rejects a chart with no possible root by one sign test, and stops at the
+first chart containing a hit.
 
 Two directions could make accurate construction cheap enough for the
 default renderer. Paired arithmetic could be applied only to rays whose
