@@ -1,6 +1,6 @@
 # LaTeX edition
 
-`main.tex` is a standalone article generated from `../TECHNICAL_NOTE.md`. `technical-note.pdf` is the compiled illustrated edition. Equations, references, numerical results and figures are included; interactive WebGL runs in the browser. Start the application with `npm start` from the project root.
+`main.tex` is a standalone article generated from `technical-note.md`. `technical-note.pdf` is the compiled illustrated edition. Equations, references, numerical results and figures are included; interactive WebGL runs in the browser. Start the application with `npm start` from the project root.
 
 To regenerate the LaTeX source, run from the project root:
 

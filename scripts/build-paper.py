@@ -9,11 +9,11 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
-PAPER = ROOT / "paper"
+PAPER = ROOT / "papers" / "jcgt"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--pdf", action="store_true", help="also rebuild manuscript.pdf")
 args = parser.parse_args()
-source = (ROOT / "PAPER.md").read_text()
+source = (PAPER / "paper.md").read_text()
 metadata = re.match(r"^---\n(.*?)\n---\n", source, re.S)
 title = re.search(r'^title: "(.*)"$', metadata[1], re.M)[1]
 author = re.search(r'^author: "(.*)"$', metadata[1], re.M)[1]
@@ -32,7 +32,7 @@ body = body.replace(
 )
 teaser_match = re.search(r"^!\[.*\]\(.*\)\{#fig:teaser .*\}$", body, re.M)
 if teaser_match is None:
-    raise ValueError("PAPER.md must contain the JCGT teaser figure")
+    raise ValueError("paper.md must contain the JCGT teaser figure")
 teaser = teaser_match[0]
 body = body[: teaser_match.start()] + body[teaser_match.end() :]
 
@@ -46,13 +46,9 @@ if cited != entries:
 
 
 def convert(text):
-    text = text.replace(
-        "](technical-note/figures/", "](../technical-note/figures/"
-    ).replace("](research/figures/", "](../research/figures/")
+    # Image paths in paper.md are relative to papers/jcgt/, like main.tex.
     text = text.replace("stress-validation.png", "stress-validation.pdf")
-    text = text.replace(
-        "](research/diagnostics/", "](../research/diagnostics/"
-    ).replace("grazing-diagnostic.png", "grazing-diagnostic.pdf")
+    text = text.replace("grazing-diagnostic.png", "grazing-diagnostic.pdf")
     for old, new in [("—", "---"), ("–", "--"), ("‑", "-")]:
         text = text.replace(old, new)
     return subprocess.run(
@@ -72,7 +68,7 @@ def convert(text):
     ).stdout
 
 
-preamble = r"""% Generated from ../PAPER.md by ../scripts/build-paper.py.
+preamble = r"""% Generated from paper.md by ../../scripts/build-paper.py.
 % Official JCGT class and bibliography style; see README.md for provenance.
 \documentclass{jcgt}
 \usepackage[T1]{fontenc}
@@ -147,7 +143,7 @@ for text, link in [
     ("Section 4.5", r"Section~\ref{closed-form-solving}"),
 ]:
     latex = latex.replace(text, link)
-# Linked references while keeping PAPER.md readable without a LaTeX renderer.
+# Linked references while keeping paper.md readable without a LaTeX renderer.
 for label, target in [
     ("Figure 1", "fig:teaser"),
     ("Figure 2", "fig:pole"),
@@ -156,7 +152,7 @@ for label, target in [
 ]:
     latex = latex.replace(label, label.split()[0] + "~\\ref{" + target + "}")
 (PAPER / "main.tex").write_text(latex)
-print("Wrote paper/main.tex")
+print("Wrote papers/jcgt/main.tex")
 
 if args.pdf:
     # Temporary output keeps aux files out of the source/release directories.
@@ -189,4 +185,4 @@ if args.pdf:
         if re.search(r"undefined|Rerun to get", log):
             raise SystemExit("Unresolved LaTeX references; inspect the build")
         shutil.copy2(build / "main.pdf", PAPER / "manuscript.pdf")
-    print("Wrote paper/manuscript.pdf")
+    print("Wrote papers/jcgt/manuscript.pdf")

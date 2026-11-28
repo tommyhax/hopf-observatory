@@ -117,7 +117,7 @@ node research/render-and-time.mjs
 
 The renderer writes PPM images into `research/figures/` directly from the production fragment shader, then benchmarks three scenes at two fixed resolutions and 8, 16 and 24 main-path interactions. Five warmup and thirty recorded frames surround draw plus `glFinish`, excluding readback. `rendering.json` records uniforms, hardware, shader hash and every timing. Native compilation changes only the ES version directive to GLSL 4.10. Native timings and browser timings have different overhead and should be compared separately.
 
-`plot.py` creates six manuscript figures in `technical-note/figures/`. Three diagrams/charts also have vector PDFs. PPM intermediates are regenerated and omitted from the archive. Figures use production renders and recorded data.
+`plot.py` creates six manuscript figures in `papers/technical-note/figures/`. Three diagrams/charts also have vector PDFs. PPM intermediates are regenerated and omitted from the archive. Figures use production renders and recorded data.
 
 ## Manuscript and formatting
 
@@ -126,7 +126,7 @@ The renderer writes PPM images into `research/figures/` directly from the produc
 python3 scripts/build-latex.py
 ```
 
-Rebuild the canonical JCGT manuscript separately with `python3 scripts/build-paper.py --pdf` ([instructions](../paper/README.md)). These document generators require Pandoc. Compile the PDF using [the LaTeX instructions](../technical-note/README.md). `npm run build:site` assembles the app, HTML note and PDF for Pages.
+Rebuild the canonical JCGT manuscript separately with `python3 scripts/build-paper.py --pdf` ([instructions](../papers/jcgt/README.md)). These document generators require Pandoc. Compile the PDF using [the LaTeX instructions](../papers/technical-note/README.md). `npm run build:site` assembles the app, HTML note and PDF for Pages.
 
 JavaScript, HTML and CSS use pinned Prettier 3.6.2: `npm run format:check` and `npm run format`. Python uses Black 25.1.0; Objective-C and embedded GLSL use clang-format 19.1.7. With those optional tools installed:
 

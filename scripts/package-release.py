@@ -15,11 +15,11 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
 TOP = {
-    "README.md", "TECHNICAL_NOTE.md", "PAPER.md", "REVIEW.md", "LICENSE",
+    "README.md", "REVIEW.md", "LICENSE",
     "package.json", "package-lock.json", ".gitignore", ".prettierrc.json",
     ".prettierignore", ".clang-format", "playwright.config.js",
 }
-DIRECTORIES = {"web", "docs", "scripts", "tests", "research", "technical-note", "paper", ".github"}
+DIRECTORIES = {"web", "docs", "scripts", "tests", "research", "papers", ".github"}
 TEMP_SUFFIXES = {".pyc", ".ppm", ".aux", ".log", ".out", ".toc", ".synctex", ".bbl", ".blg", ".brf"}
 
 
@@ -61,7 +61,8 @@ def main():
             payloads[item.name] = source.extractfile(item).read()
             modes[item.name] = 0o100755 if item.mode & 0o111 else 0o100644
     required = TOP | {
-        "paper/manuscript.pdf", "technical-note/technical-note.pdf", "web/shader.js",
+        "papers/jcgt/paper.md", "papers/jcgt/manuscript.pdf",
+        "papers/technical-note/technical-note.md", "papers/technical-note/technical-note.pdf", "web/shader.js",
         "scripts/verify-release.py", "docs/RELEASE_NOTES.md",
         "research/diagnostics/grazing/frozen-manifest.json",
         "research/diagnostics/algorithm1010/traversal/MANIFEST.json",
@@ -91,8 +92,8 @@ def main():
             target.writestr(info, data)
     delivered = {
         f"{name}.zip": archive.getvalue(),
-        "manuscript.pdf": payloads["paper/manuscript.pdf"],
-        "technical-note.pdf": payloads["technical-note/technical-note.pdf"],
+        "manuscript.pdf": payloads["papers/jcgt/manuscript.pdf"],
+        "technical-note.pdf": payloads["papers/technical-note/technical-note.pdf"],
         "MANIFEST.json": manifest_bytes,
         "RELEASE_NOTES.md": payloads["docs/RELEASE_NOTES.md"],
     }

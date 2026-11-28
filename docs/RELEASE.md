@@ -45,6 +45,12 @@ Provenance has three distinct scopes:
   copy. Current manuscript and technical-note editions can therefore evolve
   without changing the recorded evidence. Other hashed historical reports
   remain at their original paths.
+- **Moved papers:** the manuscript, technical note and other drafts now live
+  under `papers/`. Records made before the move name their original paths
+  (`PAPER.md`, `paper/…`, `TECHNICAL_NOTE.md`, `technical-note/…`); archived
+  editions keep those paths, so the records still verify. The site builder
+  `scripts/build-site.mjs`, which several records hash, is archived at
+  `6e191104683bad6767ea9d9f9fffe74e12ffc5eb` for the same reason.
 - **New release provenance:** the root `MANIFEST.json` inside the archive hashes
   the current consolidated documents, current generated manuscript, historical
   snapshots and all other packaged files. It records the full source commit,

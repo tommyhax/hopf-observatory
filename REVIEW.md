@@ -1,6 +1,6 @@
 # Review package
 
-Start with the **[JCGT review manuscript](paper/manuscript.pdf)** ([editable source](PAPER.md)). The **[technical note](technical-note/technical-note.pdf)** ([source](TECHNICAL_NOTE.md)) has the complete derivation, implementation and experiments. The application runs in the browser with `npm start`, at `http://localhost:8765/`.
+Start with the **[JCGT review manuscript](papers/jcgt/manuscript.pdf)** ([editable source](papers/jcgt/paper.md)). The **[technical note](papers/technical-note/technical-note.pdf)** ([source](papers/technical-note/technical-note.md)) has the complete derivation, implementation and experiments. The application runs in the browser with `npm start`, at `http://localhost:8765/`.
 
 The paper is an implementation and visualization study. It claims exact, interactive, refractive ray tracing of stereographic Hopf tori, including surfaces through infinity, and a measured account of where float32 fails and what fixing it costs. It does not claim a new root-finding algorithm.
 
@@ -8,8 +8,8 @@ The paper is an implementation and visualization study. It claims exact, interac
 
 | Material | Entry point |
 |---|---|
-| Canonical JCGT manuscript | [PAPER.md](PAPER.md), [PDF](paper/manuscript.pdf), [LaTeX](paper/main.tex) |
-| Full geometry, renderer, experiments and prior work | [TECHNICAL_NOTE.md](TECHNICAL_NOTE.md) |
+| Canonical JCGT manuscript | [paper.md](papers/jcgt/paper.md), [PDF](papers/jcgt/manuscript.pdf), [LaTeX](papers/jcgt/main.tex) |
+| Full geometry, renderer, experiments and prior work | [technical-note.md](papers/technical-note/technical-note.md) |
 | Runnable implementation | [web/](web/) |
 | Reference, corpora, methods and reproduction | [research/README.md](research/README.md) |
 | Seeded stress corpus, failures and transport | [research/STRESS.md](research/STRESS.md) |
@@ -55,7 +55,7 @@ npm run test:browser
 
 `scripts/verify-release.py` re-verifies all recorded evidence offline, without a GPU. The Playwright checks use software WebGL. Native numerical and optical checks and all timings used an Apple M3 Pro, with Chrome on ANGLE Metal for browser runs; repeating those captures needs a comparable stack. Each diagnostic directory documents its own capture commands and verifier.
 
-Rebuild the manuscript with `python3 scripts/build-paper.py --pdf`. Rebuild the technical note with `./scripts/build-note.sh` and `python3 scripts/build-latex.py`, then run `pdflatex -halt-on-error main.tex` twice in `technical-note/` and copy `main.pdf` to `technical-note.pdf`.
+Rebuild the manuscript with `python3 scripts/build-paper.py --pdf`. Rebuild the technical note with `./scripts/build-note.sh` and `python3 scripts/build-latex.py`, then run `pdflatex -halt-on-error main.tex` twice in `papers/technical-note/` and copy `main.pdf` to `technical-note.pdf`.
 
 ## Questions for a reviewer
 

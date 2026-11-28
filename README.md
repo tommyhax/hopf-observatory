@@ -1,12 +1,12 @@
 # Hopf Observatory
 
-![Three translucent Hopf tori before and after a shared four-dimensional rotation, rendered directly by the application.](technical-note/figures/three-tori.png)
+![Three translucent Hopf tori before and after a shared four-dimensional rotation, rendered directly by the application.](papers/technical-note/figures/three-tori.png)
 
-**[Open the live observatory](https://tommyhax.github.io/hopf-observatory/)** · **[Read the manuscript (PDF)](paper/manuscript.pdf)** · **[Read the technical note (PDF)](technical-note/technical-note.pdf)**
+**[Open the live observatory](https://tommyhax.github.io/hopf-observatory/)** · **[Read the manuscript (PDF)](papers/jcgt/manuscript.pdf)** · **[Read the technical note (PDF)](papers/technical-note/technical-note.pdf)**
 
 An interactive WebGL 2 ray tracer for stereographic images of rotated Clifford/Hopf tori. The surfaces are never meshed: every pixel's ray is intersected with the exact surface by solving a quartic, with analytic normals and successive reflection and refraction. A screen-filling triangle invokes the shader; there is no mesh, point cloud or ray marching.
 
-For review, start with [REVIEW.md](REVIEW.md) and the [JCGT review manuscript](paper/manuscript.pdf). The [technical note](technical-note/technical-note.pdf) has the full derivation, implementation and experiments.
+For review, start with [REVIEW.md](REVIEW.md) and the [JCGT review manuscript](papers/jcgt/manuscript.pdf). The [technical note](papers/technical-note/technical-note.pdf) has the full derivation, implementation and experiments. All the papers, including drafts for Bridges and the *Journal of Mathematics and the Arts*, are indexed in [papers/](papers/README.md).
 
 ## Run
 
@@ -16,7 +16,7 @@ npm start
 
 Open [the app](http://localhost:8765/) or [the illustrated technical note](http://localhost:8765/technical-note.html). The application source is in `web/` and has no runtime JavaScript dependencies or compilation step. HTTP is required for JavaScript modules. Google Fonts is optional; system-font fallbacks are supplied.
 
-The [technical note](TECHNICAL_NOTE.md) derives the geometry, circular lift of a ray into S³, quartic intersections, normals and Euclidean optics, with experiments and prior work. Its [PDF](technical-note/technical-note.pdf) and [editable LaTeX](technical-note/main.tex) accompany the [build instructions](technical-note/README.md).
+The [technical note](papers/technical-note/technical-note.md) derives the geometry, circular lift of a ray into S³, quartic intersections, normals and Euclidean optics, with experiments and prior work. Its [PDF](papers/technical-note/technical-note.pdf) and [editable LaTeX](papers/technical-note/main.tex) accompany the [build instructions](papers/technical-note/README.md).
 
 ## Controls
 
@@ -74,7 +74,7 @@ The **Tests** workflow runs on pushes and pull requests. It checks formatting, C
 
 ## Maintenance and licence
 
-[Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh` and the technical-note LaTeX with `python3 scripts/build-latex.py`. Rebuild the canonical JCGT manuscript with `python3 scripts/build-paper.py --pdf` ([instructions](paper/README.md)). Prepare the versioned supplementary archive from committed source with `python3 scripts/package-release.py --version v0.1.0-review.3 --source HEAD`; see [release and provenance instructions](docs/RELEASE.md).
+[Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh` and the technical-note LaTeX with `python3 scripts/build-latex.py`. Rebuild the canonical JCGT manuscript with `python3 scripts/build-paper.py --pdf` ([instructions](papers/jcgt/README.md)). Prepare the versioned supplementary archive from committed source with `python3 scripts/package-release.py --version v0.1.0-review.3 --source HEAD`; see [release and provenance instructions](docs/RELEASE.md).
 
 The implementation is MIT licensed, copyright 2026 Tom Crosby. The numerical baselines retain their [upstream notices](research/THIRD_PARTY.md); the experimental Algorithm 1010 port retains its [BSD licence](research/diagnostics/algorithm1010/LICENSE), and the closed-form solvers adapted from Boost.Math retain the [Boost Software License](research/diagnostics/guarded-direct/LICENSE_1_0.txt).
 

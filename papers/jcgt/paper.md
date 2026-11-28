@@ -2,7 +2,7 @@
 title: "Interactive ray tracing of stereographic Hopf tori"
 author: "Tom Crosby"
 date: "28 November 2026 · JCGT review draft"
-bibliography: paper/references.bib
+bibliography: references.bib
 ---
 
 ## Abstract
@@ -29,7 +29,7 @@ Hopf Observatory implements this in WebGL 2, with six-plane $SO(4)$ rotations, u
 
 Ray tracing algebraic surfaces [@hanrahan1983], GPU Bernstein methods [@seland2007], derivative-partitioned root finding [@yuksel2022; @peters2023], refinement against the original implicit field [@szente2026] and float-float arithmetic [@dekker1971] all predate this work. We do not claim a new general root-finding algorithm.
 
-![Three projected tori, with 0.5° angular shells, before and after a shared four-dimensional rotation. Both views are direct production-shader renders; camera, material and rotation settings are supplied with the software.](technical-note/figures/three-tori.png){#fig:teaser width=100%}
+![Three projected tori, with 0.5° angular shells, before and after a shared four-dimensional rotation. Both views are direct production-shader renders; camera, material and rotation settings are supplied with the software.](../technical-note/figures/three-tori.png){#fig:teaser width=100%}
 
 ## 2. Geometry and the projection pole
 
@@ -70,7 +70,7 @@ $$
 $$
 Its normalized direction supplies smooth surface normals. The pole lies on the rotated torus when $N^TPN=c$, equivalently $P_{44}=c$. The ray polynomial's leading coefficient is $(P_{44}-c)|d|^4$, so this pole condition removes the quartic term; the remaining polynomial still describes finite intersections. Figure 2 shows the projected surface on both sides of the pole condition.
 
-![Passage through the projection pole for the 45° torus under XW rotations of 30°, 42°, 45°, 48° and 60°. Color encodes the production shader's analytic normal. The middle surface is unbounded; the views show a finite camera window, not a clipped geometric model.](technical-note/figures/pole-sequence.png){#fig:pole width=100%}
+![Passage through the projection pole for the 45° torus under XW rotations of 30°, 42°, 45°, 48° and 60°. Color encodes the production shader's analytic normal. The middle surface is unbounded; the views show a finite camera window, not a clipped geometric model.](../technical-note/figures/pole-sequence.png){#fig:pole width=100%}
 
 ## 3. Intersection and optical implementation
 
@@ -191,7 +191,7 @@ To locate the 109 native failures, separate GPU probes captured every intermedia
 
 Exact roots of the captured coefficients already fail on all 109 queries, with the same 40 missing, 34 extra and 35 misplaced intersections. The damage is done before any root is sought; a better solver cannot repair it. Earlier stages are not nested, and errors partly cancel, so the rows are not an additive budget. Removing Bernstein's proximity merging changes no output, and the residual filter rejects no grazing candidate (Figure 3).
 
-![Grazing diagnostics for three representative Bernstein failures: a misplaced pair, a missing pair and an extra pair. Rows above GPU isolation use exact arithmetic on the indicated representation; shading marks the matching tolerance around the uploaded-geometry roots. A pair can appear or disappear during chart construction, or shift beyond tolerance during coefficient construction.](research/diagnostics/grazing/results/grazing-diagnostic.png){#fig:grazing width=100%}
+![Grazing diagnostics for three representative Bernstein failures: a misplaced pair, a missing pair and an extra pair. Rows above GPU isolation use exact arithmetic on the indicated representation; shading marks the matching tolerance around the uploaded-geometry roots. A pair can appear or disappear during chart construction, or shift beyond tolerance during coefficient construction.](../../research/diagnostics/grazing/results/grazing-diagnostic.png){#fig:grazing width=100%}
 
 ### 4.4 Higher-precision construction
 
@@ -236,7 +236,7 @@ The limits are explicit. All measurements use one GPU, one driver stack and floa
 
 Stereographic images of rotated Hopf tori can be ray traced exactly, interactively and with refraction, including the unbounded surfaces that occur at the projection pole. The tori's level-set structure on $S^3$ makes each intersection a quartic in the ray parameter. A float32 implementation matches an exact reference except on deliberately grazing rays, and those failures arise in constructing the quartic, not in solving it. Constructing it in higher precision removes them, and makes a direct closed-form GPU solver correct, but in this setting closed-form solving does not beat iterative isolation on speed.
 
-The companion package's `REVIEW.md` is the entry point. `TECHNICAL_NOTE.md` contains the complete derivation and implementation discussion; `research/README.md`, `research/STRESS.md` and `research/diagnostics/` give seeds, raw results, exact brackets and reproduction commands. The buildless WebGL application runs with `npm start`.
+The companion package's `REVIEW.md` is the entry point. `papers/technical-note/technical-note.md` contains the complete derivation and implementation discussion; `research/README.md`, `research/STRESS.md` and `research/diagnostics/` give seeds, raw results, exact brackets and reproduction commands. The buildless WebGL application runs with `npm start`.
 
 ## Assistance and responsibility
 
@@ -245,7 +245,7 @@ Tom Crosby conceived the geometric approach, directed the project and is respons
 ## Index of supplemental materials
 
 - `web/`: WebGL 2 application, with intersections and optics in `shader.js`.
-- `technical-note/technical-note.pdf`: extended derivations, implementation and experiments.
+- `papers/technical-note/technical-note.pdf`: extended derivations, implementation and experiments.
 - `research/README.md`, `research/STRESS.md`: corpora, protocols, exact references, transport captures and timings.
 - `research/diagnostics/grazing/`: stage captures and exact replays of the grazing failures.
 - `research/diagnostics/double-precision/`: binary64 CPU replay of the grazing queries.
@@ -257,4 +257,4 @@ Tom Crosby conceived the geometric approach, directed the project and is respons
 
 ## References
 
-The bibliography is maintained in `paper/references.bib` and typeset with the official JCGT BibTeX style.
+The bibliography is maintained in `papers/jcgt/references.bib` and typeset with the official JCGT BibTeX style.

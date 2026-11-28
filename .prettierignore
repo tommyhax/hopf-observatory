@@ -1,6 +1,6 @@
 node_modules/
 web/technical-note.html
-technical-note/
+papers/
 research/results/
 research/figures/
 docs/gpu-results.json

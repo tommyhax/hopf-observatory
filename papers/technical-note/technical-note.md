@@ -10,7 +10,7 @@ lang: en
 
 This note describes an interactive GPU ray tracer for stereographic images of rotated Hopf tori, and derives everything it computes. The tori are level sets of a rank-two quadratic form on the three-sphere. A straight camera ray lifts to a circle on that sphere, so each intersection is a root of a quartic in the ray parameter, with analytic normals from the same form. Closest-point recentering and near/reciprocal ray coordinates keep the quartic on bounded intervals even when the projected surface passes through infinity. The renderer supports three simultaneous material regions, including angular shells $0.01^\circ$ thick, with successive Euclidean reflection and refraction. Nothing is meshed.
 
-An independent exact-rational reference evaluates the float32 renderer. It matches all 1,470 intersections of an 867-ray designed corpus, including pole crossings with hits $2.4\times10^9$ units away, and all 1,800 random, pole and shell queries of a seeded stress corpus. It fails 109 of 600 deliberately grazing queries, as do two modern iterative baselines. Section 11 shows that these failures arise when the polynomial coefficients are constructed in float32, not when they are solved. Constructing them in higher precision removes every failure on the CPU and in WebGL. With that construction, a closed-form Ferrari solver is also correct on the GPU but slower than iterative isolation there, while in binary64 on the CPU it is 12 times faster than bisection. The short review manuscript is supplied separately as `PAPER.md`.
+An independent exact-rational reference evaluates the float32 renderer. It matches all 1,470 intersections of an 867-ray designed corpus, including pole crossings with hits $2.4\times10^9$ units away, and all 1,800 random, pole and shell queries of a seeded stress corpus. It fails 109 of 600 deliberately grazing queries, as do two modern iterative baselines. Section 11 shows that these failures arise when the polynomial coefficients are constructed in float32, not when they are solved. Constructing them in higher precision removes every failure on the CPU and in WebGL. With that construction, a closed-form Ferrari solver is also correct on the GPU but slower than iterative isolation there, while in binary64 on the CPU it is 12 times faster than bisection. The short review manuscript is supplied separately as `papers/jcgt/paper.md`.
 
 ## The accompanying demonstration
 
@@ -551,5 +551,5 @@ Tom Crosby conceived the geometric approach, directed the project and evaluated 
 | `research/diagnostics/browser-precision/` | Paired float32 construction in WebGL, with a live preview. |
 | `research/diagnostics/guarded-direct/` | Closed-form Ferrari/Cardano solver on the GPU, with a live preview. |
 | `research/diagnostics/native-algebraic/` | Closed-form solver in binary64 and wider software precision on the CPU. |
-| `TECHNICAL_NOTE.md` | Editable source of this note. |
+| `papers/technical-note/technical-note.md` | Editable source of this note. |
 | `scripts/build-note.sh`, `docs/note.css` | Generate and style the standalone HTML note using Pandoc. |

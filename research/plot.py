@@ -11,7 +11,7 @@ from matplotlib.ticker import NullFormatter
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT.parent / "technical-note/figures"
+OUT = ROOT.parent / "papers/technical-note/figures"
 OUT.mkdir(parents=True, exist_ok=True)
 plt.rcParams.update(
     {

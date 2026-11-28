@@ -5,10 +5,16 @@ import hashlib
 import json
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCUMENT_REVISION = "48c5166d22b0755ef25f8c31fc37fef4173e85c1"
-# The recorded browser run exercised this archived edition. Current note prose
-# may change; executable sources and numerical inputs still use current files.
-HISTORICAL_DOCUMENTS = {"web/technical-note.html"}
+PROVENANCE = ROOT / "research/provenance"
+# Documents and build scripts revised or moved since a record was made are
+# archived as research/provenance/<commit>/<path>. A recorded hash of such a
+# file may match any archived edition or the current file; numerical sources
+# and inputs still use current files only. See docs/RELEASE.md.
+EDITIONS = {}
+for edition in PROVENANCE.rglob("*"):
+    if edition.is_file() and edition.name != ".DS_Store":
+        name = Path(*edition.relative_to(PROVENANCE).parts[1:]).as_posix()
+        EDITIONS.setdefault(name, []).append(edition)
 reports = [
     ROOT / "docs/gpu-results.json",
     *sorted((ROOT / "research/results").glob("*.json")),
@@ -23,9 +29,11 @@ for path in reports:
             if path.name.startswith("webgl-")
             else ROOT / name
         )
-        if name in HISTORICAL_DOCUMENTS:
-            source = ROOT / "research/provenance" / DOCUMENT_REVISION / name
-        if hashlib.sha256(source.read_bytes()).hexdigest() != digest:
+        candidates = [source, *EDITIONS.get(name, [])]
+        if not any(
+            p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest() == digest
+            for p in candidates
+        ):
             raise SystemExit(
                 f"Stale evidence: {path.relative_to(ROOT)} refers to changed {name}"
             )

@@ -15,11 +15,11 @@ import tempfile
 ROOT = Path(__file__).resolve().parent.parent
 STUDY = "research/diagnostics/algorithm1010"
 DOCUMENT_REVISION = "48c5166d22b0755ef25f8c31fc37fef4173e85c1"
-# Historical evidence hashes documentary editions, while current prose and
-# generated editions may change. Each research/provenance/<commit>/<path> file
-# is the exact edition of <path> at <commit>; a recorded hash of a document may
-# match any archived edition or the current file. Numerical sources still use
-# current files only.
+# Historical evidence hashes documents and build scripts that have since been
+# revised or moved (the papers now live under papers/). Each
+# research/provenance/<commit>/<path> file is the exact edition of <path> at
+# <commit>; a recorded hash of such a file may match any archived edition or
+# the current file. Numerical sources still use current files only.
 PROVENANCE = ROOT / "research/provenance"
 EDITIONS = sorted(p for p in PROVENANCE.rglob("*") if p.is_file() and p.name != ".DS_Store")
 DOCUMENTS = {Path(*p.relative_to(PROVENANCE).parts[1:]).as_posix() for p in EDITIONS}
@@ -94,8 +94,8 @@ def main():
     require(not args.require_manifest or manifest.is_file(), "Release MANIFEST.json required")
     if manifest.is_file():
         data = read("MANIFEST.json")
-        required = {"PAPER.md", "paper/main.tex", "paper/manuscript.pdf",
-                    "technical-note/technical-note.pdf", "web/shader.js",
+        required = {"papers/jcgt/paper.md", "papers/jcgt/main.tex", "papers/jcgt/manuscript.pdf",
+                    "papers/technical-note/technical-note.pdf", "web/shader.js",
                     "scripts/verify-release.py", f"{STUDY}/traversal/MANIFEST.json"}
         require(required <= data["files"].keys(), "Manifest omits required release files")
         for name, expected in data["files"].items():
@@ -143,7 +143,7 @@ def main():
     # with the exact documentary versions it originally hashed, and compare bytes.
     with tempfile.TemporaryDirectory(prefix="hopf-evidence-") as directory:
         isolated = Path(directory).resolve()
-        for name in ["research", "docs", "web", "scripts", "tests", "paper"]:
+        for name in ["research", "docs", "web", "scripts", "tests", "papers"]:
             shutil.copytree(ROOT / name, isolated / name,
                             ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.ppm"))
         for name in ["package-lock.json", "playwright.config.js"]:
@@ -155,6 +155,7 @@ def main():
             revision, *parts = snapshot.relative_to(PROVENANCE).parts
             name = Path(*parts).as_posix()
             if revision == DOCUMENT_REVISION or name not in REQUIRED_DOCUMENTS:
+                (isolated / name).parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(snapshot, isolated / name)
         subprocess.run([sys.executable, str(isolated / STUDY / "final/verify-results.py")],
                        cwd=isolated, check=True)

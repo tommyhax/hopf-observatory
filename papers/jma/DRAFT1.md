@@ -3,7 +3,7 @@ title: "Glass Tori Through Infinity: Exact Ray Tracing of Rotating Hopf Tori"
 author: "Tom Crosby"
 ---
 
-<!-- Draft for Journal of Mathematics and the Arts (Research Article). See jma/README.md for the journal's requirements and the submission checklist. -->
+<!-- Draft for Journal of Mathematics and the Arts (Research Article). See README.md in this folder for the journal's requirements and the submission checklist. -->
 
 ## Abstract
 

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Generate the editable LaTeX edition from TECHNICAL_NOTE.md (requires Pandoc)."""
+"""Generate the editable LaTeX edition of papers/technical-note/technical-note.md (requires Pandoc)."""
 from pathlib import Path
 import re
 import subprocess
 
 root = Path(__file__).resolve().parent.parent
-source = (root / "TECHNICAL_NOTE.md").read_text()
+note = root / "papers" / "technical-note"
+source = (note / "technical-note.md").read_text()
 source = re.sub(r"^---\n.*?\n---\n", "", source, count=1, flags=re.S)
 source = re.sub(r'<div class="demo-block">.*?</div>', "", source, flags=re.S)
 source = source.replace(
@@ -56,7 +57,7 @@ def convert(text):
 
 
 preamble = r"""% Ray tracing stereographic Hopf tori
-% Generated from ../TECHNICAL_NOTE.md by ../scripts/build-latex.py.
+% Generated from technical-note.md by ../../scripts/build-latex.py.
 % This file is standalone and can also be edited directly.
 % Compile twice with pdflatex main.tex .
 \documentclass[11pt,a4paper]{article}
@@ -155,7 +156,7 @@ text = text.replace(
 )
 # Pandoc 3.10's uncaptioned-table marker requires a newer longtable than some TeX distributions.
 text = text.replace(r"\def\LTcaptype{none} % do not increment counter", "")
-project = root / "technical-note"
+project = note
 project.mkdir(exist_ok=True)
 (project / "main.tex").write_text(text)
 print(f'Wrote {project / "main.tex"}')

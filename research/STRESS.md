@@ -1,6 +1,6 @@
 # Final independent validation
 
-This is the fixed final validation pass, not a solver-development branch. The production shader is unchanged from revision `e49349dd91defdc1d86961ec68b472a7f0f24efe` (SHA-256 `a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3`). Numerical failures are retained. The short review manuscript is [PAPER.md](../PAPER.md); the main reproduction guide is [README.md](README.md).
+This is the fixed final validation pass, not a solver-development branch. The production shader is unchanged from revision `e49349dd91defdc1d86961ec68b472a7f0f24efe` (SHA-256 `a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3`). Numerical failures are retained. The short review manuscript is [papers/jcgt/paper.md](../papers/jcgt/paper.md); the main reproduction guide is [README.md](README.md).
 
 ## Corpus and references
 

@@ -30,7 +30,7 @@ As an undergraduate I wanted to ray trace stereographic images of the flat torus
 
 - The 1990s goal: render the flat torus in $S^3$ through stereographic projection, by ray tracing rather than meshing.
 - What existing pictures look like (Banchoff's polygons; tubes; ray-marched approximations) and what they lose: true silhouettes, refraction, behaviour at infinity.
-- **Figure 1 (hero):** three nested glass tori after a four-dimensional rotation. Candidate: `technical-note/figures/three-tori.png`, re-rendered larger and without labels.
+- **Figure 1 (hero):** three nested glass tori after a four-dimensional rotation. Candidate: `papers/technical-note/figures/three-tori.png`, re-rendered larger and without labels.
 
 ### 2. A coordinate made of tori (1 page)
 
@@ -43,7 +43,7 @@ As an undergraduate I wanted to ray trace stereographic images of the flat torus
 ### 3. A ray becomes a circle (1¼ pages)
 
 - Inverse stereographic projection; every point of the lifted ray is already on $S^3$, so there is no "hit the sphere" step as in ordinary 3D ray tracing.
-- The lift of a line is a circle through the pole (existing diagram: `technical-note/figures/ray-lift.png`).
+- The lift of a line is a circle through the pole (existing diagram: `papers/technical-note/figures/ray-lift.png`).
 - Intersections are where the torus label along that circle equals the chosen $t$; clearing denominators gives $V^T(P-cI)V=0$, a quartic in the ray parameter.
 - **The picture to show:** project the lifted circle onto the plane of the first circle and it becomes an ellipse; each torus is the circle of radius $\cos t$ about the origin. Hits are where the ellipse crosses those circles, at most four of them.
 - **Figure 3 (new):** that ellipse with concentric circles for several tori, intersection points marked, beside the corresponding ray in the 3D image.
@@ -53,14 +53,14 @@ As an undergraduate I wanted to ray trace stereographic images of the flat torus
 
 - Rotations act through the projector $P=R\,\mathrm{diag}(1,1,0,0)R^T$. Six sliders give only four effective degrees of freedom, because rotations within each circle's plane slide the torus along itself.
 - The pole condition $P_{44}=\cos^2 t$: the torus passes through infinity, and its image turns inside out.
-- **Figure 4:** the pole sequence (`technical-note/figures/pole-sequence.png`), possibly as glass rather than normal colours.
+- **Figure 4:** the pole sequence (`papers/technical-note/figures/pole-sequence.png`), possibly as glass rather than normal colours.
 
 ### 5. Glass, shells and light (1 page)
 
 - Solid tori and angular shells (a band $t\pm\Delta t/2$, as thin as $0.01^\circ$, like a soap film).
 - Refraction happens in ordinary 3D; transparency lets linked and nested tori be seen through each other.
 - Materials: tinted glass, crystal, chrome, ceramic; environments chosen to make bending visible.
-- **Figure 5:** solid versus shell (`technical-note/figures/solid-shell.png`).
+- **Figure 5:** solid versus shell (`papers/technical-note/figures/solid-shell.png`).
 - **Figure 6 (new):** three linked shells with different tints, chosen for the exhibition as well.
 
 ### 6. Making it work (½ page)
