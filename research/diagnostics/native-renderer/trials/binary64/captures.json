@@ -1,0 +1,2138 @@
+{
+  "date": "2026-11-28T03:05:17.467Z",
+  "native": {
+    "ready": true,
+    "threads": 12,
+    "hardwareThreads": 12,
+    "doubleBits": 53,
+    "boost": "1_90",
+    "compiler": "Apple LLVM 17.0.0 (clang-1700.6.3.2)",
+    "sdl": true,
+    "renderer": "C++ CPU direct quartics",
+    "version": "Apple LLVM 17.0.0 (clang-1700.6.3.2)"
+  },
+  "gpu": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "hashes": {
+    "native/CMakeLists.txt": "e54dd1b1a6b9f77bd4012d9bb277bff76ebce0352a568a9d0d2f205dc5bfdc95",
+    "native/main.cpp": "ce8584d01590caa50c0b388fac162b5d0cd2a89651f4242ea2a316302cf4fdd5",
+    "native/generate-optics.mjs": "923dcdc14c5440880c97b861cb26fc8c39e0341dd44d2af44e086f86ca76831b",
+    "native/client.mjs": "a194b59126a4a021418626b1a986aa6cc062155add8fa9525465b7b16b6d8d33",
+    "native/include/hopf/math.hpp": "18749a12d98967b4d422947b2368415c6bf72f2994b66ecd4b255df116111e98",
+    "native/include/hopf/renderer.hpp": "cdb5d41a92dab4adf4f53fec84e27d7d0ae926cd1bfd233257b2aa9a54297dff",
+    "native/include/hopf/quartic.hpp": "738415896d505d9a645bcbf2c8fd0ee1c9cfc2d4dbad36c30cee05a54fff7590",
+    "native/include/hopf/workers.hpp": "b28f298e3ecd57470bf54dfea6319561616ee879eb548cfd97d9a68b69f61024",
+    "native/build/generated/optics.inc": "0703f830a6bd6f3e0fc5a8ff74a60d20b447f36a8ae2108622cd9397fd9bd0ad",
+    "native/build/hopf-render": "e0672a4f0a13ab6bf5924e58cadf758007701e7a8bf7f63802f1e2a2a93b0207",
+    "native/scenes/benchmark.json": "4edbeb8ec3e313b96c79e7b12d9c9c70e38e97a4fda8ecc48e9f15974570a8b9",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/diagnostics/native-renderer/benchmark.mjs": "9b03a31b1041355d033deaec05c559bb67a99c45971455c8600e2c3126032ddf",
+    "research/diagnostics/native-renderer/PROTOCOL.md": "e8ac1659f5798e3fe1e7dfa041d4ec6761fd5526fdb6239b2437c8e37bac0221"
+  },
+  "shaderSHA256": "3a70927462b5ad47092c5a3e73cfa5a668b6b83043be4d7a05427d8bc6fa8d32",
+  "measurements": [
+    {
+      "scene": 0,
+      "name": "single solid",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383201122283936,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679887771606,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.029999999329447746,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.28314873576164246,
+          0.7230551242828369,
+          0.6795424818992615
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.00039999998989515007,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          8.343208
+        ],
+        "presentationMilliseconds": [
+          6.30525
+        ],
+        "completionMilliseconds": [
+          14.649292
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "3074612058121246493",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          9.118375
+        ],
+        "completionMilliseconds": [
+          10.800000190734863
+        ],
+        "blockMilliseconds": 10.800000190734863
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-0-mode-0-native.rgba.gz",
+      "nativeSHA256": "4195e07546677e0c4f83e94af2e1cd421d1bf26bb6f9c4bb99d59e4c4a78f1c6",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-0-mode-0-production.rgba.gz",
+      "gpuSHA256": "a7c75f00db40d74f2b75ca04722cb93fd77c593ca1c5816bd2c158d727095b84"
+    },
+    {
+      "scene": 0,
+      "name": "single solid",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383201122283936,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679887771606,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.029999999329447746,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.28314873576164246,
+          0.7230551242828369,
+          0.6795424818992615
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.00039999998989515007,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          6.848125
+        ],
+        "presentationMilliseconds": [
+          4.108375
+        ],
+        "completionMilliseconds": [
+          10.957042
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "12078239044593823056",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          1.094916
+        ],
+        "completionMilliseconds": [
+          3.799999713897705
+        ],
+        "blockMilliseconds": 3.799999713897705
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-0-mode-1-native.rgba.gz",
+      "nativeSHA256": "48cf4f188e1d48289ccf4a54824ece75384a9e093924139d7411008df02159dd",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-0-mode-1-production.rgba.gz",
+      "gpuSHA256": "586192ff71aeed98ba738f7c8dfcdf4a2179b42564b86074327aad7eb7776231"
+    },
+    {
+      "scene": 0,
+      "name": "single solid",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383201122283936,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679887771606,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.029999999329447746,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.28314873576164246,
+          0.7230551242828369,
+          0.6795424818992615
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.00039999998989515007,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          5.783041
+        ],
+        "presentationMilliseconds": [
+          3.862833
+        ],
+        "completionMilliseconds": [
+          9.646416
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "5717301079513532426",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          0.287375
+        ],
+        "completionMilliseconds": [
+          2.9000000953674316
+        ],
+        "blockMilliseconds": 2.9000000953674316
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-0-mode-2-native.rgba.gz",
+      "nativeSHA256": "6dbe2b9af36f29166117d812cbdabd6036d9a3b8437314687f314c4547bf652e",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-0-mode-2-production.rgba.gz",
+      "gpuSHA256": "4e7243e680ff12bc5ee7feb611902da7aa484de321be294c119d5db913db6fff"
+    },
+    {
+      "scene": 0,
+      "name": "single solid",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383201122283936,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679887771606,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.029999999329447746,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.28314873576164246,
+          0.7230551242828369,
+          0.6795424818992615
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.00039999998989515007,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          132.277333
+        ],
+        "presentationMilliseconds": [
+          3.24725
+        ],
+        "completionMilliseconds": [
+          135.525042
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "15934239349255799737",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          10.699999
+        ],
+        "completionMilliseconds": [
+          13.199999809265137
+        ],
+        "blockMilliseconds": 13.199999809265137
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/1280-scene-0-mode-0-native.rgba.gz",
+      "nativeSHA256": "692f7186eccf2f3acbf6bedb81427db69791ebe46a8cb0ddf8887beea54ae690",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/1280-scene-0-mode-0-production.rgba.gz",
+      "gpuSHA256": "37e0b65fc1ecbc0b9458a3c3aa14d74be1ed6ba26429fb7c418a45530a2119ef"
+    },
+    {
+      "scene": 1,
+      "name": "single 0.01 shell",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.49991273880004883,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872611999512,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          26.779625
+        ],
+        "presentationMilliseconds": [
+          7.252542
+        ],
+        "completionMilliseconds": [
+          34.03275
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "4830028502589713353",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          9.755374
+        ],
+        "completionMilliseconds": [
+          22.199999809265137
+        ],
+        "blockMilliseconds": 22.199999809265137
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-1-mode-0-native.rgba.gz",
+      "nativeSHA256": "1b3cc2f756378a85623122a623695c7ae1cdb00debc5b52124533fc3b71961b0",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-1-mode-0-production.rgba.gz",
+      "gpuSHA256": "f4e969394d30be26f26450357ca664811005eacf6bf9ee787f9821e63d0f2cf5"
+    },
+    {
+      "scene": 1,
+      "name": "single 0.01 shell",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.49991273880004883,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872611999512,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          7.837167
+        ],
+        "presentationMilliseconds": [
+          5.848375
+        ],
+        "completionMilliseconds": [
+          13.686042
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "13592955949068858219",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          0.444041
+        ],
+        "completionMilliseconds": [
+          4.099999904632568
+        ],
+        "blockMilliseconds": 4.099999904632568
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-1-mode-1-native.rgba.gz",
+      "nativeSHA256": "63c81be0a40ad0882780c38439825d4b3afbd23116b93a02df3ebb9219f2daad",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-1-mode-1-production.rgba.gz",
+      "gpuSHA256": "54a256ec7f74464c6b3e7c133df358b677001e6f10223bb612c6d65994bf921d"
+    },
+    {
+      "scene": 1,
+      "name": "single 0.01 shell",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.49991273880004883,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872611999512,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          5.769291
+        ],
+        "presentationMilliseconds": [
+          3.8705
+        ],
+        "completionMilliseconds": [
+          9.640333
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "1430297263646277837",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          1.087957
+        ],
+        "completionMilliseconds": [
+          3.700000286102295
+        ],
+        "blockMilliseconds": 3.700000286102295
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-1-mode-2-native.rgba.gz",
+      "nativeSHA256": "a9de973968b5f19fedd7a133d167dcb99d5f523150530dc9734846e0d262ab5f",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-1-mode-2-production.rgba.gz",
+      "gpuSHA256": "9975c08115277948b8eff5e5226db72234339763a6cd912127e9d0db5871da06"
+    },
+    {
+      "scene": 1,
+      "name": "single 0.01 shell",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5,
+          0,
+          0
+        ],
+        "uLows": [
+          0.49991273880004883,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872611999512,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.4500000476837158,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.4649905562400818,
+          -0.34874290227890015,
+          -0.8137334585189819
+        ],
+        "uRight": [
+          0.8682431578636169,
+          0,
+          -0.49613893032073975
+        ],
+        "uUp": [
+          -0.17302493751049042,
+          0.937218427658081,
+          -0.3027936518192291
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          173.111833
+        ],
+        "presentationMilliseconds": [
+          3.563459
+        ],
+        "completionMilliseconds": [
+          176.675792
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "7231993338276133135",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          16.13125
+        ],
+        "completionMilliseconds": [
+          19
+        ],
+        "blockMilliseconds": 19
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/1280-scene-1-mode-0-native.rgba.gz",
+      "nativeSHA256": "cb89e402dc651a8cfcf9819cd339be5988a31a6270d884f6b803e160aae7b257",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/1280-scene-1-mode-0-production.rgba.gz",
+      "gpuSHA256": "8a820ca964bc45757343013f2819cadae18642fedd5adbf4bfda88d46dcb045c"
+    },
+    {
+      "scene": 2,
+      "name": "three thin shells",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          75.621458
+        ],
+        "presentationMilliseconds": [
+          3.982917
+        ],
+        "completionMilliseconds": [
+          79.604958
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "4816552492022489652",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          17.398875
+        ],
+        "completionMilliseconds": [
+          21.40000009536743
+        ],
+        "blockMilliseconds": 21.40000009536743
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-2-mode-0-native.rgba.gz",
+      "nativeSHA256": "7c1ea4477ce08cfac08580edfe06e30351bb10da13f7222f45bd2815574333f9",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-2-mode-0-production.rgba.gz",
+      "gpuSHA256": "4b5fe26e5576d03c436899249dc642fb17bbdf2cb38acad538fffc5b0ac0c076"
+    },
+    {
+      "scene": 2,
+      "name": "three thin shells",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          12.476375
+        ],
+        "presentationMilliseconds": [
+          4.400042
+        ],
+        "completionMilliseconds": [
+          16.879667
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "3687035093380330249",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          2.324791
+        ],
+        "completionMilliseconds": [
+          5.099999904632568
+        ],
+        "blockMilliseconds": 5.099999904632568
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-2-mode-1-native.rgba.gz",
+      "nativeSHA256": "121600aa4cccbb1278943f617fe7d4400c76af48f2d4f8c63f495aa5946ab362",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-2-mode-1-production.rgba.gz",
+      "gpuSHA256": "abf81b1730453342589d22b1ec5e25dded4fc1de19725b1d3acc6ddc8c4362d6"
+    },
+    {
+      "scene": 2,
+      "name": "three thin shells",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          15.409291
+        ],
+        "presentationMilliseconds": [
+          4.38125
+        ],
+        "completionMilliseconds": [
+          19.79125
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "10647075964116154534",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          1.756791
+        ],
+        "completionMilliseconds": [
+          4.199999809265137
+        ],
+        "blockMilliseconds": 4.199999809265137
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-2-mode-2-native.rgba.gz",
+      "nativeSHA256": "7bdee006d6a1b444aeaf45e737adba63ef80e94959f95b426d3861761c8b21f7",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-2-mode-2-production.rgba.gz",
+      "gpuSHA256": "6c32cb7e9bb836707f1090cdf07ff6287824aa3faffe17b6ef936ee9567549ba"
+    },
+    {
+      "scene": 2,
+      "name": "three thin shells",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          616.002084
+        ],
+        "presentationMilliseconds": [
+          3.44625
+        ],
+        "completionMilliseconds": [
+          619.448792
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "12155302582371813653",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          69.290375
+        ],
+        "completionMilliseconds": [
+          72.40000009536743
+        ],
+        "blockMilliseconds": 72.40000009536743
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/1280-scene-2-mode-0-native.rgba.gz",
+      "nativeSHA256": "975905cb281a7095b19138231f7ce4e334a9c43858ebece9c395e2dea1165f7d",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/1280-scene-2-mode-0-production.rgba.gz",
+      "gpuSHA256": "e0b06910ee6cda140bafad15a839fd28f6f0a1c87fdcb1a93aea46ddc2cbde95"
+    },
+    {
+      "scene": 3,
+      "name": "three thin shells near pole",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.5
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          277.216125
+        ],
+        "presentationMilliseconds": [
+          5.730041
+        ],
+        "completionMilliseconds": [
+          282.946625
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "12117897696375527085",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          23.790249
+        ],
+        "completionMilliseconds": [
+          32.30000019073486
+        ],
+        "blockMilliseconds": 32.30000019073486
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-3-mode-0-native.rgba.gz",
+      "nativeSHA256": "4c3e41c751bedb97fd8cb2ee7da5b777ce1ae896606ad44cae2d91f43e348312",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-3-mode-0-production.rgba.gz",
+      "gpuSHA256": "febf11c33a2b648002f55fbc655a6b1977a68cc7c6e2b7d1b47abf0428b11dbb"
+    },
+    {
+      "scene": 3,
+      "name": "three thin shells near pole",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.5
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          17.92575
+        ],
+        "presentationMilliseconds": [
+          5.253
+        ],
+        "completionMilliseconds": [
+          23.179292
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "12467114385144229543",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          2.236332
+        ],
+        "completionMilliseconds": [
+          5
+        ],
+        "blockMilliseconds": 5
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-3-mode-1-native.rgba.gz",
+      "nativeSHA256": "88c3dd43d4d17aa9a48ff28e728cdda73327e00c929ddf60497ae437186be0f8",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-3-mode-1-production.rgba.gz",
+      "gpuSHA256": "2b2e0d4e716b248db1a7ba3ff1b136952f900db18bbaecfbb50cef63f587fc9a"
+    },
+    {
+      "scene": 3,
+      "name": "three thin shells near pole",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.5
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          19.546416
+        ],
+        "presentationMilliseconds": [
+          3.913875
+        ],
+        "completionMilliseconds": [
+          23.460833
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "1446596532868229682",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          3.345374
+        ],
+        "completionMilliseconds": [
+          6.300000190734863
+        ],
+        "blockMilliseconds": 6.300000190734863
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/480-scene-3-mode-2-native.rgba.gz",
+      "nativeSHA256": "c5cba3eef5c4cb4e7c2f4a445f137b0fd5d141f21e31cac87ddb31b331cc49e0",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/480-scene-3-mode-2-production.rgba.gz",
+      "gpuSHA256": "42742da3188f60bf1528f360b99a414a9ea9a862a0b02b5158323d7ce4459c1f"
+    },
+    {
+      "scene": 3,
+      "name": "three thin shells near pole",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.5
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213937878608704,
+          0.5,
+          0.17860619723796844
+        ],
+        "uLows": [
+          0.8213269710540771,
+          0.49991273880004883,
+          0.17853935062885284
+        ],
+        "uHighs": [
+          0.8214606642723083,
+          0.5000872611999512,
+          0.17867304384708405
+        ],
+        "uOptics[0]": [
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0,
+          0,
+          1.350000023841858,
+          0.02500000037252903,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587443351746,
+          0.7681511640548706,
+          0.7011018991470337,
+          0.7304607629776001,
+          0.35640013217926025,
+          0.672443151473999,
+          0.8879231214523315,
+          0.5457244515419006,
+          0.21952620148658752
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.42678961157798767,
+          -0.29875272512435913,
+          -0.8535792231559753
+        ],
+        "uRight": [
+          0.8944271802902222,
+          0,
+          -0.4472135901451111
+        ],
+        "uUp": [
+          -0.13360628485679626,
+          0.954330563545227,
+          -0.26721256971359253
+        ],
+        "uRayBias": 0.000008726646228751633,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.30000001192092896,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "native": {
+        "milliseconds": [
+          2181.624416
+        ],
+        "presentationMilliseconds": [
+          4.053834
+        ],
+        "completionMilliseconds": [
+          2185.679166
+        ],
+        "invalidRoots": 0,
+        "invalidPixels": 0,
+        "checksum": "8666049513748532921",
+        "presentationBackend": "metal"
+      },
+      "gpu": {
+        "glError": 0,
+        "disjoint": false,
+        "milliseconds": [
+          83.307958
+        ],
+        "completionMilliseconds": [
+          86.69999980926514
+        ],
+        "blockMilliseconds": 86.69999980926514
+      },
+      "nativePath": "/Users/tom/Desktop/hopf-observatory/research/diagnostics/native-renderer/results/images/1280-scene-3-mode-0-native.rgba.gz",
+      "nativeSHA256": "74a826e991c2b11d5b15cb080b97b39182114f295cb3f3a04fc3f5138880cc4e",
+      "gpuPath": "research/diagnostics/native-renderer/results/images/1280-scene-3-mode-0-production.rgba.gz",
+      "gpuSHA256": "c791c31e2026e38f4058bf1cc36f32975db01b964f78690e4f6510d060d3da45"
+    }
+  ]
+}

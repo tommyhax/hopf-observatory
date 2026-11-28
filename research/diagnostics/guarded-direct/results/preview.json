@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "path": "/",
+      "title": "Experimental guarded direct · Hopf Observatory",
+      "errorHidden": true,
+      "errorText": "",
+      "renderState": "LIVE RAYTRACE",
+      "fps": "491 × 440",
+      "width": 491,
+      "height": 440,
+      "glError": 0,
+      "comparisonLink": "/baseline/",
+      "errors": [],
+      "pass": true
+    },
+    {
+      "path": "/baseline/",
+      "title": "Production baseline · Hopf Observatory",
+      "errorHidden": true,
+      "errorText": "",
+      "renderState": "LIVE RAYTRACE",
+      "fps": "491 × 440",
+      "width": 491,
+      "height": 440,
+      "glError": 0,
+      "comparisonLink": "/",
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "hashes": {
+    "web/app.js": "ca08eec07cb0c6cdc35e591b30d509e0e7a82c33d87e39888eb12d05b3cf8c89",
+    "web/index.html": "2c3a183adc32fea0f40bd780ad296e0223de41a96ff6834f5db19a26088326c9",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "research/diagnostics/guarded-direct/renderer.mjs": "27c437819a3f8ab8f4285cc89605313bc995812a743b4543ceb67bf88bb9675f",
+    "research/diagnostics/guarded-direct/solver.glsl.in": "3059893fc6cae3e7c17d9c5d5adbf6a41f1476432c2a668961a3efc81da073f6",
+    "research/diagnostics/guarded-direct/elementary.glsl": "7265a8864c6f36c3e61ad7e315a4a0d01b9ccade33dc766a93f6bb0212221ec5",
+    "research/diagnostics/guarded-direct/intersection.glsl": "f61da2e4bee6309de9f1c9db522a71a65df7095374abfdd219feac5b355fb044",
+    "research/diagnostics/browser-precision/paired.glsl": "62ada1f865b1633224d24051925ac337b29fb108cf457b0af939addaff5db4a3",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "research/diagnostics/guarded-direct/serve.mjs": "67ef60ff0e3e66c4f8203896a7868f88914f9944ff1ea54317605679550cd5c4",
+    "research/diagnostics/guarded-direct/smoke-preview.mjs": "d4399e70fdf040faf7d0f0548ea96e7c67cb1c488d3422e9e9801c70fc38689c"
+  }
+}

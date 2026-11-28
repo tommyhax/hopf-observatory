@@ -5,6 +5,10 @@ import hashlib
 import json
 
 ROOT = Path(__file__).resolve().parent.parent
+DOCUMENT_REVISION = "48c5166d22b0755ef25f8c31fc37fef4173e85c1"
+# The recorded browser run exercised this archived edition. Current note prose
+# may change; executable sources and numerical inputs still use current files.
+HISTORICAL_DOCUMENTS = {"web/technical-note.html"}
 reports = [
     ROOT / "docs/gpu-results.json",
     *sorted((ROOT / "research/results").glob("*.json")),
@@ -19,6 +23,8 @@ for path in reports:
             if path.name.startswith("webgl-")
             else ROOT / name
         )
+        if name in HISTORICAL_DOCUMENTS:
+            source = ROOT / "research/provenance" / DOCUMENT_REVISION / name
         if hashlib.sha256(source.read_bytes()).hexdigest() != digest:
             raise SystemExit(
                 f"Stale evidence: {path.relative_to(ROOT)} refers to changed {name}"

@@ -1,0 +1,419 @@
+{
+  "images": [
+    {
+      "scene": "single solid",
+      "index": 0,
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 76,
+      "meanChannelDifference": 0.0007896090534979424,
+      "pixelsOver1": 2,
+      "pixelsOver3": 2,
+      "outliers": [
+        {
+          "x": 284,
+          "y": 77,
+          "difference": 28,
+          "production": [
+            129,
+            146,
+            147,
+            255
+          ],
+          "direct": [
+            101,
+            120,
+            120,
+            255
+          ]
+        },
+        {
+          "x": 312,
+          "y": 126,
+          "difference": 76,
+          "production": [
+            144,
+            159,
+            161,
+            255
+          ],
+          "direct": [
+            68,
+            88,
+            85,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 5.1440329218107e-06,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 0,
+      "meanChannelDifference": 0.0,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "maxChannelDifference": 80,
+      "meanChannelDifference": 0.0002723524305555556,
+      "pixelsOver1": 14,
+      "pixelsOver3": 11,
+      "outliers": [
+        {
+          "x": 734,
+          "y": 189,
+          "difference": 4,
+          "production": [
+            88,
+            109,
+            109,
+            255
+          ],
+          "direct": [
+            84,
+            106,
+            106,
+            255
+          ]
+        },
+        {
+          "x": 735,
+          "y": 190,
+          "difference": 9,
+          "production": [
+            158,
+            176,
+            177,
+            255
+          ],
+          "direct": [
+            149,
+            168,
+            169,
+            255
+          ]
+        },
+        {
+          "x": 750,
+          "y": 200,
+          "difference": 14,
+          "production": [
+            130,
+            150,
+            154,
+            255
+          ],
+          "direct": [
+            116,
+            139,
+            143,
+            255
+          ]
+        },
+        {
+          "x": 757,
+          "y": 207,
+          "difference": 60,
+          "production": [
+            89,
+            114,
+            113,
+            255
+          ],
+          "direct": [
+            149,
+            167,
+            168,
+            255
+          ]
+        },
+        {
+          "x": 759,
+          "y": 208,
+          "difference": 9,
+          "production": [
+            102,
+            126,
+            128,
+            255
+          ],
+          "direct": [
+            95,
+            119,
+            119,
+            255
+          ]
+        },
+        {
+          "x": 761,
+          "y": 209,
+          "difference": 33,
+          "production": [
+            159,
+            175,
+            177,
+            255
+          ],
+          "direct": [
+            126,
+            147,
+            150,
+            255
+          ]
+        },
+        {
+          "x": 829,
+          "y": 323,
+          "difference": 18,
+          "production": [
+            117,
+            140,
+            145,
+            255
+          ],
+          "direct": [
+            135,
+            155,
+            159,
+            255
+          ]
+        },
+        {
+          "x": 830,
+          "y": 325,
+          "difference": 4,
+          "production": [
+            158,
+            174,
+            175,
+            255
+          ],
+          "direct": [
+            161,
+            177,
+            179,
+            255
+          ]
+        },
+        {
+          "x": 832,
+          "y": 332,
+          "difference": 13,
+          "production": [
+            93,
+            111,
+            110,
+            255
+          ],
+          "direct": [
+            80,
+            99,
+            98,
+            255
+          ]
+        },
+        {
+          "x": 832,
+          "y": 334,
+          "difference": 80,
+          "production": [
+            71,
+            94,
+            91,
+            255
+          ],
+          "direct": [
+            151,
+            169,
+            170,
+            255
+          ]
+        },
+        {
+          "x": 833,
+          "y": 347,
+          "difference": 4,
+          "production": [
+            84,
+            106,
+            105,
+            255
+          ],
+          "direct": [
+            88,
+            110,
+            109,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 7.71604938271605e-06,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 0,
+      "meanChannelDifference": 0.0,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 0,
+      "meanChannelDifference": 0.0,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "maxChannelDifference": 2,
+      "meanChannelDifference": 6.148726851851852e-06,
+      "pixelsOver1": 1,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 2.8292181069958848e-05,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 7.71604938271605e-06,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 1.54320987654321e-05,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "maxChannelDifference": 2,
+      "meanChannelDifference": 2.9658564814814815e-05,
+      "pixelsOver1": 1,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 6.17283950617284e-05,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 2.57201646090535e-06,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 3.8580246913580246e-05,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "maxChannelDifference": 1,
+      "meanChannelDifference": 5.1359953703703705e-05,
+      "pixelsOver1": 0,
+      "pixelsOver3": 0,
+      "outliers": []
+    }
+  ]
+}

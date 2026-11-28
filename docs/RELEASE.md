@@ -4,9 +4,10 @@
 two tags identify the same source snapshot; `.2` corrected asset delivery.
 The [release notes](RELEASE_NOTES.md) describe the finished solver evaluation.
 The [Algorithm 1010 overview](../research/diagnostics/algorithm1010/README.md)
-is the current research entry point. The 21 November 2026 technical note is
-the detailed baseline exposition, with applicable geometry and production
-renderer descriptions; its generated editions are deliberately unchanged.
+is the current research entry point. The technical note retains the detailed
+baseline geometry, production-renderer description and experimental results
+from 21 November 2026. Its exposition and generated editions may be revised;
+the original browser note is preserved for historical evidence verification.
 
 ## Offline verification
 
@@ -21,7 +22,7 @@ python3 scripts/verify-release.py --history
 ```
 
 This read-only gate needs no GPU, network or scientific Python packages. It
-checks the original 153 source/input hashes, all 65 frozen baseline paths,
+checks the original 153 source/input hashes, all 65 frozen baseline hashes,
 algebraic/Algorithm 1010 recorded hashes and source snapshots, the traversal
 manifest, lossless images, raw timing effects and correctness reports. The
 historical adoption verifier runs in a temporary copy, with its original
@@ -38,13 +39,23 @@ Provenance has three distinct scopes:
   `48c5166d22b0755ef25f8c31fc37fef4173e85c1`. Its `PAPER.md`, `paper/main.tex`
   and `paper/manuscript.pdf` are shipped verbatim under
   `research/provenance/48c5166d22b0755ef25f8c31fc37fef4173e85c1/` solely to
-  verify those records offline. These are historical snapshots, not the current
-  manuscript. Other hashed historical reports remain at their original paths.
+  verify those records offline. The same directory preserves
+  `web/technical-note.html` from that revision, matching the original hash in
+  the grazing diagnostic's frozen manifest. The gate uses these snapshots for
+  historical hash checks and restores them into the temporary adoption-verifier
+  copy. Current manuscript and technical-note editions can therefore evolve
+  without changing the recorded evidence. Other hashed historical reports
+  remain at their original paths.
 - **New release provenance:** the root `MANIFEST.json` inside the archive hashes
   the current consolidated documents, current generated manuscript, historical
   snapshots and all other packaged files. It records the full source commit,
   source tree and commit time. It does not claim that current prose matches old
-  documentary hashes.
+  documentary hashes. When revising an edition covered by historical evidence,
+  preserve its exact recorded version in `research/provenance/` and register
+  that document in `scripts/verify-release.py`. The recorded-source checker
+  `research/check-evidence.py` also uses the archived browser note for its
+  historical browser-integration report. Never refresh a frozen evidence hash
+  to match new prose. Run the offline gate after rebuilding documents.
 
 Historical `release/*` distribution files are optional local checks. If present,
 their bytes must match the old preservation records; if absent, the verifier

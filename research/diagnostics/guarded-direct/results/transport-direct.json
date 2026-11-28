@@ -1,0 +1,451 @@
+{
+  "variant": "direct",
+  "shaderHashes": {
+    "vertex": "276eaeea6c20db9f3703a32a6424e9216f26b1d79f4f9338cccbc1a561f66449",
+    "fragment": "08896c281ee9952f4c028918db64231570205a7e927c16056c51c990d12f5e5f"
+  },
+  "sourceHashes": {
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "web/math.js": "188900d29bc884af32ba8e4641a093e02d3755e4a4a8ebc1a7d1319af2aabd05",
+    "web/scene.js": "6c4ca7b4f3fc35a44e695545927309b5159d562d435b6c59e86afd57e2f8ae3e",
+    "scripts/run-gpu-checks.mjs": "80e8635d0724edc8d02024b5ffd9fcc6aa97246c4b13b4fefe2b423e2f49296b",
+    "tests/native-gpu.m": "7f15b91fe72b8b1d0937d018a1c98f5adae174b238ddd1752c2985b612dc6659",
+    "research/diagnostics/guarded-direct/renderer.mjs": "27c437819a3f8ab8f4285cc89605313bc995812a743b4543ceb67bf88bb9675f",
+    "research/diagnostics/guarded-direct/solver.glsl.in": "3059893fc6cae3e7c17d9c5d5adbf6a41f1476432c2a668961a3efc81da073f6",
+    "research/diagnostics/guarded-direct/elementary.glsl": "7265a8864c6f36c3e61ad7e315a4a0d01b9ccade33dc766a93f6bb0212221ec5",
+    "research/diagnostics/guarded-direct/intersection.glsl": "f61da2e4bee6309de9f1c9db522a71a65df7095374abfdd219feac5b355fb044",
+    "research/diagnostics/browser-precision/paired.glsl": "62ada1f865b1633224d24051925ac337b29fb108cf457b0af939addaff5db4a3",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "research/diagnostics/guarded-direct/run-transport.mjs": "07535bde32f63e989018c5328931eeaf323b9da50311597ef64d44beb3032941",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7"
+  },
+  "date": "2026-11-28T04:10:53.391Z",
+  "execution": "Actual hardware browser WebGL2; original transport suite with direct-precision experimental intersections.",
+  "suite": "all",
+  "hardware": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "results": {
+    "thinCrossings": {
+      "passed": 31,
+      "total": 31,
+      "hitCount": 296,
+      "maxRelativeError": 0.000004561370106049709,
+      "failures": []
+    },
+    "refraction": {
+      "passed": 36,
+      "total": 36,
+      "interfaces": 392,
+      "entries": 187,
+      "exits": 181,
+      "totalInternalReflections": 24,
+      "maxSnellResidual": 6.663486196156754e-8,
+      "maxNormalError": 1.245261460215531e-7,
+      "failures": [],
+      "paths": [
+        {
+          "name": "axis t=1, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=5, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=25, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=45, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=65, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=85, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "axis t=89, width=0.01",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three shells, width=0.01",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "oblique 0.01 shell, XW=0, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=0, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=22, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=22, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=44.99, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=44.99, y=0.55",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=45.01, y=0.15",
+          "count": 6,
+          "entries": 3,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=45.01, y=0.55",
+          "count": 2,
+          "entries": 1,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=70, y=0.15",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "oblique 0.01 shell, XW=70, y=0.55",
+          "count": 8,
+          "entries": 4,
+          "exits": 4,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=-0.005",
+          "count": 3,
+          "entries": 2,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=0",
+          "count": 3,
+          "entries": 2,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=5, offset=0.005",
+          "count": 2,
+          "entries": 1,
+          "exits": 1,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=-0.005",
+          "count": 7,
+          "entries": 4,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=0",
+          "count": 7,
+          "entries": 4,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=45, offset=0.005",
+          "count": 6,
+          "entries": 3,
+          "exits": 3,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=-0.005",
+          "count": 5,
+          "entries": 3,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=0",
+          "count": 5,
+          "entries": 3,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "pole boundary 0.01 shell, t=85, offset=0.005",
+          "count": 4,
+          "entries": 2,
+          "exits": 2,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=0",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=24.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=25.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=44.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=45.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=64.99",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=65.005",
+          "count": 22,
+          "entries": 11,
+          "exits": 11,
+          "tir": 0,
+          "budgetReached": false
+        },
+        {
+          "name": "three oblique 0.01 shells, XW=80",
+          "count": 24,
+          "entries": 12,
+          "exits": 12,
+          "tir": 0,
+          "budgetReached": true
+        },
+        {
+          "name": "TIR inside a 0.01-degree shell",
+          "count": 24,
+          "entries": 0,
+          "exits": 0,
+          "tir": 24,
+          "budgetReached": true
+        }
+      ]
+    },
+    "invisibility": {
+      "passed": 31,
+      "total": 31,
+      "maxError": 0,
+      "failures": []
+    },
+    "solidSuite": {
+      "passed": 625,
+      "total": 625,
+      "hitCount": 496,
+      "maxRelativeError": 0.0000024134664257102756,
+      "unresolvedTangencies": [
+        {
+          "name": "Pole neighborhood t=85 offset=0 ray=0",
+          "pairs": [
+            {
+              "first": 5.008991425607342,
+              "second": 5.008992005568928,
+              "resolution": 0.000004776947026795318
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "shellSuite": {
+      "passed": 403,
+      "total": 403,
+      "hitCount": 1305,
+      "maxRelativeError": 0.000009628745532506305,
+      "unresolvedTangencies": [
+        {
+          "name": "Pole t=85, width=0.01, XW=4.9950000000000045, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991424038541,
+              "second": 5.008992005623281,
+              "resolution": 0.000004776947026847153
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.01, XW=5.0049999999999955, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991427166151,
+              "second": 5.008992005514639,
+              "resolution": 0.000004776947026743544
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.05, XW=4.974999999999994, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991417661529,
+              "second": 5.008992005841337,
+              "resolution": 0.000004776947027055108
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.05, XW=5.025000000000006, ray=0",
+          "pairs": [
+            {
+              "first": 5.0089914333035495,
+              "second": 5.008992005298117,
+              "resolution": 0.000004776947026537053
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.5, XW=4.75, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991332571436,
+              "second": 5.008992008367374,
+              "resolution": 0.000004776947029464124
+            }
+          ]
+        },
+        {
+          "name": "Pole t=85, width=0.5, XW=5.25, ray=0",
+          "pairs": [
+            {
+              "first": 5.008991493038195,
+              "second": 5.008992002930484,
+              "resolution": 0.000004776947024279103
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "sceneSuite": {
+      "passed": 133,
+      "total": 133,
+      "hitCount": 467,
+      "maxRelativeError": 0.000007899864380040702,
+      "unresolvedTangencies": [],
+      "failures": []
+    },
+    "renderSmoke": {
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    }
+  },
+  "passed": true
+}

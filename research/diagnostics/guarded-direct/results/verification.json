@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "rays": 3267,
+  "fixtures": 54,
+  "imageComparisons": 16,
+  "exactPixelQueries": 313,
+  "timedFrames": 240,
+  "priorProtectedSources": 81,
+  "archivedTrialFiles": 15
+}

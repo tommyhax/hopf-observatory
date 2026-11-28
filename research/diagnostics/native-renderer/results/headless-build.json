@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "metadata": {
+    "ready": true,
+    "threads": 2,
+    "hardwareThreads": 12,
+    "doubleBits": 53,
+    "boost": "1_90",
+    "compiler": "Apple LLVM 17.0.0 (clang-1700.6.3.2)",
+    "solver": "direct formulas; adaptive 53/113/256 bits",
+    "sdl": false
+  },
+  "result": {
+    "milliseconds": [
+      62.455167
+    ],
+    "presentationMilliseconds": [
+      0
+    ],
+    "completionMilliseconds": [
+      62.456125
+    ],
+    "invalidRoots": 0,
+    "invalidPixels": 0,
+    "checksum": "3074612058121246493",
+    "escalated113": 36,
+    "escalated256": 0,
+    "presentationBackend": "none"
+  },
+  "configure": [
+    "cmake",
+    "-S",
+    "/Users/tom/Desktop/hopf-observatory/native",
+    "-B",
+    "/var/folders/ll/_4k9bb5529v58tkp9lgt5zk80000gn/T/hopf-native-headless-eoiv35y7",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_PREFIX_PATH=/opt/homebrew",
+    "-DCMAKE_DISABLE_FIND_PACKAGE_SDL3=TRUE"
+  ],
+  "buildLog": "-- The CXX compiler identification is AppleClang 17.0.0.17000603\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: /usr/bin/c++ - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n-- Found Threads: TRUE\n-- Configuring done (0.8s)\n-- Generating done (0.0s)\n-- Build files have been written to: /var/folders/ll/_4k9bb5529v58tkp9lgt5zk80000gn/T/hopf-native-headless-eoiv35y7\n[ 33%] Generating generated/optics.inc\n[ 66%] Building CXX object CMakeFiles/hopf-render.dir/main.cpp.o\n[100%] Linking CXX executable hopf-render\n[100%] Built target hopf-render\n",
+  "generatedOpticsSHA256": "0703f830a6bd6f3e0fc5a8ff74a60d20b447f36a8ae2108622cd9397fd9bd0ad"
+}

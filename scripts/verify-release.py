@@ -15,7 +15,10 @@ import tempfile
 ROOT = Path(__file__).resolve().parent.parent
 STUDY = "research/diagnostics/algorithm1010"
 DOCUMENT_REVISION = "48c5166d22b0755ef25f8c31fc37fef4173e85c1"
-DOCUMENTS = {"PAPER.md", "paper/main.tex", "paper/manuscript.pdf"}
+# Historical evidence hashes these documentary versions, while current prose
+# and generated editions may change. Numerical sources still use current files.
+DOCUMENTS = {"PAPER.md", "paper/main.tex", "paper/manuscript.pdf",
+             "web/technical-note.html"}
 
 
 def sha(data):
@@ -82,7 +85,7 @@ def main():
             original = subprocess.check_output(["git", "show", f"{DOCUMENT_REVISION}:{name}"], cwd=ROOT)
             require(original == snapshot.read_bytes(), f"Git snapshot mismatch: {name}")
     if args.history:
-        print(f"Three historical document snapshots match Git revision {DOCUMENT_REVISION}.")
+        print(f"{len(DOCUMENTS)} historical document snapshots match Git revision {DOCUMENT_REVISION}.")
 
     frozen = read("research/diagnostics/grazing/frozen-manifest.json")
     for name, expected in frozen["files"].items():
@@ -184,7 +187,7 @@ def main():
                         "Within-solver image difference")
                 pairs += 1
     print(f"{pairs} within-solver image pairs identical; all 48 lossless captures verified.")
-    print(f"Hash checks: {counts}; {len(frozen['files'])} frozen baseline paths unchanged.")
+    print(f"Hash checks: {counts}; {len(frozen['files'])} frozen baseline hashes verified.")
     print(f"Historical local distribution assets verified: {len(checked_assets)}; unavailable: {len(absent_assets)}.")
     for name in sorted(absent_assets):
         print(f"  NOT CHECKED (not shipped): {name}")

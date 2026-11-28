@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Tom Crosby" />
+  <title>Ray tracing stereographic Hopf tori across the projection pole</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="note.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Ray tracing stereographic Hopf tori across the
+projection pole</h1>
+<p class="subtitle">Geometry, quartic intersections, and solid and shell
+optics in Hopf Observatory</p>
+<p class="author">Tom Crosby</p>
+<p class="date">Technical note · 21 November 2026</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+<li><a href="#the-accompanying-demonstration"
+id="toc-the-accompanying-demonstration">The accompanying
+demonstration</a></li>
+<li><a href="#a-family-of-tori-and-a-coordinate-on-the-three-sphere"
+id="toc-a-family-of-tori-and-a-coordinate-on-the-three-sphere">1. A
+family of tori and a coordinate on the three-sphere</a></li>
+<li><a href="#lifting-a-3d-ray-a-circle-not-a-straight-4d-ray"
+id="toc-lifting-a-3d-ray-a-circle-not-a-straight-4d-ray">2. Lifting a 3D
+ray: a circle, not a straight 4D ray</a></li>
+<li><a href="#rotation-and-the-implicit-quartic"
+id="toc-rotation-and-the-implicit-quartic">3. Rotation and the implicit
+quartic</a></li>
+<li><a href="#exact-normals" id="toc-exact-normals">4. Exact
+normals</a></li>
+<li><a href="#the-ray-polynomial" id="toc-the-ray-polynomial">5. The ray
+polynomial</a></li>
+<li><a href="#the-projection-pole-and-apparent-eversion"
+id="toc-the-projection-pole-and-apparent-eversion">6. The projection
+pole and apparent eversion</a></li>
+<li><a href="#numerical-intersection-method-used-by-the-demo"
+id="toc-numerical-intersection-method-used-by-the-demo">7. Numerical
+intersection method used by the demo</a></li>
+<li><a href="#a-solid-and-a-shell-are-different-material-choices"
+id="toc-a-solid-and-a-shell-are-different-material-choices">8. A solid
+and a shell are different material choices</a></li>
+<li><a href="#all-the-optics-occur-in-ordinary-3d"
+id="toc-all-the-optics-occur-in-ordinary-3d">9. All the optics occur in
+ordinary 3D</a></li>
+<li><a href="#experimental-validation"
+id="toc-experimental-validation">10. Experimental validation</a></li>
+<li><a href="#reproducibility" id="toc-reproducibility">11.
+Reproducibility</a></li>
+<li><a href="#related-work-and-scope"
+id="toc-related-work-and-scope">12. Related work and scope</a></li>
+<li><a href="#limitations" id="toc-limitations">13. Limitations</a></li>
+<li><a href="#assistance-and-responsibility"
+id="toc-assistance-and-responsibility">Assistance and
+responsibility</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+<li><a href="#implementation-map"
+id="toc-implementation-map">Implementation map</a></li>
+</ul>
+</nav>
+<h2 id="abstract">Abstract</h2>
+<p>We describe an interactive GPU ray tracer for stereographic
+projections of rotated Hopf tori. A rank-two projector gives an implicit
+quartic with analytic normals. Closest-point recentering and
+near/reciprocal ray coordinates permit Bernstein root isolation on
+finite parameter intervals even when the projected surface becomes
+unbounded. The implementation supports three simultaneous material
+regions, including thin shells, with successive Euclidean reflection and
+refraction.</p>
+<p>An independent exact-rational reference separates solver error from
+float32 input-geometry rounding. On an 867-ray corpus, the production
+Bernstein solver and a Yuksel–Peters Newton-bisection baseline in both
+centered affine and near/reciprocal coordinates each match all 1,470
+distinct positive intersections at relative-distance tolerance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>.
+All roots are collected from the unchanged original ray, before and
+after common surface refinement. A conventional float32 Ferrari baseline
+fails on 378 rays after refinement. The corpus includes projection-pole
+sweeps, adjacent-float pole offsets, grazing rays and six-plane
+rotations, with intersections approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.4</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2.4\times10^9</annotation></semantics></math>
+scene units away. These results support a practical implementation
+study; they show no completeness advantage over the modern
+centered-coordinate baseline at this tolerance. Input rounding,
+tangencies and finite-precision transport remain limitations.</p>
+<p>A separate frozen 2,400-query stress corpus finds the same 109
+grazing failures in all three modern variants at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>,
+while all 1,800 random, pole and shell-boundary queries pass. Input
+rounding independently changes 570 intended root sets. Twelve selected
+optical paths pass per solver against independent captured-ray
+references. The short review manuscript is supplied separately as
+<code>PAPER.md</code>; this document retains the extended derivation and
+implementation detail.</p>
+<h2 id="the-accompanying-demonstration">The accompanying
+demonstration</h2>
+<p>The complete working demo is included in this project. From the
+<code>hopf-observatory</code> directory:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start</span></code></pre></div>
+<p>The app is served at <code>http://localhost:8765/</code>. <a
+href="index.html">Open the observatory</a> or <a
+href="technical-note.html">the illustrated browser note</a>. The app
+needs WebGL 2. Opening <code>index.html</code> directly with a
+<code>file:</code> URL is insufficient because the app uses JavaScript
+modules. The note’s rendered equations use native MathML and require no
+external mathematics service.</p>
+<div class="demo-block">
+<p>
+<a href="index.html" target="_blank" rel="noopener">Open the local demo
+in its own tab</a>
+</p>
+<iframe src="index.html" title="Hopf Observatory: interactive quartic ray tracer" loading="lazy" allow="fullscreen">
+</iframe>
+</div>
+<p>Drag to orbit the 3D camera; scroll or pinch to zoom. The six
+rotation sliders act in XY, XZ, XW, YZ, YW, and ZW. The app initially
+shows the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>45</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">45^\circ</annotation></semantics></math>
+torus as a tinted shell of width
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>0.01</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">0.01^\circ</annotation></semantics></math>;
+two further tori can be enabled with checkboxes. <strong>Selected
+torus</strong> groups its geometry and material controls.
+<strong>Rotation</strong> contains the six shared angles and automatic
+rotation. For an otherwise aligned solid, XW rotation crosses the pole
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>90</mn><mo>∘</mo></msup><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">90^\circ-t</annotation></semantics></math>;
+a shell has two nearby crossings. High quality allows 24 main-path
+interactions.</p>
+<p>The surface is never converted to a polygon mesh or point cloud. A
+screen-filling triangle only invokes a fragment shader; each fragment
+independently constructs a ray and solves its intersection equation.
+Polynomial evaluations during root finding are numerical equation
+solving, not sampling a collection of surface points or ray marching
+through space.</p>
+<figure id="fig:family">
+<img src="figures/three-tori.png" style="width:100.0%"
+alt="Three tori with parameters 25°, 45°, and 65°, rendered directly by the production shader. Each has a 0.5° shell, refractive index 1.3, and a small tinted coating. The second view applies a shared four-dimensional rotation. Camera and material values are recorded with the supplementary data." />
+<figcaption aria-hidden="true">Three tori with parameters 25°, 45°, and
+65°, rendered directly by the production shader. Each has a 0.5° shell,
+refractive index 1.3, and a small tinted coating. The second view
+applies a shared four-dimensional rotation. Camera and material values
+are recorded with the supplementary data.</figcaption>
+</figure>
+<h3 id="contributions">Contributions</h3>
+<p>This implementation combines (i) a projector-based derivation of
+stereographic ray intersections and normals; (ii) directly constructed
+Bernstein coefficients in near/reciprocal charts, with closest-point
+recentering and homogeneous-form polishing; (iii) multi-region solid and
+shell optics, including
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>0.01</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">0.01^\circ</annotation></semantics></math>
+parameter bands; and (iv) a reproducible pole-crossing comparison that
+separates root-solver error from input-geometry rounding. Each
+ingredient has prior work. The contribution is the documented
+combination, implementation detail, and measured behavior under a
+difficult geometric condition.</p>
+<h2 id="a-family-of-tori-and-a-coordinate-on-the-three-sphere">1. A
+family of tori and a coordinate on the three-sphere</h2>
+<p>Write a point of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mn>3</mn></msup><mo>⊂</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">S^3\subset\mathbb R^4</annotation></semantics></math>
+as two complex coordinates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mo>,</mo><msub><mi>z</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(z_1,z_2)</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>1</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>2</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|z_1|^2+|z_2|^2=1</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>t</mi><mo>&lt;</mo><mi>π</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">0&lt;t&lt;\pi/2</annotation></semantics></math>
+define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>a</mi><mo>,</mo><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>a</mi><mo>,</mo><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>b</mi><mo>,</mo><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X(t,a,b)=(\cos t\cos a,\ \cos t\sin a,\ \sin t\cos b,\ \sin t\sin b).
+</annotation></semantics></math></p>
+<p>For each fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+the image
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mi>t</mi></msub><annotation encoding="application/x-tex">T_t</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mn>1</mn></msup><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><msup><mi>S</mi><mn>1</mn></msup><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">S^1(\cos t)\times S^1(\sin t)</annotation></semantics></math>.
+At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mi>π</mi><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">t=\pi/4</annotation></semantics></math>
+this is the standard Clifford torus. Every point away from the two
+circles
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">z_1=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>2</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">z_2=0</annotation></semantics></math>
+has a unique value</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">atan2</mi><mo>&#8289;</mo></mrow><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mrow><msubsup><mi>q</mi><mn>3</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>q</mi><mn>4</mn><mn>2</mn></msubsup></mrow></msqrt><mo>,</mo><msqrt><mrow><msubsup><mi>q</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>q</mi><mn>2</mn><mn>2</mn></msubsup></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\tau(q)=\operatorname{atan2}\!\left(\sqrt{q_3^2+q_4^2},\sqrt{q_1^2+q_2^2}\right).
+</annotation></semantics></math></p>
+<p>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math>
+taken modulo
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">2\pi</annotation></semantics></math>,
+the parameters give coordinates on the complement of those circles. Thus
+the family foliates that complement by disjoint tori. The value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+alone labels a torus, not a point. At the endpoints a circle factor
+collapses, so the same coordinate description is no longer bijective
+there. “A family of embeddings” or “a foliation by tori away from two
+circles” is more precise here than treating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+as a bijection with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>.</p>
+<p>For the Hopf map</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mo>,</mo><msub><mi>z</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mn>2</mn><mrow><mi mathvariant="normal">Re</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mover><msub><mi>z</mi><mn>2</mn></msub><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="0.222em"></mspace><mn>2</mn><mrow><mi mathvariant="normal">Im</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>z</mi><mn>1</mn></msub><mover><msub><mi>z</mi><mn>2</mn></msub><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>1</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>−</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>z</mi><mn>2</mn></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+H(z_1,z_2)=\bigl(2\operatorname{Re}(z_1\overline{z_2}),\ 2\operatorname{Im}(z_1\overline{z_2}),\ |z_1|^2-|z_2|^2\bigr),
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>T</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H(T_t)</annotation></semantics></math>
+is the latitude with third coordinate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">\cos 2t</annotation></semantics></math>.
+These are therefore Hopf tori. An arbitrary rotation in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">SO(4)</annotation></semantics></math>
+transports this description to a correspondingly rotated Hopf fibration;
+it need not preserve the particular fixed Hopf map written above.</p>
+<p>Recovering
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>
+supplies a level-set membership test. To use it for projected ray
+tracing, the remaining issue is the curve on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>
+corresponding to a straight ray in the projected scene.</p>
+<h2 id="lifting-a-3d-ray-a-circle-not-a-straight-4d-ray">2. Lifting a 3D
+ray: a circle, not a straight 4D ray</h2>
+<p>Use the north pole
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">N=(0,0,0,1)</annotation></semantics></math>
+and stereographic projection</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msub><mi>q</mi><mrow><mn>1</mn><mo>:</mo><mn>3</mn></mrow></msub><mrow><mn>1</mn><mo>−</mo><msub><mi>q</mi><mn>4</mn></msub></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sigma(q)=\frac{q_{1:3}}{1-q_4}.
+</annotation></semantics></math></p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p=(x,y,z)</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">|</mo><mi>p</mi><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">D=1+|p|^2</annotation></semantics></math>
+and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo>,</mo><mn>2</mn><mi>y</mi><mo>,</mo><mn>2</mn><mi>z</mi><mo>,</mo><mo stretchy="false" form="prefix">|</mo><mi>p</mi><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>D</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+V(p)=(2x,2y,2z,|p|^2-1),\qquad Q(p)=\frac{V(p)}D.
+</annotation></semantics></math></p>
+<p>Direct substitution gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|Q(p)|=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false" form="prefix">(</mo><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">\sigma(Q(p))=p</annotation></semantics></math>.
+Therefore every point on the lifted ray
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>o</mi><mo>+</mo><mi>s</mi><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Q(o+s d)</annotation></semantics></math>
+is already on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>.
+Intersecting a straight 4D ray with the hypersphere and then testing one
+or two sphere hits would not solve the projected ray-tracing
+problem.</p>
+<p>The lift of the complete 3D line, together with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>,
+is a circle. To see this, choose independent vectors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><msub><mi>e</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">e_1,e_2</annotation></semantics></math>
+perpendicular to its direction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>.
+The line obeys
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>i</mi></msub><mo>⋅</mo><mi>p</mi><mo>=</mo><msub><mi>e</mi><mi>i</mi></msub><mo>⋅</mo><mi>o</mi></mrow><annotation encoding="application/x-tex">e_i\cdot p=e_i\cdot o</annotation></semantics></math>,
+so its lift obeys</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>i</mi></msub><mo>⋅</mo><msub><mi>q</mi><mrow><mn>1</mn><mo>:</mo><mn>3</mn></mrow></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>e</mi><mi>i</mi></msub><mo>⋅</mo><mi>o</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>q</mi><mn>4</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+e_i\cdot q_{1:3}=(e_i\cdot o)(1-q_4),\qquad i=1,2.
+</annotation></semantics></math></p>
+<p>These are two affine hyperplanes in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="double-struck">ℝ</mi><mn>4</mn></msup><annotation encoding="application/x-tex">\mathbb R^4</annotation></semantics></math>,
+both containing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>.
+Their common two-plane cuts the unit sphere in a circle. A forward
+camera ray lifts to an arc ending at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">s\to+\infty</annotation></semantics></math>.</p>
+<p>The desired intersections are precisely the points along this arc at
+which the torus coordinate has the chosen value. The rational map
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>
+turns that test into the ray polynomial below.</p>
+<figure id="fig:lift">
+<img src="figures/ray-lift.png" style="width:100.0%"
+alt="A straight ray and its circular lift. This diagram uses the section p=(s,b,0), so q_3=0 and the relevant part of S^3 can be drawn with coordinates (q_1,q_2,q_4). The forward arc approaches the projection pole N. The diagram illustrates the mapping; it is not a surface-rendering approximation." />
+<figcaption aria-hidden="true">A straight ray and its circular lift.
+This diagram uses the section
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>,</mo><mi>b</mi><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p=(s,b,0)</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>3</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q_3=0</annotation></semantics></math>
+and the relevant part of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>
+can be drawn with coordinates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>,</mo><msub><mi>q</mi><mn>2</mn></msub><mo>,</mo><msub><mi>q</mi><mn>4</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(q_1,q_2,q_4)</annotation></semantics></math>.
+The forward arc approaches the projection pole N. The diagram
+illustrates the mapping; it is not a surface-rendering
+approximation.</figcaption>
+</figure>
+<h2 id="rotation-and-the-implicit-quartic">3. Rotation and the implicit
+quartic</h2>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mi>S</mi><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">R\in SO(4)</annotation></semantics></math>
+and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>0</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">diag</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>P</mi><mo>=</mo><mi>R</mi><msub><mi>P</mi><mn>0</mn></msub><msup><mi>R</mi><mi>T</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>c</mi><mo>=</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P_0=\operatorname{diag}(1,1,0,0),\qquad P=RP_0R^T,\qquad c=\cos^2t.
+</annotation></semantics></math></p>
+<p>The rotated torus is characterized by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>q</mi><mi>T</mi></msup><mi>P</mi><mi>q</mi><mo>=</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">q^TPq=c</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>.
+The matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+is a symmetric rank-two orthogonal projector:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>P</mi><mi>T</mi></msup><mo>=</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">P^T=P</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>P</mi><mn>2</mn></msup><mo>=</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">P^2=P</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">tr</mi><mo>&#8289;</mo></mrow><mi>P</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\operatorname{tr}P=2</annotation></semantics></math>.</p>
+<p>The implementation constructs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
+by successively left-multiplying rotations in the six coordinate planes.
+Changing their order generally changes the result. Every supported
+rotation still uses the same projector and intersection formulas.</p>
+<p>The six rotation parameters do not give six independent geometric
+degrees of freedom for the torus. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mrow><mi mathvariant="normal">diag</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>H</mi><mn>1</mn></msub><mo>,</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H=\operatorname{diag}(H_1,H_2)</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>,</mo><msub><mi>H</mi><mn>2</mn></msub><mo>∈</mo><mi>S</mi><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">H_1,H_2\in SO(2)</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><msub><mi>P</mi><mn>0</mn></msub><msup><mi>H</mi><mi>T</mi></msup><mo>=</mo><msub><mi>P</mi><mn>0</mn></msub><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>H</mi><mo stretchy="false" form="postfix">)</mo><msub><mi>P</mi><mn>0</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>H</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><mo>=</mo><mi>R</mi><msub><mi>P</mi><mn>0</mn></msub><msup><mi>R</mi><mi>T</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+HP_0H^T=P_0,\qquad (RH)P_0(RH)^T=RP_0R^T.
+</annotation></semantics></math></p>
+<p>These two rotations shift the circle phases
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math>
+without changing the surface. The full stabilizer of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mn>0</mn></msub><annotation encoding="application/x-tex">P_0</annotation></semantics></math>
+within
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">SO(4)</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false" form="prefix">(</mo><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">S(O(2)\times O(2))</annotation></semantics></math>,
+the block-diagonal orthogonal matrices with total determinant one; its
+identity component is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mi>S</mi><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">SO(2)\times SO(2)</annotation></semantics></math>.
+Thus the projectors form the unoriented Grassmannian of two-planes in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="double-struck">ℝ</mi><mn>4</mn></msup><annotation encoding="application/x-tex">\mathbb R^4</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">Gr</mi><mo>&#8289;</mo></mrow><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>4</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mi>S</mi><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>S</mi><mo stretchy="false" form="prefix">(</mo><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mi>O</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mrow><mi mathvariant="normal">dim</mi><mo>&#8289;</mo></mrow><msub><mrow><mi mathvariant="normal">Gr</mi><mo>&#8289;</mo></mrow><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>4</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>6</mn><mo>−</mo><mn>2</mn><mo>=</mo><mn>4</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Gr}_2(\mathbb R^4)\cong SO(4)/S(O(2)\times O(2)),\qquad
+\dim\operatorname{Gr}_2(\mathbb R^4)=6-2=4.
+</annotation></semantics></math></p>
+<p>This is the standard projector/quotient description of the
+Grassmannian [10]. At fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+the torus therefore has four continuous rotational degrees of freedom;
+allowing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+to vary adds one. At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mi>π</mi><mi>/</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">t=\pi/4</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>−</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">I-P</annotation></semantics></math>
+additionally describe the same boundary, a discrete identification that
+leaves the dimension unchanged but reverses the field sign used to
+select a solid’s material side. The six sliders provide a convenient
+redundant description of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>;
+the redundancy need not correspond to two individual sliders in an
+ordered product of fixed-plane rotations.</p>
+<p>Substitute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">q=Q(p)</annotation></semantics></math>
+and multiply by the strictly positive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>D</mi><mn>2</mn></msup><annotation encoding="application/x-tex">D^2</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>f</mi><mi>c</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><mi>P</mi><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>c</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">|</mo><mi>p</mi><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>0</mn><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{f_c(p)=V(p)^TPV(p)-c(1+|p|^2)^2=0.}
+</annotation></semantics></math></p>
+<p>Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mi>T</mi></msup><mi>V</mi><mo>=</mo><msup><mi>D</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">V^TV=D^2</annotation></semantics></math>,
+it is convenient to put
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>c</mi></msub><mo>=</mo><mi>P</mi><mo>−</mo><mi>c</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">A_c=P-cI</annotation></semantics></math>
+and write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub><mo>=</mo><msup><mi>V</mi><mi>T</mi></msup><msub><mi>A</mi><mi>c</mi></msub><mi>V</mi></mrow><annotation encoding="application/x-tex">f_c=V^TA_cV</annotation></semantics></math>.
+This is a polynomial of degree at most four; no approximation has been
+introduced by clearing the denominator. In computation the bounded
+field</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>c</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><msub><mi>A</mi><mi>c</mi></msub><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msub><mi>f</mi><mi>c</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><msup><mi>D</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">
+F_c(p)=Q(p)^TA_cQ(p)=\frac{f_c(p)}{D^2}
+</annotation></semantics></math></p>
+<p>has the same zero set and sign, while avoiding the quartic growth of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>c</mi></msub><annotation encoding="application/x-tex">f_c</annotation></semantics></math>
+far from the origin.</p>
+<p>As a useful check, with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">R=I</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\rho=\sqrt{x^2+y^2}</annotation></semantics></math>
+the equation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mi>ρ</mi><mn>2</mn></msup><mo>=</mo><mi>c</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>ρ</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+4\rho^2=c(1+\rho^2+z^2)^2.
+</annotation></semantics></math></p>
+<p>Taking the nonnegative square root and completing the square
+gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>ρ</mi><mo>−</mo><mrow><mi mathvariant="normal">sec</mi><mo>&#8289;</mo></mrow><mi>t</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(\rho-\sec t)^2+z^2=\tan^2t.
+</annotation></semantics></math></p>
+<p>Thus the aligned projection is an ordinary ring torus with major
+radius
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">sec</mi><mo>&#8289;</mo></mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">\sec t</annotation></semantics></math>
+and minor radius
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">tan</mi><mo>&#8289;</mo></mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">\tan t</annotation></semantics></math>.</p>
+<h2 id="exact-normals">4. Exact normals</h2>
+<p>Differentiate the quadratic form, using symmetry of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∂</mi><mi>V</mi><mi>/</mi><mi>∂</mi><msub><mi>p</mi><mi>i</mi></msub><mo>=</mo><mn>2</mn><msub><mi>e</mi><mi>i</mi></msub><mo>+</mo><mn>2</mn><msub><mi>p</mi><mi>i</mi></msub><msub><mi>e</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">\partial V/\partial p_i=2e_i+2p_i e_4</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∂</mi><mi>D</mi><mi>/</mi><mi>∂</mi><msub><mi>p</mi><mi>i</mi></msub><mo>=</mo><mn>2</mn><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\partial D/\partial p_i=2p_i</annotation></semantics></math>.
+The result is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>∇</mi><msub><mi>f</mi><mi>c</mi></msub><mo>=</mo><mn>4</mn><mrow><mo stretchy="true" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mi>V</mi><msub><mo stretchy="false" form="postfix">)</mo><mrow><mn>1</mn><mo>:</mo><mn>3</mn></mrow></msub><mo>+</mo><mi>p</mi><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mi>V</mi><msub><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msub><mo>−</mo><mi>c</mi><mi>D</mi><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{\nabla f_c=4\left[(PV)_{1:3}+p\bigl((PV)_4-cD\bigr)\right].}
+</annotation></semantics></math></p>
+<p>Equivalently,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><msub><mi>f</mi><mi>c</mi></msub><mo>=</mo><mn>4</mn><mi>D</mi><mrow><mo stretchy="true" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>A</mi><mi>c</mi></msub><mi>Q</mi><msub><mo stretchy="false" form="postfix">)</mo><mrow><mn>1</mn><mo>:</mo><mn>3</mn></mrow></msub><mo>+</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>A</mi><mi>c</mi></msub><mi>Q</mi><msub><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\nabla f_c=4D\left[(A_cQ)_{1:3}+p(A_cQ)_4\right].
+</annotation></semantics></math></p>
+<p>The shader normalizes the expression in brackets. Its positive
+omitted factor does not affect the normal direction. On the surface,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><msub><mi>F</mi><mi>c</mi></msub><mo>=</mo><mi>∇</mi><msub><mi>f</mi><mi>c</mi></msub><mi>/</mi><msup><mi>D</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\nabla F_c=\nabla f_c/D^2</annotation></semantics></math>,
+so either field yields the same orientation.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>c</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;c&lt;1</annotation></semantics></math>,
+the level is regular on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>:
+the tangential gradient of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>q</mi><mi>T</mi></msup><mi>P</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">q^TPq</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mi>q</mi><mo>−</mo><mi>c</mi><mi>q</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">2(Pq-cq)</annotation></semantics></math>,
+whose squared norm on the level is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mi>c</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">4c(1-c)&gt;0</annotation></semantics></math>.
+Stereographic projection is a smooth coordinate map at every finite
+point. The finite projected surface is consequently smooth even when
+another part of it passes through infinity. A tangent ray is a multiple
+polynomial root, not a singular point of the surface.</p>
+<h2 id="the-ray-polynomial">5. The ray polynomial</h2>
+<p>For a unit direction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>o</mi><mo>+</mo><mi>s</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">p(s)=o+s d</annotation></semantics></math>
+and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mn>0</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>o</mi><mo>,</mo><mo stretchy="false" form="prefix">|</mo><mi>o</mi><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>v</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>d</mi><mo>,</mo><mn>2</mn><mi>o</mi><mo>⋅</mo><mi>d</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>v</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+v_0=(2o,|o|^2-1),\qquad v_1=(2d,2o\cdot d),\qquad v_2=(0,0,0,1).
+</annotation></semantics></math></p>
+<p>Then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mi>s</mi><msub><mi>v</mi><mn>1</mn></msub><mo>+</mo><msup><mi>s</mi><mn>2</mn></msup><msub><mi>v</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">V(p(s))=v_0+s v_1+s^2v_2</annotation></semantics></math>.
+For the symmetric bilinear form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>a</mi><mi>T</mi></msup><msub><mi>A</mi><mi>c</mi></msub><mi>b</mi></mrow><annotation encoding="application/x-tex">B(a,b)=a^TA_cb</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>o</mi><mo>+</mo><mi>s</mi><mi>d</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><msub><mi>a</mi><mn>1</mn></msub><mi>s</mi><mo>+</mo><msub><mi>a</mi><mn>2</mn></msub><msup><mi>s</mi><mn>2</mn></msup><mo>+</mo><msub><mi>a</mi><mn>3</mn></msub><msup><mi>s</mi><mn>3</mn></msup><mo>+</mo><msub><mi>a</mi><mn>4</mn></msub><msup><mi>s</mi><mn>4</mn></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+f_c(o+s d)=a_0+a_1s+a_2s^2+a_3s^3+a_4s^4,
+</annotation></semantics></math></p>
+<p>where</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>a</mi><mn>0</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo>,</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>a</mi><mn>1</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo>,</mo><msub><mi>v</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>a</mi><mn>2</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>2</mn><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>a</mi><mn>3</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mn>2</mn><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>a</mi><mn>4</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>v</mi><mn>2</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>P</mi><mn>44</mn></msub><mo>−</mo><mi>c</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+a_0&amp;=B(v_0,v_0), &amp; a_1&amp;=2B(v_0,v_1),\\
+a_2&amp;=B(v_1,v_1)+2B(v_0,v_2), &amp; a_3&amp;=2B(v_1,v_2),\\
+a_4&amp;=B(v_2,v_2)=P_{44}-c.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>Positive real roots are forward intersections. A generic line has at
+most four intersections with one boundary. Reflection or refraction
+changes the direction, after which the same calculation is repeated for
+the new ray. A shell uses two such quartics and can have eight crossings
+along a single straight line.</p>
+<h2 id="the-projection-pole-and-apparent-eversion">6. The projection
+pole and apparent eversion</h2>
+<p>The pole lies on the rotated torus exactly when</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><mi>T</mi></msup><mi>P</mi><mi>N</mi><mo>=</mo><mi>c</mi><mspace width="1.0em"></mspace><mo>⇔</mo><mspace width="1.0em"></mspace><msub><mi>P</mi><mn>44</mn></msub><mo>=</mo><mi>c</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+N^TPN=c\quad\Longleftrightarrow\quad P_{44}=c.
+</annotation></semantics></math></p>
+<p>This is also exactly the condition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mn>4</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a_4=0</annotation></semantics></math>.
+The ray polynomial then has degree at most three, with further
+reductions possible for special rays. Finite roots remain legitimate
+intersections; a root at the compactified endpoint representing infinity
+is not a finite hit.</p>
+<p>The torus remains embedded and smooth in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>
+throughout the rotation. Its Euclidean projection becomes unbounded when
+the pole is on the surface. Passing through that configuration can
+exchange the bounded and unbounded sides of the selected material. The
+resulting inside-out motion is not an eversion through a
+self-intersecting family of compact tori in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="double-struck">ℝ</mi><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb R^3</annotation></semantics></math>:
+the family passes through infinity.</p>
+<p>This visualization has clear antecedents. Banchoff describes the
+stereographic images of rotated Clifford tori as Dupin cyclides,
+explicitly including passage through infinity and interchange of
+latitude and longitude. The UCI/3D-XplorMath gallery also displays this
+inside-out deformation. These effects are prior work, not discoveries of
+this implementation. <a
+href="https://www.math.brown.edu/tbanchof/Beyond3D.new/chapter6/s6_8.html">Banchoff,
+<em>Beyond the Third Dimension</em>, online chapter</a>; <a
+href="https://webapps.math.uci.edu/~vmm/Surface/clifford_torus/clifford_torus.html">3D-XplorMath
+Clifford torus gallery</a>.</p>
+<figure id="fig:pole">
+<img src="figures/pole-sequence.png" style="width:100.0%"
+alt="An XW rotation through the pole for the Clifford torus, at a fixed camera. The central panel has P_{44}=\cos^2t in exact arithmetic. Colors encode the oriented analytic normal; the visible boundary leaves the image and returns with the material orientation carried through the rotation. These are ray-traced images, including at the unbounded configuration." />
+<figcaption aria-hidden="true">An XW rotation through the pole for the
+Clifford torus, at a fixed camera. The central panel has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>44</mn></msub><mo>=</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mi>t</mi></mrow><annotation encoding="application/x-tex">P_{44}=\cos^2t</annotation></semantics></math>
+in exact arithmetic. Colors encode the oriented analytic normal; the
+visible boundary leaves the image and returns with the material
+orientation carried through the rotation. These are ray-traced images,
+including at the unbounded configuration.</figcaption>
+</figure>
+<h2 id="numerical-intersection-method-used-by-the-demo">7. Numerical
+intersection method used by the demo</h2>
+<h3 id="recenter-the-line">Recenter the line</h3>
+<p>Expanded camera-origin coefficients can be poorly conditioned when a
+small torus feature is far along a ray. The implementation first
+sets</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mi>o</mi><mo>⋅</mo><mi>d</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>C</mi><mo>=</mo><mi>o</mi><mo>−</mo><mi>k</mi><mi>d</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>C</mi><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>+</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+k=o\cdot d,\qquad C=o-kd,\qquad p(s)=C+(k+s)d.
+</annotation></semantics></math></p>
+<p>Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+is the closest point of the line to the origin. The line is split into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>+</mo><mi>λ</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">C+\lambda e</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">e=d</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mi>−</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">e=-d</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda\geq0</annotation></semantics></math>.
+Candidates map back to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>λ</mi><mo>−</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">s=\lambda-k</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>−</mi><mi>λ</mi><mo>−</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">s=-\lambda-k</annotation></semantics></math>
+and are filtered and ordered in the original forward-ray coordinate.</p>
+<h3 id="cover-each-half-line-with-two-finite-charts">Cover each
+half-line with two finite charts</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mo stretchy="false" form="prefix">|</mo><mi>C</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">L=\max(1,|C|)</annotation></semantics></math>.
+Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>λ</mi><mi>/</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">x=\lambda/L</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>λ</mi><mo>≤</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">0\leq\lambda\leq L</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>L</mi><mi>/</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">x=L/\lambda</annotation></semantics></math>
+on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>≤</mo><mi>λ</mi><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">L\leq\lambda&lt;\infty</annotation></semantics></math>.
+Both coordinates lie in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math>,
+but
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math>
+in the reciprocal chart denotes infinity and is excluded. No finite far
+clipping sphere is introduced. The coordinate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math>
+is the common chart boundary; repeated intersection queries apply the
+ordinary positive-distance cutoff there.</p>
+<p>Define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>C</mi><mi>/</mi><msup><mi>L</mi><mn>2</mn></msup><mo>,</mo><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">|</mo><mi>C</mi><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><msup><mi>L</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>e</mi><mi>/</mi><mi>L</mi><mo>,</mo><mn>2</mn><mi>C</mi><mo>⋅</mo><mi>e</mi><mi>/</mi><mi>L</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>c</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mi>e</mi><mo>⋅</mo><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+a=(2C/L^2,(|C|^2-1)/L^2),\quad
+b=(2e/L,2C\cdot e/L),\quad c_2=(0,0,0,e\cdot e).
+</annotation></semantics></math></p>
+<p>The near numerator is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mi>x</mi><mo>+</mo><msub><mi>c</mi><mn>2</mn></msub><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>+</mo><mi>L</mi><mi>x</mi><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><msup><mi>L</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">W(x)=a+bx+c_2x^2=V(C+Lxe)/L^2</annotation></semantics></math>.
+The reciprocal numerator reverses the coefficients:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>c</mi><mn>2</mn></msub><mo>+</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo>+</mo><mi>L</mi><mi>e</mi><mi>/</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><msup><mi>L</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">W(x)=c_2+bx+ax^2=x^2V(C+Le/x)/L^2</annotation></semantics></math>.
+Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>W</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><msub><mi>A</mi><mi>c</mi></msub><mi>W</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g(x)=W(x)^TA_cW(x)</annotation></semantics></math>
+has exactly the finite intersections of its chart. The common scale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>L</mi><mrow><mi>−</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">L^{-2}</annotation></semantics></math>
+limits coefficient growth. Although
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>⋅</mo><mi>e</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">C\cdot e=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>⋅</mo><mi>e</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">e\cdot e=1</annotation></semantics></math>
+in exact arithmetic, the code retains their computed values.</p>
+<p>For either chart write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msup><mi>a</mi><mo>′</mo></msup><mo>+</mo><msup><mi>b</mi><mo>′</mo></msup><mi>x</mi><mo>+</mo><msup><mi>c</mi><mo>′</mo></msup><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">W=a&#39;+b&#39;x+c&#39;x^2</annotation></semantics></math>
+and set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>0</mn></msub><mo>=</mo><msup><mi>a</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">w_0=a&#39;</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>=</mo><msup><mi>a</mi><mo>′</mo></msup><mo>+</mo><msup><mi>b</mi><mo>′</mo></msup><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">w_1=a&#39;+b&#39;/2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>2</mn></msub><mo>=</mo><msup><mi>a</mi><mo>′</mo></msup><mo>+</mo><msup><mi>b</mi><mo>′</mo></msup><mo>+</mo><msup><mi>c</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">w_2=a&#39;+b&#39;+c&#39;</annotation></semantics></math>.
+Its quartic Bernstein coefficients are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>b</mi><mn>0</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mn>0</mn></msub><mo>,</mo><msub><mi>w</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>b</mi><mn>1</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mn>0</mn></msub><mo>,</mo><msub><mi>w</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>b</mi><mn>2</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mn>0</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>2</mn><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo minsize="120%" maxsize="120%" stretchy="true" form="postfix">)</mo><mi>/</mi><mn>3</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>b</mi><mn>3</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo></mtd><mtd columnalign="right" style="text-align: right; padding-right: 0"><msub><mi>b</mi><mn>4</mn></msub></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>B</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+b_0&amp;=B(w_0,w_0), &amp; b_1&amp;=B(w_0,w_1),\\
+b_2&amp;=\bigl(B(w_0,w_2)+2B(w_1,w_1)\bigr)/3,\\
+b_3&amp;=B(w_1,w_2), &amp; b_4&amp;=B(w_2,w_2).
+\end{aligned}
+</annotation></semantics></math></p>
+<p>A strictly one-signed coefficient set rejects the chart by the
+Bernstein convex-hull property. Degree reduction needs no division by a
+small leading monomial coefficient. In the reciprocal chart, a relative
+perturbation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+gives approximately the same relative perturbation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mi>L</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda=L/x</annotation></semantics></math>;
+distant intersections therefore retain relative coordinate resolution as
+they approach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math>.</p>
+<h3 id="isolate-and-polish-roots">Isolate and polish roots</h3>
+<p>A real polynomial is monotone between consecutive roots of its
+derivative. The solver obtains the derivative roots recursively,
+starting with a linear equation, then partitions the quadratic, cubic
+and quartic into monotone intervals. Coefficient differences supply
+Bernstein derivatives; omitted positive degree factors do not affect
+their zeros. De Casteljau evaluation is used throughout.</p>
+<p>Opposite signs at interval ends bracket a crossing. Up to 25
+bisection steps are followed by secant interpolation inside the final
+bracket, preserving relative accuracy for roots near zero. Near-zero
+stationary values supply even-multiplicity candidates only when adjacent
+intervals do not already contain crossings. Endpoints require exact
+zero. Coefficients are rescaled, and duplicate candidates are compared
+relative to their chart coordinates.</p>
+<p>Up to four bounded Newton steps polish each candidate against the
+homogeneous form itself:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><msup><mi>W</mi><mi>T</mi></msup><msub><mi>A</mi><mi>c</mi></msub><mi>W</mi><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>g</mi><mo>′</mo></msup><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><msup><mi>b</mi><mo>′</mo></msup><mo>+</mo><mn>2</mn><mi>x</mi><msup><mi>c</mi><mo>′</mo></msup><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><msub><mi>A</mi><mi>c</mi></msub><mi>W</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g=W^TA_cW,\qquad g&#39;=2(b&#39;+2xc&#39;)^TA_cW.
+</annotation></semantics></math></p>
+<p>A proposal is accepted only if it stays in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math>,
+moves by at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.05</mn><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>,</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">0.05\max(x,10^{-6})</annotation></semantics></math>,
+and strictly decreases the computed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>g</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">|g|</annotation></semantics></math>.
+Refinement stops at a computed zero, zero derivative, float stagnation
+or rejected proposal; nonfinite residuals cannot pass the decrease test.
+This guard retains the previous candidate when progress is unresolved.
+It does not preserve the isolator’s final bracket, and a decrease in a
+rounded residual does not certify a smaller geometric distance error.
+Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mi>W</mi><msup><mo stretchy="false" form="prefix">|</mo><mi>T</mi></msup><mo stretchy="false" form="prefix">|</mo><msub><mi>A</mi><mi>c</mi></msub><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>W</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">M=|W|^T|A_c||W|</annotation></semantics></math>,
+where absolute values are componentwise. The acceptance residual is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">|</mo><mi>g</mi><mo stretchy="false" form="prefix">|</mo></mrow><mrow><mi>M</mi><mo>+</mo><mo stretchy="false" form="prefix">|</mo><msup><mi>g</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">|</mo><mi>h</mi></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>h</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn></mtd><mtd columnalign="left" style="text-align: left"><mtext mathvariant="normal">near chart</mtext><mo>,</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mi>x</mi></mtd><mtd columnalign="left" style="text-align: left"><mtext mathvariant="normal">reciprocal chart</mtext><mi>.</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+\rho=\frac{|g|}{M+|g&#39;|h},\qquad
+h=\begin{cases}1&amp;\text{near chart},\\x&amp;\text{reciprocal chart}.\end{cases}
+</annotation></semantics></math></p>
+<p>The shader requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>&lt;</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\rho&lt;2\times10^{-6}</annotation></semantics></math>,
+a finite converted distance, and a forward hit beyond the
+self-intersection cutoff. The reciprocal factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+scales the derivative term to relative distance error. This is a
+conditioning-aware heuristic, not a certified distance-error bound.
+Charts are visited in ray order: negative reciprocal, negative near,
+positive near, positive reciprocal, omitting the negative half when it
+lies behind the origin.</p>
+<h3 id="what-robustness-means-here">What robustness means here</h3>
+<p>This is a practical float32 solver, not an exact-arithmetic
+certificate. The stationary-point tolerance called
+<code>errorBound</code> in the shader is a heuristic, not a proved
+interval bound. Close roots can merge; near tangencies can be ambiguous;
+extremely distant roots remain subject to float32 underflow, overflow
+and coordinate precision. Near the pole, tiny changes to float32
+rotation or level values may move a remote root substantially. An
+identically zero ray polynomial describes a line contained in the
+surface and has no isolated first crossing; the solver does not resolve
+that exceptional case as a continuum of hits.</p>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
+be the smallest distinct angular boundary separation among enabled tori.
+The bias scale is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mrow><mi mathvariant="normal">clamp</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0.05</mn><mi>γ</mi><mo>,</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup><mo>,</mo><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\beta=\operatorname{clamp}(0.05\gamma,10^{-6},4\times10^{-4})</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
+in radians; a lone solid uses the upper limit. The ray-distance cutoff
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mo stretchy="false" form="prefix">|</mo><mi>o</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\beta\max(1,|o|)/2</annotation></semantics></math>
+and the post-hit offset is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mo stretchy="false" form="prefix">|</mo><mi>p</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\beta\max(1,|p|)</annotation></semantics></math>.
+These suppress self-intersections while retaining the tested
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>0.01</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">0.01^\circ</annotation></semantics></math>
+walls. Features below the offset and float32 resolution remain
+unresolved. “No finite clipping sphere” therefore does not mean
+unlimited numerical reach or guaranteed detection of every mathematical
+root.</p>
+<h2 id="a-solid-and-a-shell-are-different-material-choices">8. A solid
+and a shell are different material choices</h2>
+<p>An implicit equation specifies a boundary. Refraction also requires a
+choice of which side contains which medium.</p>
+<h3 id="solid-mode-one-torus-boundary">Solid mode: one torus
+boundary</h3>
+<p>Solid mode chooses glass where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>c</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F_c&gt;0</annotation></semantics></math>,
+equivalently
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>q</mi><mi>T</mi></msup><mi>P</mi><mi>q</mi><mo>&gt;</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">q^TPq&gt;c</annotation></semantics></math>.
+In the unrotated case this is the familiar filled tube bounded by the
+ring torus. In
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>
+it is the side
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>&lt;</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">\tau&lt;t</annotation></semantics></math>,
+whose closure is a solid torus. Its outward normal is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>=</mo><mi>−</mi><mfrac><mrow><mi>∇</mi><msub><mi>f</mi><mi>c</mi></msub></mrow><mrow><mo stretchy="false" form="prefix">|</mo><mi>∇</mi><msub><mi>f</mi><mi>c</mi></msub><mo stretchy="false" form="prefix">|</mo></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+n_{\mathrm{out}}=-\frac{\nabla f_c}{|\nabla f_c|}.
+</annotation></semantics></math></p>
+<p>A single closed torus boundary is sufficient to define this solid. A
+ray can enter the tube and later exit through another point on the same
+boundary. A second torus is not needed to obtain entry and exit
+intersections.</p>
+<p>When
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>44</mn></msub><mo>&gt;</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">P_{44}&gt;c</annotation></semantics></math>,
+the pole is inside the chosen material region, so its projection
+includes the exterior of a sufficiently large ball. The definition of
+the material is held fixed during animation; the program does not
+silently swap glass and air to keep glass bounded.</p>
+<h3 id="shell-mode-two-neighboring-tori">Shell mode: two neighboring
+tori</h3>
+<p>Set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mo>−</mo></msub><mo>=</mo><mi>t</mi><mo>−</mo><mi mathvariant="normal">Δ</mi><mi>t</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">t_-=t-\Delta t/2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mo>+</mo></msub><mo>=</mo><mi>t</mi><mo>+</mo><mi mathvariant="normal">Δ</mi><mi>t</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">t_+=t+\Delta t/2</annotation></semantics></math>,
+with both in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>π</mi><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(0,\pi/2)</annotation></semantics></math>,
+and define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></msub><mo>=</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><msub><mi>t</mi><mo>+</mo></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>c</mi><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">h</mi></mrow></msub><mo>=</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><msub><mi>t</mi><mo>−</mo></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+c_{\mathrm{low}}=\cos^2t_+,\qquad c_{\mathrm{high}}=\cos^2t_-.
+</annotation></semantics></math></p>
+<p>Because cosine squared decreases on this interval,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></msub><mo>&lt;</mo><msub><mi>c</mi><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">c_{\mathrm{low}}&lt;c_{\mathrm{high}}</annotation></semantics></math>.
+Glass now occupies</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>c</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></msub><mo>&lt;</mo><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><mi>P</mi><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><msub><mi>c</mi><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">h</mi></mrow></msub><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{c_{\mathrm{low}}&lt;Q(p)^TPQ(p)&lt;c_{\mathrm{high}}.}
+</annotation></semantics></math></p>
+<p>Equivalently, glass is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mo>−</mo></msub><mo>&lt;</mo><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>R</mi><mi>T</mi></msup><mi>Q</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><msub><mi>t</mi><mo>+</mo></msub></mrow><annotation encoding="application/x-tex">t_-&lt;\tau(R^TQ(p))&lt;t_+</annotation></semantics></math>.
+Both adjoining regions are air. The shell is bounded by the two
+independently solved quartics
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><msub><mi>c</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></msub></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f_{c_{\mathrm{low}}}=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><msub><mi>c</mi><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">h</mi></mrow></msub></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f_{c_{\mathrm{high}}}=0</annotation></semantics></math>.
+Each tracing step selects the nearest positive hit from either equation.
+At the low boundary the outward normal is the <strong>negative</strong>
+gradient; at the high boundary it is the <strong>positive</strong>
+gradient. Those opposite signs make cavity entry and exit obey the same
+optical code as outer-wall entry and exit.</p>
+<p>This is an exact parameter-band shell, not a constant-thickness
+Euclidean offset surface. In
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>,
+the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+direction is normal to the tori and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>∂</mi><mi>X</mi><mi>/</mi><mi>∂</mi><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|\partial X/\partial t|=1</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\Delta t</annotation></semantics></math>
+has a natural angular thickness interpretation. Stereographic projection
+has metric factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">|</mo><mi>p</mi><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">2/(1+|p|^2)</annotation></semantics></math>:
+a sufficiently thin shell has local Euclidean normal thickness
+approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mo stretchy="false" form="prefix">|</mo><mi>p</mi><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mi mathvariant="normal">Δ</mi><mi>t</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">(1+|p|^2)\Delta t/2</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\Delta t</annotation></semantics></math>
+in radians. Near infinity that local approximation is not uniform.</p>
+<p>The UI defaults to the minimum width of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>0.01</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">0.01^\circ</annotation></semantics></math>,
+and caps width at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>30</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">30^\circ</annotation></semantics></math>
+or the smaller amount needed to keep both endpoints between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>0.25</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">0.25^\circ</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>89.75</mn><mo>∘</mo></msup><annotation encoding="application/x-tex">89.75^\circ</annotation></semantics></math>.
+A boundary reaches infinity when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mn>44</mn></msub><annotation encoding="application/x-tex">P_{44}</annotation></semantics></math>
+equals its level. Glass itself extends to infinity when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mn>44</mn></msub><annotation encoding="application/x-tex">P_{44}</annotation></semantics></math>
+lies strictly between the two levels; in that case both boundary
+surfaces can be bounded while the region between them through infinity
+is unbounded.</p>
+<figure id="fig:materials">
+<img src="figures/solid-shell.png" style="width:90.0%"
+alt="A single solid torus and a shell between two nearby tori, with the same camera, central parameter t = 45°, refractive index 1.45, environment, and coating setting. The shell width here is 3° to make the two-wall structure visible. Entry and exit use genuine intersections with the respective material boundaries." />
+<figcaption aria-hidden="true">A single solid torus and a shell between
+two nearby tori, with the same camera, central parameter t = 45°,
+refractive index 1.45, environment, and coating setting. The shell width
+here is 3° to make the two-wall structure visible. Entry and exit use
+genuine intersections with the respective material
+boundaries.</figcaption>
+</figure>
+<h3 id="several-material-regions">Several material regions</h3>
+<p>Up to three tori share the same
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+but have independent parameter intervals and optical properties. At each
+step, the nearest boundary among the enabled regions is selected. When
+regions overlap, the narrower interval in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Q</mi><mi>T</mi></msup><mi>P</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q^TPQ</annotation></semantics></math>
+takes precedence; the higher-numbered slot breaks ties. Coincident level
+boundaries update membership together. This explicit convention
+preserves nested media as their projections change orientation; it is an
+application choice, not a geometric necessity. Chrome follows the same
+material region through the pole and may become the exterior medium.</p>
+<h2 id="all-the-optics-occur-in-ordinary-3d">9. All the optics occur in
+ordinary 3D</h2>
+<p>The four-dimensional geometry defines the surface and material
+membership. Camera rays, distances, illumination, normals, reflection,
+absorption, and refraction are evaluated in Euclidean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="double-struck">ℝ</mi><mn>3</mn></msup><annotation encoding="application/x-tex">\mathbb R^3</annotation></semantics></math>.
+Stereographic projection preserves angles, but the implementation does
+not transport a physical 4D optical simulation into 3D.</p>
+<p>For unit incident direction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+orient the surface normal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+against the ray and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub><mo>=</mo><mi>−</mi><mi>n</mi><mo>⋅</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">c_i=-n\cdot d</annotation></semantics></math>.
+With refractive indices
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>1</mn></msub><annotation encoding="application/x-tex">n_1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>2</mn></msub><annotation encoding="application/x-tex">n_2</annotation></semantics></math>
+on the incident and transmitted sides, put
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><msub><mi>n</mi><mn>1</mn></msub><mi>/</mi><msub><mi>n</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\eta=n_1/n_2</annotation></semantics></math>.
+Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mi>d</mi><mo>+</mo><mn>2</mn><msub><mi>c</mi><mi>i</mi></msub><mi>n</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>K</mi><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>η</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msubsup><mi>c</mi><mi>i</mi><mn>2</mn></msubsup><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+r=d+2c_i n,\qquad K=1-\eta^2(1-c_i^2).
+</annotation></semantics></math></p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">K&lt;0</annotation></semantics></math>,
+total internal reflection occurs. Otherwise the transmitted direction
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi></mrow></msub><mo>=</mo><mi>η</mi><mi>d</mi><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>η</mi><msub><mi>c</mi><mi>i</mi></msub><mo>−</mo><msqrt><mi>K</mi></msqrt><mo stretchy="false" form="postfix">)</mo><mi>n</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+d_{\mathrm{tr}}=\eta d+(\eta c_i-\sqrt K)n.
+</annotation></semantics></math></p>
+<p>This is Snell’s law in vector form. The shader uses the unpolarized
+dielectric Fresnel reflectance, averaging the squared s- and
+p-polarization amplitudes, and follows the resulting reflected and
+transmitted directions. Medium membership is initialized from the ray
+origin. A crossing updates it using the outward normal; a grazing
+contact is treated as a silhouette contact without toggling the medium.
+Numerical grazing thresholds remain approximations.</p>
+<p>The procedural angular environment has a grid, checker pattern,
+bright strips, and colored lights that make bending visible. It is a
+direction-dependent distant environment, not a finite checkerboard
+floor. Opacity blends a locally lit colored coating at each interface
+and also scales Beer-style absorption in glass. It is consequently not a
+pure bulk extinction coefficient or a physically complete material
+parameterization.</p>
+<p>The main path allows 8, 16, or 24 interactions according to quality.
+At the first interface, the reflected branch can intersect the object
+for up to four further interfaces; later reflection contributions use
+the environment directly. Total internal reflection continues within the
+same medium. Remaining energy after the transport budget is resolved to
+the environment. Segment absorption is capped, and rays remaining in an
+unbounded material use finite absorption. There is no complete recursive
+ray tree, spectral dispersion, global illumination, or caustic
+calculation. Exact surface equations and Snell-law directions should not
+be confused with exact light transport.</p>
+<h2 id="experimental-validation">10. Experimental validation</h2>
+<h3 id="regression-checks-and-thin-shell-optics">Regression checks and
+thin-shell optics</h3>
+<p>All 24 JavaScript CPU tests pass. Five independent-reference tests
+also pass, including an exact double tangent with rational coefficients.
+Five analysis tests check matching completeness, close-root assignment
+and failure accounting. These check projector invariants, polynomial
+identities, finite-difference normals, analytic ring-torus roots,
+tangencies, degree reduction, material membership and thin-wall origin
+offsets. The native offscreen GPU suite on an Apple M3 Pro passes 625
+solid, 403 shell, and 133 three-torus ray cases, plus 31 focused
+thin-shell cases. One solid and six shell cases consolidate a
+same-boundary grazing root pair below the regression suite’s float32
+resolution threshold. Different shell boundaries are never consolidated.
+The independent comparison below uses its own matching rule and does not
+import those exceptions.</p>
+<p>Instrumenting the production transport checks hit positions,
+successive effective media, refractive indices, analytic normals, Snell
+directions, and total internal reflection. All 36 paths pass, covering
+392 events. At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><msup><mn>0.01</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\Delta t=0.01^\circ</annotation></semantics></math>,
+aligned single shells at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>1</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>5</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>25</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>65</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>85</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>89</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">t=1^\circ,5^\circ,25^\circ,45^\circ,65^\circ,85^\circ,89^\circ</annotation></semantics></math>
+retain eight crossings each. Three shells retain 24 crossings, with
+twelve entries and twelve exits. Oblique paths and both pole-crossing
+boundaries are included. Some rays enter an unbounded material region
+and have no finite exit. Maximum measured Snell residual is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.05</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.05\times10^{-7}</annotation></semantics></math>
+and maximum normal-vector error is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9.74</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>8</mn></mrow></msup></mrow><annotation encoding="application/x-tex">9.74\times10^{-8}</annotation></semantics></math>.
+Thirty-one index-one, opacity-zero checks have zero measured
+linear-color discrepancy. Full event counts and source hashes are
+supplied in <code>docs/gpu-results.json</code>.</p>
+<h3 id="independent-reference-and-comparison-protocol">Independent
+reference and comparison protocol</h3>
+<p>The independent reference expands
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>o</mi><mo>+</mo><mi>s</mi><mi>d</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>T</mi></msup><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo>−</mo><mi>c</mi><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>o</mi><mo>+</mo><mi>s</mi><mi>d</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(o+sd)^T(P-cI)V(o+sd)</annotation></semantics></math>
+in exact rational arithmetic and uses SymPy 1.14’s continued-fraction
+real-root isolator [9]. Rational isolating intervals have width at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>30</mn></mrow></msup><annotation encoding="application/x-tex">10^{-30}</annotation></semantics></math>;
+multiplicities and brackets are retained. It imports no production
+root-finding code. A separate input construction uses 90-digit
+arithmetic rounded to 80 decimal digits to approximate the intended
+geometric data. Two references distinguish the resulting questions:</p>
+<ol type="1">
+<li><strong>Solver evaluation:</strong> exact roots of the
+float32-rounded uniforms actually supplied to the GPU.</li>
+<li><strong>Input sensitivity:</strong> roots of those uniforms compared
+with roots of the 80-digit geometric approximation.</li>
+</ol>
+<p>The pole corpus contains 600 rays:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>25</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>65</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">t=25^\circ,45^\circ,65^\circ</annotation></semantics></math>
+with an XW pole crossing, plus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">t=45^\circ</annotation></semantics></math>
+with an additional spatial rotation; six axial-direction rays sample
+different line offsets and both directions. Each configuration uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\delta=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>=</mo><mi>±</mi><msup><mn>10</mn><mrow><mi>−</mi><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\delta=\pm10^{-k}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">k=1,\ldots,12</annotation></semantics></math>.
+Axial directions avoid introducing direction-normalization differences
+into this experiment. Nineteen additional rays approach the aligned
+Clifford torus’s outer silhouette from either side. A further 176 cases
+include 168 adjacent-float pole tests
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>1</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>5</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>25</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>45</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>65</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>85</mn><mo>∘</mo></msup><mo>,</mo><msup><mn>89</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">t=1^\circ,5^\circ,25^\circ,45^\circ,65^\circ,85^\circ,89^\circ</annotation></semantics></math>,
+two spatial tilts, both adjacent float32 values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mn>44</mn></msub><annotation encoding="application/x-tex">P_{44}</annotation></semantics></math>
+around
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>,
+and six rays) plus eight exact chart-boundary, origin and contained-line
+cases. Another 72 rays use twelve seeded six-plane rotations. The full
+corpus has 867 rays. The exact input arrays and both reference root sets
+are in <code>research/results/reference.json</code>.</p>
+<p>The modern baseline adapts Peters’s CC0 GLSL implementation [11] of
+Yuksel’s derivative-partitioned Newton-bisection method [5]. The same
+solver is evaluated in two coordinate systems: the centered affine
+coordinate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>λ</mi><mi>/</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">x=\lambda/L</annotation></semantics></math>,
+with a coefficient-only Cauchy bound, and the four bounded
+near/reciprocal charts. Both variants construct power-basis coefficients
+directly from the homogeneous quadratic vectors. Exact leading-zero
+degree reduction, stable quadratic initialization, exact endpoint
+handling and a 90-iteration limit with float-stagnation stopping are
+shared. There is no interval-width-scaled absolute stopping tolerance
+that could erase tiny reciprocal roots. This is an adapted GPU baseline,
+not Yuksel’s complete optimized C++ implementation. Source provenance
+and all adaptations are recorded in
+<code>research/THIRD_PARTY.md</code>.</p>
+<p>A conventional baseline adapts Schwarze’s Ferrari/Cardano solver [8]
+to float32, with a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup><annotation encoding="application/x-tex">10^{-6}</annotation></semantics></math>
+near-zero tolerance and exact leading-zero degree reduction. It solves
+the same centered power polynomial as the affine Yuksel–Peters variant.
+Eleven polynomial checks validate the Newton-bisection port and three
+validate the Ferrari port. Thirty-two further method/stage fixtures
+record original-ray collection behavior at chart junctions, at the
+origin, below the rendering bias, and on a contained line; numerical
+failures in those fixtures remain in the report.</p>
+<p>All four methods enumerate distinct positive roots of the
+<strong>unchanged original ray</strong>. There is no origin advance,
+positive-distance bias or finite scene far cutoff. The chart junction
+belongs to both adjacent intervals, because independently rounded
+polynomials can retain its root on only one side. Far-chart zero denotes
+infinity and is excluded. Identical float hit positions are
+consolidated; no proximity threshold merges neighboring contacts. Up to
+sixteen outputs are retained, so spurious candidates are not truncated
+to the quartic’s theoretical root count. The contained-line case has no
+isolated roots and is classified separately by the reference.</p>
+<p>Every method reports raw results and results after the same
+residual-decreasing homogeneous refinement (up to four steps) and
+conditioned residual filter. Matching maximizes the number of one-to-one
+assignments satisfying
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>s</mi><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">U</mi></mrow></msub><mo>−</mo><msub><mi>s</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi></mrow></msub><mo stretchy="false" form="prefix">|</mo><mi>/</mi><mrow><mi mathvariant="normal">max</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><msub><mi>s</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup></mrow><annotation encoding="application/x-tex">|s_{\mathrm{GPU}}-s_{\mathrm{ref}}|/\max(1,s_{\mathrm{ref}})\leq10^{-4}</annotation></semantics></math>,
+then minimizes total error among equally complete assignments. A ray
+fails if any reference root or output is unmatched; nonfinite outputs
+fail too. Algebraic multiplicities are recorded but repeated copies of
+the same intersection are not required. The two Yuksel variants isolate
+a coordinate change while holding the solver and power-basis
+construction fixed. Comparing them with Bernstein also changes
+polynomial representation and isolation details.</p>
+<h3 id="numerical-results-and-input-sensitivity">Numerical results and
+input sensitivity</h3>
+<p>The following all-roots results use native offscreen OpenGL on Apple
+M3 Pro. Each row covers all 867 rays and 1,470 expected roots. “Refined”
+includes both the shared Newton steps and residual acceptance
+filter.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Stage</th>
+<th style="text-align: right;">Failed rays</th>
+<th style="text-align: right;">Matched roots</th>
+<th style="text-align: right;">Unmatched outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bernstein near/reciprocal</td>
+<td>Raw</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,470</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Bernstein near/reciprocal</td>
+<td>Refined</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,470</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Yuksel–Peters, centered</td>
+<td>Raw</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,470</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Yuksel–Peters, centered</td>
+<td>Refined</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,470</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Yuksel–Peters, near/reciprocal</td>
+<td>Raw</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,470</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Yuksel–Peters, near/reciprocal</td>
+<td>Refined</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,470</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Ferrari, centered</td>
+<td>Raw</td>
+<td style="text-align: right;">428</td>
+<td style="text-align: right;">682</td>
+<td style="text-align: right;">223</td>
+</tr>
+<tr>
+<td>Ferrari, centered</td>
+<td>Refined</td>
+<td style="text-align: right;">378</td>
+<td style="text-align: right;">740</td>
+<td style="text-align: right;">13</td>
+</tr>
+</tbody>
+</table>
+<figure id="fig:errors">
+<img src="figures/pole-errors.png" style="width:100.0%"
+alt="All-roots comparison versus nominal distance from the projection pole; each nonzero magnitude contains 48 rays. Left: failed-ray percentage after common refinement, with the three iterative variants overlapping at zero. Middle: largest returned-root relative error after refinement; missing roots must be read with the left panel. Right: disagreement caused by input rounding alone, and the proportion of uploaded inputs whose \delta is exactly zero." />
+<figcaption aria-hidden="true">All-roots comparison versus nominal
+distance from the projection pole; each nonzero magnitude contains 48
+rays. Left: failed-ray percentage after common refinement, with the
+three iterative variants overlapping at zero. Middle: largest
+returned-root relative error after refinement; missing roots must be
+read with the left panel. Right: disagreement caused by input rounding
+alone, and the proportion of uploaded inputs whose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math>
+is exactly zero.</figcaption>
+</figure>
+<p>The three iterative variants match all reference roots before and
+after refinement. All have maximum relative-distance error
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7.56</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">7.56\times10^{-5}</annotation></semantics></math>,
+from the grazing corpus. In the pole sweep, refined Bernstein reaches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.63</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.63\times10^{-7}</annotation></semantics></math>
+and both Yuksel variants
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.45</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.45\times10^{-7}</annotation></semantics></math>.
+Such small error differences on a structured corpus do not establish
+superiority. The farthest reference intersection is approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.3983</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2.3983\times10^9</annotation></semantics></math>
+scene units. The Ferrari port’s refined failures comprise 227 pole rays,
+13 grazing rays and 138 precision cases; its retained outputs must be
+considered alongside its missing and spurious roots.</p>
+<p>Refinement is not uniformly beneficial: in the six-plane rotation
+subset, Bernstein’s maximum error changes from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8.69</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">8.69\times10^{-7}</annotation></semantics></math>
+raw to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.84</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5.84\times10^{-6}</annotation></semantics></math>
+refined, while centered Yuksel–Peters changes from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4.12</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">4.12\times10^{-6}</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.50</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.50\times10^{-6}</annotation></semantics></math>.
+Both remain within the matching tolerance.
+<code>research/results/pole-gpu.json</code> and
+<code>analysis.json</code> retain raw outputs, per-family errors and
+source hashes.</p>
+<p>This experiment demonstrates <strong>no root-completeness advantage
+for the near/reciprocal formulation over the centered Yuksel–Peters
+baseline</strong> at the stated tolerance. The all-roots experiment
+measures accuracy; the full-render comparison below measures cost.
+Broader independent cases, tolerance sweeps and additional GPU/compiler
+stacks are needed to assess accuracy–cost tradeoffs.</p>
+<p>A separate ray-continuation regression executes the production GLSL
+ES intersection function through WebGL 2 / ANGLE Metal. It passes all
+867 rays and matches 1,470 roots at the same tolerance, with maximum
+relative-distance error
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7.56</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">7.56\times10^{-5}</annotation></semantics></math>.
+Unlike the all-roots comparison, it advances the origin using the
+production bias. <code>research/results/webgl-validation.json</code>
+records its browser, renderer and source hashes. It checks the
+production browser compilation path on the same GPU; it is not a WebGL
+execution of the four-method comparison.</p>
+<p>At nominal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>δ</mi><mo stretchy="false" form="prefix">|</mo><mo>≤</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>9</mn></mrow></msup></mrow><annotation encoding="application/x-tex">|\delta|\leq10^{-9}</annotation></semantics></math>,
+every tested pole-sweep input rounds to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>44</mn></msub><mo>=</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">P_{44}=c</annotation></semantics></math>.
+The remote root of the intended geometry can disappear from the uploaded
+polynomial. All 24 nominal exact-pole cases pass against the
+rounded-input reference, but this cannot recover geometric information
+lost before root finding. Across the pole corpus, input rounding alone
+changes the root set beyond the matching tolerance on 210 of 600 rays.
+The adjacent-float tests specifically exercise small nonzero
+<em>representable</em> pole offsets. The grazing cases likewise
+distinguish intended contact from the exact geometry represented by
+float32 inputs.</p>
+<h3 id="final-independent-stress-validation">Final independent stress
+validation</h3>
+<p>The frozen production revision was evaluated on 2,400 seeded boundary
+queries: 600 random, 600 pole, 600 exact/near-tangent, and 600
+thin-shell boundary cases. The tangent construction has 200 exact
+rational intended double contacts and two nearby rays per contact. The
+shell queries form 100 groups with three 0.01° shells, including
+overlapping material bands. Independent exact-rational isolation
+evaluates both intended and represented inputs. No production solver was
+changed during this pass.</p>
+<p>At relative-distance tolerance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>,
+all three modern variants fail on the same 109 grazing query IDs and
+pass all 1,800 other queries. Bernstein matches 3,166/3,314 represented
+roots, with 148 missing and 137 unmatched outputs; the Yuksel variants
+each match 3,165, with 149 missing and 137 unmatched outputs. For each
+method, failures comprise 40 count shortfalls, 34 count excesses and 35
+equal-count position failures. At tolerances
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>5</mn></mrow></msup><annotation encoding="application/x-tex">10^{-5}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup><annotation encoding="application/x-tex">10^{-6}</annotation></semantics></math>,
+failed-query counts are 197/195/195 and 294/292/292, respectively, for
+Bernstein/centered Yuksel/chart Yuksel. Input rounding separately
+changes 570 intended root sets beyond
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mi>−</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>;
+these are distinct comparisons with potentially overlapping
+failures.</p>
+<p>All 100 shell groups retain boundary order at the principal
+tolerance. Twelve predetermined paths pass independent captured-ray
+intersection, normal, medium and Snell checks per solver: 167
+boundaries, including 158 optical events and nine hidden boundaries. One
+path reaches the boundary cap and one the energy cutoff; neither is
+claimed complete. The remaining terminal misses are checked for further
+intersections. Thirty full-image comparisons have maximum frame-mean RGB
+error
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.82</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.82\times10^{-6}</annotation></semantics></math>;
+one pixel differs by 0.341, so close agreement is not exact
+equivalence.</p>
+<p><code>research/STRESS.md</code> supplies the constructions,
+tighter-tolerance results, conditioning diagnostics, absolute and
+relative position errors, representative failures and reproduction
+commands. The original corpus’s complete matching does not extend to the
+deliberately grazing corpus. The evidence supports an evaluated
+implementation, not a certified robust solver or a claim of superior
+completeness.</p>
+<h3 id="refinement-ablation">Refinement ablation</h3>
+<p>Four policies use the same Bernstein candidates and residual
+acceptance filter: no Newton correction; step-limited Newton without a
+decrease test; the production residual-decreasing guard; and a
+conservative noise-aware guard. The last requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>g</mi><mrow><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">w</mi></mrow></msub><mo stretchy="false" form="prefix">|</mo><mi>+</mi><mn>8</mn><mi>ϵ</mi><msub><mi>M</mi><mrow><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">w</mi></mrow></msub><mo>&lt;</mo><mo stretchy="false" form="prefix">|</mo><mi>g</mi><mo stretchy="false" form="prefix">|</mo><mi>−</mi><mn>8</mn><mi>ϵ</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">|g_{\mathrm{new}}|+8\epsilon M_{\mathrm{new}}&lt;|g|-8\epsilon M</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi><mo>=</mo><msup><mn>2</mn><mrow><mi>−</mi><mn>23</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\epsilon=2^{-23}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+is the absolute quadratic-form magnitude. This error floor is a
+heuristic, not interval arithmetic. All four policies match all 1,470
+roots. Maximum relative-distance errors in three subsets are:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Refinement policy</th>
+<th style="text-align: right;">Pole sweep</th>
+<th style="text-align: right;">Precision cases</th>
+<th style="text-align: right;">Six-plane rotations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.37</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.37\times10^{-7}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.35</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.35\times10^{-6}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8.69</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">8.69\times10^{-7}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Step-limited, no decrease test</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.63</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.63\times10^{-7}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.75</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.75\times10^{-7}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.23</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.23\times10^{-5}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Residual-decreasing (production)</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.63</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.63\times10^{-7}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.58</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.58\times10^{-7}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.84</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5.84\times10^{-6}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td>Noise-aware</td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.37</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.37\times10^{-7}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.35</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.35\times10^{-6}</annotation></semantics></math></td>
+<td
+style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8.69</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>7</mn></mrow></msup></mrow><annotation encoding="application/x-tex">8.69\times10^{-7}</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>The production guard reduces the worst rotation error relative to
+step-limited Newton while retaining the improvements in the pole and
+precision subsets. It still has a larger rotation maximum than no
+correction. The noise-aware policy returns exactly the unrefined roots
+throughout this corpus, foregoing the precision-subset improvements. The
+global maximum remains
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7.56</mn><mo>×</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">7.56\times10^{-5}</annotation></semantics></math>,
+from grazing rays, for all policies. These results motivate a limited
+safeguard, not a claim of uniformly improved accuracy.
+<code>refinement-gpu.json</code> and
+<code>refinement-analysis.json</code> retain the ablation data.</p>
+<h3 id="full-render-solver-comparison">Full-render solver
+comparison</h3>
+<p>The native renderer comparison replaces only intersection and
+refinement functions in the production optical shader. Both Yuksel
+variants use the production residual-decreasing guard, residual
+acceptance, medium transitions, offsets and transport budgets. The
+bounded-chart variant also shares the Bernstein convex-hull rejection
+and chart traversal. The centered variant solves a single Cauchy-bounded
+polynomial per query. Thus timings include coefficient construction,
+rejection, root finding and the resulting optical paths; they are not
+isolated polynomial-solver throughput measurements.</p>
+<p>On Apple M3 Pro, each scene/resolution/variant has three blocks of
+five warmup and ten measured frames. Variant order rotates between
+blocks and scenes. Timing surrounds draw plus <code>glFinish</code>,
+excluding compilation, readback, UI and vsync. The following pooled
+medians use 1280 × 720 buffers and a 24-interaction cap:</p>
+<table>
+<thead>
+<tr>
+<th>Scene</th>
+<th style="text-align: right;">Bernstein (production)</th>
+<th style="text-align: right;">Yuksel, centered</th>
+<th style="text-align: right;">Yuksel, charts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One solid torus</td>
+<td style="text-align: right;">3.13 ms</td>
+<td style="text-align: right;">2.86 ms</td>
+<td style="text-align: right;">2.88 ms</td>
+</tr>
+<tr>
+<td>One 0.01° shell</td>
+<td style="text-align: right;">5.63 ms</td>
+<td style="text-align: right;">6.38 ms</td>
+<td style="text-align: right;">5.55 ms</td>
+</tr>
+<tr>
+<td>Three 0.01° shells, aligned</td>
+<td style="text-align: right;">19.78 ms</td>
+<td style="text-align: right;">33.02 ms</td>
+<td style="text-align: right;">22.27 ms</td>
+</tr>
+<tr>
+<td>Three 0.01° shells, XW = 45°</td>
+<td style="text-align: right;">38.45 ms</td>
+<td style="text-align: right;">67.69 ms</td>
+<td style="text-align: right;">45.74 ms</td>
+</tr>
+</tbody>
+</table>
+<p>Yuksel is faster for the single solid in this run, but neither
+variant is consistently faster for the shell scenes. At 640 × 360 the
+centered variant is approximately 34% slower for three aligned shells
+and 55% slower near the pole; the chart variant is approximately 7% and
+14% slower. These measurements support retaining Bernstein for the
+application’s thin-shell workload. They do not establish general solver
+superiority: this is an adapted baseline, a small scene set and one
+GPU/compiler stack. Scheduling and thermal variation are visible between
+blocks, particularly at 1280 × 720. Raw samples, block medians,
+interquartile ranges, uniforms and source hashes are in
+<code>renderer-benchmark.json</code>, including the two additional
+refinement controls.</p>
+<p>Both complete Yuksel renderer variants pass the same native transport
+suite as production: 31 focused thin-shell cases, 36 refraction paths
+with 392 events, 31 index-one checks, 625 solid, 403 shell and 133
+multi-torus cases, and eight full-fragment smoke checks. The 0.01°
+single-shell and three-shell paths retain their eight and 24 interfaces.
+Separate variant reports record normals, Snell residuals and medium
+transitions. The application continues to use Bernstein; the
+alternatives are reproducible research variants rather than user-facing
+settings.</p>
+<h3 id="browser-rendering-cost">Browser rendering cost</h3>
+<p>Measurements use an <strong>Apple M3 Pro</strong> on macOS, with the
+in-app Chromium browser reporting <strong>Chrome/157.0.0.0</strong>,
+WebGL 2, GLSL ES 3.00, and <strong>ANGLE Metal Renderer: Apple M3
+Pro</strong>. This is the embedded Chromium browser, not a separately
+tested Google Chrome application. Each configuration uses five warmup
+frames and 30 recorded frames. Drawing-buffer dimensions are fixed,
+independent of display scaling or adaptive resolution. Browser times
+surround a draw plus a synchronous one-pixel readback, which forces
+completion and adds readback overhead. They exclude shader compilation,
+UI work and display refresh. The complete user-agent string, uniforms
+and samples are saved in
+<code>research/results/webgl-benchmark.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Scene, 24-interaction cap</th>
+<th style="text-align: right;">640 × 360 median</th>
+<th style="text-align: right;">1280 × 720 median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One solid torus</td>
+<td style="text-align: right;">3.30 ms</td>
+<td style="text-align: right;">5.30 ms</td>
+</tr>
+<tr>
+<td>Three 0.01° shells, aligned</td>
+<td style="text-align: right;">12.40 ms</td>
+<td style="text-align: right;">36.40 ms</td>
+</tr>
+<tr>
+<td>Three 0.01° shells, XW = 45°</td>
+<td style="text-align: right;">25.00 ms</td>
+<td style="text-align: right;">91.90 ms</td>
+</tr>
+</tbody>
+</table>
+<figure id="fig:performance">
+<img src="figures/performance.png" style="width:100.0%"
+alt="Browser draw-and-readback timings on Apple M3 Pro. Lines show medians; shading shows the interquartile range of 30 samples. The interaction count is a maximum budget, not a claim that every pixel encounters that many interfaces. Fixed-scene timings are sensitive to scheduling and thermal state; the nonmonotonic small differences should not be treated as algorithmic speedups." />
+<figcaption aria-hidden="true">Browser draw-and-readback timings on
+Apple M3 Pro. Lines show medians; shading shows the interquartile range
+of 30 samples. The interaction count is a maximum budget, not a claim
+that every pixel encounters that many interfaces. Fixed-scene timings
+are sensitive to scheduling and thermal state; the nonmonotonic small
+differences should not be treated as algorithmic speedups.</figcaption>
+</figure>
+<p>An independent native offscreen run uses OpenGL 4.1 Metal 90.5 and
+changes only the shader version directive to GLSL 4.10. Its production
+draw-and-<code>glFinish</code> timings omit readback and browser
+overhead and are retained separately in
+<code>research/results/rendering.json</code>; the repeated variant
+comparison is in <code>renderer-benchmark.json</code>. Native and
+browser timings should not be conflated. This is a single-device study,
+not a portability or cross-vendor performance claim. Ferrari is
+evaluated numerically, not timed in the full renderer.</p>
+<h2 id="reproducibility">11. Reproducibility</h2>
+<p>The companion package contains the buildless application, CPU/GPU
+tests, independent reference, baseline source and attribution, raw
+result JSON, figure recipes, LaTeX source and PDF.
+<code>research/README.md</code> gives exact commands and pinned Python
+package versions. <code>npm test</code> runs the CPU suite;
+<code>npm run test:gpu</code> runs native macOS hardware checks.
+<code>research/verify.html</code> checks the independent corpus in
+WebGL; <code>research/benchmark.html</code> runs the browser timing
+protocol when the project root is served locally. Figure renders are
+generated by the production shader into an offscreen framebuffer.</p>
+<p>The implementation is MIT licensed, copyright Tom Crosby, 2026. The
+adapted Graphics Gems baseline retains its upstream permission notice. A
+per-file SHA-256 manifest identifies the exact contents of the
+supplementary package.</p>
+<h2 id="related-work-and-scope">12. Related work and scope</h2>
+<p>The following sources establish that the main geometric and rendering
+ingredients predate this project. This is a focused literature check,
+not an exhaustive priority search.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Relevant prior work</th>
+<th>Consequence for this note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rotated Clifford tori, cyclides, and passage through infinity</td>
+<td>Banchoff’s online <em>Beyond the Third Dimension</em> chapter; the
+book was first published in 1990. The online edition also has a later
+preface. The 3D-XplorMath gallery provides another explicit inside-out
+demonstration.</td>
+<td>The geometry and inside-out animation are established.</td>
+</tr>
+<tr>
+<td>Four-dimensional rotations and stereographic Clifford-torus
+geometry</td>
+<td>McCuan and Spietz (1998) analyze rotations and symmetries under
+stereographic projection.</td>
+<td>The geometric exposition builds on these established results.</td>
+</tr>
+<tr>
+<td>Ray tracing implicit algebraic surfaces</td>
+<td>Hanrahan (1983) derives ray-polynomial intersections and shading for
+algebraic surfaces.</td>
+<td>Quartic ray substitution, analytic normals, and secondary rays are
+established techniques.</td>
+</tr>
+<tr>
+<td>GPU ray tracing in Bernstein form</td>
+<td>Seland and Dokken, <em>Real-Time Algebraic Surface
+Visualization</em>, construct per-ray Bernstein polynomials and find
+roots on the GPU using Bézier subdivision.</td>
+<td>Neither GPU algebraic ray tracing nor use of Bernstein coefficients
+is new here.</td>
+</tr>
+<tr>
+<td>Root isolation through derivative roots</td>
+<td>Yuksel (2022) uses derivative-root intervals and a robust iterative
+solver for polynomial roots in graphics.</td>
+<td>The monotone-interval idea is prior work; this implementation uses
+Bernstein evaluation and bisection and bracket interpolation followed by
+homogeneous-form polishing.</td>
+</tr>
+<tr>
+<td>Robust roots evaluated against the surface</td>
+<td>Szente, Karikó, and Valasek (2026) combine GPU polynomial
+representations with refinement against the original implicit
+function.</td>
+<td>Refinement against the implicit field predates this
+implementation.</td>
+</tr>
+</tbody>
+</table>
+<p>Sources for the table: <a
+href="https://www.math.brown.edu/tbanchof/Beyond3D.new/chapter6/s6_8.html">Banchoff
+chapter</a>, <a
+href="https://www.math.brown.edu/tbanchof/howison/newbanchoff/oldpubs/52.php">book
+publication record</a>, <a
+href="https://www.math.brown.edu/tbanchof/Beyond3D.new/preface.html">online
+preface</a>, <a
+href="https://webapps.math.uci.edu/~vmm/Surface/clifford_torus/clifford_torus.html">3D-XplorMath
+gallery</a>, <a href="https://arxiv.org/abs/math/9810023">McCuan and
+Spietz</a>, <a
+href="https://www.cs.drexel.edu/~deb39/Classes/Papers/p83-hanrahan.pdf">Hanrahan
+paper</a>, <a
+href="https://www.sintef.no/globalassets/project/heterogeneous-computing/preprints/algebraic_surface_springer.pdf">Seland
+and Dokken preprint</a>, <a
+href="https://www.cemyuksel.com/research/polynomials/polynomial_roots_hpg2022.pdf">Yuksel
+paper</a>, and <a
+href="https://www.researchgate.net/publication/410684146_Robust_Ray-Surface_Intersections_for_Algebraic_Surfaces">Szente,
+Karikó, and Valasek author-uploaded paper</a>.</p>
+<p>The comparison supports a narrower engineering conclusion: for the
+sampled configurations, both the Bernstein near/reciprocal
+implementation and the modern centered Newton-bisection baseline retain
+more reference intersections than the tested Ferrari port. The
+coordinate comparison does not demonstrate an advantage in completeness
+at the tested tolerance. It does not establish priority for
+compactification, Bernstein evaluation, derivative-root isolation,
+direct-field polishing, Hopf-torus visualization, or refractive ray
+tracing. The modern baseline matches the same corpus completely;
+comparisons on broader independent data, alternative compactifications
+and additional GPUs remain necessary before claiming a broadly superior
+numerical method.</p>
+<h2 id="limitations">13. Limitations</h2>
+<p>The renderer uses float32 and heuristic stationary-root tolerances.
+It can merge close contacts, skip features below the origin offset, or
+lose accuracy for ill-conditioned or extremely distant hits. It does not
+resolve a ray lying entirely in the surface as a continuum of
+intersections. Input rounding itself can change topology at the pole.
+The final stress corpus contains 109 grazing failures per modern variant
+at the principal tolerance. The experiments use finite, structured
+corpora and one GPU; they neither certify arbitrary rotations nor cover
+every grazing or overlapping-shell configuration.</p>
+<p>Optics use a bounded main path and a limited reflected branch,
+approximate metal Fresnel colors and rough environment reflections,
+finite absorption for unbounded paths, and no caustics, spectral
+dispersion or global illumination. The shell is an angular band in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>S</mi><mn>3</mn></msup><annotation encoding="application/x-tex">S^3</annotation></semantics></math>,
+not a constant Euclidean wall thickness. Overlapping materials follow an
+explicit interval-priority rule. Exact surface equations should not be
+confused with exact numerical roots or complete physical light
+transport.</p>
+<h2 id="assistance-and-responsibility">Assistance and
+responsibility</h2>
+<p>Tom Crosby supplied the geometric motivation, directed the project
+and evaluated the interactive results. OpenAI Codex assisted with
+derivations, implementation, experiment design and execution,
+figure-generation code, literature checking, and manuscript drafting and
+revision. The automated checks and independent reference calculations
+described above provide the recorded verification; they do not
+substitute for human review. Codex is identified as an AI tool rather
+than a human author. Tom Crosby is responsible for the interpretation
+and conclusions. The rendered figures and plots are deterministic
+outputs of the supplied code and data, not AI-generated
+illustrations.</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>Thomas F. Banchoff. <em>Beyond the Third Dimension</em>. Scientific
+American Library, 1990. Consulted: <a
+href="https://www.math.brown.edu/tbanchof/Beyond3D.new/chapter6/s6_8.html">online
+chapter, “Stereographic Projection from Four-Space”</a>. The date of the
+book should not be read as verification that every sentence of the later
+online edition appeared unchanged in 1990.</li>
+<li>John McCuan and Lafe Spietz. “Rotations of the three-sphere and
+symmetry of the Clifford torus.” MSRI Preprint 1998-052,
+arXiv:math/9810023, 1998. <a
+href="https://arxiv.org/abs/math/9810023">Primary record</a>.</li>
+<li>Pat Hanrahan. “Ray Tracing Algebraic Surfaces.” <em>Computer
+Graphics</em> 17(3), SIGGRAPH 1983, pp. 83–90. <a
+href="https://doi.org/10.1145/964967.801136">DOI:
+10.1145/964967.801136</a>. <a
+href="https://www.cs.drexel.edu/~deb39/Classes/Papers/p83-hanrahan.pdf">Paper
+scan</a>.</li>
+<li>Johan Simon Seland and Tor Dokken. “Real-Time Algebraic Surface
+Visualization.” <em>Geometric Modelling, Numerical Simulation, and
+Optimization</em>, Springer, 2007, pp. 163–183. <a
+href="https://doi.org/10.1007/978-3-540-68783-2_6">DOI:
+10.1007/978-3-540-68783-2_6</a>. <a
+href="https://www.sintef.no/globalassets/project/heterogeneous-computing/preprints/algebraic_surface_springer.pdf">SINTEF
+preprint</a>.</li>
+<li>Cem Yuksel. “High-Performance Polynomial Root Finding for Graphics.”
+<em>Proceedings of the ACM on Computer Graphics and Interactive
+Techniques</em> 5(3), Article 7, 2022. <a
+href="https://doi.org/10.1145/3543865">DOI: 10.1145/3543865</a>. <a
+href="https://www.cemyuksel.com/research/polynomials/polynomial_roots_hpg2022.pdf">Author’s
+PDF</a>.</li>
+<li>Péter Szente, Csongor Csanád Karikó, and Gábor Valasek. “Robust
+Ray–Surface Intersections for Algebraic Surfaces.” <em>Eurographics 2026
+— Short Papers</em>. <a href="https://doi.org/10.2312/egs.20261027">DOI:
+10.2312/egs.20261027</a>. <a
+href="https://www.researchgate.net/publication/410684146_Robust_Ray-Surface_Intersections_for_Algebraic_Surfaces">Author-uploaded
+full text</a>.</li>
+<li>3D-XplorMath / Virtual Math Museum. <a
+href="https://webapps.math.uci.edu/~vmm/Surface/clifford_torus/clifford_torus.html">“Clifford
+Torus” gallery</a>. Undated web demonstration; consulted November
+2026.</li>
+<li>Jochen Schwarze. “Cubic and Quartic Roots.” In <em>Graphics
+Gems</em>, edited by Andrew S. Glassner, Academic Press, 1990,
+pp. 404–407. <a
+href="https://github.com/erich666/GraphicsGems/blob/master/gems/Roots3And4.c">Maintained
+source repository</a>.</li>
+<li>Aaron Meurer et al. “SymPy: symbolic computing in Python.” <em>PeerJ
+Computer Science</em> 3:e103, 2017. <a
+href="https://doi.org/10.7717/peerj-cs.103">DOI:
+10.7717/peerj-cs.103</a>. The experiments use SymPy 1.14.0 and its
+exact-rational real-root isolation.</li>
+<li>Thomas Bendokat, Ralf Zimmermann, and P.-A. Absil. “A Grassmann
+manifold handbook: basic geometry and computational aspects.”
+<em>Advances in Computational Mathematics</em> 50, Article 6, 2024. <a
+href="https://doi.org/10.1007/s10444-023-10090-8">DOI:
+10.1007/s10444-023-10090-8</a>. <a
+href="https://arxiv.org/abs/2011.13699">Author preprint</a>, Section
+2.</li>
+<li>Christoph Peters. “Finding Real Polynomial Roots on GPUs.”
+<em>Moments in Graphics</em>, 31 October 2023. <a
+href="https://momentsingraphics.de/GPUPolynomialRoots.html">Author’s
+implementation and discussion</a>. The accompanying GLSL code is
+dedicated under CC0 1.0.</li>
+</ol>
+<h2 id="implementation-map">Implementation map</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>web/math.js</code></td>
+<td>Rotation/projector construction, CPU field and root reference, shell
+levels and merged shell roots.</td>
+</tr>
+<tr>
+<td><code>web/shader.js</code></td>
+<td>Quartic coefficients, root isolation, boundary selection, analytic
+normals, and optical tracing.</td>
+</tr>
+<tr>
+<td><code>web/app.js</code></td>
+<td>Camera, animation, six angles, material controls, pole indicators,
+and WebGL uniforms.</td>
+</tr>
+<tr>
+<td><code>web/index.html</code>, <code>web/style.css</code></td>
+<td>Interactive application and in-app mathematical explanation.</td>
+</tr>
+<tr>
+<td><code>tests/math.test.js</code></td>
+<td>Twenty-four CPU verification tests.</td>
+</tr>
+<tr>
+<td><code>web/verify.html</code>, <code>web/verify-shell.html</code>,
+<code>web/verify-scene.html</code></td>
+<td>Browser-executed GLSL verification reports.</td>
+</tr>
+<tr>
+<td><code>research/</code></td>
+<td>Independent reference, baseline, numerical experiments, benchmarks
+and figure generation.</td>
+</tr>
+<tr>
+<td><code>TECHNICAL_NOTE.md</code></td>
+<td>Editable source of this note.</td>
+</tr>
+<tr>
+<td><code>scripts/build-note.sh</code>, <code>docs/note.css</code></td>
+<td>Generate and style the standalone HTML note using Pandoc.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

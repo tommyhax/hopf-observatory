@@ -1,0 +1,11 @@
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+const dir='research/diagnostics/native-renderer/';
+const input='research/diagnostics/algorithm1010/final/results/webgl-benchmark.json';
+const previous=JSON.parse(await readFile(input,'utf8'));
+const selected=previous.measurements.filter(x=>x.variant==='production'&&x.round===0);
+if(selected.length!==4)throw Error('Expected four frozen benchmark scenes');
+const scenes=selected.map(({scene,uniforms},id)=>({id,name:scene,uniforms:Object.fromEntries(Object.entries(uniforms).map(([k,v])=>[k,Array.isArray(v)?v.map(Math.fround):Math.fround(v)]))}));
+await mkdir('native/scenes',{recursive:true});await mkdir(dir+'results/images',{recursive:true});
+await writeFile('native/scenes/benchmark.json',JSON.stringify({source:input,sourceSHA256:createHash('sha256').update(await readFile(input)).digest('hex'),scenes},null,2)+'\n');
+console.log('Prepared four identical binary32 uniform sets for CPU and GPU.');

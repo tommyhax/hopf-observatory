@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "rootQueries": 3267,
+  "frameComparisons": 16,
+  "timedFramesPerBackend": 36,
+  "exactOutlierQueries": 314,
+  "priorHashesPreserved": 81,
+  "sourceAndCaptureHashes": {
+    "native/CMakeLists.txt": "0aeb580d6f7b3bb52f66e7e022f33b41c9e92340dfb76259dfdc38140541ad7b",
+    "native/main.cpp": "b4592464fb57afba8c3ebca3bc955056a32aa50dd6421cd743c2e072aefbab92",
+    "native/generate-optics.mjs": "923dcdc14c5440880c97b861cb26fc8c39e0341dd44d2af44e086f86ca76831b",
+    "native/client.mjs": "a194b59126a4a021418626b1a986aa6cc062155add8fa9525465b7b16b6d8d33",
+    "native/include/hopf/math.hpp": "18749a12d98967b4d422947b2368415c6bf72f2994b66ecd4b255df116111e98",
+    "native/include/hopf/renderer.hpp": "5a728f7e9fcaff4f3ef00bc770c277af207ef222f3e72c2aadb94d0aabea2db1",
+    "native/include/hopf/quartic.hpp": "aedff3214542ce00a9c0e1de41ec03402371275987bfffc04bb3bc3dcf5de1c5",
+    "native/include/hopf/workers.hpp": "b28f298e3ecd57470bf54dfea6319561616ee879eb548cfd97d9a68b69f61024",
+    "native/build/generated/optics.inc": "0703f830a6bd6f3e0fc5a8ff74a60d20b447f36a8ae2108622cd9397fd9bd0ad",
+    "native/build/hopf-render": "66d81af59fa44c5b629b063a0f1d9f72db0e2b31a53611440778bf9ca2bf734a",
+    "native/scenes/benchmark.json": "4edbeb8ec3e313b96c79e7b12d9c9c70e38e97a4fda8ecc48e9f15974570a8b9",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/diagnostics/native-renderer/benchmark.mjs": "9b03a31b1041355d033deaec05c559bb67a99c45971455c8600e2c3126032ddf",
+    "research/diagnostics/native-renderer/PROTOCOL.md": "82182921b4cfb8309fd8eacf70696ac00a7de2f5440a931b8b260d22832b108d"
+  }
+}
