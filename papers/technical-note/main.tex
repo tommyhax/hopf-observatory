@@ -263,12 +263,14 @@ four unless the two curves coincide. The lifted circle passes through
 \(N\), so the ellipse passes through \(PN\), and \(|PN|^2=P_{44}\);
 coincidence therefore requires the pole condition \(P_{44}=c\) of
 Section 6. Under that condition \(PN\) is a common point of the two
-curves for every ray but corresponds to no finite hit, and a line whose
-ellipse is the circle lies entirely on the surface. At \(t=45^\circ\)
-after a \(45^\circ\) XW rotation, for example, the line through the
-origin in direction \((0,1,1)\) is contained in the surface. The ellipse
-depends only on the ray and \(P\), so every torus in a family sharing
-\(P\) is a different circle in the same picture.
+curves for every ray. Its preimage \(N\) is excluded, but if the ellipse
+degenerates to a segment, any other preimage of \(PN\) is a legitimate
+finite hit. A line whose ellipse is the circle lies entirely on the
+surface. At \(t=45^\circ\) after a \(45^\circ\) XW rotation, for
+example, the line through the origin in direction \((0,1,1)\) is
+contained in the surface. The ellipse depends only on the ray and \(P\),
+so every torus in a family sharing \(P\) is a different circle in the
+same picture.
 
 The projected tori are Dupin cyclides, which are quartic surfaces
 {[}1{]}; a line can meet one four times, so no method avoids a
@@ -1139,7 +1141,9 @@ In WebGL it matches every intersection of all 3,267 queries and all 54
 polynomial fixtures, and passes the complete optical suite. Images agree
 with production to within two RGB8 code values in every shell scene.
 Elapsed GPU time at 1280×720 with 24 interactions, relative to the
-float32 renderer measured in the same alternating run:
+float32 renderer measured in the same alternating run. The two paired
+variants come from separate runs, so their columns are compared only
+through these normalized times:
 
 {
 \Needspace{10\baselineskip}\begin{longtable}[]{@{}
@@ -1170,32 +1174,36 @@ Three shells near the pole & 79.4--92.4 ms & 7.05× & 5.37× \\
 
 In binary64 on the CPU, the same algorithm needs no escalation. It
 passes every query and fixture at \(10^{-8}\), and takes 0.282 µs per
-query including coefficient construction, against 3.454 µs for a
-derivative-partitioned bisection solver with the same inputs, arithmetic
-and compiler settings. That makes it 12.2 times faster. Its first,
-unconditioned version had failed 371 ray queries; the translations,
-scaling and product identities above are what fixed them. A float32
-implementation of Algorithm 1010 {[}12, 13{]}, a modern factorization
-method, similarly ran 21--44\% faster than Bernstein natively but took
-37--55\% more browser GPU time on three-shell scenes. Its results are in
-\texttt{research/diagnostics/algorithm1010/}.
+query including coefficient construction, against 3.454 µs for
+derivative-partitioned bisection of the power-basis polynomial with the
+same inputs, arithmetic and compiler settings. That makes it 12.2 times
+faster. Its first, unconditioned version had failed 371 ray queries; the
+translations, scaling and product identities above are what fixed them.
+A float32 implementation of Algorithm 1010 {[}12, 13{]}, a modern
+factorization method, similarly ran 21--44\% faster than Bernstein
+natively but took 37--55\% more browser GPU time on three-shell scenes.
+Its results are in \texttt{research/diagnostics/algorithm1010/}.
 
-\subsection{Why the closed form gains less on the
-GPU}\label{why-the-closed-form-gains-less-on-the-gpu}
+\subsection{What limits the closed form on the
+GPU}\label{what-limits-the-closed-form-on-the-gpu}
 
-Against paired Bernstein, the closed form's twelvefold CPU advantage
-shrinks on the GPU to at most 1.5 times, and it is 11\% slower for a
-single shell. The causes have not been timed separately; the likely ones
-are these. Cube roots, square roots, inverse cosine and trigonometric
-functions run on lower-throughput units, and in paired arithmetic they
-become software expansions. The formula branches on discriminant signs
-and degenerate cases, and divergent branches can serialize within SIMD
-groups. One contributing factor is measured: the long chain of dependent
-operations amplifies rounding, so the float32 guard escalates 84\% of
-corpus queries to the paired path, which then pays for both evaluations.
-Iterative isolation evaluates a quartic with a few multiply--adds,
-rejects a chart with no possible root by one sign test, and stops at the
-first chart containing a hit.
+The CPU and GPU results measure different things and are not directly
+comparable: the CPU figures time a boundary-query kernel against
+power-basis bisection, while the GPU figures time complete frames
+against Bernstein isolation. On the GPU, comparing the normalized times
+from the two runs, the closed form is faster in three scenes and slower
+for the single shell. What limits it on the GPU has not been timed
+separately; the likely factors are these. Cube roots, square roots,
+inverse cosine and trigonometric functions run on lower-throughput
+units, and in paired arithmetic they become software expansions. The
+formula branches on discriminant signs and degenerate cases, and
+divergent branches can serialize within SIMD groups. One contributing
+factor is measured: the long chain of dependent operations amplifies
+rounding, so the float32 guard escalates 84\% of corpus queries to the
+paired path, which then pays for both evaluations. Iterative isolation
+evaluates a quartic with a few multiply--adds, rejects a chart with no
+possible root by one sign test, and stops at the first chart containing
+a hit.
 
 Two directions could make accurate construction cheap enough for the
 default renderer. Paired arithmetic could be applied only to rays whose
