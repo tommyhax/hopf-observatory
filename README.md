@@ -76,7 +76,7 @@ The **Tests** workflow runs on pushes and pull requests. It checks formatting, C
 
 [Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh` and the technical-note LaTeX with `python3 scripts/build-latex.py`. Rebuild the canonical JCGT manuscript with `python3 scripts/build-paper.py --pdf` ([instructions](papers/jcgt/README.md)) and the JMA draft PDF with `./scripts/build-jma.sh`. Prepare the versioned supplementary archive from committed source with `python3 scripts/package-release.py --version v0.1.0-review.4 --source HEAD`; see [release and provenance instructions](docs/RELEASE.md).
 
-The implementation is MIT licensed, copyright 2026 Tom Crosby. The numerical baselines retain their [upstream notices](research/THIRD_PARTY.md); the experimental Algorithm 1010 port retains its [BSD licence](research/diagnostics/algorithm1010/LICENSE), and the closed-form solvers adapted from Boost.Math retain the [Boost Software License](research/diagnostics/guarded-direct/LICENSE_1_0.txt).
+The software is MIT licensed, copyright 2026 Tom Crosby. The papers, technical note and their figures are not: they are copyright 2026 Tom Crosby, all rights reserved ([LICENSE](LICENSE) gives the exact scope). The numerical baselines retain their [upstream notices](research/THIRD_PARTY.md); the experimental Algorithm 1010 port retains its [BSD licence](research/diagnostics/algorithm1010/LICENSE), and the closed-form solvers adapted from Boost.Math retain the [Boost Software License](research/diagnostics/guarded-direct/LICENSE_1_0.txt).
 
 ## Limits
 

@@ -8,6 +8,8 @@
 
 The JMA and JCGT papers are distinct: the first is about the geometry and the images, the second about rendering and numerical accuracy. The JMA draft cites the technical note, not the JCGT manuscript, for the numerical details; the JCGT manuscript does not cite the JMA paper.
 
+The papers, the technical note and their figures are copyright 2026 Tom Crosby, all rights reserved; the repository's MIT licence covers the software only (see [LICENSE](../LICENSE)). The JCGT template files keep their own provenance.
+
 Shared figures live in [technical-note/figures/](technical-note/figures/), where the note's HTML and LaTeX builds and `research/plot.py` expect them. The other papers refer to them there.
 
 ## Building

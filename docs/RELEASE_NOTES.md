@@ -21,7 +21,9 @@ The snapshot now delivers all three papers: the JCGT review manuscript
 draft of the *Journal of Mathematics and the Arts* paper (`jma-draft.pdf`),
 whose figures are not yet made. Prior geometry is attributed explicitly in all
 three: the rotated Clifford-torus images to Banchoff and to McCuan and Spietz,
-and the cyclide equation to Pottmann, Shi and Skopenkov.
+and the cyclide equation to Pottmann, Shi and Skopenkov. The repository
+licence now states its scope: MIT covers the software, while the papers, the
+technical note and their figures are copyright Tom Crosby, all rights reserved.
 
 This third external-review snapshot (`v0.1.0-review.4`) packages a committed
 source revision with per-file provenance, the three PDFs and self-contained

@@ -22,3 +22,12 @@ SOFTWARE.
 
 The adapted Graphics Gems baseline in research/ferrari.glsl retains its
 separate upstream permission notice; see research/THIRD_PARTY.md.
+
+Scope: this MIT licence covers the software in this repository, meaning the
+source code, shaders, tests, scripts, research programs and their data. It
+does not cover the papers. The manuscripts, the technical note and their
+figures (everything under papers/, plus web/technical-note.html and
+web/figures/) are Copyright (c) 2026 Tom Crosby, all rights reserved. The
+exceptions are papers/jcgt/jcgt.cls and papers/jcgt/jcgt.bst, which are
+unmodified files from the JCGT template; their provenance is recorded in
+papers/jcgt/README.md.
