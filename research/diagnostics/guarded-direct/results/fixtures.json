@@ -1,0 +1,2202 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "hashes": {
+    "research/diagnostics/guarded-direct/renderer.mjs": "27c437819a3f8ab8f4285cc89605313bc995812a743b4543ceb67bf88bb9675f",
+    "research/diagnostics/guarded-direct/solver.glsl.in": "3059893fc6cae3e7c17d9c5d5adbf6a41f1476432c2a668961a3efc81da073f6",
+    "research/diagnostics/guarded-direct/elementary.glsl": "7265a8864c6f36c3e61ad7e315a4a0d01b9ccade33dc766a93f6bb0212221ec5",
+    "research/diagnostics/guarded-direct/intersection.glsl": "f61da2e4bee6309de9f1c9db522a71a65df7095374abfdd219feac5b355fb044",
+    "research/diagnostics/browser-precision/paired.glsl": "62ada1f865b1633224d24051925ac337b29fb108cf457b0af939addaff5db4a3",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "research/diagnostics/algorithm1010/fixtures.json": "efc7f226e44ef3b65f693c77c32c883a0cea99bc08830afc627e390ec33d9a3a",
+    "research/diagnostics/guarded-direct/run-fixtures.mjs": "27925c1ae0708240936b9f2c9f117b9ae3b832dcac873770a4336b9e6b84ba35",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3"
+  },
+  "rendererHashes": {
+    "direct": "08896c281ee9952f4c028918db64231570205a7e927c16056c51c990d12f5e5f",
+    "paired-direct": "cdc843cf5e3be0ba5a69098023c08fa85da6916e6bac759341fa1e60b129817f"
+  },
+  "results": [
+    {
+      "id": 0,
+      "name": "four simple roots",
+      "variant": "direct",
+      "coefficients": [
+        24,
+        -50,
+        35,
+        -10,
+        1
+      ],
+      "actual": [
+        4,
+        1,
+        3,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 1,
+      "name": "cubic degree loss",
+      "variant": "direct",
+      "coefficients": [
+        -6,
+        11,
+        -6,
+        1,
+        0
+      ],
+      "actual": [
+        3,
+        2,
+        1
+      ],
+      "count": 3,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 2,
+      "name": "quadratic degree loss",
+      "variant": "direct",
+      "coefficients": [
+        -1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        -1,
+        1
+      ],
+      "count": 2,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 3,
+      "name": "linear degree loss",
+      "variant": "direct",
+      "coefficients": [
+        -2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        2
+      ],
+      "count": 1,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 4,
+      "name": "constant",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 5,
+      "name": "zero polynomial",
+      "variant": "direct",
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 6,
+      "name": "double zero",
+      "variant": "direct",
+      "coefficients": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        0
+      ],
+      "count": 1,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 7,
+      "name": "two double roots",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        0,
+        -2,
+        0,
+        1
+      ],
+      "actual": [
+        1,
+        -1
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 8,
+      "name": "quadruple one",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        -4,
+        6,
+        -4,
+        1
+      ],
+      "actual": [
+        1
+      ],
+      "count": 1,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 9,
+      "name": "quadruple one perturbed above",
+      "variant": "direct",
+      "coefficients": [
+        1.0000009536743164,
+        -4,
+        6,
+        -4,
+        1
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 10,
+      "name": "quadruple one perturbed below",
+      "variant": "direct",
+      "coefficients": [
+        0.9999990463256836,
+        -4,
+        6,
+        -4,
+        1
+      ],
+      "actual": [
+        1.03125,
+        0.96875
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 11,
+      "name": "triple one",
+      "variant": "direct",
+      "coefficients": [
+        -2,
+        5,
+        -3,
+        -1,
+        1
+      ],
+      "actual": [
+        -2,
+        1
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 12,
+      "name": "closed endpoints",
+      "variant": "direct",
+      "coefficients": [
+        0,
+        -1,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        0,
+        1
+      ],
+      "count": 2,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 13,
+      "name": "quadratic separated scales",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        -10000000000,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        10000000000,
+        1.000000013351432e-10
+      ],
+      "count": 2,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 14,
+      "name": "no real roots",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 15,
+      "name": "two real roots",
+      "variant": "direct",
+      "coefficients": [
+        -1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "actual": [
+        1,
+        -1
+      ],
+      "count": 2,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 16,
+      "name": "2024 correction case 26",
+      "variant": "direct",
+      "coefficients": [
+        -46,
+        0,
+        -11,
+        0,
+        1
+      ],
+      "actual": [
+        3.7725486755371094,
+        -3.7725486755371094
+      ],
+      "count": 2,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 17,
+      "name": "correction case 25",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        -17.67818832397461,
+        -14.480985641479492,
+        2.2459774017333984,
+        1
+      ],
+      "actual": [
+        0.054182760417461395,
+        3.4377033710479736,
+        -1.1771714687347412,
+        -4.560692310333252
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 18,
+      "name": "separated quartic",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        -4098.5,
+        10242.0009765625,
+        -4098.5,
+        1
+      ],
+      "actual": [
+        2.000000238418579,
+        0.00024414065410383046,
+        4095.999755859375,
+        0.49999991059303284
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 19,
+      "name": "near zero quartet",
+      "variant": "direct",
+      "coefficients": [
+        5.293955920339377e-23,
+        -1.0408340855860843e-16,
+        6.366462912410498e-11,
+        -0.00001430511474609375,
+        1
+      ],
+      "actual": [
+        0.000003814697265625,
+        9.536742595628311e-7,
+        0.00000762939453125,
+        0.0000019073486328125
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 20,
+      "name": "widely separated quartet",
+      "variant": "direct",
+      "coefficients": [
+        1,
+        -1048584.125,
+        8519682,
+        -1048584.125,
+        1
+      ],
+      "actual": [
+        8,
+        9.536752259009518e-7,
+        1048576,
+        0.125
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 21,
+      "name": "close dyadic pair",
+      "variant": "direct",
+      "coefficients": [
+        -5.999994277954102,
+        11.000000953674316,
+        -3.0000009536743164,
+        -3,
+        1
+      ],
+      "actual": [
+        -2,
+        0.9990234375,
+        3,
+        1.0009765625
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 22,
+      "name": "integer quartet 0",
+      "variant": "direct",
+      "coefficients": [
+        3360,
+        -128,
+        -190,
+        -1,
+        1
+      ],
+      "actual": [
+        -5,
+        4,
+        -12,
+        14
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 23,
+      "name": "integer quartet 1",
+      "variant": "direct",
+      "coefficients": [
+        2400,
+        -80,
+        -166,
+        5,
+        1
+      ],
+      "actual": [
+        -4,
+        4,
+        -15,
+        10
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 24,
+      "name": "integer quartet 2",
+      "variant": "direct",
+      "coefficients": [
+        -1092,
+        761,
+        299,
+        31,
+        1
+      ],
+      "actual": [
+        1,
+        -12,
+        -7,
+        -13
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 25,
+      "name": "integer quartet 3",
+      "variant": "direct",
+      "coefficients": [
+        32,
+        14,
+        -33,
+        -14,
+        1
+      ],
+      "actual": [
+        1,
+        -2,
+        -1,
+        16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 26,
+      "name": "integer quartet 4",
+      "variant": "direct",
+      "coefficients": [
+        504,
+        506,
+        167,
+        22,
+        1
+      ],
+      "actual": [
+        -2,
+        -9,
+        -4,
+        -7
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 27,
+      "name": "integer quartet 5",
+      "variant": "direct",
+      "coefficients": [
+        -896,
+        -1112,
+        -210,
+        7,
+        1
+      ],
+      "actual": [
+        -1,
+        14,
+        -4,
+        -16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 28,
+      "name": "integer quartet 6",
+      "variant": "direct",
+      "coefficients": [
+        -840,
+        -158,
+        77,
+        20,
+        1
+      ],
+      "actual": [
+        -4,
+        3,
+        -5,
+        -14
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 29,
+      "name": "integer quartet 7",
+      "variant": "direct",
+      "coefficients": [
+        -490,
+        623,
+        -135,
+        1,
+        1
+      ],
+      "actual": [
+        7,
+        1,
+        -14,
+        5
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 30,
+      "name": "integer quartet 8",
+      "variant": "direct",
+      "coefficients": [
+        12480,
+        -1276,
+        -289,
+        4,
+        1
+      ],
+      "actual": [
+        -12,
+        5,
+        -13,
+        16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 31,
+      "name": "integer quartet 9",
+      "variant": "direct",
+      "coefficients": [
+        -2106,
+        -747,
+        33,
+        19,
+        1
+      ],
+      "actual": [
+        -3,
+        6,
+        -9,
+        -13
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 32,
+      "name": "integer quartet 10",
+      "variant": "direct",
+      "coefficients": [
+        5040,
+        2484,
+        448,
+        35,
+        1
+      ],
+      "actual": [
+        -6,
+        -10,
+        -7,
+        -12
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 33,
+      "name": "integer quartet 11",
+      "variant": "direct",
+      "coefficients": [
+        -4368,
+        1796,
+        -148,
+        -11,
+        1
+      ],
+      "actual": [
+        -13,
+        4,
+        14,
+        6
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 34,
+      "name": "integer quartet 12",
+      "variant": "direct",
+      "coefficients": [
+        -420,
+        628,
+        -205,
+        -4,
+        1
+      ],
+      "actual": [
+        -14,
+        1,
+        15,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 35,
+      "name": "integer quartet 13",
+      "variant": "direct",
+      "coefficients": [
+        -288,
+        -228,
+        -32,
+        7,
+        1
+      ],
+      "actual": [
+        -2,
+        6,
+        -3,
+        -8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 36,
+      "name": "integer quartet 14",
+      "variant": "direct",
+      "coefficients": [
+        -11760,
+        3136,
+        -136,
+        -16,
+        1
+      ],
+      "actual": [
+        -14.000000953674316,
+        5.999999046325684,
+        14.000001907348633,
+        10
+      ],
+      "count": 4,
+      "wide": 0,
+      "uncertain": 0
+    },
+    {
+      "id": 37,
+      "name": "integer quartet 15",
+      "variant": "direct",
+      "coefficients": [
+        -30,
+        41,
+        -7,
+        -5,
+        1
+      ],
+      "actual": [
+        -3,
+        1,
+        5,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 38,
+      "name": "integer quartet 16",
+      "variant": "direct",
+      "coefficients": [
+        -3744,
+        236,
+        173,
+        -26,
+        1
+      ],
+      "actual": [
+        -4,
+        8,
+        13,
+        9
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 39,
+      "name": "integer quartet 17",
+      "variant": "direct",
+      "coefficients": [
+        -308,
+        468,
+        -161,
+        0,
+        1
+      ],
+      "actual": [
+        -14,
+        1,
+        11,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 40,
+      "name": "integer quartet 18",
+      "variant": "direct",
+      "coefficients": [
+        18900,
+        -1125,
+        -309,
+        5,
+        1
+      ],
+      "actual": [
+        -12,
+        7,
+        -15,
+        15
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 41,
+      "name": "integer quartet 19",
+      "variant": "direct",
+      "coefficients": [
+        -9240,
+        2251,
+        -49,
+        -19,
+        1
+      ],
+      "actual": [
+        -11,
+        7,
+        15,
+        8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 42,
+      "name": "integer quartet 20",
+      "variant": "direct",
+      "coefficients": [
+        20160,
+        1416,
+        -274,
+        -9,
+        1
+      ],
+      "actual": [
+        -8,
+        14,
+        -12,
+        15
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 43,
+      "name": "integer quartet 21",
+      "variant": "direct",
+      "coefficients": [
+        -2340,
+        1263,
+        -149,
+        -7,
+        1
+      ],
+      "actual": [
+        -13,
+        3,
+        12,
+        5
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 44,
+      "name": "integer quartet 22",
+      "variant": "direct",
+      "coefficients": [
+        -288,
+        284,
+        17,
+        -14,
+        1
+      ],
+      "actual": [
+        -4,
+        1,
+        9,
+        8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 45,
+      "name": "integer quartet 23",
+      "variant": "direct",
+      "coefficients": [
+        12320,
+        -5234,
+        759,
+        -46,
+        1
+      ],
+      "actual": [
+        14,
+        5,
+        16,
+        11
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 46,
+      "name": "integer quartet 24",
+      "variant": "direct",
+      "coefficients": [
+        -13440,
+        3544,
+        -169,
+        -16,
+        1
+      ],
+      "actual": [
+        -15,
+        7,
+        16,
+        8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 47,
+      "name": "integer quartet 25",
+      "variant": "direct",
+      "coefficients": [
+        -312,
+        466,
+        -151,
+        -4,
+        1
+      ],
+      "actual": [
+        -12,
+        1,
+        13,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 48,
+      "name": "integer quartet 26",
+      "variant": "direct",
+      "coefficients": [
+        -15600,
+        2630,
+        59,
+        -26,
+        1
+      ],
+      "actual": [
+        -10,
+        8,
+        15,
+        13
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 49,
+      "name": "integer quartet 27",
+      "variant": "direct",
+      "coefficients": [
+        2184,
+        -1481,
+        335,
+        -31,
+        1
+      ],
+      "actual": [
+        8,
+        3,
+        13,
+        7
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 50,
+      "name": "integer quartet 28",
+      "variant": "direct",
+      "coefficients": [
+        2160,
+        684,
+        -204,
+        -1,
+        1
+      ],
+      "actual": [
+        -2,
+        6,
+        -15,
+        12
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 51,
+      "name": "integer quartet 29",
+      "variant": "direct",
+      "coefficients": [
+        616,
+        474,
+        -149,
+        -6,
+        1
+      ],
+      "actual": [
+        14,
+        -11,
+        4,
+        -1
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 52,
+      "name": "integer quartet 30",
+      "variant": "direct",
+      "coefficients": [
+        4620,
+        -548,
+        -121,
+        8,
+        1
+      ],
+      "actual": [
+        7,
+        -11,
+        6,
+        -10
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 53,
+      "name": "integer quartet 31",
+      "variant": "direct",
+      "coefficients": [
+        2912,
+        2714,
+        -213,
+        -14,
+        1
+      ],
+      "actual": [
+        -1,
+        13,
+        -14,
+        16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 0,
+      "name": "four simple roots",
+      "variant": "paired-direct",
+      "coefficients": [
+        24,
+        -50,
+        35,
+        -10,
+        1
+      ],
+      "actual": [
+        4,
+        1,
+        3,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 1,
+      "name": "cubic degree loss",
+      "variant": "paired-direct",
+      "coefficients": [
+        -6,
+        11,
+        -6,
+        1,
+        0
+      ],
+      "actual": [
+        3,
+        2,
+        1
+      ],
+      "count": 3,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 2,
+      "name": "quadratic degree loss",
+      "variant": "paired-direct",
+      "coefficients": [
+        -1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        -1,
+        1
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 3,
+      "name": "linear degree loss",
+      "variant": "paired-direct",
+      "coefficients": [
+        -2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        2
+      ],
+      "count": 1,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 4,
+      "name": "constant",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 5,
+      "name": "zero polynomial",
+      "variant": "paired-direct",
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 6,
+      "name": "double zero",
+      "variant": "paired-direct",
+      "coefficients": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        0
+      ],
+      "count": 1,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 7,
+      "name": "two double roots",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        0,
+        -2,
+        0,
+        1
+      ],
+      "actual": [
+        1,
+        -1
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 8,
+      "name": "quadruple one",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        -4,
+        6,
+        -4,
+        1
+      ],
+      "actual": [
+        1
+      ],
+      "count": 1,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 9,
+      "name": "quadruple one perturbed above",
+      "variant": "paired-direct",
+      "coefficients": [
+        1.0000009536743164,
+        -4,
+        6,
+        -4,
+        1
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 10,
+      "name": "quadruple one perturbed below",
+      "variant": "paired-direct",
+      "coefficients": [
+        0.9999990463256836,
+        -4,
+        6,
+        -4,
+        1
+      ],
+      "actual": [
+        1.03125,
+        0.96875
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 11,
+      "name": "triple one",
+      "variant": "paired-direct",
+      "coefficients": [
+        -2,
+        5,
+        -3,
+        -1,
+        1
+      ],
+      "actual": [
+        -2,
+        1
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 12,
+      "name": "closed endpoints",
+      "variant": "paired-direct",
+      "coefficients": [
+        0,
+        -1,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        0,
+        1
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 13,
+      "name": "quadratic separated scales",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        -10000000000,
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        10000000000,
+        1.000000013351432e-10
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 14,
+      "name": "no real roots",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "actual": [],
+      "count": 0,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 15,
+      "name": "two real roots",
+      "variant": "paired-direct",
+      "coefficients": [
+        -1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "actual": [
+        1,
+        -1
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 16,
+      "name": "2024 correction case 26",
+      "variant": "paired-direct",
+      "coefficients": [
+        -46,
+        0,
+        -11,
+        0,
+        1
+      ],
+      "actual": [
+        3.7725489139556885,
+        -3.7725489139556885
+      ],
+      "count": 2,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 17,
+      "name": "correction case 25",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        -17.67818832397461,
+        -14.480985641479492,
+        2.2459774017333984,
+        1
+      ],
+      "actual": [
+        0.054182760417461395,
+        3.4377033710479736,
+        -1.1771714687347412,
+        -4.560692310333252
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 18,
+      "name": "separated quartic",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        -4098.5,
+        10242.0009765625,
+        -4098.5,
+        1
+      ],
+      "actual": [
+        2.000000238418579,
+        0.00024414065410383046,
+        4095.999755859375,
+        0.49999991059303284
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 19,
+      "name": "near zero quartet",
+      "variant": "paired-direct",
+      "coefficients": [
+        5.293955920339377e-23,
+        -1.0408340855860843e-16,
+        6.366462912410498e-11,
+        -0.00001430511474609375,
+        1
+      ],
+      "actual": [
+        0.000003814697265625,
+        9.536742595628311e-7,
+        0.00000762939453125,
+        0.0000019073486328125
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 20,
+      "name": "widely separated quartet",
+      "variant": "paired-direct",
+      "coefficients": [
+        1,
+        -1048584.125,
+        8519682,
+        -1048584.125,
+        1
+      ],
+      "actual": [
+        8,
+        9.536752259009518e-7,
+        1048576,
+        0.125
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 21,
+      "name": "close dyadic pair",
+      "variant": "paired-direct",
+      "coefficients": [
+        -5.999994277954102,
+        11.000000953674316,
+        -3.0000009536743164,
+        -3,
+        1
+      ],
+      "actual": [
+        -2,
+        0.9990234375,
+        3,
+        1.0009765625
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 22,
+      "name": "integer quartet 0",
+      "variant": "paired-direct",
+      "coefficients": [
+        3360,
+        -128,
+        -190,
+        -1,
+        1
+      ],
+      "actual": [
+        -5,
+        4,
+        -12,
+        14
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 23,
+      "name": "integer quartet 1",
+      "variant": "paired-direct",
+      "coefficients": [
+        2400,
+        -80,
+        -166,
+        5,
+        1
+      ],
+      "actual": [
+        -4,
+        4,
+        -15,
+        10
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 24,
+      "name": "integer quartet 2",
+      "variant": "paired-direct",
+      "coefficients": [
+        -1092,
+        761,
+        299,
+        31,
+        1
+      ],
+      "actual": [
+        1,
+        -12,
+        -7,
+        -13
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 25,
+      "name": "integer quartet 3",
+      "variant": "paired-direct",
+      "coefficients": [
+        32,
+        14,
+        -33,
+        -14,
+        1
+      ],
+      "actual": [
+        1,
+        -2,
+        -1,
+        16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 26,
+      "name": "integer quartet 4",
+      "variant": "paired-direct",
+      "coefficients": [
+        504,
+        506,
+        167,
+        22,
+        1
+      ],
+      "actual": [
+        -2,
+        -9,
+        -4,
+        -7
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 27,
+      "name": "integer quartet 5",
+      "variant": "paired-direct",
+      "coefficients": [
+        -896,
+        -1112,
+        -210,
+        7,
+        1
+      ],
+      "actual": [
+        -1,
+        14,
+        -4,
+        -16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 28,
+      "name": "integer quartet 6",
+      "variant": "paired-direct",
+      "coefficients": [
+        -840,
+        -158,
+        77,
+        20,
+        1
+      ],
+      "actual": [
+        -4,
+        3,
+        -5,
+        -14
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 29,
+      "name": "integer quartet 7",
+      "variant": "paired-direct",
+      "coefficients": [
+        -490,
+        623,
+        -135,
+        1,
+        1
+      ],
+      "actual": [
+        7,
+        1,
+        -14,
+        5
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 30,
+      "name": "integer quartet 8",
+      "variant": "paired-direct",
+      "coefficients": [
+        12480,
+        -1276,
+        -289,
+        4,
+        1
+      ],
+      "actual": [
+        -12,
+        5,
+        -13,
+        16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 31,
+      "name": "integer quartet 9",
+      "variant": "paired-direct",
+      "coefficients": [
+        -2106,
+        -747,
+        33,
+        19,
+        1
+      ],
+      "actual": [
+        -3,
+        6,
+        -9,
+        -13
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 32,
+      "name": "integer quartet 10",
+      "variant": "paired-direct",
+      "coefficients": [
+        5040,
+        2484,
+        448,
+        35,
+        1
+      ],
+      "actual": [
+        -6,
+        -10,
+        -7,
+        -12
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 33,
+      "name": "integer quartet 11",
+      "variant": "paired-direct",
+      "coefficients": [
+        -4368,
+        1796,
+        -148,
+        -11,
+        1
+      ],
+      "actual": [
+        -13,
+        4,
+        14,
+        6
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 34,
+      "name": "integer quartet 12",
+      "variant": "paired-direct",
+      "coefficients": [
+        -420,
+        628,
+        -205,
+        -4,
+        1
+      ],
+      "actual": [
+        -14,
+        1,
+        15,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 35,
+      "name": "integer quartet 13",
+      "variant": "paired-direct",
+      "coefficients": [
+        -288,
+        -228,
+        -32,
+        7,
+        1
+      ],
+      "actual": [
+        -2,
+        6,
+        -3,
+        -8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 36,
+      "name": "integer quartet 14",
+      "variant": "paired-direct",
+      "coefficients": [
+        -11760,
+        3136,
+        -136,
+        -16,
+        1
+      ],
+      "actual": [
+        -14,
+        6,
+        14,
+        10
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 37,
+      "name": "integer quartet 15",
+      "variant": "paired-direct",
+      "coefficients": [
+        -30,
+        41,
+        -7,
+        -5,
+        1
+      ],
+      "actual": [
+        -3,
+        1,
+        5,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 38,
+      "name": "integer quartet 16",
+      "variant": "paired-direct",
+      "coefficients": [
+        -3744,
+        236,
+        173,
+        -26,
+        1
+      ],
+      "actual": [
+        -4,
+        8,
+        13,
+        9
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 39,
+      "name": "integer quartet 17",
+      "variant": "paired-direct",
+      "coefficients": [
+        -308,
+        468,
+        -161,
+        0,
+        1
+      ],
+      "actual": [
+        -14,
+        1,
+        11,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 40,
+      "name": "integer quartet 18",
+      "variant": "paired-direct",
+      "coefficients": [
+        18900,
+        -1125,
+        -309,
+        5,
+        1
+      ],
+      "actual": [
+        -12,
+        7,
+        -15,
+        15
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 41,
+      "name": "integer quartet 19",
+      "variant": "paired-direct",
+      "coefficients": [
+        -9240,
+        2251,
+        -49,
+        -19,
+        1
+      ],
+      "actual": [
+        -11,
+        7,
+        15,
+        8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 42,
+      "name": "integer quartet 20",
+      "variant": "paired-direct",
+      "coefficients": [
+        20160,
+        1416,
+        -274,
+        -9,
+        1
+      ],
+      "actual": [
+        -8,
+        14,
+        -12,
+        15
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 43,
+      "name": "integer quartet 21",
+      "variant": "paired-direct",
+      "coefficients": [
+        -2340,
+        1263,
+        -149,
+        -7,
+        1
+      ],
+      "actual": [
+        -13,
+        3,
+        12,
+        5
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 44,
+      "name": "integer quartet 22",
+      "variant": "paired-direct",
+      "coefficients": [
+        -288,
+        284,
+        17,
+        -14,
+        1
+      ],
+      "actual": [
+        -4,
+        1,
+        9,
+        8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 45,
+      "name": "integer quartet 23",
+      "variant": "paired-direct",
+      "coefficients": [
+        12320,
+        -5234,
+        759,
+        -46,
+        1
+      ],
+      "actual": [
+        14,
+        5,
+        16,
+        11
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 46,
+      "name": "integer quartet 24",
+      "variant": "paired-direct",
+      "coefficients": [
+        -13440,
+        3544,
+        -169,
+        -16,
+        1
+      ],
+      "actual": [
+        -15,
+        7,
+        16,
+        8
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 47,
+      "name": "integer quartet 25",
+      "variant": "paired-direct",
+      "coefficients": [
+        -312,
+        466,
+        -151,
+        -4,
+        1
+      ],
+      "actual": [
+        -12,
+        1,
+        13,
+        2
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 48,
+      "name": "integer quartet 26",
+      "variant": "paired-direct",
+      "coefficients": [
+        -15600,
+        2630,
+        59,
+        -26,
+        1
+      ],
+      "actual": [
+        -10,
+        8,
+        15,
+        13
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 49,
+      "name": "integer quartet 27",
+      "variant": "paired-direct",
+      "coefficients": [
+        2184,
+        -1481,
+        335,
+        -31,
+        1
+      ],
+      "actual": [
+        8,
+        3,
+        13,
+        7
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 50,
+      "name": "integer quartet 28",
+      "variant": "paired-direct",
+      "coefficients": [
+        2160,
+        684,
+        -204,
+        -1,
+        1
+      ],
+      "actual": [
+        -2,
+        6,
+        -15,
+        12
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    },
+    {
+      "id": 51,
+      "name": "integer quartet 29",
+      "variant": "paired-direct",
+      "coefficients": [
+        616,
+        474,
+        -149,
+        -6,
+        1
+      ],
+      "actual": [
+        14,
+        -11,
+        4,
+        -1
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 52,
+      "name": "integer quartet 30",
+      "variant": "paired-direct",
+      "coefficients": [
+        4620,
+        -548,
+        -121,
+        8,
+        1
+      ],
+      "actual": [
+        7,
+        -11,
+        6,
+        -10
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 1
+    },
+    {
+      "id": 53,
+      "name": "integer quartet 31",
+      "variant": "paired-direct",
+      "coefficients": [
+        2912,
+        2714,
+        -213,
+        -14,
+        1
+      ],
+      "actual": [
+        -1,
+        13,
+        -14,
+        16
+      ],
+      "count": 4,
+      "wide": 1,
+      "uncertain": 0
+    }
+  ]
+}

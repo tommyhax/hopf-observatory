@@ -1,0 +1,201 @@
+{
+  "experimentDate": "2026-11-28",
+  "scope": "primitives",
+  "hardware": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "hashes": {
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "web/math.js": "188900d29bc884af32ba8e4641a093e02d3755e4a4a8ebc1a7d1319af2aabd05",
+    "web/scene.js": "6c4ca7b4f3fc35a44e695545927309b5159d562d435b6c59e86afd57e2f8ae3e",
+    "research/all-roots.glsl": "865f77f899f0412c1840f4b76d10d1de362bd5aeb0cae3b5a26d202d13e1dbd4",
+    "research/yuksel.glsl": "72916647c5d9b97135985d05a9fd22425279970ea2955376d63c4e94ab64bb4e",
+    "research/ferrari.glsl": "431e16bf8de9aeb12261b443f9c48fabe8b69b85b1b8e2c4f1b6b70ef4391bdf",
+    "research/comparison-shader.mjs": "5e2a59a4f5737283ceb39fd983b69ab36a1c5082b031201a12c56069a4c98ae8",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/diagnostics/browser-precision/run-roots.mjs": "e1d60d5810a65d49823908975dfd710c6a3d0d584199f3ad839f36879a61722a",
+    "research/diagnostics/browser-precision/PROTOCOL.md": "51fbf7267029eb08fe29bd570c673e5f4880b93b91679ab04be6581dd15e6a67",
+    "research/diagnostics/browser-precision/renderer.mjs": "f400f3894699d14036a45423facf2e167ce0b97e3d4862121979d312ec0b1e26",
+    "research/diagnostics/browser-precision/paired.glsl": "1ff3dcc4d05efea7b8381e54011d82bd9109e7a26acdbe4387d32e51ade0bc6c",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "research/results/reference.json": "636842076ce07ef05fc31bc73c628fdaff25dfc486dea6a7bc4928eefeee58da",
+    "research/results/stress-reference.json": "55d65e8cfc1b565d36d4bf67310e4bb4b480c4cc759ea331a78d5a2d3e8bdfb6"
+  },
+  "shaderHashes": {
+    "production": "04397e98c804b048d5d9e602ab1c0d5023bcb1f4889bef6d32ef3c47c6ada688",
+    "paired": "a59f33adf33a6f3f222f7ecbe1d4c6f9b2b1def156c86cf11a170946857de5d2"
+  },
+  "rendererHashes": {
+    "production": "3a70927462b5ad47092c5a3e73cfa5a668b6b83043be4d7a05427d8bc6fa8d32",
+    "paired": "e0de159951bda71e79c669a56f74e206c1d8bc7afca9fda96122486650b891a3"
+  },
+  "primitiveShaderHash": "ce351e0ef5670f2487226c9d4ba79170067fce78bbad0b01ef406c08f45659b2",
+  "primitives": [
+    {
+      "name": "small-add",
+      "op": 0,
+      "a": [
+        1,
+        0
+      ],
+      "b": [
+        2.9802322387695312e-8,
+        0
+      ],
+      "expected": 1.0000000298023224,
+      "pair": [
+        1,
+        2.9802322387695312e-8
+      ],
+      "actual": 1.0000000298023224,
+      "error": 0,
+      "pass": true
+    },
+    {
+      "name": "cancellation",
+      "op": 3,
+      "a": [
+        1,
+        0
+      ],
+      "b": [
+        2.9802322387695312e-8,
+        0
+      ],
+      "expected": 2.9802322387695312e-8,
+      "pair": [
+        2.9802322387695312e-8,
+        0
+      ],
+      "actual": 2.9802322387695312e-8,
+      "error": 0,
+      "pass": true
+    },
+    {
+      "name": "signed-sum",
+      "op": 0,
+      "a": [
+        1,
+        2.9802322387695312e-8
+      ],
+      "b": [
+        -1,
+        1.4901161193847656e-8
+      ],
+      "expected": 4.470348358154297e-8,
+      "pair": [
+        4.470348358154297e-8,
+        0
+      ],
+      "actual": 4.470348358154297e-8,
+      "error": 0,
+      "pass": true
+    },
+    {
+      "name": "product-residual",
+      "op": 4,
+      "a": [
+        1.0000001192092896,
+        0
+      ],
+      "b": [
+        0.9999998807907104,
+        0
+      ],
+      "expected": -1.4210854715202004e-14,
+      "pair": [
+        -1.4210854715202004e-14,
+        0
+      ],
+      "actual": -1.4210854715202004e-14,
+      "error": 0,
+      "pass": true
+    },
+    {
+      "name": "product",
+      "op": 1,
+      "a": [
+        1234.5,
+        0.0000152587890625
+      ],
+      "b": [
+        -456.75,
+        0.00000762939453125
+      ],
+      "expected": -563857.8725509642,
+      "pair": [
+        -563857.875,
+        0.00244903564453125
+      ],
+      "actual": -563857.8725509644,
+      "error": 2.0646217334921156e-16,
+      "pass": true
+    },
+    {
+      "name": "division",
+      "op": 2,
+      "a": [
+        1,
+        0
+      ],
+      "b": [
+        3,
+        0
+      ],
+      "expected": 0.3333333333333333,
+      "pair": [
+        0.3333333432674408,
+        -9.934107758624577e-9
+      ],
+      "actual": 0.33333333333333304,
+      "error": 8.326672684688674e-16,
+      "pass": true
+    },
+    {
+      "name": "small-division",
+      "op": 2,
+      "a": [
+        9.094947017729282e-13,
+        2.710505431213761e-20
+      ],
+      "b": [
+        7,
+        0
+      ],
+      "expected": 1.2992781841114035e-13,
+      "pair": [
+        1.2992782034721567e-13,
+        -1.93607539455914e-21
+      ],
+      "actual": 1.2992781841114028e-13,
+      "error": 5.828670705574149e-16,
+      "pass": true
+    },
+    {
+      "name": "large-cancellation",
+      "op": 0,
+      "a": [
+        1073741824,
+        1
+      ],
+      "b": [
+        -1073741824,
+        0.125
+      ],
+      "expected": 1.125,
+      "pair": [
+        1.125,
+        0
+      ],
+      "actual": 1.125,
+      "error": 0,
+      "pass": true
+    }
+  ],
+  "results": {}
+}

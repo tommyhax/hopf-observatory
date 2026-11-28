@@ -15,7 +15,27 @@ import tempfile
 ROOT = Path(__file__).resolve().parent.parent
 STUDY = "research/diagnostics/algorithm1010"
 DOCUMENT_REVISION = "48c5166d22b0755ef25f8c31fc37fef4173e85c1"
-DOCUMENTS = {"PAPER.md", "paper/main.tex", "paper/manuscript.pdf"}
+# Historical evidence hashes documentary editions, while current prose and
+# generated editions may change. Each research/provenance/<commit>/<path> file
+# is the exact edition of <path> at <commit>; a recorded hash of a document may
+# match any archived edition or the current file. Numerical sources still use
+# current files only.
+PROVENANCE = ROOT / "research/provenance"
+EDITIONS = sorted(p for p in PROVENANCE.rglob("*") if p.is_file() and p.name != ".DS_Store")
+DOCUMENTS = {Path(*p.relative_to(PROVENANCE).parts[1:]).as_posix() for p in EDITIONS}
+REQUIRED_DOCUMENTS = {"PAPER.md", "paper/main.tex", "paper/manuscript.pdf",
+                      "web/technical-note.html"}
+# Records of superseded trial runs hash experiment sources that were revised
+# afterwards. The exact earlier versions are archived in the trial directory;
+# a recorded hash must match either the current file or that archived copy.
+TRIAL_RECORDS = {
+    "research/diagnostics/browser-precision/results/roots-primitives.json":
+        "research/diagnostics/browser-precision/trials/construction",
+    "research/diagnostics/browser-precision/results/trial-construction.json":
+        "research/diagnostics/browser-precision/trials/construction",
+    "research/diagnostics/guarded-direct/trials/initial/results/roots.json":
+        "research/diagnostics/guarded-direct/trials/initial",
+}
 
 
 def sha(data):
@@ -37,15 +57,18 @@ def main():
     parser.add_argument("--history", action="store_true",
                         help="also compare shipped document snapshots with original Git blobs")
     args = parser.parse_args()
-    counts = {"current": 0, "embeddedSource": 0, "historicalDocument": 0}
+    counts = {"current": 0, "embeddedSource": 0, "historicalDocument": 0, "archivedTrial": 0}
     absent_assets, checked_assets = set(), set()
 
-    def check(name, expected, snapshots=None):
+    def check(name, expected, snapshots=None, archive=None):
         if snapshots and name in snapshots:
             data = snapshots[name].encode()
             kind = "embeddedSource"
         elif name in DOCUMENTS:
-            data = (ROOT / "research/provenance" / DOCUMENT_REVISION / name).read_bytes()
+            editions = [p for p in EDITIONS if p.relative_to(PROVENANCE).as_posix().endswith("/" + name)]
+            matches = [p.read_bytes() for p in editions + [ROOT / name]
+                       if p.is_file() and sha(p.read_bytes()) == expected]
+            data = matches[0] if matches else b""
             kind = "historicalDocument"
         elif name.startswith("release/"):
             path = ROOT / name
@@ -58,6 +81,12 @@ def main():
         else:
             data = (ROOT / name).read_bytes()
             kind = "current"
+            if archive and sha(data) != expected:
+                prefix = Path(archive).parents[1].as_posix() + "/"
+                copy = ROOT / archive / name[len(prefix):] if name.startswith(prefix) else None
+                if copy and copy.is_file():
+                    data = copy.read_bytes()
+                    kind = "archivedTrial"
         require(sha(data) == expected, f"Evidence hash mismatch: {name}")
         counts[kind] += 1
 
@@ -75,14 +104,16 @@ def main():
             require(sha(path.read_bytes()) == expected, f"Release hash mismatch: {name}")
         print(f"Release {data['version']} at {data['sourceCommit']}: {len(data['files'])} file hashes verified.")
 
-    for name in DOCUMENTS:
-        snapshot = ROOT / "research/provenance" / DOCUMENT_REVISION / name
+    for name in REQUIRED_DOCUMENTS:
+        snapshot = PROVENANCE / DOCUMENT_REVISION / name
         require(snapshot.is_file(), f"Missing historical document: {name}")
-        if args.history:
-            original = subprocess.check_output(["git", "show", f"{DOCUMENT_REVISION}:{name}"], cwd=ROOT)
-            require(original == snapshot.read_bytes(), f"Git snapshot mismatch: {name}")
     if args.history:
-        print(f"Three historical document snapshots match Git revision {DOCUMENT_REVISION}.")
+        for snapshot in EDITIONS:
+            revision, *parts = snapshot.relative_to(PROVENANCE).parts
+            name = Path(*parts).as_posix()
+            original = subprocess.check_output(["git", "show", f"{revision}:{name}"], cwd=ROOT)
+            require(original == snapshot.read_bytes(), f"Git snapshot mismatch: {revision}:{name}")
+        print(f"{len(EDITIONS)} archived document editions match their Git revisions.")
 
     frozen = read("research/diagnostics/grazing/frozen-manifest.json")
     for name, expected in frozen["files"].items():
@@ -92,6 +123,7 @@ def main():
         check(f"{STUDY}/traversal/{name}", expected)
     for path in sorted((ROOT / "research/diagnostics").rglob("results/*.json")):
         record = json.loads(path.read_text())
+        archive = TRIAL_RECORDS.get(path.relative_to(ROOT).as_posix())
         snapshots = record.get("sourceSnapshots", {})
         records = [record]
         if path.name == "integration-initial.json":
@@ -100,7 +132,7 @@ def main():
         for item in records:
             for key in ["hashes", "sourceHashes", "preservedFileSHA256", "preservedReleaseFilesSHA256"]:
                 for name, expected in item.get(key, {}).items():
-                    check(name, expected, snapshots)
+                    check(name, expected, snapshots, archive)
     # These predecessor records must exist even if no glob found them.
     for name in ["algebraic/results/gpu.json", "algebraic/results/analysis.json",
                  "algorithm1010/results/integration-initial.json"]:
@@ -116,8 +148,8 @@ def main():
                             ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.ppm"))
         for name in ["package-lock.json", "playwright.config.js"]:
             shutil.copy2(ROOT / name, isolated / name)
-        for name in DOCUMENTS:
-            shutil.copy2(ROOT / "research/provenance" / DOCUMENT_REVISION / name, isolated / name)
+        for name in REQUIRED_DOCUMENTS:
+            shutil.copy2(PROVENANCE / DOCUMENT_REVISION / name, isolated / name)
         subprocess.run([sys.executable, str(isolated / STUDY / "final/verify-results.py")],
                        cwd=isolated, check=True)
         decision = f"{STUDY}/final/results/decision.json"
@@ -184,7 +216,7 @@ def main():
                         "Within-solver image difference")
                 pairs += 1
     print(f"{pairs} within-solver image pairs identical; all 48 lossless captures verified.")
-    print(f"Hash checks: {counts}; {len(frozen['files'])} frozen baseline paths unchanged.")
+    print(f"Hash checks: {counts}; {len(frozen['files'])} frozen baseline hashes verified.")
     print(f"Historical local distribution assets verified: {len(checked_assets)}; unavailable: {len(absent_assets)}.")
     for name in sorted(absent_assets):
         print(f"  NOT CHECKED (not shipped): {name}")

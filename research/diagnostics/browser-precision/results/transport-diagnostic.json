@@ -1,0 +1,363 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "test": {
+    "name": "Pole t=5, width=0.5, XW=85.25, ray=0",
+    "objects": [
+      {
+        "t": 5,
+        "color": "#ffffff",
+        "enabled": true,
+        "shell": true,
+        "shellWidth": 0.5,
+        "opacity": 0,
+        "ior": 1.45,
+        "roughness": 0.025,
+        "metallic": 0,
+        "material": "glass"
+      }
+    ],
+    "angles": [
+      0,
+      0,
+      1.487893187325166,
+      0,
+      0,
+      0
+    ],
+    "o": [
+      0,
+      0.3,
+      5
+    ],
+    "d": [
+      0,
+      -0.059892290727946725,
+      -0.9982048454657788
+    ]
+  },
+  "P": [
+    [
+      0.006857199128717184,
+      0,
+      0,
+      0.08252380043268204
+    ],
+    [
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0.08252380043268204,
+      0,
+      0,
+      0.9931427836418152
+    ]
+  ],
+  "low": 0.9916274547576904,
+  "high": 0.9931427836418152,
+  "bias": 0.00039999998989515007,
+  "cpuD": [
+    0,
+    -0.05989229043099252,
+    -0.9982048454835958
+  ],
+  "priorFailure": {
+    "name": "Pole t=5, width=0.5, XW=85.25, ray=0",
+    "test": {
+      "name": "Pole t=5, width=0.5, XW=85.25, ray=0",
+      "objects": [
+        {
+          "t": 5,
+          "color": "#ffffff",
+          "enabled": true,
+          "shell": true,
+          "shellWidth": 0.5,
+          "opacity": 0,
+          "ior": 1.45,
+          "roughness": 0.025,
+          "metallic": 0,
+          "material": "glass"
+        }
+      ],
+      "angles": [
+        0,
+        0,
+        1.487893187325166,
+        0,
+        0,
+        0
+      ],
+      "o": [
+        0,
+        0.3,
+        5
+      ],
+      "d": [
+        0,
+        -0.059892290727946725,
+        -0.9982048454657788
+      ]
+    },
+    "expected": [
+      {
+        "s": 4.989418360370821,
+        "level": 0.9916274547576904,
+        "sign": -1,
+        "id": 0
+      },
+      {
+        "s": 5.008991913335676,
+        "level": 0.9931427836418152,
+        "sign": 1,
+        "id": 0
+      },
+      {
+        "s": 5.028565468532548,
+        "level": 0.9916274547576904,
+        "sign": -1,
+        "id": 0
+      },
+      {
+        "s": 56.09833398796689,
+        "level": 0.9916274547576904,
+        "sign": -1,
+        "id": 0
+      }
+    ],
+    "actual": [
+      {
+        "s": 4.9894185066223145,
+        "level": 0.9916274547576904,
+        "sign": -1,
+        "id": 0
+      },
+      {
+        "s": 5.028565467073349,
+        "level": 0.9916274547576904,
+        "sign": -1,
+        "id": 0
+      },
+      {
+        "s": 56.09833192214137,
+        "level": 0.9916274547576904,
+        "sign": -1,
+        "id": 0
+      }
+    ],
+    "error": 10.155931502371821
+  },
+  "paths": {
+    "production": [
+      {
+        "o": [
+          0,
+          0.30000001192092896,
+          5
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 4.9894185066223145,
+        "level": 0.9916274547576904,
+        "normalSign": -1,
+        "id": 0,
+        "total": 0,
+        "minS": 0.0010017983577446943
+      },
+      {
+        "o": [
+          0,
+          0.0011483527487143874,
+          0.019138988107442856
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 0.019173407927155495,
+        "level": 0.9931427836418152,
+        "normalSign": 1,
+        "id": 0,
+        "total": 4.98981850661221,
+        "minS": 0.00019999999494757503
+      },
+      {
+        "o": [
+          0,
+          -0.000023943483029142953,
+          -0.00039928252226673067
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 0.019173556938767433,
+        "level": 0.9916274547576904,
+        "normalSign": -1,
+        "id": 0,
+        "total": 5.00939191452926,
+        "minS": 0.00019999999494757503
+      },
+      {
+        "o": [
+          0,
+          -0.0011962486896663904,
+          -0.019937701523303986
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 51.069366455078125,
+        "level": 0.9916274547576904,
+        "normalSign": -1,
+        "id": 0,
+        "total": 5.028965471457923,
+        "minS": 0.00019999999494757503
+      },
+      {
+        "o": [
+          0,
+          -3.0610814094543457,
+          -51.01802444458008
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": -1,
+        "level": 0,
+        "normalSign": -1,
+        "id": -1,
+        "total": 56.11876766202437,
+        "minS": 0.010221954618649364
+      }
+    ],
+    "paired": [
+      {
+        "o": [
+          0,
+          0.30000001192092896,
+          5
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 4.9894185066223145,
+        "level": 0.9916274547576904,
+        "normalSign": -1,
+        "id": 0,
+        "total": 0,
+        "minS": 0.0010017983577446943
+      },
+      {
+        "o": [
+          0,
+          0.0011483527487143874,
+          0.019138988107442856
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 0.019173406064510345,
+        "level": 0.9931427836418152,
+        "normalSign": 1,
+        "id": 0,
+        "total": 4.98981850661221,
+        "minS": 0.00019999999494757503
+      },
+      {
+        "o": [
+          0,
+          -0.000023943372070789337,
+          -0.00039928065962158144
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 0.019173556938767433,
+        "level": 0.9916274547576904,
+        "normalSign": -1,
+        "id": 0,
+        "total": 5.009391912666615,
+        "minS": 0.00019999999494757503
+      },
+      {
+        "o": [
+          0,
+          -0.0011962485732510686,
+          -0.019937699660658836
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": 51.069366455078125,
+        "level": 0.9916274547576904,
+        "normalSign": -1,
+        "id": 0,
+        "total": 5.028965469595278,
+        "minS": 0.00019999999494757503
+      },
+      {
+        "o": [
+          0,
+          -3.0610814094543457,
+          -51.01802444458008
+        ],
+        "d": [
+          0,
+          -0.05989228934049606,
+          -0.9982048273086548
+        ],
+        "s": -1,
+        "level": 0,
+        "normalSign": -1,
+        "id": -1,
+        "total": 56.11876766016098,
+        "minS": 0.010221954618649364
+      }
+    ]
+  },
+  "shaderSources": {
+    "production": "#version 300 es\nprecision highp float;\nprecision highp int;\nout vec4 outColor;\nuniform vec2 uResolution;\nuniform mat4 uP;\nuniform float uC, uOpacity, uIOR;\nuniform vec3 uEye, uRight, uUp, uForward;\nuniform int uEnvironment, uMode, uBounces, uShell;\nuniform float uShellLow, uShellHigh;\n// uCount=0 selects the single-boundary interface used by numerical probes.\nuniform int uCount;\nuniform ivec3 uEnabled, uShells;\nuniform vec3 uLevels, uLows, uHighs;\nuniform vec4 uOptics[3]; // coating opacity, index, roughness, metallic\nuniform vec3 uColors[3];\nuniform float uEnvRotation, uExposure, uMapMaxLod, uRayBias;\nuniform sampler2D uEnvironmentMap;\nconst float PI = 3.14159265359;\n// Bernstein coefficients, ascending basis index. No spatial sampling.\nstruct Poly {\n  vec4 a;\n  float b;\n};\nfloat coeff(Poly p, int i) {\n  return i == 4 ? p.b : p.a[i];\n}\nPoly derivative(Poly p) {\n  return Poly(vec4(p.a.y - p.a.x, p.a.z - p.a.y, p.a.w - p.a.z, p.b - p.a.w), 0.);\n}\nfloat value(Poly p, int n, float x) {\n  vec4 a = p.a;\n  if (n == 4) {\n    a = mix(a, vec4(a.yzw, p.b), x);\n  }\n  if (n >= 3) {\n    a.xyz = mix(a.xyz, a.yzw, x);\n  }\n  if (n >= 2) {\n    a.xy = mix(a.xy, a.yz, x);\n  }\n  if (n >= 1) {\n    a.x = mix(a.x, a.y, x);\n  }\n  return a.x;\n}\nfloat errorBound(Poly p, int n, float x) {\n  return 2.5e-7 * value(Poly(abs(p.a), abs(p.b)), n, x) + 2e-9;\n}\nvoid addRoot(inout vec4 roots, inout int count, float x) {\n  if (count > 0 && (roots[count - 1] == x ||\n                    abs(roots[count - 1] - x) < 3e-7 * max(abs(x), abs(roots[count - 1]))))\n    return;\n  if (count < 4) {\n    roots[count] = x;\n    count++;\n  }\n}\n// A polynomial is monotone between adjacent derivative roots. Isolate one\n// sign-changing root per interval; explicitly retain stationary double roots.\nvoid isolate(Poly p, int n, vec4 critical, int nc, out vec4 roots, out int count) {\n  roots = vec4(0);\n  count = 0;\n  float scale = 0.;\n  for (int i = 0; i < 5; i++) {\n    if (i <= n)\n      scale = max(scale, abs(coeff(p, i)));\n  }\n  if (scale == 0.)\n    return;\n  p.a /= scale;\n  p.b /= scale;\n  float lo = 0., fl = value(p, n, 0.);\n  for (int j = 0; j < 5; j++) {\n    if (j > nc)\n      break;\n    float hi = j < nc ? critical[j] : 1.;\n    float fh = value(p, n, hi);\n    float prev = j > 0 ? value(p, n, j > 1 ? critical[j - 2] : 0.) : fl;\n    bool crossesLeft = (prev < 0. && fl > 0.) || (prev > 0. && fl < 0.);\n    bool crossesRight = (fl < 0. && fh > 0.) || (fl > 0. && fh < 0.);\n    if ((fl == 0. || (lo > 0. && lo < 1. && abs(fl) <= errorBound(p, n, lo))) && !crossesLeft &&\n        !crossesRight)\n      addRoot(roots, count, lo);\n    if ((fl < 0. && fh > 0.) || (fl > 0. && fh < 0.)) {\n      float a = lo, b = hi, fa = fl, fb = fh;\n      for (int k = 0; k < 25; k++) {\n        float m = .5 * (a + b), fm = value(p, n, m);\n        if ((fa < 0. && fm > 0.) || (fa > 0. && fm < 0.)) {\n          b = m;\n          fb = fm;\n        } else {\n          a = m;\n          fa = fm;\n        }\n        if (fm == 0.) {\n          a = m;\n          b = m;\n          fb = fm;\n          break;\n        }\n      }\n      // Interpolate the final sign bracket. Unlike its midpoint, this keeps\n      // relative accuracy for a root very close to the endpoint zero.\n      float x = fa == 0. ? a : fb == 0. ? b : a + (b - a) * (fa / (fa - fb));\n      addRoot(roots, count, clamp(x, a, b));\n    }\n    if (j == nc && fh == 0.)\n      addRoot(roots, count, hi);\n    lo = hi;\n    fl = fh;\n  }\n}\nvoid quarticRoots(Poly p, out vec4 roots, out int count) {\n  Poly d = derivative(p), dd = derivative(d), ddd = derivative(dd);\n  vec4 linear = vec4(0), quadratic, cubic;\n  int nl = 0, nq, nc;\n  float den = ddd.a.x - ddd.a.y;\n  if (den != 0.) {\n    float x = ddd.a.x / den;\n    if (x > 0. && x < 1.) {\n      linear[0] = x;\n      nl = 1;\n    }\n  }\n  isolate(dd, 2, linear, nl, quadratic, nq);\n  // Endpoints are handled by each stage, not as interior partition points.\n  vec4 q = vec4(0);\n  int qn = 0;\n  for (int i = 0; i < 4; i++) {\n    if (i < nq && quadratic[i] > 0. && quadratic[i] < 1.) {\n      q[qn] = quadratic[i];\n      qn++;\n    }\n  }\n  isolate(d, 3, q, qn, cubic, nc);\n  vec4 c = vec4(0);\n  int cn = 0;\n  for (int i = 0; i < 4; i++) {\n    if (i < nc && cubic[i] > 0. && cubic[i] < 1.) {\n      c[cn] = cubic[i];\n      cn++;\n    }\n  }\n  isolate(p, 4, c, cn, roots, count);\n}\nfloat form(vec4 a, vec4 b, float level) {\n  return dot(a, (uP - mat4(level)) * b);\n}\n// Small shells need smaller origin offsets AND a smaller positive-root\n// cutoff. Widely separated boundaries use the upper bias limit.\nfloat rayBiasScale() {\n  if (uRayBias > 0.)\n    return uRayBias;\n  // Single-shell probes derive their bias from the two supplied levels.\n  float gap =\n      uShell == 1\n          ? abs(acos(sqrt(clamp(uShellLow, 0., 1.))) - acos(sqrt(clamp(uShellHigh, 0., 1.))))\n          : 1.;\n  return clamp(.05 * gap, 1e-6, 4e-4);\n}\nfloat rayEpsilon(vec3 p) {\n  return rayBiasScale() * max(1., length(p));\n}\n// Cover each centered half-ray with two well-scaled coordinates:\n// near x=lambda/L in [0,1]; far x=L/lambda in (0,1]. Infinity is far x=0.\n// Divide the homogeneous numerator by L^2 before forming its quartic.\nvoid chartVectors(vec3 center, vec3 direction, float L, bool farChart, out vec4 a, out vec4 b,\n                  out vec4 c) {\n  float invL = 1. / L;\n  vec3 scaled = center * invL;\n  vec4 base = vec4(2. * scaled * invL, dot(scaled, scaled) - invL * invL);\n  b = vec4(2. * direction * invL, 2. * dot(scaled, direction));\n  vec4 top = vec4(0, 0, 0, dot(direction, direction));\n  a = farChart ? top : base;\n  c = farChart ? base : top;\n}\nPoly chartPoly(vec4 a, vec4 b, vec4 c, float level) {\n  // a+b*x+c*x^2 in quadratic Bernstein form, then square the form.\n  vec4 middle = a + .5 * b, end = a + b + c;\n  return Poly(vec4(form(a, a, level), form(a, middle, level),\n                   (form(a, end, level) + 2. * form(middle, middle, level)) / 3.,\n                   form(middle, end, level)),\n              form(end, end, level));\n}\n// Keep the isolated root unless a finite, step-limited Newton proposal reduces\n// the computed homogeneous residual. This guards against drift; float32\n// residual decrease is not a certificate of smaller geometric distance error.\nfloat refineChart(vec4 a, vec4 b, vec4 c, float x, float level) {\n  mat4 A = uP - mat4(level);\n  for (int i = 0; i < 4; i++) {\n    vec4 w = a + x * (b + x * c), aw = A * w;\n    float f = dot(w, aw), df = 2. * dot(b + 2. * x * c, aw);\n    if (f == 0. || df == 0.)\n      break;\n    float next = x - f / df;\n    if (next < 0. || next > 1. || next == x || abs(next - x) > .05 * max(x, 1e-6))\n      break;\n    vec4 nextW = a + next * (b + next * c);\n    float nextF = dot(nextW, A * nextW);\n    if (!(abs(nextF) < abs(f)))\n      break;\n    x = next;\n  }\n  return x;\n}\nfloat chartResidual(vec4 a, vec4 b, vec4 c, float x, bool farChart, float level) {\n  vec4 w = a + x * (b + x * c), aw = (uP - mat4(level)) * w;\n  mat4 A = uP - mat4(level);\n  mat4 absoluteA = mat4(abs(A[0]), abs(A[1]), abs(A[2]), abs(A[3]));\n  float magnitude = dot(abs(w), absoluteA * abs(w));\n  float df = 2. * dot(b + 2. * x * c, aw);\n  // Allow coordinate rounding as well as arithmetic in the form. At a far\n  // root, x*df measures RELATIVE distance error; using a constant here would\n  // again admit large distance errors as x approaches zero.\n  float scale = magnitude + abs(df) * (farChart ? x : 1.);\n  return scale == 0. ? 0. : abs(dot(w, aw)) / scale;\n}\nfloat chartIntersection(vec3 center, vec3 direction, float L, float k, float sign, bool farChart,\n                        float minS, float level) {\n  vec4 a, b, c, roots;\n  chartVectors(center, direction, L, farChart, a, b, c);\n  Poly polynomial = chartPoly(a, b, c, level);\n  // Bernstein convex hull: a strictly one-signed coefficient set has no roots.\n  float minimum = min(min(polynomial.a.x, polynomial.a.y), min(polynomial.a.z, polynomial.a.w));\n  float maximum = max(max(polynomial.a.x, polynomial.a.y), max(polynomial.a.z, polynomial.a.w));\n  if (min(minimum, polynomial.b) > 0. || max(maximum, polynomial.b) < 0.)\n    return -1.;\n  int count;\n  quarticRoots(polynomial, roots, count);\n  float best = -1.;\n  for (int i = 0; i < 4; i++) {\n    if (i >= count)\n      break;\n    float x = refineChart(a, b, c, roots[i], level);\n    if (farChart && x <= 0.)\n      continue;\n    float distance = farChart ? L / x : L * x;\n    float s = sign * distance - k;\n    // A relative homogeneous residual remains informative when all field\n    // terms vanish toward the pole; a fixed absolute residual does not.\n    if (s > minS && !isinf(s) && !isnan(s) && chartResidual(a, b, c, x, farChart, level) < 2e-6 &&\n        (best < 0. || s < best))\n      best = s;\n  }\n  return best;\n}\nfloat intersection(vec3 o, vec3 d, float level) {\n  float k = dot(o, d);\n  vec3 center = o - k * d;\n  float L = max(1., length(center)), minS = .5 * rayEpsilon(o), hit;\n  if (k < 0.) {\n    // The negative half is traversed from far to near, before the positive half.\n    hit = chartIntersection(center, -d, L, k, -1., true, minS, level);\n    if (hit >= 0.)\n      return hit;\n    hit = chartIntersection(center, -d, L, k, -1., false, minS, level);\n    if (hit >= 0.)\n      return hit;\n  }\n  hit = chartIntersection(center, d, L, k, 1., false, minS, level);\n  if (hit >= 0.)\n    return hit;\n  return chartIntersection(center, d, L, k, 1., true, minS, level);\n}\nfloat side(vec3 p, float level) {\n  // Normalized by (1+r²)² to avoid overflow far from the origin.\n  float r = dot(p, p);\n  vec4 q = vec4(2. * p, r - 1.) / (1. + r);\n  return dot(q, (uP - mat4(level)) * q);\n}\nvec3 normalAt(vec3 p, float level) {\n  // Analytic gradient with a positive (1+r²) scale divided out.\n  float r = dot(p, p);\n  vec4 q = vec4(2. * p, r - 1.) / (1. + r), aq = (uP - mat4(level)) * q;\n  return normalize(aq.xyz + p * aq.w);\n}\n// One boundary for a solid torus, two independent quartics for a shell.\n// The shell is cLow < q^T P q < cHigh. Its two outward normals have\n// opposite signs relative to the gradient of q^T P q.\nbool inMaterial(vec3 p) {\n  return uShell == 1 ? side(p, uShellLow) > 0. && side(p, uShellHigh) < 0. : side(p, uC) > 0.;\n}\nfloat boundaryHit(vec3 o, vec3 d, out float level, out float normalSign) {\n  level = uC;\n  normalSign = -1.;\n  if (uShell == 0)\n    return intersection(o, d, level);\n  float lowHit = intersection(o, d, uShellLow), highHit = intersection(o, d, uShellHigh);\n  if (lowHit >= 0. && (highHit < 0. || lowHit <= highHit)) {\n    level = uShellLow;\n    normalSign = -1.;\n    return lowHit;\n  }\n  level = uShellHigh;\n  normalSign = 1.;\n  return highHit;\n}\nint objectCount() {\n  return uCount == 0 ? 1 : uCount;\n}\nbool enabled(int i) {\n  return uCount == 0 || uEnabled[i] == 1;\n}\nbool isShell(int i) {\n  return uCount == 0 ? uShell == 1 : uShells[i] == 1;\n}\nfloat objectLevel(int i) {\n  return uCount == 0 ? uC : uLevels[i];\n}\nfloat lowLevel(int i) {\n  return uCount == 0 ? uShellLow : uLows[i];\n}\nfloat highLevel(int i) {\n  return uCount == 0 ? uShellHigh : uHighs[i];\n}\nvec4 optics(int i) {\n  return i < 0 ? vec4(0, 1, 0, 0) : uCount == 0 ? vec4(uOpacity, uIOR, 0, 0) : uOptics[i];\n}\nvec3 colorAt(int i) {\n  return uCount == 0 ? vec3(.075, .57, .56) : uColors[i];\n}\nint materialMask(vec3 p) {\n  int mask = 0;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if (!enabled(i))\n      continue;\n    if (isShell(i) ? side(p, lowLevel(i)) > 0. && side(p, highLevel(i)) < 0.\n                   : side(p, objectLevel(i)) > 0.)\n      mask |= 1 << i;\n  }\n  return mask;\n}\nint mediumFor(int mask) {\n  int id = -1;\n  float width = 2.;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if ((mask & (1 << i)) == 0)\n      continue;\n    float w = isShell(i) ? highLevel(i) - lowLevel(i) : 1. - objectLevel(i);\n    if (w <= width) {\n      width = w;\n      id = i;\n    }\n  }\n  return id;\n}\nint interfaceMaterial(int before, int after) {\n  return before < 0 ? after : after < 0 ? before : mediumFor((1 << before) | (1 << after));\n}\nbool aboveBoundary(float level, float boundary, bool increasing) {\n  return abs(level - boundary) < 2e-7 ? increasing : level > boundary;\n}\n// Resolve simultaneous/coincident boundary crossings in level space, without\n// relying on a positional offset that could leap over another thin wall.\nint maskAcross(float level, bool increasing) {\n  int mask = 0;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if (!enabled(i))\n      continue;\n    bool inside = isShell(i) ? aboveBoundary(level, lowLevel(i), increasing) &&\n                                   !aboveBoundary(level, highLevel(i), increasing)\n                             : aboveBoundary(level, objectLevel(i), increasing);\n    if (inside)\n      mask |= 1 << i;\n  }\n  return mask;\n}\nfloat sceneHit(vec3 o, vec3 d, out float level, out float normalSign, out int id) {\n  float best = -1.;\n  level = 0.;\n  normalSign = -1.;\n  id = -1;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if (!enabled(i))\n      continue;\n    float lo = isShell(i) ? lowLevel(i) : objectLevel(i), s = intersection(o, d, lo);\n    if (s >= 0. && (best < 0. || s < best)) {\n      best = s;\n      level = lo;\n      normalSign = -1.;\n      id = i;\n    }\n    if (isShell(i)) {\n      s = intersection(o, d, highLevel(i));\n      if (s >= 0. && (best < 0. || s < best)) {\n        best = s;\n        level = highLevel(i);\n        normalSign = 1.;\n        id = i;\n      }\n    }\n  }\n  return best;\n}\nfloat line(float x, float width) {\n  return 1. - smoothstep(width, width * 2., abs(fract(x + .5) - .5));\n}\nvec3 rotateY(vec3 d, float a) {\n  float c = cos(a), s = sin(a);\n  return vec3(c * d.x + s * d.z, d.y, -s * d.x + c * d.z);\n}\nvec3 environmentRaw(vec3 d, float lod) {\n  d = rotateY(d, uEnvRotation);\n  float az = atan(d.z, d.x) / PI, el = asin(clamp(d.y, -1., 1.)) / PI;\n  if (uEnvironment == 6) {\n    vec2 uv = vec2(fract(az * .5 + .5), .5 - el);\n    return pow(max(textureLod(uEnvironmentMap, uv, lod).rgb, vec3(0)), vec3(2.2));\n  }\n  float h = smoothstep(-.45, .75, d.y);\n  vec3 col = mix(vec3(.012, .026, .038), vec3(.055, .09, .13), h);\n  if (uEnvironment == 1)\n    col = mix(vec3(.18, .22, .26), vec3(.5, .58, .62), h);\n  float grid = max(line(az * 12., .008), line(el * 12., .008));\n  col += vec3(.09, .16, .19) * grid * .30;\n  col += vec3(.20, .34, .37) * exp(-abs(d.y + .12) * 38.) * .28;\n  if (d.y < -.13) {\n    vec2 p = d.xz / (-d.y + .08);\n    float checker = mod(floor(p.x * 1.8) + floor(p.y * 1.8), 2.);\n    col += mix(vec3(.015, .026, .033), vec3(.07, .10, .115), checker) * smoothstep(.04, .45, -d.y);\n  }\n  float warm = pow(max(0., dot(d, normalize(vec3(-.8, .3, -1.)))), 64.);\n  float cool = pow(max(0., dot(d, normalize(vec3(1., .45, .3)))), 85.);\n  col += vec3(3.6, 2.3, .9) * warm + vec3(.4, 1.8, 2.8) * cool;\n  col += vec3(.8, 1.55, 1.65) * exp(-pow((az - .40) * 95., 2.)) * smoothstep(-.3, .0, d.y) *\n         (1. - smoothstep(.65, .85, d.y));\n  if (uEnvironment == 2)\n    col = vec3(.035, .047, .06) + vec3(.22, .29, .35) * grid + vec3(1.7, .72, .18) * warm +\n          vec3(.12, .7, 1.4) * cool;\n  if (uEnvironment == 3) {\n    col = mix(vec3(.035), vec3(.17, .19, .22), h);\n    float ceiling = smoothstep(.55, .65, d.y);\n    float box1 =\n        (1. - smoothstep(.20, .23, abs(az + .32))) * (1. - smoothstep(.25, .28, abs(el - .12)));\n    float box2 =\n        (1. - smoothstep(.07, .09, abs(az - .40))) * (1. - smoothstep(.32, .35, abs(el - .06)));\n    col += vec3(2.8, 2.9, 3.1) * box1 + vec3(5., 3.9, 2.7) * box2 + vec3(.65, .78, 1.) * ceiling;\n  }\n  if (uEnvironment == 4) {\n    col = mix(vec3(.5, .16, .065), vec3(.09, .22, .44), smoothstep(-.03, .6, d.y));\n    if (d.y < 0.)\n      col = mix(vec3(.018, .028, .04), vec3(.16, .095, .06), exp(d.y * 12.));\n    vec3 sun = normalize(vec3(-1., .10, -.35));\n    col += vec3(8., 4.3, 1.5) * pow(max(0., dot(d, sun)), 900.);\n    col += vec3(.32, .13, .06) * pow(max(0., dot(d, sun)), 12.);\n  }\n  if (uEnvironment == 5) {\n    col = vec3(.07, .09, .12);\n    float wall = pow(max(0., 1. - abs(d.y)), 3.);\n    float windows = line(az * 8., .12) * (1. - smoothstep(.18, .25, abs(el - .10)));\n    col += vec3(.7, .9, 1.2) * windows * wall;\n    col += vec3(.35, .16, .07) * line(az * 4. + .2, .035) * wall;\n    if (d.y > .6)\n      col += vec3(.4, .5, .65);\n    if (d.y < -.1) {\n      vec2 p = d.xz / max(.1, -d.y);\n      col += vec3(.2) * mod(floor(p.x) + floor(p.y), 2.);\n    }\n  }\n  return col;\n}\nvec3 environment(vec3 d) {\n  return exp2(uExposure) * environmentRaw(d, 0.);\n}\nvec3 roughEnvironment(vec3 d, float roughness) {\n  if (roughness < .015)\n    return environment(d);\n  if (uEnvironment == 6)\n    return exp2(uExposure) * environmentRaw(d, roughness * uMapMaxLod);\n  vec3 a = normalize(cross(d, abs(d.y) < .9 ? vec3(0, 1, 0) : vec3(1, 0, 0))), b = cross(d, a);\n  float spread = roughness * roughness * .65;\n  return exp2(uExposure) *\n         (.4 * environmentRaw(d, 0.) + .15 * (environmentRaw(normalize(d + spread * a), 0.) +\n                                              environmentRaw(normalize(d - spread * a), 0.) +\n                                              environmentRaw(normalize(d + spread * b), 0.) +\n                                              environmentRaw(normalize(d - spread * b), 0.)));\n}\nfloat fresnel(float ci, float n1, float n2) {\n  float st2 = (n1 / n2) * (n1 / n2) * (1. - ci * ci);\n  if (st2 >= 1.)\n    return 1.;\n  float ct = sqrt(max(0., 1. - st2));\n  float rs = (n1 * ci - n2 * ct) / max(1e-7, n1 * ci + n2 * ct);\n  float rp = (n1 * ct - n2 * ci) / max(1e-7, n1 * ct + n2 * ci);\n  return .5 * (rs * rs + rp * rp);\n}\nvec3 surfaceLight(vec3 p, vec3 n, vec3 d, int id) {\n  vec3 base = colorAt(id), light = rotateY(normalize(vec3(-3., 5., 4.)), -uEnvRotation);\n  float roughness = optics(id).z, dif = max(0., dot(n, light));\n  vec3 halfv = normalize(light - d);\n  float spec = pow(max(0., dot(n, halfv)), mix(180., 6., roughness));\n  return base * (.12 + .65 * dif + .18 * roughEnvironment(n, .6)) +\n         vec3(1.7, 1.6, 1.45) * spec * .35;\n}\nvec3 absorption(int id, float distance) {\n  if (id < 0)\n    return vec3(1);\n  return exp(-(vec3(1) - colorAt(id)) * .65 * optics(id).x * min(distance, 30.));\n}\nvec3 metalFresnel(vec3 base, float ci) {\n  return base + (vec3(1) - base) * pow(1. - ci, 5.);\n}\n// Secondary reflection paths use all scene boundaries too; tertiary branches\n// resolve to the environment to keep the work bounded on WebGL hardware.\nvec3 reflectionPath(vec3 o, vec3 d, float roughness) {\n  vec3 light = vec3(0), weight = vec3(1);\n  int mask = materialMask(o);\n  for (int j = 0; j < 4; j++) {\n    float level, sign;\n    int id;\n    float s = sceneHit(o, d, level, sign, id);\n    if (s < 0.)\n      break;\n    int before = mediumFor(mask);\n    vec3 p = o + s * d, g = normalAt(p, level), n = dot(d, g) < 0. ? g : -g;\n    float eps = rayEpsilon(p);\n    bool tangent = abs(dot(d, g)) < 3e-4;\n    int nextMask = tangent ? mask : maskAcross(level, dot(d, g) > 0.);\n    int after = mediumFor(nextMask);\n    weight *= absorption(before, s);\n    if (before == after && !tangent) {\n      mask = nextMask;\n      o = p - n * eps;\n      continue;\n    }\n    int surface = interfaceMaterial(before, after);\n    if (surface < 0)\n      surface = id;\n    vec4 mat = optics(surface);\n    vec3 r = reflect(d, n);\n    float ci = clamp(dot(-d, n), 0., 1.);\n    if (mat.w > .5) {\n      weight *= metalFresnel(colorAt(surface), ci);\n      o = p + n * eps;\n      d = r;\n      roughness = mat.z;\n      continue;\n    }\n    float n1 = optics(before).y, n2 = optics(after).y, F = fresnel(ci, n1, n2);\n    vec3 t = refract(d, n, n1 / n2);\n    light += weight * mat.x * surfaceLight(p, n, d, surface);\n    weight *= 1. - mat.x;\n    if (dot(t, t) < 1e-10 && !tangent) {\n      o = p + n * eps;\n      d = r;\n      roughness = mat.z;\n      continue;\n    }\n    light += weight * F * roughEnvironment(r, mat.z);\n    weight *= 1. - F;\n    if (tangent) {\n      o = p + d * eps * 4.;\n      continue;\n    }\n    mask = nextMask;\n    o = p - n * eps;\n    d = normalize(t);\n    roughness = 0.;\n  }\n  return light + weight * roughEnvironment(d, roughness);\n}\nvec3 trace(vec3 origin, vec3 direction) {\n  vec3 o = origin, d = direction, radiance = vec3(0), throughput = vec3(1);\n  int mask = materialMask(o);\n  float roughness = 0.;\n  for (int bounce = 0; bounce < 24; bounce++) {\n    if (bounce >= uBounces)\n      break;\n    float level, sign;\n    int id;\n    float s = sceneHit(o, d, level, sign, id);\n    int before = mediumFor(mask);\n    if (s < 0.)\n      return radiance + throughput * absorption(before, 12.) * roughEnvironment(d, roughness);\n    vec3 p = o + s * d, g = normalAt(p, level), outward = sign * g, n = dot(g, d) < 0. ? g : -g;\n    if (uMode == 1)\n      return .5 + .5 * outward;\n    if (uMode == 2) {\n      float bands = .5 + .5 * cos(log(1. + s) * 12.);\n      return mix(vec3(.035, .15, .19), vec3(.7, .87, .65), bands);\n    }\n    float eps = rayEpsilon(p);\n    bool tangent = abs(dot(g, d)) < 3e-4;\n    int nextMask = tangent ? mask : maskAcross(level, dot(d, g) > 0.);\n    int after = mediumFor(nextMask);\n    throughput *= absorption(before, s);\n    // Boundaries hidden inside a more specific material are not optical interfaces.\n    if (before == after && !tangent) {\n      mask = nextMask;\n      o = p - n * eps;\n      continue;\n    }\n    int surface = interfaceMaterial(before, after);\n    if (surface < 0)\n      surface = id;\n    vec4 mat = optics(surface);\n    float ci = clamp(dot(-d, n), 0., 1.);\n    vec3 reflected = reflect(d, n);\n    if (mat.w > .5) {\n      throughput *= metalFresnel(colorAt(surface), ci);\n      o = p + n * eps;\n      d = reflected;\n      roughness = mat.z;\n      continue;\n    }\n    float n1 = optics(before).y, n2 = optics(after).y, F = fresnel(ci, n1, n2);\n    vec3 transmitted = refract(d, n, n1 / n2);\n    bool tir = dot(transmitted, transmitted) < 1e-10;\n    // Refraction event: numerical tests capture the state at this point.\n    radiance += throughput * mat.x * surfaceLight(p, n, d, surface);\n    throughput *= 1. - mat.x;\n    if (max(throughput.r, max(throughput.g, throughput.b)) < .006)\n      return radiance;\n    if (tir && !tangent) {\n      o = p + n * eps;\n      d = reflected;\n      roughness = mat.z;\n      continue;\n    }\n    radiance += throughput * F *\n                (bounce == 0 ? reflectionPath(p + n * eps, reflected, mat.z)\n                             : roughEnvironment(reflected, mat.z));\n    throughput *= 1. - F;\n    if (tangent) {\n      o = p + d * eps * 4.;\n      continue;\n    }\n    mask = nextMask;\n    d = normalize(transmitted);\n    o = p - n * eps;\n    roughness = 0.;\n  }\n  return radiance + throughput * roughEnvironment(d, roughness);\n}\n\n layout(location=1) out vec4 diagnosticDirection;\n layout(location=2) out vec4 diagnosticOrigin;\n layout(location=3) out vec4 diagnosticUnused;\n void main(){vec3 d=normalize(uForward);float level,sign;int id;\n float s=sceneHit(uEye,d,level,sign,id);outColor=vec4(s,level,sign,float(id));\n diagnosticDirection=vec4(d,0.);diagnosticOrigin=vec4(uEye,0.);diagnosticUnused=vec4(0.);}",
+    "paired": "#version 300 es\nprecision highp float;\nprecision highp int;\nout vec4 outColor;\nuniform vec2 uResolution;\nuniform mat4 uP;\nuniform float uC, uOpacity, uIOR;\nuniform vec3 uEye, uRight, uUp, uForward;\nuniform int uEnvironment, uMode, uBounces, uShell;\nuniform float uShellLow, uShellHigh;\n// uCount=0 selects the single-boundary interface used by numerical probes.\nuniform int uCount;\nuniform ivec3 uEnabled, uShells;\nuniform vec3 uLevels, uLows, uHighs;\nuniform vec4 uOptics[3]; // coating opacity, index, roughness, metallic\nuniform vec3 uColors[3];\nuniform float uEnvRotation, uExposure, uMapMaxLod, uRayBias;\nuniform sampler2D uEnvironmentMap;\nconst float PI = 3.14159265359;\n// Bernstein coefficients, ascending basis index. No spatial sampling.\nstruct Poly {\n  vec4 a;\n  float b;\n};\nfloat coeff(Poly p, int i) {\n  return i == 4 ? p.b : p.a[i];\n}\nPoly derivative(Poly p) {\n  return Poly(vec4(p.a.y - p.a.x, p.a.z - p.a.y, p.a.w - p.a.z, p.b - p.a.w), 0.);\n}\nfloat value(Poly p, int n, float x) {\n  vec4 a = p.a;\n  if (n == 4) {\n    a = mix(a, vec4(a.yzw, p.b), x);\n  }\n  if (n >= 3) {\n    a.xyz = mix(a.xyz, a.yzw, x);\n  }\n  if (n >= 2) {\n    a.xy = mix(a.xy, a.yz, x);\n  }\n  if (n >= 1) {\n    a.x = mix(a.x, a.y, x);\n  }\n  return a.x;\n}\nfloat errorBound(Poly p, int n, float x) {\n  return 2.5e-7 * value(Poly(abs(p.a), abs(p.b)), n, x) + 2e-9;\n}\nvoid addRoot(inout vec4 roots, inout int count, float x) {\n  if (count > 0 && (roots[count - 1] == x ||\n                    abs(roots[count - 1] - x) < 3e-7 * max(abs(x), abs(roots[count - 1]))))\n    return;\n  if (count < 4) {\n    roots[count] = x;\n    count++;\n  }\n}\n// A polynomial is monotone between adjacent derivative roots. Isolate one\n// sign-changing root per interval; explicitly retain stationary double roots.\nvoid isolate(Poly p, int n, vec4 critical, int nc, out vec4 roots, out int count) {\n  roots = vec4(0);\n  count = 0;\n  float scale = 0.;\n  for (int i = 0; i < 5; i++) {\n    if (i <= n)\n      scale = max(scale, abs(coeff(p, i)));\n  }\n  if (scale == 0.)\n    return;\n  p.a /= scale;\n  p.b /= scale;\n  float lo = 0., fl = value(p, n, 0.);\n  for (int j = 0; j < 5; j++) {\n    if (j > nc)\n      break;\n    float hi = j < nc ? critical[j] : 1.;\n    float fh = value(p, n, hi);\n    float prev = j > 0 ? value(p, n, j > 1 ? critical[j - 2] : 0.) : fl;\n    bool crossesLeft = (prev < 0. && fl > 0.) || (prev > 0. && fl < 0.);\n    bool crossesRight = (fl < 0. && fh > 0.) || (fl > 0. && fh < 0.);\n    if ((fl == 0. || (lo > 0. && lo < 1. && abs(fl) <= errorBound(p, n, lo))) && !crossesLeft &&\n        !crossesRight)\n      addRoot(roots, count, lo);\n    if ((fl < 0. && fh > 0.) || (fl > 0. && fh < 0.)) {\n      float a = lo, b = hi, fa = fl, fb = fh;\n      for (int k = 0; k < 48; k++) {\n        float m = .5 * (a + b), fm = value(p, n, m);\n        if (m == a || m == b) break;\n        if ((fa < 0. && fm > 0.) || (fa > 0. && fm < 0.)) {\n          b = m;\n          fb = fm;\n        } else {\n          a = m;\n          fa = fm;\n        }\n        if (fm == 0.) {\n          a = m;\n          b = m;\n          fb = fm;\n          break;\n        }\n      }\n      // Interpolate the final sign bracket. Unlike its midpoint, this keeps\n      // relative accuracy for a root very close to the endpoint zero.\n      float x = fa == 0. ? a : fb == 0. ? b : a + (b - a) * (fa / (fa - fb));\n      addRoot(roots, count, clamp(x, a, b));\n    }\n    if (j == nc && fh == 0.)\n      addRoot(roots, count, hi);\n    lo = hi;\n    fl = fh;\n  }\n}\nvoid quarticRoots(Poly p, out vec4 roots, out int count) {\n  Poly d = derivative(p), dd = derivative(d), ddd = derivative(dd);\n  vec4 linear = vec4(0), quadratic, cubic;\n  int nl = 0, nq, nc;\n  float den = ddd.a.x - ddd.a.y;\n  if (den != 0.) {\n    float x = ddd.a.x / den;\n    if (x > 0. && x < 1.) {\n      linear[0] = x;\n      nl = 1;\n    }\n  }\n  isolate(dd, 2, linear, nl, quadratic, nq);\n  // Endpoints are handled by each stage, not as interior partition points.\n  vec4 q = vec4(0);\n  int qn = 0;\n  for (int i = 0; i < 4; i++) {\n    if (i < nq && quadratic[i] > 0. && quadratic[i] < 1.) {\n      q[qn] = quadratic[i];\n      qn++;\n    }\n  }\n  isolate(d, 3, q, qn, cubic, nc);\n  vec4 c = vec4(0);\n  int cn = 0;\n  for (int i = 0; i < 4; i++) {\n    if (i < nc && cubic[i] > 0. && cubic[i] < 1.) {\n      c[cn] = cubic[i];\n      cn++;\n    }\n  }\n  isolate(p, 4, c, cn, roots, count);\n}\nfloat form(vec4 a, vec4 b, float level) {\n  return dot(a, (uP - mat4(level)) * b);\n}\n// Small shells need smaller origin offsets AND a smaller positive-root\n// cutoff. Widely separated boundaries use the upper bias limit.\nfloat rayBiasScale() {\n  if (uRayBias > 0.)\n    return uRayBias;\n  // Single-shell probes derive their bias from the two supplied levels.\n  float gap =\n      uShell == 1\n          ? abs(acos(sqrt(clamp(uShellLow, 0., 1.))) - acos(sqrt(clamp(uShellHigh, 0., 1.))))\n          : 1.;\n  return clamp(.05 * gap, 1e-6, 4e-4);\n}\nfloat rayEpsilon(vec3 p) {\n  return rayBiasScale() * max(1., length(p));\n}\n// Cover each centered half-ray with two well-scaled coordinates:\n// near x=lambda/L in [0,1]; far x=L/lambda in (0,1]. Infinity is far x=0.\n// Divide the homogeneous numerator by L^2 before forming its quartic.\nvoid chartVectors(vec3 center, vec3 direction, float L, bool farChart, out vec4 a, out vec4 b,\n                  out vec4 c) {\n  float invL = 1. / L;\n  vec3 scaled = center * invL;\n  vec4 base = vec4(2. * scaled * invL, dot(scaled, scaled) - invL * invL);\n  b = vec4(2. * direction * invL, 2. * dot(scaled, direction));\n  vec4 top = vec4(0, 0, 0, dot(direction, direction));\n  a = farChart ? top : base;\n  c = farChart ? base : top;\n}\nPoly chartPoly(vec4 a, vec4 b, vec4 c, float level) {\n  // a+b*x+c*x^2 in quadratic Bernstein form, then square the form.\n  vec4 middle = a + .5 * b, end = a + b + c;\n  return Poly(vec4(form(a, a, level), form(a, middle, level),\n                   (form(a, end, level) + 2. * form(middle, middle, level)) / 3.,\n                   form(middle, end, level)),\n              form(end, end, level));\n}\n// Keep the isolated root unless a finite, step-limited Newton proposal reduces\n// the computed homogeneous residual. This guards against drift; float32\n// residual decrease is not a certificate of smaller geometric distance error.\nfloat refineChart(vec4 a, vec4 b, vec4 c, float x, float level) {\n  mat4 A = uP - mat4(level);\n  for (int i = 0; i < 4; i++) {\n    vec4 w = a + x * (b + x * c), aw = A * w;\n    float f = dot(w, aw), df = 2. * dot(b + 2. * x * c, aw);\n    if (f == 0. || df == 0.)\n      break;\n    float next = x - f / df;\n    if (next < 0. || next > 1. || next == x || abs(next - x) > .05 * max(x, 1e-6))\n      break;\n    vec4 nextW = a + next * (b + next * c);\n    float nextF = dot(nextW, A * nextW);\n    if (!(abs(nextF) < abs(f)))\n      break;\n    x = next;\n  }\n  return x;\n}\nfloat chartResidual(vec4 a, vec4 b, vec4 c, float x, bool farChart, float level) {\n  vec4 w = a + x * (b + x * c), aw = (uP - mat4(level)) * w;\n  mat4 A = uP - mat4(level);\n  mat4 absoluteA = mat4(abs(A[0]), abs(A[1]), abs(A[2]), abs(A[3]));\n  float magnitude = dot(abs(w), absoluteA * abs(w));\n  float df = 2. * dot(b + 2. * x * c, aw);\n  // Allow coordinate rounding as well as arithmetic in the form. At a far\n  // root, x*df measures RELATIVE distance error; using a constant here would\n  // again admit large distance errors as x approaches zero.\n  float scale = magnitude + abs(df) * (farChart ? x : 1.);\n  return scale == 0. ? 0. : abs(dot(w, aw)) / scale;\n}\nfloat chartIntersection(vec3 center, vec3 direction, float L, float k, float sign, bool farChart,\n                        float minS, float level) {\n  vec4 a, b, c, roots;\n  chartVectors(center, direction, L, farChart, a, b, c);\n  Poly polynomial = chartPoly(a, b, c, level);\n  // Bernstein convex hull: a strictly one-signed coefficient set has no roots.\n  float minimum = min(min(polynomial.a.x, polynomial.a.y), min(polynomial.a.z, polynomial.a.w));\n  float maximum = max(max(polynomial.a.x, polynomial.a.y), max(polynomial.a.z, polynomial.a.w));\n  if (min(minimum, polynomial.b) > 0. || max(maximum, polynomial.b) < 0.)\n    return -1.;\n  int count;\n  quarticRoots(polynomial, roots, count);\n  float best = -1.;\n  for (int i = 0; i < 4; i++) {\n    if (i >= count)\n      break;\n    float x = refineChart(a, b, c, roots[i], level);\n    if (farChart && x <= 0.)\n      continue;\n    float distance = farChart ? L / x : L * x;\n    float s = sign * distance - k;\n    // A relative homogeneous residual remains informative when all field\n    // terms vanish toward the pole; a fixed absolute residual does not.\n    if (s > minS && !isinf(s) && !isnan(s) && chartResidual(a, b, c, x, farChart, level) < 2e-6 &&\n        (best < 0. || s < best))\n      best = s;\n  }\n  return best;\n}\n// Paired binary32 arithmetic. Not IEEE binary64; binary32 exponent range.\n// A runtime-opaque bit operation forces rounding before error recovery.\n// uPrecisionGuard MUST be zero (the WebGL uniform initialization default).\nuniform int uPrecisionGuard;\nfloat dsRound(float x) {\n  return uintBitsToFloat(floatBitsToUint(x) ^ uint(uPrecisionGuard));\n}\nvec2 dsSum(float a, float b) {\n  float s = dsRound(a+b), v = dsRound(s-a);\n  float e = dsRound(dsRound(a-dsRound(s-v)) + dsRound(b-v));\n  return vec2(s,e);\n}\nvec2 dsAdd(vec2 a, vec2 b) {\n  vec2 s = dsSum(a.x,b.x);\n  return dsSum(s.x,dsRound(s.y+dsRound(a.y+b.y)));\n}\nvec2 dsSub(vec2 a, vec2 b) { return dsAdd(a,-b); }\nvec2 dsProduct(float a, float b) {\n  float p = dsRound(a*b);\n  // Twelve-bit significands make the high*high product exactly representable.\n  float ah = uintBitsToFloat(floatBitsToUint(a) & 0xfffff000u);\n  float bh = uintBitsToFloat(floatBitsToUint(b) & 0xfffff000u);\n  float al = dsRound(a-ah), bl = dsRound(b-bh);\n  float e = dsRound(dsRound(ah*bh)-p);\n  e = dsRound(e+dsRound(ah*bl));\n  e = dsRound(e+dsRound(al*bh));\n  e = dsRound(e+dsRound(al*bl));\n  return vec2(p,e);\n}\nvec2 dsMul(vec2 a, vec2 b) {\n  vec2 p = dsProduct(a.x,b.x);\n  float e = dsRound(p.y+dsRound(dsRound(a.x*b.y)+dsRound(a.y*b.x)));\n  return dsSum(p.x,e);\n}\nvec2 dsDiv(vec2 a, vec2 b) {\n  float q = dsRound(a.x/b.x);\n  vec2 r = dsSub(a,dsMul(b,vec2(q,0.)));\n  return dsSum(q,dsRound(dsRound(r.x+r.y)/b.x));\n}\nfloat dsFloat(vec2 a) { return dsRound(a.x+a.y); }\nstruct DS4 { vec4 hi; vec4 lo; };\nvec2 dsGet(DS4 a,int i) { return vec2(a.hi[i],a.lo[i]); }\nvoid dsSet(inout DS4 a,int i,vec2 v) { a.hi[i]=v.x; a.lo[i]=v.y; }\nDS4 dsVector(vec4 a) { return DS4(a,vec4(0)); }\nDS4 dsVAdd(DS4 a,DS4 b) {\n  DS4 r; for(int i=0;i<4;++i) dsSet(r,i,dsAdd(dsGet(a,i),dsGet(b,i))); return r;\n}\nDS4 dsVScale(DS4 a,vec2 s) {\n  DS4 r; for(int i=0;i<4;++i) dsSet(r,i,dsMul(dsGet(a,i),s)); return r;\n}\nvec2 dsDot(DS4 a,DS4 b) {\n  vec2 r=vec2(0); for(int i=0;i<4;++i) r=dsAdd(r,dsMul(dsGet(a,i),dsGet(b,i))); return r;\n}\nDS4 dsMatrix(DS4 v,float level) {\n  DS4 r;\n  for(int i=0;i<4;++i) {\n    vec2 sum=vec2(0);\n    for(int j=0;j<4;++j) {\n      vec2 a=dsSub(vec2(uP[j][i],0.),vec2(i==j?level:0.,0.));\n      sum=dsAdd(sum,dsMul(a,dsGet(v,j)));\n    }\n    dsSet(r,i,sum);\n  }\n  return r;\n}\nvoid dsRay(vec3 o,vec3 d,out DS4 center,out vec2 k,out float L) {\n  DS4 origin=dsVector(vec4(o,0.)), direction=dsVector(vec4(d,0.));\n  k=dsDot(origin,direction);\n  center=dsVAdd(origin,dsVScale(direction,-k));\n  L=max(1.,length(center.hi.xyz)); // Any positive common scale defines valid charts.\n}\nvoid dsVectors(DS4 center,vec3 d,float L,bool farChart,out DS4 a,out DS4 b,out DS4 c) {\n  vec2 invL=dsDiv(vec2(1.,0.),vec2(L,0.)), invL2=dsMul(invL,invL);\n  DS4 direction=dsVector(vec4(d,0.)), scaled=dsVScale(center,invL);\n  DS4 base=dsVScale(scaled,invL*2.);\n  dsSet(base,3,dsSub(dsDot(scaled,scaled),invL2));\n  b=dsVScale(direction,invL*2.);\n  dsSet(b,3,dsDot(scaled,direction)*2.);\n  DS4 top=dsVector(vec4(0)); dsSet(top,3,dsDot(direction,direction));\n  if(farChart){a=top;c=base;}else{a=base;c=top;}\n}\nPoly dsPolynomial(DS4 a,DS4 b,DS4 c,float level) {\n  DS4 middle=dsVAdd(a,dsVScale(b,vec2(.5,0.))), end=dsVAdd(dsVAdd(a,b),c);\n  DS4 aa=dsMatrix(a,level), am=dsMatrix(middle,level), ae=dsMatrix(end,level);\n  vec2 b2=dsDiv(dsAdd(dsDot(a,ae),dsDot(middle,am)*2.),vec2(3.,0.));\n  return Poly(vec4(dsFloat(dsDot(a,aa)),dsFloat(dsDot(a,am)),dsFloat(b2),\n    dsFloat(dsDot(middle,ae))),dsFloat(dsDot(end,ae)));\n}\nfloat dsDistance(float x,bool farChart,float sign,float L,vec2 k) {\n  vec2 t=farChart?dsDiv(vec2(L,0.),vec2(x,0.)):dsProduct(L,x);\n  return dsFloat(dsSub(t*sign,k));\n}\nvoid dsField(DS4 a,DS4 b,DS4 c,float x,float level,out float f,out float df,out float magnitude) {\n  DS4 w=dsVAdd(a,dsVScale(dsVAdd(b,dsVScale(c,vec2(x,0.))),vec2(x,0.)));\n  DS4 aw=dsMatrix(w,level), dw=dsVAdd(b,dsVScale(c,vec2(2.*x,0.)));\n  f=dsFloat(dsDot(w,aw));df=2.*dsFloat(dsDot(dw,aw));\n  mat4 A=uP-mat4(level);\n  mat4 absA=mat4(abs(A[0]),abs(A[1]),abs(A[2]),abs(A[3]));\n  magnitude=dot(abs(w.hi),absA*abs(w.hi));\n}\nbool dsRefine(DS4 a,DS4 b,DS4 c,inout float x,float level) {\n  float f,df,m;dsField(a,b,c,x,level,f,df,m);\n  for(int i=0;i<4;++i){\n    if(f==0.||df==0.)break;\n    float next=x-f/df;\n    if(next<0.||next>1.||next==x||abs(next-x)>.05*max(x,1e-6))break;\n    float nf,nd,nm;dsField(a,b,c,next,level,nf,nd,nm);\n    if(!(abs(nf)<abs(f)))break;\n    x=next;f=nf;df=nd;m=nm;\n  }\n  // Arithmetic allowance for the paired form plus binary32 coordinate rounding.\n  // Heuristic, not an interval certificate; no constant absolute residual floor.\n  return abs(f)<=1e-12*m+9.5367431640625e-7*abs(x*df);\n}\nfloat dsChartHit(DS4 center,vec3 direction,float L,vec2 k,float sign,bool farChart,\n                 float minS,float level) {\n  DS4 a,b,c; dsVectors(center,direction,L,farChart,a,b,c);\n  Poly p=dsPolynomial(a,b,c,level);\n  float lo=min(min(p.a.x,p.a.y),min(p.a.z,p.a.w));\n  float hi=max(max(p.a.x,p.a.y),max(p.a.z,p.a.w));\n  if(min(lo,p.b)>0.||max(hi,p.b)<0.) return -1.;\n  vec4 roots; int count; quarticRoots(p,roots,count);\n  float best=-1.;\n  for(int i=0;i<4;++i) if(i<count) {\n    float x=roots[i]; if(!dsRefine(a,b,c,x,level))continue;\n    if(farChart&&x<=0.) continue;\n    float s=dsDistance(x,farChart,sign,L,k);\n    if(s>minS&&!isnan(s)&&!isinf(s)&&(best<0.||s<best)) best=s;\n  }\n  return best;\n}\nfloat dsIntersection(vec3 o,vec3 d,float level) {\n  DS4 center; vec2 k; float L; dsRay(o,d,center,k,L);\n  float minS=.5*rayEpsilon(o),hit;\n  if(k.x<0.) {\n    hit=dsChartHit(center,-d,L,k,-1.,true,minS,level); if(hit>=0.) return hit;\n    hit=dsChartHit(center,-d,L,k,-1.,false,minS,level); if(hit>=0.) return hit;\n  }\n  hit=dsChartHit(center,d,L,k,1.,false,minS,level); if(hit>=0.) return hit;\n  return dsChartHit(center,d,L,k,1.,true,minS,level);\n}\n\nfloat intersection(vec3 o,vec3 d,float level){return dsIntersection(o,d,level);}\nfloat side(vec3 p, float level) {\n  // Normalized by (1+r²)² to avoid overflow far from the origin.\n  float r = dot(p, p);\n  vec4 q = vec4(2. * p, r - 1.) / (1. + r);\n  return dot(q, (uP - mat4(level)) * q);\n}\nvec3 normalAt(vec3 p, float level) {\n  // Analytic gradient with a positive (1+r²) scale divided out.\n  float r = dot(p, p);\n  vec4 q = vec4(2. * p, r - 1.) / (1. + r), aq = (uP - mat4(level)) * q;\n  return normalize(aq.xyz + p * aq.w);\n}\n// One boundary for a solid torus, two independent quartics for a shell.\n// The shell is cLow < q^T P q < cHigh. Its two outward normals have\n// opposite signs relative to the gradient of q^T P q.\nbool inMaterial(vec3 p) {\n  return uShell == 1 ? side(p, uShellLow) > 0. && side(p, uShellHigh) < 0. : side(p, uC) > 0.;\n}\nfloat boundaryHit(vec3 o, vec3 d, out float level, out float normalSign) {\n  level = uC;\n  normalSign = -1.;\n  if (uShell == 0)\n    return intersection(o, d, level);\n  float lowHit = intersection(o, d, uShellLow), highHit = intersection(o, d, uShellHigh);\n  if (lowHit >= 0. && (highHit < 0. || lowHit <= highHit)) {\n    level = uShellLow;\n    normalSign = -1.;\n    return lowHit;\n  }\n  level = uShellHigh;\n  normalSign = 1.;\n  return highHit;\n}\nint objectCount() {\n  return uCount == 0 ? 1 : uCount;\n}\nbool enabled(int i) {\n  return uCount == 0 || uEnabled[i] == 1;\n}\nbool isShell(int i) {\n  return uCount == 0 ? uShell == 1 : uShells[i] == 1;\n}\nfloat objectLevel(int i) {\n  return uCount == 0 ? uC : uLevels[i];\n}\nfloat lowLevel(int i) {\n  return uCount == 0 ? uShellLow : uLows[i];\n}\nfloat highLevel(int i) {\n  return uCount == 0 ? uShellHigh : uHighs[i];\n}\nvec4 optics(int i) {\n  return i < 0 ? vec4(0, 1, 0, 0) : uCount == 0 ? vec4(uOpacity, uIOR, 0, 0) : uOptics[i];\n}\nvec3 colorAt(int i) {\n  return uCount == 0 ? vec3(.075, .57, .56) : uColors[i];\n}\nint materialMask(vec3 p) {\n  int mask = 0;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if (!enabled(i))\n      continue;\n    if (isShell(i) ? side(p, lowLevel(i)) > 0. && side(p, highLevel(i)) < 0.\n                   : side(p, objectLevel(i)) > 0.)\n      mask |= 1 << i;\n  }\n  return mask;\n}\nint mediumFor(int mask) {\n  int id = -1;\n  float width = 2.;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if ((mask & (1 << i)) == 0)\n      continue;\n    float w = isShell(i) ? highLevel(i) - lowLevel(i) : 1. - objectLevel(i);\n    if (w <= width) {\n      width = w;\n      id = i;\n    }\n  }\n  return id;\n}\nint interfaceMaterial(int before, int after) {\n  return before < 0 ? after : after < 0 ? before : mediumFor((1 << before) | (1 << after));\n}\nbool aboveBoundary(float level, float boundary, bool increasing) {\n  return abs(level - boundary) < 2e-7 ? increasing : level > boundary;\n}\n// Resolve simultaneous/coincident boundary crossings in level space, without\n// relying on a positional offset that could leap over another thin wall.\nint maskAcross(float level, bool increasing) {\n  int mask = 0;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if (!enabled(i))\n      continue;\n    bool inside = isShell(i) ? aboveBoundary(level, lowLevel(i), increasing) &&\n                                   !aboveBoundary(level, highLevel(i), increasing)\n                             : aboveBoundary(level, objectLevel(i), increasing);\n    if (inside)\n      mask |= 1 << i;\n  }\n  return mask;\n}\nfloat sceneHit(vec3 o, vec3 d, out float level, out float normalSign, out int id) {\n  float best = -1.;\n  level = 0.;\n  normalSign = -1.;\n  id = -1;\n  for (int i = 0; i < 3; i++) {\n    if (i >= objectCount())\n      break;\n    if (!enabled(i))\n      continue;\n    float lo = isShell(i) ? lowLevel(i) : objectLevel(i), s = intersection(o, d, lo);\n    if (s >= 0. && (best < 0. || s < best)) {\n      best = s;\n      level = lo;\n      normalSign = -1.;\n      id = i;\n    }\n    if (isShell(i)) {\n      s = intersection(o, d, highLevel(i));\n      if (s >= 0. && (best < 0. || s < best)) {\n        best = s;\n        level = highLevel(i);\n        normalSign = 1.;\n        id = i;\n      }\n    }\n  }\n  return best;\n}\nfloat line(float x, float width) {\n  return 1. - smoothstep(width, width * 2., abs(fract(x + .5) - .5));\n}\nvec3 rotateY(vec3 d, float a) {\n  float c = cos(a), s = sin(a);\n  return vec3(c * d.x + s * d.z, d.y, -s * d.x + c * d.z);\n}\nvec3 environmentRaw(vec3 d, float lod) {\n  d = rotateY(d, uEnvRotation);\n  float az = atan(d.z, d.x) / PI, el = asin(clamp(d.y, -1., 1.)) / PI;\n  if (uEnvironment == 6) {\n    vec2 uv = vec2(fract(az * .5 + .5), .5 - el);\n    return pow(max(textureLod(uEnvironmentMap, uv, lod).rgb, vec3(0)), vec3(2.2));\n  }\n  float h = smoothstep(-.45, .75, d.y);\n  vec3 col = mix(vec3(.012, .026, .038), vec3(.055, .09, .13), h);\n  if (uEnvironment == 1)\n    col = mix(vec3(.18, .22, .26), vec3(.5, .58, .62), h);\n  float grid = max(line(az * 12., .008), line(el * 12., .008));\n  col += vec3(.09, .16, .19) * grid * .30;\n  col += vec3(.20, .34, .37) * exp(-abs(d.y + .12) * 38.) * .28;\n  if (d.y < -.13) {\n    vec2 p = d.xz / (-d.y + .08);\n    float checker = mod(floor(p.x * 1.8) + floor(p.y * 1.8), 2.);\n    col += mix(vec3(.015, .026, .033), vec3(.07, .10, .115), checker) * smoothstep(.04, .45, -d.y);\n  }\n  float warm = pow(max(0., dot(d, normalize(vec3(-.8, .3, -1.)))), 64.);\n  float cool = pow(max(0., dot(d, normalize(vec3(1., .45, .3)))), 85.);\n  col += vec3(3.6, 2.3, .9) * warm + vec3(.4, 1.8, 2.8) * cool;\n  col += vec3(.8, 1.55, 1.65) * exp(-pow((az - .40) * 95., 2.)) * smoothstep(-.3, .0, d.y) *\n         (1. - smoothstep(.65, .85, d.y));\n  if (uEnvironment == 2)\n    col = vec3(.035, .047, .06) + vec3(.22, .29, .35) * grid + vec3(1.7, .72, .18) * warm +\n          vec3(.12, .7, 1.4) * cool;\n  if (uEnvironment == 3) {\n    col = mix(vec3(.035), vec3(.17, .19, .22), h);\n    float ceiling = smoothstep(.55, .65, d.y);\n    float box1 =\n        (1. - smoothstep(.20, .23, abs(az + .32))) * (1. - smoothstep(.25, .28, abs(el - .12)));\n    float box2 =\n        (1. - smoothstep(.07, .09, abs(az - .40))) * (1. - smoothstep(.32, .35, abs(el - .06)));\n    col += vec3(2.8, 2.9, 3.1) * box1 + vec3(5., 3.9, 2.7) * box2 + vec3(.65, .78, 1.) * ceiling;\n  }\n  if (uEnvironment == 4) {\n    col = mix(vec3(.5, .16, .065), vec3(.09, .22, .44), smoothstep(-.03, .6, d.y));\n    if (d.y < 0.)\n      col = mix(vec3(.018, .028, .04), vec3(.16, .095, .06), exp(d.y * 12.));\n    vec3 sun = normalize(vec3(-1., .10, -.35));\n    col += vec3(8., 4.3, 1.5) * pow(max(0., dot(d, sun)), 900.);\n    col += vec3(.32, .13, .06) * pow(max(0., dot(d, sun)), 12.);\n  }\n  if (uEnvironment == 5) {\n    col = vec3(.07, .09, .12);\n    float wall = pow(max(0., 1. - abs(d.y)), 3.);\n    float windows = line(az * 8., .12) * (1. - smoothstep(.18, .25, abs(el - .10)));\n    col += vec3(.7, .9, 1.2) * windows * wall;\n    col += vec3(.35, .16, .07) * line(az * 4. + .2, .035) * wall;\n    if (d.y > .6)\n      col += vec3(.4, .5, .65);\n    if (d.y < -.1) {\n      vec2 p = d.xz / max(.1, -d.y);\n      col += vec3(.2) * mod(floor(p.x) + floor(p.y), 2.);\n    }\n  }\n  return col;\n}\nvec3 environment(vec3 d) {\n  return exp2(uExposure) * environmentRaw(d, 0.);\n}\nvec3 roughEnvironment(vec3 d, float roughness) {\n  if (roughness < .015)\n    return environment(d);\n  if (uEnvironment == 6)\n    return exp2(uExposure) * environmentRaw(d, roughness * uMapMaxLod);\n  vec3 a = normalize(cross(d, abs(d.y) < .9 ? vec3(0, 1, 0) : vec3(1, 0, 0))), b = cross(d, a);\n  float spread = roughness * roughness * .65;\n  return exp2(uExposure) *\n         (.4 * environmentRaw(d, 0.) + .15 * (environmentRaw(normalize(d + spread * a), 0.) +\n                                              environmentRaw(normalize(d - spread * a), 0.) +\n                                              environmentRaw(normalize(d + spread * b), 0.) +\n                                              environmentRaw(normalize(d - spread * b), 0.)));\n}\nfloat fresnel(float ci, float n1, float n2) {\n  float st2 = (n1 / n2) * (n1 / n2) * (1. - ci * ci);\n  if (st2 >= 1.)\n    return 1.;\n  float ct = sqrt(max(0., 1. - st2));\n  float rs = (n1 * ci - n2 * ct) / max(1e-7, n1 * ci + n2 * ct);\n  float rp = (n1 * ct - n2 * ci) / max(1e-7, n1 * ct + n2 * ci);\n  return .5 * (rs * rs + rp * rp);\n}\nvec3 surfaceLight(vec3 p, vec3 n, vec3 d, int id) {\n  vec3 base = colorAt(id), light = rotateY(normalize(vec3(-3., 5., 4.)), -uEnvRotation);\n  float roughness = optics(id).z, dif = max(0., dot(n, light));\n  vec3 halfv = normalize(light - d);\n  float spec = pow(max(0., dot(n, halfv)), mix(180., 6., roughness));\n  return base * (.12 + .65 * dif + .18 * roughEnvironment(n, .6)) +\n         vec3(1.7, 1.6, 1.45) * spec * .35;\n}\nvec3 absorption(int id, float distance) {\n  if (id < 0)\n    return vec3(1);\n  return exp(-(vec3(1) - colorAt(id)) * .65 * optics(id).x * min(distance, 30.));\n}\nvec3 metalFresnel(vec3 base, float ci) {\n  return base + (vec3(1) - base) * pow(1. - ci, 5.);\n}\n// Secondary reflection paths use all scene boundaries too; tertiary branches\n// resolve to the environment to keep the work bounded on WebGL hardware.\nvec3 reflectionPath(vec3 o, vec3 d, float roughness) {\n  vec3 light = vec3(0), weight = vec3(1);\n  int mask = materialMask(o);\n  for (int j = 0; j < 4; j++) {\n    float level, sign;\n    int id;\n    float s = sceneHit(o, d, level, sign, id);\n    if (s < 0.)\n      break;\n    int before = mediumFor(mask);\n    vec3 p = o + s * d, g = normalAt(p, level), n = dot(d, g) < 0. ? g : -g;\n    float eps = rayEpsilon(p);\n    bool tangent = abs(dot(d, g)) < 3e-4;\n    int nextMask = tangent ? mask : maskAcross(level, dot(d, g) > 0.);\n    int after = mediumFor(nextMask);\n    weight *= absorption(before, s);\n    if (before == after && !tangent) {\n      mask = nextMask;\n      o = p - n * eps;\n      continue;\n    }\n    int surface = interfaceMaterial(before, after);\n    if (surface < 0)\n      surface = id;\n    vec4 mat = optics(surface);\n    vec3 r = reflect(d, n);\n    float ci = clamp(dot(-d, n), 0., 1.);\n    if (mat.w > .5) {\n      weight *= metalFresnel(colorAt(surface), ci);\n      o = p + n * eps;\n      d = r;\n      roughness = mat.z;\n      continue;\n    }\n    float n1 = optics(before).y, n2 = optics(after).y, F = fresnel(ci, n1, n2);\n    vec3 t = refract(d, n, n1 / n2);\n    light += weight * mat.x * surfaceLight(p, n, d, surface);\n    weight *= 1. - mat.x;\n    if (dot(t, t) < 1e-10 && !tangent) {\n      o = p + n * eps;\n      d = r;\n      roughness = mat.z;\n      continue;\n    }\n    light += weight * F * roughEnvironment(r, mat.z);\n    weight *= 1. - F;\n    if (tangent) {\n      o = p + d * eps * 4.;\n      continue;\n    }\n    mask = nextMask;\n    o = p - n * eps;\n    d = normalize(t);\n    roughness = 0.;\n  }\n  return light + weight * roughEnvironment(d, roughness);\n}\nvec3 trace(vec3 origin, vec3 direction) {\n  vec3 o = origin, d = direction, radiance = vec3(0), throughput = vec3(1);\n  int mask = materialMask(o);\n  float roughness = 0.;\n  for (int bounce = 0; bounce < 24; bounce++) {\n    if (bounce >= uBounces)\n      break;\n    float level, sign;\n    int id;\n    float s = sceneHit(o, d, level, sign, id);\n    int before = mediumFor(mask);\n    if (s < 0.)\n      return radiance + throughput * absorption(before, 12.) * roughEnvironment(d, roughness);\n    vec3 p = o + s * d, g = normalAt(p, level), outward = sign * g, n = dot(g, d) < 0. ? g : -g;\n    if (uMode == 1)\n      return .5 + .5 * outward;\n    if (uMode == 2) {\n      float bands = .5 + .5 * cos(log(1. + s) * 12.);\n      return mix(vec3(.035, .15, .19), vec3(.7, .87, .65), bands);\n    }\n    float eps = rayEpsilon(p);\n    bool tangent = abs(dot(g, d)) < 3e-4;\n    int nextMask = tangent ? mask : maskAcross(level, dot(d, g) > 0.);\n    int after = mediumFor(nextMask);\n    throughput *= absorption(before, s);\n    // Boundaries hidden inside a more specific material are not optical interfaces.\n    if (before == after && !tangent) {\n      mask = nextMask;\n      o = p - n * eps;\n      continue;\n    }\n    int surface = interfaceMaterial(before, after);\n    if (surface < 0)\n      surface = id;\n    vec4 mat = optics(surface);\n    float ci = clamp(dot(-d, n), 0., 1.);\n    vec3 reflected = reflect(d, n);\n    if (mat.w > .5) {\n      throughput *= metalFresnel(colorAt(surface), ci);\n      o = p + n * eps;\n      d = reflected;\n      roughness = mat.z;\n      continue;\n    }\n    float n1 = optics(before).y, n2 = optics(after).y, F = fresnel(ci, n1, n2);\n    vec3 transmitted = refract(d, n, n1 / n2);\n    bool tir = dot(transmitted, transmitted) < 1e-10;\n    // Refraction event: numerical tests capture the state at this point.\n    radiance += throughput * mat.x * surfaceLight(p, n, d, surface);\n    throughput *= 1. - mat.x;\n    if (max(throughput.r, max(throughput.g, throughput.b)) < .006)\n      return radiance;\n    if (tir && !tangent) {\n      o = p + n * eps;\n      d = reflected;\n      roughness = mat.z;\n      continue;\n    }\n    radiance += throughput * F *\n                (bounce == 0 ? reflectionPath(p + n * eps, reflected, mat.z)\n                             : roughEnvironment(reflected, mat.z));\n    throughput *= 1. - F;\n    if (tangent) {\n      o = p + d * eps * 4.;\n      continue;\n    }\n    mask = nextMask;\n    d = normalize(transmitted);\n    o = p - n * eps;\n    roughness = 0.;\n  }\n  return radiance + throughput * roughEnvironment(d, roughness);\n}\n\n layout(location=1) out vec4 diagnosticDirection;\n layout(location=2) out vec4 diagnosticOrigin;\n layout(location=3) out vec4 diagnosticUnused;\n void main(){vec3 d=normalize(uForward);float level,sign;int id;\n float s=sceneHit(uEye,d,level,sign,id);outColor=vec4(s,level,sign,float(id));\n diagnosticDirection=vec4(d,0.);diagnosticOrigin=vec4(uEye,0.);diagnosticUnused=vec4(0.);}"
+  },
+  "hashes": {
+    "research/diagnostics/browser-precision/diagnose-transport.mjs": "63b55ae342545782233360bffcf200888e1d0d75d1fdee8cd5a488b8b3a1ecea",
+    "research/diagnostics/browser-precision/results/transport-paired.json": "843b0a45721da268da74f3013781456b3b1339ab7586d5fb144537c0310701e9",
+    "research/diagnostics/browser-precision/trials/refined/transport-paired.json": "502ae9ac1a1596b53723fd49a0bd477fa497e1ab8fa0c09150a72f8915a92f32",
+    "research/diagnostics/browser-precision/paired.glsl": "62ada1f865b1633224d24051925ac337b29fb108cf457b0af939addaff5db4a3",
+    "research/diagnostics/browser-precision/renderer.mjs": "94a3c501aea4fde2f27427f9575b1771ec7837210041e5401c262a23a45de1a1",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "web/math.js": "188900d29bc884af32ba8e4641a093e02d3755e4a4a8ebc1a7d1319af2aabd05",
+    "web/scene.js": "6c4ca7b4f3fc35a44e695545927309b5159d562d435b6c59e86afd57e2f8ae3e"
+  }
+}

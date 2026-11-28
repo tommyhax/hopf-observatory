@@ -1,0 +1,128 @@
+// Direct formula adapted from native/include/hopf/quartic.hpp.
+// Ferrari/Cardano attribution: Nick Thompson 2021, Boost Software License.
+// @R and @ prefix are instantiated for float and paired float arithmetic.
+struct @Roots { @R v[4]; int n; };
+@Roots @Empty(){@Roots r;r.n=0;for(int i=0;i<4;++i)r.v[i]=@C(0.);return r;}
+void @Push(inout @Roots r,@R x){
+  for(int i=0;i<4;++i)if(i<r.n&&@EQ(r.v[i],x))return;
+  if(r.n<4)r.v[r.n++]=x;else gdUncertain=true;
+  if(isnan(@F(x))||isinf(@F(x)))gdUncertain=true;
+}
+void @Guard(@R value,float magnitude){
+  if(magnitude>0.&&abs(@F(value))<=@EPS*magnitude)gdUncertain=true;
+}
+@Roots @Quadratic(@R a,@R b,@R c){
+  @Roots r=@Empty();
+  if(@Z(a)){if(!@Z(b))@Push(r,@D(-c,b));return r;}
+  if(@Z(c)){@Push(r,@C(0.));@Push(r,@D(-b,a));return r;}
+  @R bb=@M(b,b),ac=@M(@C(4.),@M(a,c)),disc=@S(bb,ac);
+  @Guard(disc,abs(@F(bb))+abs(@F(ac)));
+  if(@F(disc)<0.)return r;
+  if(@Z(disc)){@Push(r,@D(-b,@M(@C(2.),a)));return r;}
+  @R root=@SQ(disc),t=@M(@C(-.5),@A(b,@F(b)<0.?-root:root));
+  @Push(r,@D(t,a));@Push(r,@D(c,t));return r;
+}
+@Roots @Cubic(@R a,@R b,@R c,@R d){
+  if(@Z(a))return @Quadratic(b,c,d);
+  if(@Z(d)){@Roots r=@Quadratic(a,b,c);@Push(r,@C(0.));return r;}
+  @Roots r=@Empty();@R p=@D(b,a),q=@D(c,a),z=@D(d,a);
+  @R Q=@D(@S(@M(p,p),@M(@C(3.),q)),@C(9.));
+  @R V=@D(@A(@S(@M(@C(2.),@M(@M(p,p),p)),@M(@C(9.),@M(p,q))),@M(@C(27.),z)),@C(54.));
+  @R vv=@M(V,V),qqq=@M(@M(Q,Q),Q),disc=@S(vv,qqq);
+  @Guard(disc,abs(@F(vv))+abs(@F(qqq)));
+  @R p3=@D(p,@C(3.));
+  if(@F(disc)<0.){
+    @R rt=@SQ(Q),arg=@D(V,@M(Q,rt));
+    if(@F(arg)>1.)arg=@C(1.);if(@F(arg)<-1.)arg=@C(-1.);
+    @R theta=@D(@AC(arg),@C(3.)),st,ct;@SC(theta,st,ct);
+    @R first=@S(@M(@C(-2.),@M(rt,ct)),p3);
+    @R second=@S(-@M(rt,@S(@M(@SQ(@C(3.)),st),ct)),p3);
+    @R third=@S(@M(rt,@A(ct,@M(@SQ(@C(3.)),st))),p3);
+    // Recover the smallest-magnitude root from the product of the other two.
+    if(abs(@F(first))<=min(abs(@F(second)),abs(@F(third))))first=@D(-z,@M(second,third));
+    else if(abs(@F(second))<=abs(@F(third)))second=@D(-z,@M(first,third));
+    else third=@D(-z,@M(first,second));
+    @Push(r,first);@Push(r,second);@Push(r,third);
+  }else{
+    @R av=@F(V)<0.?-V:V;
+    @R A=@CB(@A(av,@SQ(disc)));if(@F(V)>=0.)A=-A;
+    @R B=@Z(A)?@C(0.):@D(Q,A),sum=@A(A,B),root=@S(sum,p3);
+    // Rationalize cancellation using the conjugate pair's positive product.
+    @R re=@A(@M(@C(.5),sum),p3),delta=@S(A,B);
+    @R product=@A(@M(re,re),@M(@C(.75),@M(delta,delta)));
+    if(abs(@F(root))<.25*(abs(@F(A))+abs(@F(B))+abs(@F(p3)))&&!@Z(product))root=@D(-z,product);
+    @Push(r,root);if(@Z(disc))@Push(r,@S(-A,p3));
+  }
+  return r;
+}
+@Roots @Ferrari(@R f[5]){
+  @R a=f[4],b=f[3],c=f[2],d=f[1],e=f[0];
+  if(@Z(a))return @Cubic(b,c,d,e);
+  if(@Z(e)){@Roots r=@Cubic(a,b,c,d);@Push(r,@C(0.));return r;}
+  @R A=@D(b,a),B=@D(c,a),C=@D(d,a),D=@D(e,a),aa=@M(A,A);
+  @R p=@S(B,@M(@C(.375),aa));
+  @R q=@A(@S(C,@M(@C(.5),@M(A,B))),@M(@C(.125),@M(aa,A)));
+  @R r=@S(@A(@S(D,@M(@C(.25),@M(A,C))),@M(@C(.0625),@M(aa,B))),@M(@C(3./256.),@M(aa,aa)));
+  @Guard(q,abs(@F(C))+.5*abs(@F(@M(A,B)))+.125*abs(@F(@M(aa,A))));
+  @Roots outR=@Empty();@R shift=@M(@C(.25),A);
+  if(@Z(r)){
+    @Roots cr=@Cubic(@C(1.),@C(0.),p,q);
+    for(int i=0;i<4;++i)if(i<cr.n)@Push(outR,@S(cr.v[i],shift));
+    @Push(outR,-shift);return outR;
+  }
+  if(@Z(q)){
+    @Roots zr=@Quadratic(@C(1.),p,r);
+    for(int i=0;i<4;++i)if(i<zr.n&&@F(zr.v[i])>=0.){
+      @R t=@SQ(zr.v[i]);@Push(outR,@S(t,shift));@Push(outR,@S(-t,shift));
+    }return outR;
+  }
+  @Roots zr=@Cubic(@C(1.),@M(@C(2.),p),@S(@M(p,p),@M(@C(4.),r)),-@M(q,q));
+  @R largest=@C(0.);
+  for(int i=0;i<4;++i)if(i<zr.n&&@F(zr.v[i])>@F(largest))largest=zr.v[i];
+  if(@F(largest)<=0.){gdUncertain=true;@Push(outR,@C(uintBitsToFloat(0x7fc00000u)));return outR;}
+  @R s=@SQ(largest),sum=@A(p,largest),diff=@D(q,s),u,v;
+  if(@F(sum)*@F(diff)>=0.){v=@M(@C(.5),@A(sum,diff));u=@D(r,v);}
+  else{u=@M(@C(.5),@S(sum,diff));v=@D(r,u);}
+  @R b1=@A(@M(@C(.5),A),s),b2=@S(@M(@C(.5),A),s);
+  @R c1=@A(u,@M(shift,@A(shift,s))),c2=@A(v,@M(shift,@S(shift,s)));
+  if(abs(@F(c1))>abs(@F(c2)))c2=@D(D,c1);else if(!@Z(c2))c1=@D(D,c2);
+  @Roots r1=@Quadratic(@C(1.),b1,c1),r2=@Quadratic(@C(1.),b2,c2);
+  for(int i=0;i<4;++i){if(i<r1.n)@Push(outR,r1.v[i]);if(i<r2.n)@Push(outR,r2.v[i]);}
+  return outR;
+}
+@R @Eval(@R f[5],@R x){@R r=f[4];for(int i=3;i>=0;--i)r=@A(@M(r,x),f[i]);return r;}
+@Roots @Solve(@R inputF[5]){
+  @R f[5];float scale=0.;for(int i=0;i<5;++i){f[i]=inputF[i];scale=max(scale,abs(@F(f[i])));}
+  @Roots outR=@Empty();if(scale==0.)return outR;
+  // Normalize before products. Never discard a small leading coefficient.
+  scale=exp2(floor(log2(scale)));
+  for(int i=0;i<5;++i)f[i]=@D(f[i],@C(scale));
+  if((@F(f[4])>0.&&@F(f[2])>0.&&@F(f[0])>0.)||(@F(f[4])<0.&&@F(f[2])<0.&&@F(f[0])<0.)){
+    @R m1=@S(@M(@C(2.),@M(f[4],f[2])),@M(f[3],f[3]));
+    @R m2=@S(@M(@C(2.),@M(f[2],f[0])),@M(f[1],f[1]));
+    if(@F(m1)>@EPS&&@F(m2)>@EPS)return outR;
+  }
+  int zeros=0;
+  for(int k=0;k<4;++k){if(!@Z(f[0]))break;for(int i=0;i<4;++i)f[i]=f[i+1];f[4]=@C(0.);zeros++;}
+  if(zeros>0)@Push(outR,@C(0.));
+  int degree=4;for(int i=4;i>0;--i){if(!@Z(f[i]))break;degree--;}
+  if(degree==0)return outR;
+  float bound=0.;
+  for(int i=0;i<4;++i)if(i<degree){float v=abs(@F(@D(f[i],f[degree])));int power=degree-i;
+    if(power==2)v=sqrt(v);else if(power==3)v=pow(v,1./3.);else if(power==4)v=sqrt(sqrt(v));bound=max(bound,v);}
+  bound*=2.;float stretch=1.;
+  if(bound>0.&&bound<.5){int exponent=int(floor(log2(bound)))+1;stretch=exp2(float(exponent));
+    for(int i=0;i<5;++i)if(i<=degree)f[i]=@M(f[i],@C(exp2(float((i-degree)*exponent))));}
+  bool structural=degree<=2;
+  if(degree==4){@R A=@D(f[3],f[4]),B=@D(f[2],f[4]),C=@D(f[1],f[4]);
+    structural=@Z(@A(@S(C,@M(@C(.5),@M(A,B))),@M(@C(.125),@M(@M(A,A),A))));}
+  float shift=0.,best=abs(@F(f[0]));
+  if(!structural)for(int i=0;i<4;++i){float t=i<2?float(i-2):float(i-1);float v=abs(@F(@Eval(f,@C(t))));if(v>best){best=v;shift=t;}}
+  for(int i=3;i>=0;--i)for(int j=0;j<4;++j)if(j>=i)f[j]=@A(f[j],@M(@C(shift),f[j+1]));
+  bool reciprocal=!structural&&abs(@F(f[0]))>abs(@F(f[4]));
+  if(reciprocal){@R t=f[0];f[0]=f[4];f[4]=t;t=f[1];f[1]=f[3];f[3]=t;}
+  @Roots r=@Ferrari(f);
+  for(int i=0;i<4;++i)if(i<r.n){@R x=r.v[i];if(reciprocal){if(@Z(x))continue;x=@D(@C(1.),x);}
+    @Push(outR,@M(@A(x,@C(shift)),@C(stretch)));}
+  return outR;
+}

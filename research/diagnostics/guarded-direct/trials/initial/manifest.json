@@ -1,0 +1,17 @@
+{
+  "benchmark.mjs": "a9dbcae2bfc0de91229a00381a3c75bbacfbdc0c8bf5cb537dfcecd4bae5f923",
+  "intersection.glsl": "f61da2e4bee6309de9f1c9db522a71a65df7095374abfdd219feac5b355fb044",
+  "solver.glsl.in": "3059893fc6cae3e7c17d9c5d5adbf6a41f1476432c2a668961a3efc81da073f6",
+  "run-transport.mjs": "07535bde32f63e989018c5328931eeaf323b9da50311597ef64d44beb3032941",
+  "analyze-roots.py": "f10171cc88aa461ac526df165b219a6239441a6eb88c7186a5bfc5937689e8cc",
+  "run-fixtures.mjs": "0d0fd4d17e36029bd0cc2dcc1934ef2649a85dda99a0099c9c5229e03c2db741",
+  "elementary.glsl": "7265a8864c6f36c3e61ad7e315a4a0d01b9ccade33dc766a93f6bb0212221ec5",
+  "LICENSE_1_0.txt": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+  "analyze-fixtures.py": "c114c97d7d3212593c02935c872fdaa8ab91253ae12779d4dff0c47449a4fc2f",
+  "renderer.mjs": "826493f91411ea1ec050ec4a4a241c15210f3eca849e52b8f953142c77453804",
+  "run-roots.mjs": "a40183125a883b1e10462cf8d7f325ae0d695ae1bb69b8d1c5042a0bf9c243a6",
+  "serve.mjs": "399a6733f048c7f5eaf28c44da503784ed439c126bed96460ec2657cdda2f86d",
+  "PROTOCOL.md": "62c5821b02f1b26ccaca68ae04f0338c06cb510f8098462c2f53e4d2187526d9",
+  "results/roots.json": "28ae4ac26b24cb134567b2860049d9ddd69f0c4b97bf6a80b424a4c7af978327",
+  "results/root-analysis.json": "e8e8ef5a081cf3e58daf3902ed96c8910743e2666b05832942bb6b84f2318a5b"
+}

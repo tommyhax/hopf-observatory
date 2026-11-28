@@ -1,0 +1,3356 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "timerQueryAvailable": true
+  },
+  "hashes": {
+    "research/diagnostics/algorithm1010/final/results/webgl-benchmark.json": "069c159d1c3ae1087a338fd380ea0213b8e7ff22d97f813c4073f3522714ccc8",
+    "research/diagnostics/guarded-direct/renderer.mjs": "27c437819a3f8ab8f4285cc89605313bc995812a743b4543ceb67bf88bb9675f",
+    "research/diagnostics/guarded-direct/solver.glsl.in": "3059893fc6cae3e7c17d9c5d5adbf6a41f1476432c2a668961a3efc81da073f6",
+    "research/diagnostics/guarded-direct/elementary.glsl": "7265a8864c6f36c3e61ad7e315a4a0d01b9ccade33dc766a93f6bb0212221ec5",
+    "research/diagnostics/guarded-direct/intersection.glsl": "f61da2e4bee6309de9f1c9db522a71a65df7095374abfdd219feac5b355fb044",
+    "research/diagnostics/browser-precision/paired.glsl": "62ada1f865b1633224d24051925ac337b29fb108cf457b0af939addaff5db4a3",
+    "research/renderer-variants.mjs": "bc4b586ca75542c584ae0f0b9a405abb52c9bd97911d1d490a29c1d644b0192a",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "research/diagnostics/guarded-direct/capture.mjs": "3a6459fa3d21dbbcda61df9679b883a90a7db228c33ca795573dd0eb221e1a17",
+    "research/diagnostics/algorithm1010/final/browser-gpu.mjs": "6d44d0801b4526b69f433749e32fd4367c63f5fce46e929983034db0293f5d8d",
+    "research/webgl.mjs": "2c730939d97a56dcddf2708350bba47d3d11ec71e306960bc56ed24be9422bc7"
+  },
+  "shaderHashes": {
+    "production": "3a70927462b5ad47092c5a3e73cfa5a668b6b83043be4d7a05427d8bc6fa8d32",
+    "direct": "08896c281ee9952f4c028918db64231570205a7e927c16056c51c990d12f5e5f"
+  },
+  "renders": [
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "production",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-480-mode-0-production.rgba.gz",
+      "sha256": "a7c75f00db40d74f2b75ca04722cb93fd77c593ca1c5816bd2c158d727095b84"
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "direct",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-480-mode-0-direct.rgba.gz",
+      "sha256": "b8f5c0cc60389592d611cd096c180c0583d945a05013fcd8b905b2625dfe4809"
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "production",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-480-mode-1-production.rgba.gz",
+      "sha256": "586192ff71aeed98ba738f7c8dfcdf4a2179b42564b86074327aad7eb7776231"
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "direct",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-480-mode-1-direct.rgba.gz",
+      "sha256": "80e6f9eac3fd592b0b74b32550dabdf0315d1abed56a9d17b73ff16535623431"
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "production",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-480-mode-2-production.rgba.gz",
+      "sha256": "4e7243e680ff12bc5ee7feb611902da7aa484de321be294c119d5db913db6fff"
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "direct",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-480-mode-2-direct.rgba.gz",
+      "sha256": "4e7243e680ff12bc5ee7feb611902da7aa484de321be294c119d5db913db6fff"
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "production",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-1280-mode-0-production.rgba.gz",
+      "sha256": "37e0b65fc1ecbc0b9458a3c3aa14d74be1ed6ba26429fb7c418a45530a2119ef"
+    },
+    {
+      "scene": "single solid",
+      "index": 0,
+      "variant": "direct",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          0,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.47383202187852796,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5261679781214721,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0.03,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.2831487404299921,
+          0.7230551289219693,
+          0.6795424696330938
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.0004,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-0-1280-mode-0-direct.rgba.gz",
+      "sha256": "dd51653f0de1aa564b060db83e47bde135ffcdd8bbfa73dd535858e1cf99826f"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "production",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-480-mode-0-production.rgba.gz",
+      "sha256": "f4e969394d30be26f26450357ca664811005eacf6bf9ee787f9821e63d0f2cf5"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "direct",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-480-mode-0-direct.rgba.gz",
+      "sha256": "a97e894c1ce402b66919518a7ae982f8259f0cfd068203744a094dd4c02e2656"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "production",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-480-mode-1-production.rgba.gz",
+      "sha256": "54a256ec7f74464c6b3e7c133df358b677001e6f10223bb612c6d65994bf921d"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "direct",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-480-mode-1-direct.rgba.gz",
+      "sha256": "54a256ec7f74464c6b3e7c133df358b677001e6f10223bb612c6d65994bf921d"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "production",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-480-mode-2-production.rgba.gz",
+      "sha256": "9975c08115277948b8eff5e5226db72234339763a6cd912127e9d0db5871da06"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "direct",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-480-mode-2-direct.rgba.gz",
+      "sha256": "9975c08115277948b8eff5e5226db72234339763a6cd912127e9d0db5871da06"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "production",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-1280-mode-0-production.rgba.gz",
+      "sha256": "8a820ca964bc45757343013f2819cadae18642fedd5adbf4bfda88d46dcb045c"
+    },
+    {
+      "scene": "single 0.01 shell",
+      "index": 1,
+      "variant": "direct",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 1,
+        "uEnabled": [
+          1,
+          0,
+          0
+        ],
+        "uShells": [
+          1,
+          0,
+          0
+        ],
+        "uLevels": [
+          0.5000000000000001,
+          0,
+          0
+        ],
+        "uLows": [
+          0.4999127335378432,
+          0,
+          0
+        ],
+        "uHighs": [
+          0.5000872664621566,
+          0,
+          0
+        ],
+        "uOptics[0]": [
+          0,
+          1.45,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875
+        ],
+        "uEye": [
+          4,
+          3,
+          7
+        ],
+        "uForward": [
+          -0.46499055497527714,
+          -0.34874291623145787,
+          -0.813733471206735
+        ],
+        "uRight": [
+          0.8682431421244592,
+          0,
+          -0.4961389383568338
+        ],
+        "uUp": [
+          -0.17302494021854173,
+          0.9372184261837677,
+          -0.302793645382448
+        ],
+        "uRayBias": 0.000008726646259976112,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-1-1280-mode-0-direct.rgba.gz",
+      "sha256": "7c10bec9bd4073bfb1d75dacb79b655a3312476ae5fc79b55cd1869378c5099e"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "production",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-480-mode-0-production.rgba.gz",
+      "sha256": "4b5fe26e5576d03c436899249dc642fb17bbdf2cb38acad538fffc5b0ac0c076"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "direct",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-480-mode-0-direct.rgba.gz",
+      "sha256": "ffaed85eb2a4ca665970076654823263f183e67dfe4a888b1d06cebffda5249e"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "production",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-480-mode-1-production.rgba.gz",
+      "sha256": "abf81b1730453342589d22b1ec5e25dded4fc1de19725b1d3acc6ddc8c4362d6"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "direct",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-480-mode-1-direct.rgba.gz",
+      "sha256": "09d6a048700dd6b0d7353f87bdf7eaf926c235cd17730640cc3d87b79225d357"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "production",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-480-mode-2-production.rgba.gz",
+      "sha256": "6c32cb7e9bb836707f1090cdf07ff6287824aa3faffe17b6ef936ee9567549ba"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "direct",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-480-mode-2-direct.rgba.gz",
+      "sha256": "01eb4de932e606794d036b7aef59fd5c64f944a5dacf2dd4e82a669b69d858df"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "production",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-1280-mode-0-production.rgba.gz",
+      "sha256": "e0b06910ee6cda140bafad15a839fd28f6f0a1c87fdcb1a93aea46ddc2cbde95"
+    },
+    {
+      "scene": "three thin shells",
+      "index": 2,
+      "variant": "direct",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-2-1280-mode-0-direct.rgba.gz",
+      "sha256": "9286d5174548aef632ddcccd789d960651231ffa13eb27319076459fd8cf768b"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "production",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-480-mode-0-production.rgba.gz",
+      "sha256": "febf11c33a2b648002f55fbc655a6b1977a68cc7c6e2b7d1b47abf0428b11dbb"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "direct",
+      "mode": 0,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-480-mode-0-direct.rgba.gz",
+      "sha256": "2d105ba522bc2dc08993c048cfc691189cbbdac4c39ebd16ea3d83f3a95cfacb"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "production",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-480-mode-1-production.rgba.gz",
+      "sha256": "2b2e0d4e716b248db1a7ba3ff1b136952f900db18bbaecfbb50cef63f587fc9a"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "direct",
+      "mode": 1,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 1,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-480-mode-1-direct.rgba.gz",
+      "sha256": "a93665d278eca6bb3f6fee64d27f92a1c07d389025505189278c2107ede5497f"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "production",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-480-mode-2-production.rgba.gz",
+      "sha256": "42742da3188f60bf1528f360b99a414a9ea9a862a0b02b5158323d7ce4459c1f"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "direct",
+      "mode": 2,
+      "width": 480,
+      "height": 270,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 2,
+        "uResolution": [
+          480,
+          270
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-480-mode-2-direct.rgba.gz",
+      "sha256": "325c907def085056ab66aa04cbb7913a6b424e8ee2ec7493c86f84651c888521"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "production",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-1280-mode-0-production.rgba.gz",
+      "sha256": "c791c31e2026e38f4058bf1cc36f32975db01b964f78690e4f6510d060d3da45"
+    },
+    {
+      "scene": "three thin shells near pole",
+      "index": 3,
+      "variant": "direct",
+      "mode": 0,
+      "width": 1280,
+      "height": 720,
+      "uniforms": {
+        "uP": [
+          0.5000000000000001,
+          0,
+          0,
+          0.5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0.4999999999999999
+        ],
+        "uCount": 3,
+        "uEnabled": [
+          1,
+          1,
+          1
+        ],
+        "uShells": [
+          1,
+          1,
+          1
+        ],
+        "uLevels": [
+          0.8213938048432696,
+          0.5000000000000001,
+          0.17860619515673035
+        ],
+        "uLows": [
+          0.8213269499597563,
+          0.4999127335378432,
+          0.1785393500634321
+        ],
+        "uHighs": [
+          0.8214606499365679,
+          0.5000872664621566,
+          0.17867305004024367
+        ],
+        "uOptics[0]": [
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0,
+          0,
+          1.35,
+          0.025,
+          0
+        ],
+        "uColors[0]": [
+          0.22696587351009836,
+          0.7681511472475071,
+          0.7011018919329731,
+          0.7304607400903537,
+          0.3564001441459435,
+          0.6724431569576875,
+          0.8879231178819663,
+          0.5457244613701866,
+          0.21952619972926923
+        ],
+        "uEye": [
+          5,
+          3.5,
+          10
+        ],
+        "uForward": [
+          -0.4267895997763199,
+          -0.29875271984342394,
+          -0.8535791995526398
+        ],
+        "uRight": [
+          0.8944271909999159,
+          0,
+          -0.4472135954999579
+        ],
+        "uUp": [
+          -0.13360627800656924,
+          0.9543305571897803,
+          -0.2672125560131385
+        ],
+        "uRayBias": 0.000008726646259963712,
+        "uBounces": 24,
+        "uEnvironment": 3,
+        "uExposure": 0,
+        "uEnvRotation": 0.3,
+        "uMode": 0,
+        "uResolution": [
+          1280,
+          720
+        ]
+      },
+      "path": "research/diagnostics/guarded-direct/results/images/scene-3-1280-mode-0-direct.rgba.gz",
+      "sha256": "3f33389f976b29f4ef670e22cbae47fa4f8651a95ca59d999f65e70ea6859e28"
+    }
+  ]
+}

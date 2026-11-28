@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "path": "/",
+      "title": "Experimental higher precision · Hopf Observatory",
+      "errorHidden": true,
+      "errorText": "",
+      "renderState": "LIVE RAYTRACE",
+      "fps": "491 × 440",
+      "width": 491,
+      "height": 440,
+      "glError": 0,
+      "comparisonLink": "/baseline/",
+      "errors": [],
+      "pass": true
+    },
+    {
+      "path": "/baseline/",
+      "title": "Production baseline · Hopf Observatory",
+      "errorHidden": true,
+      "errorText": "",
+      "renderState": "LIVE RAYTRACE",
+      "fps": "491 × 440",
+      "width": 491,
+      "height": 440,
+      "glError": 0,
+      "comparisonLink": "/",
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "hashes": {
+    "web/app.js": "ca08eec07cb0c6cdc35e591b30d509e0e7a82c33d87e39888eb12d05b3cf8c89",
+    "web/index.html": "2c3a183adc32fea0f40bd780ad296e0223de41a96ff6834f5db19a26088326c9",
+    "web/shader.js": "a81b18cb46201bd13822eed8dcab85e598ae8a131477ae1574584dff9492d2e3",
+    "research/diagnostics/browser-precision/serve.mjs": "e515c58c136a22e5be0f523cfe99b406df3d29cf1b8d9562a40f06c2bcd5fb0a",
+    "research/diagnostics/browser-precision/smoke-preview.mjs": "8053bd885a0a524e654a52449c57856de1d12ba01ba14d5b3f077b7c58f1780a",
+    "research/diagnostics/browser-precision/renderer.mjs": "94a3c501aea4fde2f27427f9575b1771ec7837210041e5401c262a23a45de1a1",
+    "research/diagnostics/browser-precision/paired.glsl": "62ada1f865b1633224d24051925ac337b29fb108cf457b0af939addaff5db4a3"
+  }
+}

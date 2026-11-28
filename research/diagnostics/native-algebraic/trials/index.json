@@ -1,0 +1,356 @@
+{
+  "trials/conditioned/results/algebraic113.tsv": {
+    "compressedPath": "trials/conditioned/results/algebraic113.tsv.gz",
+    "sha256": "d4d03317ac57f131ba6bbd17ff0e1b3e33cd38972efedddb9ef90261b6a53069",
+    "bytes": 975414,
+    "compressedSha256": "c3e65d54602af43e4499ff7653824c4e71779ee5375b8677434a6128d1a152a8"
+  },
+  "trials/conditioned/results/algebraic256.tsv": {
+    "compressedPath": "trials/conditioned/results/algebraic256.tsv.gz",
+    "sha256": "9335e6af46aeaf909ec29660fe32ee0c8722d7cea4d839ac0f1c32e1a240c2cb",
+    "bytes": 1879340,
+    "compressedSha256": "0bb4503b92239b89143460825ad1ea25f67c4c91008d7508b952c919aa32bac2"
+  },
+  "trials/conditioned/results/algebraic53.tsv": {
+    "compressedPath": "trials/conditioned/results/algebraic53.tsv.gz",
+    "sha256": "a7801917a1a5638111767b8ead58333fc5373f121f8c833c633784a3e9b9d880",
+    "bytes": 530848,
+    "compressedSha256": "52b6b48d44d259ce54dd3fb32d6cea0c81a3a456f60f38170bac43dd93d70211"
+  },
+  "trials/conditioned/results/analysis.json": {
+    "compressedPath": "trials/conditioned/results/analysis.json.gz",
+    "sha256": "e89fce7d9b1e007490c9fad6be6ef38288e9d4e506e57ca6b92617cadc4ea443",
+    "bytes": 10529474,
+    "compressedSha256": "4e2a8a4878ab3b7f831cc254d161dffa0f04553717c815d616d683aa048f0d69"
+  },
+  "trials/conditioned/results/iterative113.tsv": {
+    "compressedPath": "trials/conditioned/results/iterative113.tsv.gz",
+    "sha256": "b5914d856ced983fedc9d6ca8ffc636a0609e8a34082e4fd194149c87b50e755",
+    "bytes": 971895,
+    "compressedSha256": "4adff427e9ee62fd23a0fa856d253c338fed6ad0c4bb4679efa5e3babea72e68"
+  },
+  "trials/conditioned/results/iterative256.tsv": {
+    "compressedPath": "trials/conditioned/results/iterative256.tsv.gz",
+    "sha256": "b17673e57b465a56cced604e7ae90c45bcdf1f766ba4ce58c9650951bd09f93b",
+    "bytes": 1870693,
+    "compressedSha256": "0809686b9d24bdc52aaf8caff7b33b7808875e8be6b302f986b0a4a50acb8002"
+  },
+  "trials/conditioned/results/iterative53.tsv": {
+    "compressedPath": "trials/conditioned/results/iterative53.tsv.gz",
+    "sha256": "da7ca923122297c4c9adbe36b8f1054094d7d56066e6745f0f41d63b96500e79",
+    "bytes": 529150,
+    "compressedSha256": "4247d8fdd82e34b4990e733e3d2b079fdeba014fa9b84c4d2b609588d37245bb"
+  },
+  "trials/initial/results/algebraic113-timing.tsv": {
+    "compressedPath": "trials/initial/results/algebraic113-timing.tsv.gz",
+    "sha256": "dbe335ccb5a1aa7be0cb40b3f9929d84feef206f6f02bcd262025b1bde8e5162",
+    "bytes": 828,
+    "compressedSha256": "670cccf3082e5eef942656c021a7e68170c8063ac0e042f7fb6cf3245e727f90"
+  },
+  "trials/initial/results/algebraic113.tsv": {
+    "compressedPath": "trials/initial/results/algebraic113.tsv.gz",
+    "sha256": "5b9153ea0ff62c6ce7f5002f2ca5ad3310d626609b53d01ff92d84e95b77a75d",
+    "bytes": 973734,
+    "compressedSha256": "d6302a0ec341621c9fa79656b39eb044fabcb96032f924e61a901c1bdda10d77"
+  },
+  "trials/initial/results/algebraic256-timing.tsv": {
+    "compressedPath": "trials/initial/results/algebraic256-timing.tsv.gz",
+    "sha256": "26fc609bae072fae009a4a394fcd19a8b48b8631fea4d98013657b6bf99d49c2",
+    "bytes": 853,
+    "compressedSha256": "78644d2290248e441156aa0e902436c2f400778ce2f4499a9f9bc9e4cf5b9296"
+  },
+  "trials/initial/results/algebraic256.tsv": {
+    "compressedPath": "trials/initial/results/algebraic256.tsv.gz",
+    "sha256": "6519a1f37b51287b5c566b64320ba403005a09d18cbf1cf2b746bc48363d7b71",
+    "bytes": 1873259,
+    "compressedSha256": "1f1ba56eb3766c18beb38afa4ffaef7feb965ef3e9ce7e2e992d0d8856aeca7b"
+  },
+  "trials/initial/results/algebraic53-timing.tsv": {
+    "compressedPath": "trials/initial/results/algebraic53-timing.tsv.gz",
+    "sha256": "e62830f083f916b83be017601aa96cd6a7d273ccf2d35282a96e74a1384539fd",
+    "bytes": 878,
+    "compressedSha256": "05c57e1e932f4720e6caf9e75899b4a8c42445349313286675eebcceda0c34bf"
+  },
+  "trials/initial/results/algebraic53.tsv": {
+    "compressedPath": "trials/initial/results/algebraic53.tsv.gz",
+    "sha256": "61d6ff4a515225c3af2c92fd4a7ba824196c6f6f07c688536793842996b5cb83",
+    "bytes": 524091,
+    "compressedSha256": "ffd12418665b58d54071b20a74dd52072d027e5f412a3a36d513f8007f3d3e53"
+  },
+  "trials/initial/results/analysis.json": {
+    "compressedPath": "trials/initial/results/analysis.json.gz",
+    "sha256": "3007894dc49e681db37d03a536fe45ec100d0d4968582e177fb44ac647ed8a71",
+    "bytes": 10523738,
+    "compressedSha256": "b9d19f07fa8216b61111c34d786a9abf15199aa5f01c4d105ac8ea9f3c624707"
+  },
+  "trials/initial/results/iterative113-timing.tsv": {
+    "compressedPath": "trials/initial/results/iterative113-timing.tsv.gz",
+    "sha256": "d9552b2fb77e8b5d0ebf35d9ee0766e4a5e6cb59a81aa38fa801eca5191a8a92",
+    "bytes": 843,
+    "compressedSha256": "900d9fa90fe19d3c0f1cf35c6a8fae8ebe04735ec50b1842139c1e5459ff882b"
+  },
+  "trials/initial/results/iterative113.tsv": {
+    "compressedPath": "trials/initial/results/iterative113.tsv.gz",
+    "sha256": "adcecc26db9634374871b0e97f5b0ddf818f78b77d885de31bd96fdccbf74ae2",
+    "bytes": 974534,
+    "compressedSha256": "6ab2f77bbd23f989b9cdaf70125a59549172cca7eb1568dbff7811f7d22e1239"
+  },
+  "trials/initial/results/iterative256-timing.tsv": {
+    "compressedPath": "trials/initial/results/iterative256-timing.tsv.gz",
+    "sha256": "00e9ed3a295794f7f9160f26984d0d2ba26f6f7f55c74e46f89bbe294c98d6dc",
+    "bytes": 832,
+    "compressedSha256": "fc127cb1e58b97cc73f69e95823c8fe787bf1c834d5ac1f90c31f415f41a07b7"
+  },
+  "trials/initial/results/iterative256.tsv": {
+    "compressedPath": "trials/initial/results/iterative256.tsv.gz",
+    "sha256": "b104ffdb2082985776f92fcb6bca0472efab40045c95154b903a62f7d65100c2",
+    "bytes": 1876274,
+    "compressedSha256": "62dd0abf9fac78fbfb31c8c0b00721d7686f98a0d16bbe0783b5cc7f221aed97"
+  },
+  "trials/initial/results/iterative53-timing.tsv": {
+    "compressedPath": "trials/initial/results/iterative53-timing.tsv.gz",
+    "sha256": "037fb2ba61db5de4f48dc72d1bab639bfac94aef8af562ac8e729cc3fcca74a8",
+    "bytes": 866,
+    "compressedSha256": "415c60ddf9b5fb4044a4c85f2fb1d7c2c3fb2494098fac4ae89d7048ab90f948"
+  },
+  "trials/initial/results/iterative53.tsv": {
+    "compressedPath": "trials/initial/results/iterative53.tsv.gz",
+    "sha256": "dc4b544b25450863093afcf0ad0116d71b8e1558acd85c0b3040ed9935dee4ec",
+    "bytes": 530576,
+    "compressedSha256": "e202c9b6bcc7a463cacdd8c1f9e22c88683e82a1108d1c5c6636b9183447485a"
+  },
+  "trials/power-two-control/results/algebraic113-timing.tsv": {
+    "compressedPath": "trials/power-two-control/results/algebraic113-timing.tsv.gz",
+    "sha256": "6b3ac6f5759a1e9a5ae96d4c8496571468e0b996034e698cc865bb129c07426e",
+    "bytes": 824,
+    "compressedSha256": "de1a724c593c9353f5bb0008c5aa58f9e100b5c3973c94e66c5fa982780da5a6"
+  },
+  "trials/power-two-control/results/algebraic113.tsv": {
+    "compressedPath": "trials/power-two-control/results/algebraic113.tsv.gz",
+    "sha256": "d4d03317ac57f131ba6bbd17ff0e1b3e33cd38972efedddb9ef90261b6a53069",
+    "bytes": 975414,
+    "compressedSha256": "c3e65d54602af43e4499ff7653824c4e71779ee5375b8677434a6128d1a152a8"
+  },
+  "trials/power-two-control/results/algebraic256-timing.tsv": {
+    "compressedPath": "trials/power-two-control/results/algebraic256-timing.tsv.gz",
+    "sha256": "2e027c00bf48be3128f7d3a26b243105099648b3028503cb82f4a65027e13bb7",
+    "bytes": 820,
+    "compressedSha256": "c2deaf04565e218fa777fed9429a6b2f86b9ac5133f637d944290a0ef8e5f097"
+  },
+  "trials/power-two-control/results/algebraic256.tsv": {
+    "compressedPath": "trials/power-two-control/results/algebraic256.tsv.gz",
+    "sha256": "9335e6af46aeaf909ec29660fe32ee0c8722d7cea4d839ac0f1c32e1a240c2cb",
+    "bytes": 1879340,
+    "compressedSha256": "0bb4503b92239b89143460825ad1ea25f67c4c91008d7508b952c919aa32bac2"
+  },
+  "trials/power-two-control/results/algebraic53-timing.tsv": {
+    "compressedPath": "trials/power-two-control/results/algebraic53-timing.tsv.gz",
+    "sha256": "5f0b7a561bdd056d00e0cba8ea888ea683e134ad30088e7aec46557a486fb65d",
+    "bytes": 856,
+    "compressedSha256": "2e78e6fd085288caa81553e7d4aaee738d54c13a78ed3cc5c055b67012ebae43"
+  },
+  "trials/power-two-control/results/algebraic53.tsv": {
+    "compressedPath": "trials/power-two-control/results/algebraic53.tsv.gz",
+    "sha256": "a7801917a1a5638111767b8ead58333fc5373f121f8c833c633784a3e9b9d880",
+    "bytes": 530848,
+    "compressedSha256": "52b6b48d44d259ce54dd3fb32d6cea0c81a3a456f60f38170bac43dd93d70211"
+  },
+  "trials/power-two-control/results/analysis.json": {
+    "compressedPath": "trials/power-two-control/results/analysis.json.gz",
+    "sha256": "52a4543c95adcd6e66485aed287a9bc077c9547943444cb385dbe74d72b71ebf",
+    "bytes": 10547120,
+    "compressedSha256": "1fa75986239aa84ad25f8456dc9e7a6820936d5e13440476d3280236c22d766e"
+  },
+  "trials/power-two-control/results/iterative113-timing.tsv": {
+    "compressedPath": "trials/power-two-control/results/iterative113-timing.tsv.gz",
+    "sha256": "0c4e7478c54a7c4783c95512c1b8c96aa9a53bf15f5efb09b629f74217a9c7f9",
+    "bytes": 836,
+    "compressedSha256": "e5364e5c7e042eb200abdfb9af54f3c487ec775139630e1131c4c2b2f555ee44"
+  },
+  "trials/power-two-control/results/iterative113.tsv": {
+    "compressedPath": "trials/power-two-control/results/iterative113.tsv.gz",
+    "sha256": "a4dbf21fa321f207e56cf3e627f86825b44c9e6c09f8e930543457de7dd92fe5",
+    "bytes": 971078,
+    "compressedSha256": "7d4ca2238dbf04c9d4a5d333f46edc820d69206ae203d9caff62b0d8e295fbaf"
+  },
+  "trials/power-two-control/results/iterative256-timing.tsv": {
+    "compressedPath": "trials/power-two-control/results/iterative256-timing.tsv.gz",
+    "sha256": "11938393c3293328d15b66a9389292d5a993cb757cfa3db5a2c41bf8ef3afecf",
+    "bytes": 805,
+    "compressedSha256": "862cd3060ebc0dbf796f33ffbb043a4a21a381a69043c074a92418ac5f794909"
+  },
+  "trials/power-two-control/results/iterative256.tsv": {
+    "compressedPath": "trials/power-two-control/results/iterative256.tsv.gz",
+    "sha256": "f46b91a5d0e5802cdb4a612f2e78cadfa0bcfb3cadcc23e33bb191ab9a6512ad",
+    "bytes": 1867683,
+    "compressedSha256": "47bc72c5720d729a1b5a232ddbcddee7e6643a8df1d5b1f01430f2990cde9375"
+  },
+  "trials/power-two-control/results/iterative53-timing.tsv": {
+    "compressedPath": "trials/power-two-control/results/iterative53-timing.tsv.gz",
+    "sha256": "b743148bf6ab6c184b5bfd422a01bf1ee26fec1560844400660542b344980972",
+    "bytes": 875,
+    "compressedSha256": "0413dcc2913f265455fba5e515564542e35d9c830166bd564d0699b9b15e4cb8"
+  },
+  "trials/power-two-control/results/iterative53.tsv": {
+    "compressedPath": "trials/power-two-control/results/iterative53.tsv.gz",
+    "sha256": "880e32e2c48f019aa4f3d3d32d6fc1e6f688102e4add3a8403cc92430947dc5f",
+    "bytes": 528614,
+    "compressedSha256": "82a75c202887ba65bfa8d42e03ea3099148a3fc32d03cb637c9e52f075a9c8b4"
+  },
+  "trials/selective-shift/results/algebraic113-timing.tsv": {
+    "compressedPath": "trials/selective-shift/results/algebraic113-timing.tsv.gz",
+    "sha256": "e6519e225593fdd3c2e08a5be8ef0b0d4f3bc767879ffe9dcefd9728cb20ae27",
+    "bytes": 819,
+    "compressedSha256": "3b1c660758a07fd3aa2cbc78ecb243c5fa6036815069f798d458969fb453c3f1"
+  },
+  "trials/selective-shift/results/algebraic113.tsv": {
+    "compressedPath": "trials/selective-shift/results/algebraic113.tsv.gz",
+    "sha256": "d97197563a39cbd41c0eaf21ffc1f6f01801721ed0434d38c833afa349ef7d52",
+    "bytes": 973348,
+    "compressedSha256": "4228d63322f683b72e30d6574dcf30bb4458256d9391240b00b709f9e7ea4655"
+  },
+  "trials/selective-shift/results/algebraic256-timing.tsv": {
+    "compressedPath": "trials/selective-shift/results/algebraic256-timing.tsv.gz",
+    "sha256": "27bedd76d434138fa5fab9f2a4cc629aa9b9ec2f69c4463efdeae68403ed9f54",
+    "bytes": 821,
+    "compressedSha256": "2084de94d5369a7e0a52f86d72ef6cbce22e3ad98fb05a5f42db1efd56a29913"
+  },
+  "trials/selective-shift/results/algebraic256.tsv": {
+    "compressedPath": "trials/selective-shift/results/algebraic256.tsv.gz",
+    "sha256": "140034a283e7bf7f03452433a8031bc1605d38d31606e95870c14650a659d64f",
+    "bytes": 1873663,
+    "compressedSha256": "25f3bfd46589b961611545f4f4f0300d18728a8db6a32867366946207a10bf12"
+  },
+  "trials/selective-shift/results/algebraic53-timing.tsv": {
+    "compressedPath": "trials/selective-shift/results/algebraic53-timing.tsv.gz",
+    "sha256": "6b5e996567295e9a41ec2621960c285502633cbab9bf678d3b3026621c64a9fb",
+    "bytes": 855,
+    "compressedSha256": "83b5068e2169c32eb4c80137b9c7bd15e024374698216bdff4b7f6909ef160c4"
+  },
+  "trials/selective-shift/results/algebraic53.tsv": {
+    "compressedPath": "trials/selective-shift/results/algebraic53.tsv.gz",
+    "sha256": "1f99447770eb0587d91958476e96797d3d90c81a87be5cd6f01b0df15780d258",
+    "bytes": 525573,
+    "compressedSha256": "9dae0aab44f4e21141bd02dbfe36701540a3beb5807befa34d4c32f9c7696519"
+  },
+  "trials/selective-shift/results/analysis.json": {
+    "compressedPath": "trials/selective-shift/results/analysis.json.gz",
+    "sha256": "19ff0d0e23b25b897bf1baa577ddd4eb6d064027783fb6a643e25e65174602e8",
+    "bytes": 10500265,
+    "compressedSha256": "e7f128192d9ac918a8947019c1605a788c3accbca8ffac1ba78b6aa66589f4aa"
+  },
+  "trials/selective-shift/results/iterative113-timing.tsv": {
+    "compressedPath": "trials/selective-shift/results/iterative113-timing.tsv.gz",
+    "sha256": "3f9af4ba22bce256b3228bd1f637b97fb53624b503e5a9264142b67b8c0a1df6",
+    "bytes": 837,
+    "compressedSha256": "a432b38c183d0d1e9599a5bf6b5fd3dd4269f99394c4a32e4d00d5a1b6812b29"
+  },
+  "trials/selective-shift/results/iterative113.tsv": {
+    "compressedPath": "trials/selective-shift/results/iterative113.tsv.gz",
+    "sha256": "a4dbf21fa321f207e56cf3e627f86825b44c9e6c09f8e930543457de7dd92fe5",
+    "bytes": 971078,
+    "compressedSha256": "7d4ca2238dbf04c9d4a5d333f46edc820d69206ae203d9caff62b0d8e295fbaf"
+  },
+  "trials/selective-shift/results/iterative256-timing.tsv": {
+    "compressedPath": "trials/selective-shift/results/iterative256-timing.tsv.gz",
+    "sha256": "a7cdd6e8f2f8ff0baa992aceef6d83425a8fae3646c9306f0ece564ed27ce5ab",
+    "bytes": 847,
+    "compressedSha256": "c4f26d202aa77a6f81ea646bd7fd08b8898d80a382177577942c609c59e70d1c"
+  },
+  "trials/selective-shift/results/iterative256.tsv": {
+    "compressedPath": "trials/selective-shift/results/iterative256.tsv.gz",
+    "sha256": "f46b91a5d0e5802cdb4a612f2e78cadfa0bcfb3cadcc23e33bb191ab9a6512ad",
+    "bytes": 1867683,
+    "compressedSha256": "47bc72c5720d729a1b5a232ddbcddee7e6643a8df1d5b1f01430f2990cde9375"
+  },
+  "trials/selective-shift/results/iterative53-timing.tsv": {
+    "compressedPath": "trials/selective-shift/results/iterative53-timing.tsv.gz",
+    "sha256": "7cd20f23f2b0d25c4e6b52d0094d46ca06e272d8fce5cb9a376d602384441948",
+    "bytes": 857,
+    "compressedSha256": "692af1c6a0ed9c4ca5146a33501f1009b26daeb1d7af98316dd0d00a994db8a6"
+  },
+  "trials/selective-shift/results/iterative53.tsv": {
+    "compressedPath": "trials/selective-shift/results/iterative53.tsv.gz",
+    "sha256": "880e32e2c48f019aa4f3d3d32d6fc1e6f688102e4add3a8403cc92430947dc5f",
+    "bytes": 528614,
+    "compressedSha256": "82a75c202887ba65bfa8d42e03ea3099148a3fc32d03cb637c9e52f075a9c8b4"
+  },
+  "trials/structural/results/algebraic113-timing.tsv": {
+    "compressedPath": "trials/structural/results/algebraic113-timing.tsv.gz",
+    "sha256": "b7b87bd65a94efb36aecfa66c29a3c4addada097fd2e2798a554abb48b4f130b",
+    "bytes": 826,
+    "compressedSha256": "353b0c7937af458671447673c0b8ad37dbc67ace2d8b55634c1265b04e7e81b9"
+  },
+  "trials/structural/results/algebraic113.tsv": {
+    "compressedPath": "trials/structural/results/algebraic113.tsv.gz",
+    "sha256": "de62468dfd452eeecb271eb4fdcea878ca3d0ea51fb718e03d3d31d0322eeb96",
+    "bytes": 973065,
+    "compressedSha256": "a2548cec3293a75f381f9c7e2eafcc9a9372bdb54d1acae856888cd8042b69f7"
+  },
+  "trials/structural/results/algebraic256-timing.tsv": {
+    "compressedPath": "trials/structural/results/algebraic256-timing.tsv.gz",
+    "sha256": "e5e6025fc3fb375f7586e433e7bb4fa0ec05b614e8c0761fe8d002ac64ef3921",
+    "bytes": 861,
+    "compressedSha256": "ceef851cf56e3493b717fc98710950a89850ae60baed81cc424488406e11c9d6"
+  },
+  "trials/structural/results/algebraic256.tsv": {
+    "compressedPath": "trials/structural/results/algebraic256.tsv.gz",
+    "sha256": "875dbdafa70452da8bcc05252e7bdc244fbd65c2854f2c18bc041204be7c81f8",
+    "bytes": 1872631,
+    "compressedSha256": "f4fbdbc902c2502c36e4637eaeb695174e32643ba0d2e70399db8a80de89fa03"
+  },
+  "trials/structural/results/algebraic53-timing.tsv": {
+    "compressedPath": "trials/structural/results/algebraic53-timing.tsv.gz",
+    "sha256": "2d46245ead77273acf996fe5badf852d7979918344f0f47e66e05217dc625675",
+    "bytes": 887,
+    "compressedSha256": "777235bb9fab511fe125dcf7348ec8d079c4fa79f277fa53a064f2707f12c98a"
+  },
+  "trials/structural/results/algebraic53.tsv": {
+    "compressedPath": "trials/structural/results/algebraic53.tsv.gz",
+    "sha256": "933428f9f68a8b514866dd91d572cd19f902256add062060c3fa49f0f387397b",
+    "bytes": 529470,
+    "compressedSha256": "61cff3d22d1568e26cff0f7fa0c3544f8052b8fceb82cd1db8ca1af29e7acd9d"
+  },
+  "trials/structural/results/analysis.json": {
+    "compressedPath": "trials/structural/results/analysis.json.gz",
+    "sha256": "faf1bdf15d8fab448ecc1661fe121ef283fff99945d44c13d77a2d2ae65ee0fd",
+    "bytes": 10536787,
+    "compressedSha256": "80441cc36f9903874c446a81e124e59ca841a0c97b3b9bacf2be236da33af7a8"
+  },
+  "trials/structural/results/iterative113-timing.tsv": {
+    "compressedPath": "trials/structural/results/iterative113-timing.tsv.gz",
+    "sha256": "0ba248c3ea5202d488c9d0293fdf2da5d53aa28dadb4d6f9c6d6eccd71758eda",
+    "bytes": 853,
+    "compressedSha256": "ed9a9a6fb934371bb7ef13ff34a637131c66d61f5af60055c4e9fd3e126b59eb"
+  },
+  "trials/structural/results/iterative113.tsv": {
+    "compressedPath": "trials/structural/results/iterative113.tsv.gz",
+    "sha256": "a4dbf21fa321f207e56cf3e627f86825b44c9e6c09f8e930543457de7dd92fe5",
+    "bytes": 971078,
+    "compressedSha256": "7d4ca2238dbf04c9d4a5d333f46edc820d69206ae203d9caff62b0d8e295fbaf"
+  },
+  "trials/structural/results/iterative256-timing.tsv": {
+    "compressedPath": "trials/structural/results/iterative256-timing.tsv.gz",
+    "sha256": "ab9e3c98767400a20f5becba44d791f09d16ddb1d6336049adf5ad49a4ee2781",
+    "bytes": 812,
+    "compressedSha256": "1173ab47598c8d43d56d5164c5a9c12ce7aa22ba7ae7d02434bb391a2c5d860e"
+  },
+  "trials/structural/results/iterative256.tsv": {
+    "compressedPath": "trials/structural/results/iterative256.tsv.gz",
+    "sha256": "f46b91a5d0e5802cdb4a612f2e78cadfa0bcfb3cadcc23e33bb191ab9a6512ad",
+    "bytes": 1867683,
+    "compressedSha256": "47bc72c5720d729a1b5a232ddbcddee7e6643a8df1d5b1f01430f2990cde9375"
+  },
+  "trials/structural/results/iterative53-timing.tsv": {
+    "compressedPath": "trials/structural/results/iterative53-timing.tsv.gz",
+    "sha256": "3b42875b3c1e8b6564c04f2c472451ccef8f5aa7d5e419dd8e7ec6d85ad5bb14",
+    "bytes": 855,
+    "compressedSha256": "c02f609a8a772d21e62e4d98236dd77559cb70949093d545eb08a57e9c4535ec"
+  },
+  "trials/structural/results/iterative53.tsv": {
+    "compressedPath": "trials/structural/results/iterative53.tsv.gz",
+    "sha256": "880e32e2c48f019aa4f3d3d32d6fc1e6f688102e4add3a8403cc92430947dc5f",
+    "bytes": 528614,
+    "compressedSha256": "82a75c202887ba65bfa8d42e03ea3099148a3fc32d03cb637c9e52f075a9c8b4"
+  }
+}
