@@ -148,9 +148,13 @@ optics, including \(0.01^\circ\) parameter bands; (iv) an evaluation
 that separates input rounding, coefficient construction and root
 solving; and (v) higher-precision construction in WebGL, with iterative
 and closed-form solvers compared on it. Each ingredient has prior work.
-The result is the first exact rendering of this family we know of:
-published visualizations we have found use polygon meshes, tubes or
-sampled distance fields.
+Visualizations of these tori commonly approximate them with polygon
+meshes, tubes or ray-marched distance fields, and a general ray tracer
+such as POV-Ray can render one quartic exactly once its equation is
+supplied. Here the equation comes from the four-dimensional geometry for
+every rotation and every member of the family, and one renderer handles
+solids, angular shells and passage through infinity together, at
+interactive rates.
 
 \section{A family of tori and a coordinate on the
 three-sphere}\label{a-family-of-tori-and-a-coordinate-on-the-three-sphere}

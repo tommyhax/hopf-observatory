@@ -75,8 +75,8 @@ In its initial orientation, the stereographic image is an ordinary ring
 torus. Under rotation it deforms and can appear to turn inside out: the
 torus passes through the projection pole, making its three-dimensional
 image unbounded while the surface in \(S^3\) remains smooth and compact.
-This geometry is established \citep{banchoff1990, mccuan1998}. The
-visualizations of it we have found approximate the surfaces with polygon
+This geometry is established \citep{banchoff1990, mccuan1998}.
+Visualizations of it commonly approximate the surfaces with polygon
 meshes, tubes or sampled distance fields. For ray tracing, the challenge
 is to find the nearest exact surface intersection as these images
 change, including intersections arbitrarily far along a ray near the
@@ -576,11 +576,10 @@ the closed form needs. Its cube roots, square roots, inverse cosine and
 trigonometric evaluation run on lower-throughput units, and in paired
 arithmetic they become software expansions. Its many branches diverge
 within SIMD groups. Its long formula chain also amplifies rounding: the
-float32 guard escalates 84\% of the corpus queries, which are
-deliberately near-tangent, so most of them pay for both evaluations.
-Bernstein, by contrast, rejects a chart with no possible root by a
-single sign test and stops at the first chart with a hit. We have not
-timed these factors separately.
+float32 guard escalates 84\% of the corpus queries, so most of them pay
+for both evaluations. Bernstein, by contrast, rejects a chart with no
+possible root by a single sign test and stops at the first chart with a
+hit. We have not timed these factors separately.
 
 \section{Discussion and limitations}\label{discussion-and-limitations}
 
