@@ -1,6 +1,6 @@
 # Canonical JCGT review manuscript
 
-Edit the prose in [`../PAPER.md`](../PAPER.md) and the bibliography in [`references.bib`](references.bib). `main.tex` is generated; `manuscript.pdf` is the canonical review PDF. The extended technical note remains the 21 November 2026 baseline supplement; its geometry and production-renderer description still apply. Subsequent experimental conclusions are indexed by the [current Algorithm 1010 overview](../research/diagnostics/algorithm1010/README.md). This is a local draft, not a submitted or accepted article.
+Edit the prose in [`../PAPER.md`](../PAPER.md) and the bibliography in [`references.bib`](references.bib). `main.tex` is generated; `manuscript.pdf` is the canonical review PDF. The extended [technical note](../technical-note/technical-note.pdf) is the supplement, with the full derivation, implementation and experiments. This is a local draft, not a submitted or accepted article.
 
 From the repository root:
 

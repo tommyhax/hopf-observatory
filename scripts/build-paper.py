@@ -133,18 +133,25 @@ latex = latex.replace(
 latex = latex.replace(
     "For either chart,", "\\Needspace{9\\baselineskip}\nFor either chart,"
 )
-latex = latex.replace(
-    "Section 3.2", r"Section~\ref{isolation-refinement-and-acceptance}"
-)
-latex = latex.replace(
-    "Section 4.4", r"Section~\ref{post-hoc-diagnosis-of-grazing-failures}"
-)
+# Linked section references; Pandoc derives the labels from heading text.
+for text, link in [
+    (
+        "Sections 4.1--4.3",
+        r"Sections~\ref{accuracy-of-the-float32-renderer}--\ref{where-the-grazing-failures-arise}",
+    ),
+    (
+        "Sections 4.4 and 4.5",
+        r"Sections~\ref{higher-precision-construction} and~\ref{closed-form-solving}",
+    ),
+    ("Section 3.2", r"Section~\ref{isolation-refinement-and-acceptance}"),
+    ("Section 4.5", r"Section~\ref{closed-form-solving}"),
+]:
+    latex = latex.replace(text, link)
 # Linked references while keeping PAPER.md readable without a LaTeX renderer.
 for label, target in [
     ("Figure 1", "fig:teaser"),
     ("Figure 2", "fig:pole"),
-    ("Figure 3", "fig:stress"),
-    ("Figure 4", "fig:grazing"),
+    ("Figure 3", "fig:grazing"),
     ("Listing 1", "lst:intersection"),
 ]:
     latex = latex.replace(label, label.split()[0] + "~\\ref{" + target + "}")

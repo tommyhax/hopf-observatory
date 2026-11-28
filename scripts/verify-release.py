@@ -148,8 +148,14 @@ def main():
                             ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.ppm"))
         for name in ["package-lock.json", "playwright.config.js"]:
             shutil.copy2(ROOT / name, isolated / name)
-        for name in REQUIRED_DOCUMENTS:
-            shutil.copy2(PROVENANCE / DOCUMENT_REVISION / name, isolated / name)
+        # Restore the documentary editions that verifier originally hashed:
+        # the DOCUMENT_REVISION editions, plus archived editions of any other
+        # document it covers (for example the bibliography).
+        for snapshot in EDITIONS:
+            revision, *parts = snapshot.relative_to(PROVENANCE).parts
+            name = Path(*parts).as_posix()
+            if revision == DOCUMENT_REVISION or name not in REQUIRED_DOCUMENTS:
+                shutil.copy2(snapshot, isolated / name)
         subprocess.run([sys.executable, str(isolated / STUDY / "final/verify-results.py")],
                        cwd=isolated, check=True)
         decision = f"{STUDY}/final/results/decision.json"

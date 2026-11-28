@@ -4,9 +4,9 @@
 
 **[Open the live observatory](https://tommyhax.github.io/hopf-observatory/)** · **[Read the manuscript (PDF)](paper/manuscript.pdf)** · **[Read the technical note (PDF)](technical-note/technical-note.pdf)**
 
-An interactive WebGL 2 ray tracer for stereographic projections of rotated Clifford/Hopf tori. Each surface is an implicit quartic with analytic normals and successive reflection/refraction intersections. A screen-filling triangle invokes the shader; the surface uses no mesh, point cloud or spatial ray marching.
+An interactive WebGL 2 ray tracer for stereographic images of rotated Clifford/Hopf tori. The surfaces are never meshed: every pixel's ray is intersected with the exact surface by solving a quartic, with analytic normals and successive reflection and refraction. A screen-filling triangle invokes the shader; there is no mesh, point cloud or ray marching.
 
-For independent review, start with [REVIEW.md](REVIEW.md) and the [JCGT review manuscript](paper/manuscript.pdf). The detailed technical note is the **21 November 2026 baseline exposition**; its geometry and production-renderer description remain applicable. Subsequent solver conclusions are in the [completed Algorithm 1010 investigation](research/diagnostics/algorithm1010/README.md).
+For review, start with [REVIEW.md](REVIEW.md) and the [JCGT review manuscript](paper/manuscript.pdf). The [technical note](technical-note/technical-note.pdf) has the full derivation, implementation and experiments.
 
 ## Run
 
@@ -32,13 +32,11 @@ The [technical note](TECHNICAL_NOTE.md) derives the geometry, circular lift of a
 
 ## Numerical method
 
-For `P = R diag(1,1,0,0) Rᵀ`, `A = P − cos²(t) I` and `V = (2p, |p|²−1)`, the surface is `VᵀAV = 0`. Substituting a ray gives a polynomial of degree at most four.
+For `P = R diag(1,1,0,0) Rᵀ`, `c = cos²t` and `V = (2p, |p|²−1)`, the torus is `Vᵀ(P − cI)V = 0`. Inverse stereographic projection lifts a straight ray to a circle on S³, and substituting the ray gives a polynomial of degree at most four. The degree is intrinsic: the projected tori are Dupin cyclides, which are quartic surfaces.
 
-The ray line is recentered at its closest point to the origin. Each half-line uses a near coordinate `x = λ/L` and a reciprocal coordinate `x = L/λ`, each on [0,1], with `L = max(1, |C|)`. Bernstein derivative roots partition each chart into monotone intervals. Bisection and bracket interpolation find crossings; stationary candidates retain tangencies. Step-limited Newton corrections are accepted only when they reduce the computed homogeneous residual, followed by a distance-scaled residual test. The reciprocal endpoint at zero represents infinity and is excluded. There is no finite far clipping sphere.
+The ray is recentered at its closest point to the origin. Each half-line uses a near coordinate `x = λ/L` and a reciprocal coordinate `x = L/λ`, both on [0,1], with `L = max(1, |C|)`, so surfaces through infinity need no far clipping sphere. Bernstein derivative roots partition each chart into monotone intervals; bisection and bracket interpolation find crossings, and stationary candidates keep tangencies. Guarded Newton steps against the homogeneous form polish each root, and a scaled residual test accepts it.
 
-The [completed Algorithm 1010 evaluation](research/diagnostics/algorithm1010/README.md) retains Bernstein as the production default. Corrected centered factorization passes the tested accuracy and optical checks and improves native timings, but is slower for the browser's thin-shell workloads. The controlled comparison shows that traversal expansion is not the principal cause of the shell slowdown. It remains an attributed, reproducible research variant.
-
-Solid material is `QᵀPQ > cos²t`; shell material is `cos²(t+Δt/2) < QᵀPQ < cos²(t−Δt/2)`. Every tracing step chooses the nearest boundary across enabled tori. Reflection, Snell refraction, total internal reflection and lighting occur in projected Euclidean 3D.
+Solid material is `QᵀPQ > c`; a shell is `cos²(t+Δt/2) < QᵀPQ < cos²(t−Δt/2)`. Every tracing step takes the nearest boundary across enabled tori, with reflection, Snell refraction and total internal reflection in projected Euclidean 3D.
 
 ## Validation
 
@@ -48,17 +46,23 @@ npm run format:check
 npm test
 npm run build:site
 npm run test:gpu   # macOS, Xcode command-line tools and graphics-driver access
+python3 scripts/verify-release.py   # offline re-verification of recorded evidence
 ```
 
-All 24 CPU tests pass. Native Apple M3 Pro checks pass 625 solid, 403 shell, 133 three-torus and 31 focused thin-shell ray cases. Instrumented production transport passes 36 refraction paths with 392 events. At 0.01° width, single-shell axis paths retain eight interfaces and the three-shell path retains 24, with twelve entries and twelve exits. See [GPU validation](docs/GPU_VALIDATION.md) and [raw results](docs/gpu-results.json).
+Against an independent exact-rational reference ([research/README.md](research/README.md)), the float32 renderer matches all 1,470 intersections of the 867-ray designed corpus and all 1,800 random, pole and shell queries of the seeded [stress corpus](research/STRESS.md). It fails 109 of 600 deliberately grazing queries natively (123 in WebGL), as do two Yuksel–Peters baselines. Transport checks pass 36 refraction paths with 392 events, and 0.01° shells keep every crossing. See [GPU validation](docs/GPU_VALIDATION.md).
 
-The [independent study](research/README.md) compares all positive roots of each original ray against exact-rational isolation. On Apple M3 Pro, the Bernstein solver and a Yuksel–Peters baseline in both centered and near/reciprocal coordinates each match all 1,470 intersections across 867 rays at tolerance 1e−4, before and after shared surface refinement. The Ferrari baseline fails on 378 rays after refinement. This corpus shows no completeness advantage over the modern centered baseline. A separate production ray-continuation regression also passes all 867 cases in WebGL 2 / ANGLE Metal. Input rounding, grazing contacts and finite transport offsets remain limits.
+Later diagnostics trace and remove the grazing failures:
 
-Refinement ablation and full-render timing experiments are also reproducible. The residual-decreasing guard reduces the rotation-subset maximum versus unguarded Newton, but does not improve every root. Both Yuksel renderer variants pass the transport checks; they are faster for the single solid in the native timing run but slower for three thin shells. The app retains Bernstein. Recorded samples and qualifications are in the research instructions and technical note.
+| Study | Finding |
+| --- | --- |
+| [Grazing stages](research/diagnostics/grazing/README.md) | Exact roots of the captured float32 coefficients already fail on all 109: the error is in construction, not solving. |
+| [Binary64 replay](research/diagnostics/double-precision/README.md) | Building the coefficients in binary64 recovers all 584 grazing intersections on the CPU. |
+| [Paired precision in WebGL](research/diagnostics/browser-precision/README.md) | Float-float construction removes all 123 browser failures, at 4.4–7.5× GPU time. |
+| [Closed form on the GPU](research/diagnostics/guarded-direct/README.md) | Ferrari/Cardano on that construction passes every query and the optical suite, at 3.0–5.7× GPU time. |
+| [Closed form on the CPU](research/diagnostics/native-algebraic/README.md) | In binary64 the closed form passes every query and is 12× faster than bisection. |
+| [Algorithm 1010](research/diagnostics/algorithm1010/README.md) | A float32 closed-form factorization is faster natively but slower in the browser shell scenes. |
 
-The final [seeded stress validation](research/STRESS.md) adds 2,400 boundary queries. All modern variants pass all 1,800 random, pole and shell queries, but fail the same **109 of 600 deliberately grazing queries** at 1e−4. Input rounding separately changes 570 intended root sets. Twelve additional exact-reference transport paths pass per solver, with explicit budget/energy termination. These results qualify any broad robustness claim; representative failures and image differences are retained.
-
-A separate [grazing diagnostic](research/diagnostics/grazing/README.md) preserves those results and traces all 600 grazing queries through construction, isolation, refinement and acceptance. Exact solving of the captured GPU coefficients fails on the same 109 IDs; disabling proximity merging changes no outputs, and residual filtering rejects no grazing candidates. The study identifies polynomial construction as a necessary target for improvement on this corpus, while retaining intermediate cancellations and instrumentation limits.
+The application keeps float32 Bernstein as its default. The paired-precision and closed-form renderers can be previewed in the live app with `node research/diagnostics/browser-precision/serve.mjs` and `node research/diagnostics/guarded-direct/serve.mjs`.
 
 ## GitHub Pages and automation
 
@@ -72,10 +76,10 @@ The **Tests** workflow runs on pushes and pull requests. It checks formatting, C
 
 [Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh` and the technical-note LaTeX with `python3 scripts/build-latex.py`. Rebuild the canonical JCGT manuscript with `python3 scripts/build-paper.py --pdf` ([instructions](paper/README.md)). Prepare the versioned supplementary archive from committed source with `python3 scripts/package-release.py --version v0.1.0-review.3 --source HEAD`; see [release and provenance instructions](docs/RELEASE.md).
 
-The implementation is MIT licensed, copyright 2026 Tom Crosby. The numerical baselines retain their [upstream notices](research/THIRD_PARTY.md); the experimental Algorithm 1010 port retains its [BSD licence](research/diagnostics/algorithm1010/LICENSE).
+The implementation is MIT licensed, copyright 2026 Tom Crosby. The numerical baselines retain their [upstream notices](research/THIRD_PARTY.md); the experimental Algorithm 1010 port retains its [BSD licence](research/diagnostics/algorithm1010/LICENSE), and the closed-form solvers adapted from Boost.Math retain the [Boost Software License](research/diagnostics/guarded-direct/LICENSE_1_0.txt).
 
 ## Limits
 
-Float32 arithmetic and heuristic stationary-root tolerances can merge contacts or lose accuracy. Geometry rounded onto the pole cannot retain the intended remote root. Origin offsets can skip features below their scale. The shell is an angular band in S³, not a constant Euclidean thickness.
+The default renderer uses float32: near-tangent rays can gain, lose or misplace a pair of intersections, and rounding the geometry near the pole can remove a remote intersection before any computation. Origin offsets can skip features below their scale. The shell is an angular band in S³, not a constant Euclidean thickness. All measurements use one Apple M3 Pro.
 
 Transport uses a bounded main path and a limited reflected branch. Rough reflections, conductor Fresnel colors and absorption in unbounded material are approximations. Remaining energy resolves to the environment at the interaction limit. There are no caustics, spectral dispersion or full global illumination.

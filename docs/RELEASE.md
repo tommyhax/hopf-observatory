@@ -2,12 +2,11 @@
 
 `v0.1.0-review.3` is the second substantive external-review snapshot. The first
 two tags identify the same source snapshot; `.2` corrected asset delivery.
-The [release notes](RELEASE_NOTES.md) describe the finished solver evaluation.
-The [Algorithm 1010 overview](../research/diagnostics/algorithm1010/README.md)
-is the current research entry point. The technical note retains the detailed
-baseline geometry, production-renderer description and experimental results
-from 21 November 2026. Its exposition and generated editions may be revised;
-the original browser note is preserved for historical evidence verification.
+The [release notes](RELEASE_NOTES.md) describe that snapshot's solver evaluation.
+Work since then, including the higher-precision and closed-form diagnostics, is
+summarized in [REVIEW.md](../REVIEW.md) and Section 11 of the technical note.
+Earlier editions of revised documents that recorded evidence hashed are
+preserved under `research/provenance/` for verification.
 
 ## Offline verification
 
