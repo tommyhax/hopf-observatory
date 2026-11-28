@@ -124,12 +124,13 @@ The paper contributes:
   processors (Sections~\ref{higher-precision-construction} and~\ref{closed-form-solving}).
 \end{itemize}
 
-Ray tracing algebraic surfaces \citep{hanrahan1983}, GPU Bernstein
-methods \citep{seland2007}, derivative-partitioned root finding
-\citep{yuksel2022, peters2023}, refinement against the original implicit
-field \citep{szente2026} and float-float arithmetic \citep{dekker1971}
-all predate this work. We do not claim a new general root-finding
-algorithm.
+The description of cyclides as stereographic images of quadric sections
+of \(S^3\) \citep{pottmann2012}, ray tracing algebraic surfaces
+\citep{hanrahan1983}, GPU Bernstein methods \citep{seland2007},
+derivative-partitioned root finding \citep{yuksel2022, peters2023},
+refinement against the original implicit field \citep{szente2026} and
+float-float arithmetic \citep{dekker1971} all predate this work. We do
+not claim a new general root-finding algorithm.
 
 \section{Geometry and the projection
 pole}\label{geometry-and-the-projection-pole}
@@ -240,7 +241,8 @@ a&=(2C/L^2,(|C|^2-1)/L^2)^T,\\
 b&=(2e/L,2C\cdot e/L)^T,\qquad h=(0,0,0,e\cdot e)^T.
 \end{aligned}
 \] The near numerator is \(W(x)=a+bx+hx^2=V(C+Lxe)/L^2\). In the
-reciprocal chart, multiplication by \(x^2\) reverses the coefficients:
+reciprocal chart, multiplication by \(x^2\) reverses the coefficients,
+as in the standard reciprocal polynomial:
 \(W(x)=h+bx+ax^2=x^2V(C+Le/x)/L^2\). Both yield bounded polynomial
 domains for \(g=W^T(P-cI)W\). The reciprocal endpoint \(x=0\) represents
 infinity and is excluded from finite hits.

@@ -140,21 +140,22 @@ the supplementary data.}\label{fig:family}
 \subsection*{Contributions}\label{contributions}
 \addcontentsline{toc}{subsection}{Contributions}
 
-This project contributes (i) a projector-based derivation of
-stereographic ray intersections and normals, including why the problem
-is intrinsically quartic; (ii) directly constructed Bernstein
-coefficients in near/reciprocal charts, with closest-point recentering
-and homogeneous-form polishing; (iii) multi-region solid and shell
-optics, including \(0.01^\circ\) parameter bands; (iv) an evaluation
-that separates input rounding, coefficient construction and root
-solving; and (v) higher-precision construction in WebGL, with iterative
-and closed-form solvers compared on it. Each ingredient has prior work.
-Visualizations of these tori commonly approximate them with polygon
-meshes, tubes or ray-marched distance fields, and a general ray tracer
-such as POV-Ray can render one quartic exactly once its equation is
-supplied. Here the equation comes from the four-dimensional geometry for
-every rotation and every member of the family, and one renderer handles
-solids, angular shells and passage through infinity together, at
+This project contributes (i) a self-contained, projector-based
+derivation of the ray intersections and normals, including why the
+problem is intrinsically quartic (the surface equation itself is the
+classical description of a cyclide {[}16{]}); (ii) directly constructed
+Bernstein coefficients in near/reciprocal charts, with closest-point
+recentering and homogeneous-form polishing; (iii) multi-region solid and
+shell optics, including \(0.01^\circ\) parameter bands; (iv) an
+evaluation that separates input rounding, coefficient construction and
+root solving; and (v) higher-precision construction in WebGL, with
+iterative and closed-form solvers compared on it. Each ingredient has
+prior work. Visualizations of these tori commonly approximate them with
+polygon meshes, tubes or ray-marched distance fields, and a general ray
+tracer such as POV-Ray can render one quartic exactly once its equation
+is supplied. Here the equation comes from the four-dimensional geometry
+for every rotation and every member of the family, and one renderer
+handles solids, angular shells and passage through infinity together, at
 interactive rates.
 
 \section{A family of tori and a coordinate on the
@@ -519,12 +520,12 @@ b=(2e/L,2C\cdot e/L),\quad c_2=(0,0,0,e\cdot e).
 \]
 
 The near numerator is \(W(x)=a+bx+c_2x^2=V(C+Lxe)/L^2\). The reciprocal
-numerator reverses the coefficients:
-\(W(x)=c_2+bx+ax^2=x^2V(C+Le/x)/L^2\). Thus \(g(x)=W(x)^TA_cW(x)\) has
-exactly the finite intersections of its chart. The common scale
-\(L^{-2}\) limits coefficient growth. Although \(C\cdot e=0\) and
-\(e\cdot e=1\) in exact arithmetic, the code retains their computed
-values.
+numerator reverses the coefficients, as in the standard reciprocal
+polynomial: \(W(x)=c_2+bx+ax^2=x^2V(C+Le/x)/L^2\). Thus
+\(g(x)=W(x)^TA_cW(x)\) has exactly the finite intersections of its
+chart. The common scale \(L^{-2}\) limits coefficient growth. Although
+\(C\cdot e=0\) and \(e\cdot e=1\) in exact arithmetic, the code retains
+their computed values.
 
 For either chart write \(W=a'+b'x+c'x^2\) and set \(w_0=a'\),
 \(w_1=a'+b'/2\), \(w_2=a'+b'+c'\). Its quartic Bernstein coefficients
@@ -1261,7 +1262,13 @@ Rotated Clifford tori, cyclides, passage through infinity & Banchoff
 {[}1{]}; the 3D-XplorMath gallery {[}7{]} & The geometry and the
 inside-out animation are established. \\
 Rotations and symmetry of the stereographic Clifford torus & McCuan and
-Spietz {[}2{]} & The geometric exposition builds on these results. \\
+Spietz {[}2{]} & Every rotated image of the Clifford torus is an XW
+rotation up to a rigid motion, and the argument applies to every \(t\).
+This is why the XW pole sweeps of Sections 6 and 10 are
+representative. \\
+Cyclides as stereographic images of quadric sections of \(S^3\) &
+Pottmann, Shi and Skopenkov {[}16{]} & The surface equation of Section 3
+is this classical description, written with the projector. \\
 Ray tracing implicit algebraic surfaces & Hanrahan {[}3{]} &
 Ray-polynomial substitution, analytic normals and secondary rays are
 standard. \\
@@ -1414,6 +1421,12 @@ and data, not AI-generated illustrations.
   2021.
   \href{https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quartic_roots.html}{Documentation}.
   Boost Software License 1.0.
+\item
+  Helmut Pottmann, Ling Shi, and Mikhail Skopenkov. ``Darboux cyclides
+  and webs from circles.'' \emph{Computer Aided Geometric Design} 29(1),
+  2012, pp.~77--97.
+  \href{https://doi.org/10.1016/j.cagd.2011.10.002}{DOI:
+  10.1016/j.cagd.2011.10.002}.
 \end{enumerate}
 
 \section*{Implementation map}\label{implementation-map}

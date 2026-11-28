@@ -33,7 +33,7 @@ def git(*args):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", required=True, help="e.g. v0.1.0-review.3")
+    parser.add_argument("--version", required=True, help="e.g. v0.1.0-review.4")
     parser.add_argument("--source", required=True, help="committed Git revision, e.g. HEAD")
     parser.add_argument("--output", type=Path, help="version directory; default release/<version>")
     args = parser.parse_args()
@@ -62,7 +62,8 @@ def main():
             modes[item.name] = 0o100755 if item.mode & 0o111 else 0o100644
     required = TOP | {
         "papers/jcgt/paper.md", "papers/jcgt/manuscript.pdf",
-        "papers/technical-note/technical-note.md", "papers/technical-note/technical-note.pdf", "web/shader.js",
+        "papers/technical-note/technical-note.md", "papers/technical-note/technical-note.pdf",
+        "papers/jma/DRAFT1.md", "papers/jma/draft.pdf", "web/shader.js",
         "scripts/verify-release.py", "docs/RELEASE_NOTES.md",
         "research/diagnostics/grazing/frozen-manifest.json",
         "research/diagnostics/algorithm1010/traversal/MANIFEST.json",
@@ -94,12 +95,13 @@ def main():
         f"{name}.zip": archive.getvalue(),
         "manuscript.pdf": payloads["papers/jcgt/manuscript.pdf"],
         "technical-note.pdf": payloads["papers/technical-note/technical-note.pdf"],
+        "jma-draft.pdf": payloads["papers/jma/draft.pdf"],
         "MANIFEST.json": manifest_bytes,
         "RELEASE_NOTES.md": payloads["docs/RELEASE_NOTES.md"],
     }
     delivered["SHA256SUMS.txt"] = "".join(
         f"{sha(delivered[path])}  {path}\n"
-        for path in ["manuscript.pdf", "technical-note.pdf", f"{name}.zip"]
+        for path in ["manuscript.pdf", "technical-note.pdf", "jma-draft.pdf", f"{name}.zip"]
     ).encode()
     if output.exists():
         existing = {p.name: p.read_bytes() for p in output.iterdir() if p.is_file()}

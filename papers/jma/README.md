@@ -20,7 +20,7 @@
 
 ## Checklist
 
-- [ ] Read Theorem 1 and Corollary 1 carefully, and check the cyclide literature for prior statements. McCuan & Spietz (1998) has been read in full and is credited: they treat only the Clifford torus, state the reduction to an $xw$ rotation in their proof of Theorem 12, and their Lemma 18 already chooses that angle from $P_{44}$. They do not discuss passage through infinity, cyclides or other tori.
+- [ ] Check the cyclide literature (Dupin and Darboux) for statements of Theorem 1, Corollary 1 or the ellipse picture of Proposition 4 for general $t$. Attribution is otherwise settled. McCuan & Spietz (1998) has been read in full: Theorem 1 is theirs for the Clifford torus (Theorem 14, the proof of Theorem 12, and Lemma 18, which chooses the angle from $P_{44}$), and the draft credits it to them in the abstract, introduction and theorem heading. Their Proposition 13(iii) and Banchoff's chapter cover Corollary 1 for the Clifford torus. Propositions 1–3 are marked as standard, and Section 7 names the Darboux cyclides (Pottmann et al., 2012). Nothing in Sections 2–4 is claimed as new.
 - [ ] Make Figures 2, 4, 5 and the gallery renders at 300 dpi; Figure 5 (the map of shapes) is the centrepiece
 - [ ] Choose the graphical abstract (Figure 5 or the hero image), 525 px wide
 - [ ] Decide whether any figure needs colour in print (online colour is free)

@@ -95,7 +95,7 @@ def main():
     if manifest.is_file():
         data = read("MANIFEST.json")
         required = {"papers/jcgt/paper.md", "papers/jcgt/main.tex", "papers/jcgt/manuscript.pdf",
-                    "papers/technical-note/technical-note.pdf", "web/shader.js",
+                    "papers/technical-note/technical-note.pdf", "papers/jma/draft.pdf", "web/shader.js",
                     "scripts/verify-release.py", f"{STUDY}/traversal/MANIFEST.json"}
         require(required <= data["files"].keys(), "Manifest omits required release files")
         for name, expected in data["files"].items():

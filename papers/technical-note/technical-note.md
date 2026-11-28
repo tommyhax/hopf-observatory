@@ -35,7 +35,7 @@ The surface is never converted to a polygon mesh or point cloud. A screen-fillin
 
 ### Contributions
 
-This project contributes (i) a projector-based derivation of stereographic ray intersections and normals, including why the problem is intrinsically quartic; (ii) directly constructed Bernstein coefficients in near/reciprocal charts, with closest-point recentering and homogeneous-form polishing; (iii) multi-region solid and shell optics, including $0.01^\circ$ parameter bands; (iv) an evaluation that separates input rounding, coefficient construction and root solving; and (v) higher-precision construction in WebGL, with iterative and closed-form solvers compared on it. Each ingredient has prior work. Visualizations of these tori commonly approximate them with polygon meshes, tubes or ray-marched distance fields, and a general ray tracer such as POV-Ray can render one quartic exactly once its equation is supplied. Here the equation comes from the four-dimensional geometry for every rotation and every member of the family, and one renderer handles solids, angular shells and passage through infinity together, at interactive rates.
+This project contributes (i) a self-contained, projector-based derivation of the ray intersections and normals, including why the problem is intrinsically quartic (the surface equation itself is the classical description of a cyclide [16]); (ii) directly constructed Bernstein coefficients in near/reciprocal charts, with closest-point recentering and homogeneous-form polishing; (iii) multi-region solid and shell optics, including $0.01^\circ$ parameter bands; (iv) an evaluation that separates input rounding, coefficient construction and root solving; and (v) higher-precision construction in WebGL, with iterative and closed-form solvers compared on it. Each ingredient has prior work. Visualizations of these tori commonly approximate them with polygon meshes, tubes or ray-marched distance fields, and a general ray tracer such as POV-Ray can render one quartic exactly once its equation is supplied. Here the equation comes from the four-dimensional geometry for every rotation and every member of the family, and one renderer handles solids, angular shells and passage through infinity together, at interactive rates.
 
 ## 1. A family of tori and a coordinate on the three-sphere
 
@@ -237,7 +237,7 @@ a=(2C/L^2,(|C|^2-1)/L^2),\quad
 b=(2e/L,2C\cdot e/L),\quad c_2=(0,0,0,e\cdot e).
 $$
 
-The near numerator is $W(x)=a+bx+c_2x^2=V(C+Lxe)/L^2$. The reciprocal numerator reverses the coefficients: $W(x)=c_2+bx+ax^2=x^2V(C+Le/x)/L^2$. Thus $g(x)=W(x)^TA_cW(x)$ has exactly the finite intersections of its chart. The common scale $L^{-2}$ limits coefficient growth. Although $C\cdot e=0$ and $e\cdot e=1$ in exact arithmetic, the code retains their computed values.
+The near numerator is $W(x)=a+bx+c_2x^2=V(C+Lxe)/L^2$. The reciprocal numerator reverses the coefficients, as in the standard reciprocal polynomial: $W(x)=c_2+bx+ax^2=x^2V(C+Le/x)/L^2$. Thus $g(x)=W(x)^TA_cW(x)$ has exactly the finite intersections of its chart. The common scale $L^{-2}$ limits coefficient growth. Although $C\cdot e=0$ and $e\cdot e=1$ in exact arithmetic, the code retains their computed values.
 
 For either chart write $W=a'+b'x+c'x^2$ and set $w_0=a'$, $w_1=a'+b'/2$, $w_2=a'+b'+c'$. Its quartic Bernstein coefficients are
 
@@ -495,7 +495,8 @@ The main geometric and rendering ingredients predate this project:
 | Topic | Prior work | Relation to this note |
 |---|---|---|
 | Rotated Clifford tori, cyclides, passage through infinity | Banchoff [1]; the 3D-XplorMath gallery [7] | The geometry and the inside-out animation are established. |
-| Rotations and symmetry of the stereographic Clifford torus | McCuan and Spietz [2] | The geometric exposition builds on these results. |
+| Rotations and symmetry of the stereographic Clifford torus | McCuan and Spietz [2] | Every rotated image of the Clifford torus is an XW rotation up to a rigid motion, and the argument applies to every $t$. This is why the XW pole sweeps of Sections 6 and 10 are representative. |
+| Cyclides as stereographic images of quadric sections of $S^3$ | Pottmann, Shi and Skopenkov [16] | The surface equation of Section 3 is this classical description, written with the projector. |
 | Ray tracing implicit algebraic surfaces | Hanrahan [3] | Ray-polynomial substitution, analytic normals and secondary rays are standard. |
 | GPU ray tracing in Bernstein form | Seland and Dokken [4] | GPU algebraic ray tracing with Bernstein coefficients is established. |
 | Root isolation through derivative roots | Yuksel [5]; Peters [11] | The monotone-interval approach is prior work; this renderer uses Bernstein evaluation, bisection and bracket interpolation. |
@@ -534,6 +535,7 @@ Tom Crosby conceived the geometric approach, directed the project and evaluated 
 13. Cristiano De Michele. “Remark on Algorithm 1010.” *ACM Transactions on Mathematical Software*, 2024. [DOI: 10.1145/3674833](https://doi.org/10.1145/3674833).
 14. T. J. Dekker. “A Floating-Point Technique for Extending the Available Precision.” *Numerische Mathematik* 18(3), 1971, pp. 224–242. [DOI: 10.1007/BF01397083](https://doi.org/10.1007/BF01397083).
 15. Nick Thompson. “Roots of Cubic and Quartic Polynomials.” Boost.Math, 2021. [Documentation](https://www.boost.org/doc/libs/latest/libs/math/doc/html/math_toolkit/quartic_roots.html). Boost Software License 1.0.
+16. Helmut Pottmann, Ling Shi, and Mikhail Skopenkov. “Darboux cyclides and webs from circles.” *Computer Aided Geometric Design* 29(1), 2012, pp. 77–97. [DOI: 10.1016/j.cagd.2011.10.002](https://doi.org/10.1016/j.cagd.2011.10.002).
 
 ## Implementation map
 

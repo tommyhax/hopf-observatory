@@ -7,7 +7,7 @@ author: "Tom Crosby"
 
 ## Abstract
 
-The Clifford torus and its relatives, the Hopf tori, are usually shown in three dimensions as polygon meshes or tubes. I describe how to ray trace their stereographic images interactively and without meshes, as glass solids and thin refracting shells, including the moments when a rotating torus passes through infinity and turns inside out. The method rests on two observations: the tori are the level sets of a single function on the three-sphere, and a straight ray in the image lifts to a circle on the sphere. Projecting that circle onto a coordinate plane turns each intersection into a crossing of an ellipse with a circle, so the intersections are roots of a quartic, and the degree cannot be lowered without giving up the conformal images. Extending a reduction of McCuan and Spietz from the Clifford torus to the whole family, I show that, up to a rigid rotation of the picture, every rotated image is determined by two numbers: the torus parameter and one entry of a projection matrix. A rotation in a single coordinate plane therefore reaches every shape, and the images form a two-parameter map. I present that map, a gallery, and an interactive web application.
+The Clifford torus and its relatives, the Hopf tori, are usually shown in three dimensions as polygon meshes or tubes. I describe how to ray trace their stereographic images interactively and without meshes, as glass solids and thin refracting shells, including the moments when a rotating torus passes through infinity and turns inside out. The method rests on two observations: the tori are the level sets of a single function on the three-sphere, and a straight ray in the image lifts to a circle on the sphere. Projecting that circle onto a coordinate plane turns each intersection into a crossing of an ellipse with a circle, so the intersections are roots of a quartic, and the degree cannot be lowered without giving up the conformal images. By a reduction of McCuan and Spietz, stated for the Clifford torus but valid for the whole family, every rotated image is determined up to a rigid rotation by two numbers: the torus parameter and one entry of a projection matrix. A rotation in a single coordinate plane therefore reaches every shape. I lay the images out as a two-parameter map, and present that map, a gallery, and an interactive web application.
 
 **Keywords:** Hopf fibration; Clifford torus; stereographic projection; Dupin cyclide; ray tracing; four-dimensional visualization; refraction; mathematical art
 
@@ -21,9 +21,9 @@ There were already ways to draw such objects. A parametrized surface can be samp
 
 Ray tracing asks a different question: where does a ray of light first meet the surface? For ordinary algebraic surfaces in space, the answer comes from substituting the ray into the surface's equation (Hanrahan, 1983). Here the surface lives on a sphere in four dimensions, and the projection bends the ray. The idea that eventually made the problem manageable was to stop treating the Clifford torus as an isolated object. It belongs to a family of tori that fills almost all of the three-sphere, so every point carries a label saying which torus it lies on. Finding an intersection becomes a matter of following that label along a ray. The ray tracing is exact in one specific sense: it works with the surface's own equation and normals, with no mesh, sampling or clipping. The arithmetic is still finite precision, and Section 5 describes where that matters.
 
-This paper describes the geometry behind that idea and what it produces. Section 2 sets up the family and its images. Section 3 lifts a ray to the three-sphere, where it becomes a circle, and shows that the intersections are roots of a quartic, using a planar picture in which each torus is a circle and the ray is an ellipse. Section 4 turns to rotations and proves that the images are classified, up to a rigid motion, by two numbers. Section 5 explains how the equations become glass. Section 6 presents the images, organized by those two numbers, and discusses the choices behind them. The implementation, Hopf Observatory, runs in a web browser; its numerical methods and validation are described separately (Crosby, 2026).
+This paper describes the geometry behind that idea and what it produces. Section 2 sets up the family and its images. Section 3 lifts a ray to the three-sphere, where it becomes a circle, and shows that the intersections are roots of a quartic, using a planar picture in which each torus is a circle and the ray is an ellipse. Section 4 turns to rotations and, following McCuan and Spietz (1998), shows that the images are classified, up to a rigid motion, by two numbers. Section 5 explains how the equations become glass. Section 6 presents the images, organized by those two numbers, and discusses the choices behind them. The implementation, Hopf Observatory, runs in a web browser; its numerical methods and validation are described separately (Crosby, 2026).
 
-Offline ray tracers such as POV-Ray can render any single quartic surface whose equation is supplied. What this work adds is a way of deriving those equations directly from the four-dimensional geometry, for every rotation and every member of the family at once; a rendering method that handles solids, angularly thin shells and surfaces through infinity together; and enough speed to explore the family interactively.
+Offline ray tracers such as POV-Ray can render any single quartic surface whose equation is supplied. What this work adds is a renderer that takes those equations straight from the four-dimensional geometry, for every rotation and every member of the family at once; that handles solids, angularly thin shells and surfaces through infinity together; and that is fast enough to explore the family interactively.
 
 *Figure 1. Three nested Hopf tori after a rotation in four dimensions, rendered as tinted glass shells. [Hero render, full width.]*
 
@@ -57,6 +57,8 @@ Let $N=(0,0,0,1)$ and let $\sigma(x,y,z,w)=(x,y,z)/(1-w)$ be stereographic proje
 $$
 \sigma^{-1}(p)=\frac{V(p)}{D(p)},\qquad V(p)=\bigl(2p,\ \lVert p\rVert^2-1\bigr),\qquad D(p)=1+\lVert p\rVert^2. \tag{2}
 $$
+
+Propositions 1–3 are standard, and I prove them briefly only to fix notation; for Proposition 1, compare Banchoff (1990).
 
 **Proposition 1.** *With $\rho=\sqrt{x^2+y^2}$, the image $\sigma(T_t)$ is the ring torus*
 $$
@@ -132,13 +134,13 @@ $$
 $$
 the squared cosine of the angle between the pole and the plane $W$. For $\theta\in[0,\pi/2]$, let $R_\theta$ be the rotation by $\theta$ in the $xw$-plane, which carries $(1,0,0,0)$ to $(\cos\theta,0,0,\sin\theta)$ and fixes $(0,1,0,0)$. Its plane is spanned by those two vectors, so it has $\kappa=\sin^2\theta$.
 
-**Theorem 1.** *Let $R\in SO(4)$ have $\kappa=P_{44}$, and choose $\theta\in[0,\pi/2]$ with $\sin^2\theta=\kappa$. There is a rotation $S\in SO(3)$ such that*
+**Theorem 1** (McCuan and Spietz, 1998, for $t=\pi/4$)**.** *Let $R\in SO(4)$ have $\kappa=P_{44}$, and choose $\theta\in[0,\pi/2]$ with $\sin^2\theta=\kappa$. There is a rotation $S\in SO(3)$ such that*
 $$
 \sigma(RT_t)=S\,\sigma(R_\theta T_t)\qquad\text{for every }t\in(0,\pi/2).
 $$
 *Up to a rigid rotation of the picture, the image of the whole rotated family depends only on $\kappa$.*
 
-Theorem 1 follows quickly from a decomposition of McCuan and Spietz (1998, Theorem 14): every rotation of $S^3$ factors as $R=R_0\,R^{xw}_\psi\,R^{zw}_\beta\,R^{xy}_\alpha$, where $R_0$ fixes $N$ and the other factors rotate within the indicated coordinate planes. In proving their symmetry theorem they use it to reduce $\sigma(RT_{\pi/4})$, the image of the rotated Clifford torus, to a rigid rotation of $\sigma(R^{xw}_\psi T_{\pi/4})$. The $xy$ and $zw$ factors preserve every $T_t$, so by (5) the same reduction holds for every $t$. The rotations $\mathrm{diag}(-1,1,-1,1)$, which fixes $N$, and $R^{xw}_\pi$ also preserve every $T_t$, and they reduce $\psi$ to $[0,\pi/2]$, where it plays the role of $\theta$. Their proof chooses $\psi$ with $\sin^2\psi=R_{41}^2+R_{42}^2$, which is $P_{44}$, so the invariant $\kappa$ is already implicit there. The proof below takes a different route, through the projector, because it shows what $\kappa$ means geometrically.
+For the Clifford torus, Theorem 1 is due to McCuan and Spietz, and their argument carries over to every $t$ unchanged. It rests on their decomposition (1998, Theorem 14): every rotation of $S^3$ factors as $R=R_0\,R^{xw}_\psi\,R^{zw}_\beta\,R^{xy}_\alpha$, where $R_0$ fixes $N$ and the other factors rotate within the indicated coordinate planes. In proving their symmetry theorem they use it to reduce $\sigma(RT_{\pi/4})$, the image of the rotated Clifford torus, to a rigid rotation of $\sigma(R^{xw}_\psi T_{\pi/4})$. The $xy$ and $zw$ factors preserve every $T_t$, so by (5) the same reduction holds for every $t$. The rotations $\mathrm{diag}(-1,1,-1,1)$, which fixes $N$, and $R^{xw}_\pi$ also preserve every $T_t$, and they reduce $\psi$ to $[0,\pi/2]$, where it plays the role of $\theta$. Their proof chooses $\psi$ with $\sin^2\psi=R_{41}^2+R_{42}^2$, which is $P_{44}$, so the invariant $\kappa$ is already implicit there. The proof below takes a different route, through the projector, because it shows what $\kappa$ means geometrically.
 
 *Proof.* By (4) and (5), it suffices to find $G=\mathrm{diag}(S,1)$ carrying the plane $W_\theta$ of $R_\theta$ to the plane $W$ of $R$. Then $G$ maps each torus of the first family onto the torus with the same $t$ in the second, and $\sigma$ turns $G$ into $S$.
 
@@ -157,6 +159,8 @@ The endpoints of the $\kappa$-range are easy to identify. At $\kappa=0$ the fami
 **Corollary 1.** *As $\kappa$ increases from $0$ to $1$, the image of $T_t$ changes, up to a rigid rotation, from the ring torus with radii $(\sec t,\tan t)$ to the ring torus with radii $(\csc t,\cot t)$. It passes through infinity exactly once, at $\kappa=\cos^2t$. The solid region $\{q^TPq>\cos^2t\}$, a bounded tube at $\kappa=0$, contains a neighbourhood of infinity for $\kappa>\cos^2t$.*
 
 *Proof.* The endpoints were identified above. $N$ lies on $RT_t$ exactly when $N^TPN=\cos^2t$, which is the only configuration in which the image is unbounded. The pole lies inside the solid region exactly when $\kappa>\cos^2t$, and points near $N$ project to points near infinity. $\square$
+
+For the Clifford torus these facts are known. Banchoff (1990) describes the image running off to infinity and returning as a torus of revolution with latitude and longitude exchanged, and McCuan and Spietz (1998, Proposition 13) show that a further quarter turn in the $xw$-plane only turns the image rigidly. For other $t$ they follow at once from Theorem 1.
 
 This is the inside-out motion. Nothing singular happens in $S^3$: the torus remains smooth and compact, and only the projection, which cannot place $N$ at a finite point, makes the motion look abrupt. Theorem 1 says that this single passage, run for each $t$, is the whole story. Figure 5 lays it out as a map with $t$ on one axis and $\kappa$ on the other. The curve $\kappa=\cos^2t$ crossing the map separates the tori whose solid region is bounded from those whose solid region is unbounded, and along that curve the surfaces open to infinity.
 
@@ -222,7 +226,7 @@ The interactive application and the still image serve different purposes. Intera
 
 ## 7. Further directions
 
-The method is not specific to Hopf tori. Any surface cut from $S^3$ by a quadric in $\mathbb R^4$, $q^TMq+b^Tq+k=0$, gives a quartic along a lifted ray after substituting $q=V/D$ and multiplying by $D^2$. These include many other cyclides, and the same renderer could show them with no change beyond the coefficients.
+The method is not specific to Hopf tori. Any surface cut from $S^3$ by a quadric in $\mathbb R^4$, $q^TMq+b^Tq+k=0$, gives a quartic along a lifted ray after substituting $q=V/D$ and multiplying by $D^2$. These surfaces are the Darboux cyclides, a classical family that contains the Dupin cyclides and the quadrics (Pottmann et al., 2012), and the same renderer could show them with no change beyond the coefficients.
 
 Theorem 1 also suggests a simpler interface: a single 'shape' dial for $\kappa$, with the camera responsible for everything else. Conversely, the rotations that leave the image's shape unchanged could be used deliberately in animation, turning the picture without changing it, so that the viewer's attention goes to the one parameter that matters.
 
@@ -267,3 +271,5 @@ Lyons, D. W. (2003). An elementary introduction to the Hopf fibration. *Mathemat
 McCuan, J., & Spietz, L. (1998). *Rotations of the three-sphere and symmetry of the Clifford torus* (arXiv:math/9810023). arXiv.
 
 Pinkall, U. (1985). Hopf tori in $S^3$. *Inventiones Mathematicae, 81*(2), 379–386.
+
+Pottmann, H., Shi, L., & Skopenkov, M. (2012). Darboux cyclides and webs from circles. *Computer Aided Geometric Design, 29*(1), 77–97. https://doi.org/10.1016/j.cagd.2011.10.002

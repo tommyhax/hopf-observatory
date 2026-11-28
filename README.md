@@ -6,7 +6,7 @@
 
 An interactive WebGL 2 ray tracer for stereographic images of rotated Clifford/Hopf tori. The surfaces are never meshed: every pixel's ray is intersected with the exact surface by solving a quartic, with analytic normals and successive reflection and refraction. A screen-filling triangle invokes the shader; there is no mesh, point cloud or ray marching.
 
-The paper in progress is a [draft](papers/jma/DRAFT1.md) for the *Journal of Mathematics and the Arts*, on the geometry and the images. The [JCGT review manuscript](papers/jcgt/manuscript.pdf), on rendering and numerical accuracy, is on hold; [REVIEW.md](REVIEW.md) is its review guide. The [technical note](papers/technical-note/technical-note.pdf) has the full derivation, implementation and experiments. All the papers are indexed in [papers/](papers/README.md).
+The paper in progress is a [draft](papers/jma/DRAFT1.md) ([PDF](papers/jma/draft.pdf)) for the *Journal of Mathematics and the Arts*, on the geometry and the images. The [JCGT review manuscript](papers/jcgt/manuscript.pdf), on rendering and numerical accuracy, is on hold; [REVIEW.md](REVIEW.md) is its review guide. The [technical note](papers/technical-note/technical-note.pdf) has the full derivation, implementation and experiments. All the papers are indexed in [papers/](papers/README.md).
 
 ## Run
 
@@ -74,7 +74,7 @@ The **Tests** workflow runs on pushes and pull requests. It checks formatting, C
 
 ## Maintenance and licence
 
-[Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh` and the technical-note LaTeX with `python3 scripts/build-latex.py`. Rebuild the canonical JCGT manuscript with `python3 scripts/build-paper.py --pdf` ([instructions](papers/jcgt/README.md)). Prepare the versioned supplementary archive from committed source with `python3 scripts/package-release.py --version v0.1.0-review.3 --source HEAD`; see [release and provenance instructions](docs/RELEASE.md).
+[Research instructions](research/README.md) cover pinned scientific dependencies, numerical experiments, timing, figure generation and formatting. Regenerate HTML with `./scripts/build-note.sh` and the technical-note LaTeX with `python3 scripts/build-latex.py`. Rebuild the canonical JCGT manuscript with `python3 scripts/build-paper.py --pdf` ([instructions](papers/jcgt/README.md)) and the JMA draft PDF with `./scripts/build-jma.sh`. Prepare the versioned supplementary archive from committed source with `python3 scripts/package-release.py --version v0.1.0-review.4 --source HEAD`; see [release and provenance instructions](docs/RELEASE.md).
 
 The implementation is MIT licensed, copyright 2026 Tom Crosby. The numerical baselines retain their [upstream notices](research/THIRD_PARTY.md); the experimental Algorithm 1010 port retains its [BSD licence](research/diagnostics/algorithm1010/LICENSE), and the closed-form solvers adapted from Boost.Math retain the [Boost Software License](research/diagnostics/guarded-direct/LICENSE_1_0.txt).
 

@@ -27,7 +27,7 @@ Hopf Observatory implements this in WebGL 2, with six-plane $SO(4)$ rotations, u
 - **A measured account of where float32 fails.** An independent exact-rational reference and stage-by-stage captures show that the remaining grazing failures are created during coefficient construction, before any root is sought (Sections 4.1–4.3).
 - **Remedies and their cost.** Higher-precision construction removes every measured failure on the CPU and the GPU. We compare iterative and closed-form solvers on that construction, on both processors (Sections 4.4 and 4.5).
 
-Ray tracing algebraic surfaces [@hanrahan1983], GPU Bernstein methods [@seland2007], derivative-partitioned root finding [@yuksel2022; @peters2023], refinement against the original implicit field [@szente2026] and float-float arithmetic [@dekker1971] all predate this work. We do not claim a new general root-finding algorithm.
+The description of cyclides as stereographic images of quadric sections of $S^3$ [@pottmann2012], ray tracing algebraic surfaces [@hanrahan1983], GPU Bernstein methods [@seland2007], derivative-partitioned root finding [@yuksel2022; @peters2023], refinement against the original implicit field [@szente2026] and float-float arithmetic [@dekker1971] all predate this work. We do not claim a new general root-finding algorithm.
 
 ![Three projected tori, with 0.5° angular shells, before and after a shared four-dimensional rotation. Both views are direct production-shader renders; camera, material and rotation settings are supplied with the software.](../technical-note/figures/three-tori.png){#fig:teaser width=100%}
 
@@ -83,7 +83,7 @@ a&=(2C/L^2,(|C|^2-1)/L^2)^T,\\
 b&=(2e/L,2C\cdot e/L)^T,\qquad h=(0,0,0,e\cdot e)^T.
 \end{aligned}
 $$
-The near numerator is $W(x)=a+bx+hx^2=V(C+Lxe)/L^2$. In the reciprocal chart, multiplication by $x^2$ reverses the coefficients: $W(x)=h+bx+ax^2=x^2V(C+Le/x)/L^2$. Both yield bounded polynomial domains for $g=W^T(P-cI)W$. The reciprocal endpoint $x=0$ represents infinity and is excluded from finite hits.
+The near numerator is $W(x)=a+bx+hx^2=V(C+Lxe)/L^2$. In the reciprocal chart, multiplication by $x^2$ reverses the coefficients, as in the standard reciprocal polynomial: $W(x)=h+bx+ax^2=x^2V(C+Le/x)/L^2$. Both yield bounded polynomial domains for $g=W^T(P-cI)W$. The reciprocal endpoint $x=0$ represents infinity and is excluded from finite hits.
 
 For either chart, write $W=a'+b'x+c'x^2$, set $w_0=a'$, $w_1=a'+b'/2$, $w_2=a'+b'+c'$, and define $B(a,b)=a^T(P-cI)b$. The quartic Bernstein coefficients are constructed directly:
 $$

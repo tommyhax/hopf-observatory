@@ -1,10 +1,11 @@
 # Release preparation and evidence provenance
 
-`v0.1.0-review.3` is the second substantive external-review snapshot. The first
-two tags identify the same source snapshot; `.2` corrected asset delivery.
-The [release notes](RELEASE_NOTES.md) describe that snapshot's solver evaluation.
-Work since then, including the higher-precision and closed-form diagnostics, is
-summarized in [REVIEW.md](../REVIEW.md) and Section 11 of the technical note.
+`v0.1.0-review.4` is the third substantive external-review snapshot. It adds the
+higher-precision and closed-form diagnostics (summarized in
+[REVIEW.md](../REVIEW.md) and Section 11 of the technical note) and delivers all
+three papers. `v0.1.0-review.3` recorded the solver evaluation; the first two
+tags identify the same source snapshot, and `.2` corrected asset delivery. The
+[release notes](RELEASE_NOTES.md) describe the current snapshot.
 Earlier editions of revised documents that recorded evidence hashed are
 preserved under `research/provenance/` for verification.
 
@@ -115,20 +116,24 @@ reproduce hardware timings. This release pass does not run hardware benchmarks.
 
 ```sh
 python3 scripts/build-paper.py --pdf
+./scripts/build-note.sh
+python3 scripts/build-latex.py
+(cd papers/technical-note && pdflatex -halt-on-error main.tex && pdflatex -halt-on-error main.tex && cp main.pdf technical-note.pdf)
+./scripts/build-jma.sh
 npm run format:check
 npm test
 python3 scripts/verify-release.py --history
 npm run build:site
 npm run test:browser
-# Commit intended documents, generated manuscript and release tooling first.
-python3 scripts/package-release.py --version v0.1.0-review.3 --source HEAD
+# Commit intended documents, generated manuscripts and release tooling first.
+python3 scripts/package-release.py --version v0.1.0-review.4 --source HEAD
 ```
 
 The packager reads Git objects, never uncommitted or untracked inputs. It writes
 `release/<version>/` by default; `--output` selects an isolated verification
-destination. The directory contains `manuscript.pdf`, `technical-note.pdf`, the
-supplemental ZIP, `MANIFEST.json`, `SHA256SUMS.txt` and `RELEASE_NOTES.md`.
-Checksums cover both delivered PDFs and the ZIP. Previous release archives,
+destination. The directory contains `manuscript.pdf`, `technical-note.pdf`,
+`jma-draft.pdf`, the supplemental ZIP, `MANIFEST.json`, `SHA256SUMS.txt` and
+`RELEASE_NOTES.md`. Checksums cover the three delivered PDFs and the ZIP. Previous release archives,
 local environments, caches and temporary build products are excluded.
 
 ZIP entries use sorted paths, a fixed timestamp, Git executable bits and stored
@@ -142,16 +147,16 @@ external checksum covers it.
 Extract the ZIP into a new directory, run the gate with `--require-manifest`, and
 run `shasum -a 256 -c SHA256SUMS.txt` in the release directory. For a deterministic
 check, package the same source/version with a fresh `--output` and compare all
-six outputs. Assemble Pages with `npm run build:site` in a checkout/extraction
+seven outputs. Assemble Pages with `npm run build:site` in a checkout/extraction
 of that same source; `_site/paper.pdf` must equal the delivered manuscript.
 
 ## Publication remains separate
 
 No push, new tag, public release or Pages deployment is part of local preparation.
 After authorization, recheck that the version is unused, push the prepared
-commit, create and push `v0.1.0-review.3` pointing to that exact commit, and create
-a prerelease titled **Second external review snapshot — solver evaluation
-complete** using `RELEASE_NOTES.md`. Upload the two PDFs, supplemental ZIP,
+commit, create and push `v0.1.0-review.4` pointing to that exact commit, and create
+a prerelease titled **Third external review snapshot — precision findings and
+all papers** using `RELEASE_NOTES.md`. Upload the three PDFs, supplemental ZIP,
 `SHA256SUMS.txt` and `MANIFEST.json`; verify the downloaded asset hashes.
 
 Run the manual **Deploy GitHub Pages** workflow only with the default branch at
